@@ -2,6 +2,7 @@ from pytest import approx
 import pytest
 
 from deuxpots.box import Box, BoxKind, ReferenceBox
+from deuxpots.tax_calculator import build_income_sheet
 from deuxpots.valued_box import ValuedBox, build_valued_box
 
 

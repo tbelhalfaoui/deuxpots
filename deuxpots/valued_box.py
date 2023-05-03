@@ -1,3 +1,4 @@
+from typing import Optional
 from deuxpots.box import Box, BoxKind
 
 
@@ -9,7 +10,7 @@ class ValuedBox:
 
     def __init__(self, box, raw_value=None, ratio_0=None):
         self.box: Box = box
-        self.raw_value: float = raw_value
+        self.raw_value: int = raw_value
         # The ratio for partner 0.
         # E.g. ratio_0 = .8 means "80% assigned to partner 0 and 20% to partner 1".
         self.ratio_0: float = ratio_0 if ratio_0 is not None else self._auto_set_ratio()
@@ -21,15 +22,15 @@ class ValuedBox:
         """
         return self.DEFAUT_RATIO_FROM_KIND.get(self.box.kind)
     
-    def individualized_value(self, partner_idx):
+    def individualized_value(self, partner_idx) -> Optional[int]:
         if partner_idx not in {0, 1}:
             raise ValueError("Can only get individualized value for partner 0 or 1.")
         if self.ratio_0 is None:
             return
         if partner_idx == 0:
-            return self.raw_value * self.ratio_0
+            return int(self.raw_value * self.ratio_0)
         if partner_idx == 1:
-            return self.raw_value * (1 - self.ratio_0)
+            return int(self.raw_value * (1 - self.ratio_0))
 
 
 def build_valued_box(code, raw_value, box_mapping, ratio_0=None):

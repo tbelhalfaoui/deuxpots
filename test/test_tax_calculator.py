@@ -1,11 +1,13 @@
 import pytest
 import requests as rq
 from difflib import SequenceMatcher
-from deuxpots.tax_calculator import SIMULATOR_URL, SimulatorResult, _format_simulator_results, _simulator_api, compute_tax
+from deuxpots.box import Box, BoxKind, ReferenceBox
+from deuxpots.tax_calculator import SIMULATOR_URL, SimulatorResult, _format_simulator_results, _simulator_api, build_income_sheet, compute_tax
+from deuxpots.valued_box import ValuedBox
 
 
 @pytest.fixture
-def data_single_notax():
+def sheet_single_notax():
     return {
         '0DA': '1950',
         'pre_situation_famille': 'C',
@@ -14,29 +16,27 @@ def data_single_notax():
     }
 
 
-def test__simulator_api(data_single_notax):
-    results = _simulator_api(data_single_notax)
+def test__simulator_api(sheet_single_notax):
+    results = _simulator_api(sheet_single_notax)
     for field in ["RASTXFOYER", "IINETIR", "IINET", "IREST"]:
         assert field in results
 
 
 @pytest.mark.parametrize("simulator_results,expected", [
     ({
-        "RASTXFOYER": "  19.0 ",  # Taux prélèvement à la source
         "IINETIR": "  10000 ",    # Impôt sur le revenu net
         "IINET": "  3000 ",       # Impôt restant à payer
         "IREST": "  0 ",          # Montant qui sera remboursé
     },
     SimulatorResult(
-        rate=0.19, total_tax=10000, already_paid=7000, remains_to_pay=3000
+        total_tax=10000, already_paid=7000, remains_to_pay=3000
     )),
     ({
-        "RASTXFOYER": "  19.0 ",
         "IINETIR": " 2000",
         "IINET": " 0  ",
         "IREST": " 500",
     },
-    SimulatorResult(rate=0.19,
+    SimulatorResult(
         total_tax=2000,
         already_paid=2500,
         remains_to_pay=-500
@@ -71,3 +71,111 @@ def test_compute_tax_single_overpaid():
         '8HW': 10000
     })
     assert res.remains_to_pay < 0
+
+
+@pytest.fixture
+def valboxes():
+    return [
+        ValuedBox(
+            box=Box(
+                code="1BC",
+                reference=ReferenceBox(code="1AC", description="Salaires et pensions."),
+                kind=BoxKind.PARTNER_1
+            ),
+            raw_value=200,
+            ratio_0=0,
+        ),
+        ValuedBox(
+            box=Box(
+                code="1AC",
+                reference=ReferenceBox(code="1AC", description="Salaires et pensions."),
+                kind=BoxKind.PARTNER_0
+            ),
+            raw_value=100,
+            ratio_0=1,
+        ),
+        ValuedBox(
+            box=Box(
+                code="6FL",
+                reference=ReferenceBox(code="6FL", description="Deficits globaux."),
+                kind=BoxKind.COMMON
+            ),
+            raw_value=1000,
+            ratio_0=.45
+        ),
+        ValuedBox(
+            box=Box(
+                code="1CC",
+                reference=ReferenceBox(code="1AC", description="Salaires et pensions."),
+                kind=BoxKind.CHILD
+            ),
+            raw_value=100,
+            ratio_0=.2
+        ),
+        ValuedBox(
+            box=Box(
+                code="1DC",
+                reference=ReferenceBox(code="1AC", description="Salaires et pensions."),
+                kind=BoxKind.CHILD
+            ),
+            raw_value=400,
+            ratio_0=.6
+        )
+    ]
+
+
+def test_build_income_sheet_missing_ratio():
+    income_sheet = build_income_sheet([
+        ValuedBox(
+            box=Box(
+                code="6FL",
+                reference=ReferenceBox(code="6FL", description="Deficits globaux."),
+                kind=BoxKind.COMMON
+            ),
+            raw_value=1000
+        )
+    ], individualize=0)
+    assert income_sheet is None
+
+
+def test_build_income_sheet_partner_0(valboxes):
+    income_sheet = build_income_sheet(valboxes, individualize=0)
+    assert income_sheet == {
+        'pre_situation_famille': 'C',
+        'pre_situation_residence': 'M',
+        '0DA': '1950',
+        '1AC': 360,  # 100 + .2 * 100 + .6 * 400
+        '6FL': 450,  # .45 * 1000
+    }
+    assert isinstance(income_sheet['1AC'], int)
+    assert isinstance(income_sheet['6FL'], int)
+
+
+def test_build_income_sheet_partner_1(valboxes):
+    income_sheet = build_income_sheet(valboxes, individualize=1)
+    assert income_sheet == {
+        'pre_situation_famille': 'C',
+        'pre_situation_residence': 'M',
+        '0DA': '1950',
+        '1AC': 440,  # 200 + .8 * 100 + .4 * 400
+        '6FL': 550,  # .55 * 1000
+    }
+    assert isinstance(income_sheet['1AC'], int)
+    assert isinstance(income_sheet['6FL'], int)
+
+
+def test_build_income_sheet_together(valboxes):
+    income_sheet = build_income_sheet(valboxes, individualize=None)
+    assert income_sheet == {
+        'pre_situation_famille': 'O',
+        'pre_situation_residence': 'M',
+        '0DA': '1950',
+        '0DB': '1950',
+        '1AC': 100,
+        '1BC': 200,
+        '1CC': 100,
+        '1DC': 400,
+        '6FL': 1000
+    }
+    for box in ['1AC', '1BC', '1CC', '1DC', '6FL']:
+        assert isinstance(income_sheet[box], int)

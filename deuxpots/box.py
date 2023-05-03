@@ -1,7 +1,9 @@
 import json
 from enum import Enum
 
-from attr import dataclass
+from dataclasses import dataclass
+
+CERFA_VARIABLES_PATH = "cerfa_variables.json"
 
 
 class BoxKind(Enum):
@@ -59,3 +61,9 @@ def build_box_mapping(cerfa_variables):
     return {box.code: box
             for var in cerfa_variables
             for box in _generate_boxes(var)}        
+
+
+def load_box_mapping(cerfa_variables_path=CERFA_VARIABLES_PATH):
+    with open(cerfa_variables_path) as f:
+        cerfa_variables = json.load(f)
+    return build_box_mapping(cerfa_variables)
