@@ -11,12 +11,12 @@ def test__generate_boxes_partner():
     assert boxes == [
         Box(
             code="5HG",
-            reference=ReferenceBox(code="5HG", description="Plus-values à long terme."),
+            reference=ReferenceBox(code="5HG", description="Plus-values à long terme.", type="int"),
             kind=BoxKind.PARTNER_0
         ),
         Box(
             code="5IG",
-            reference=ReferenceBox(code="5HG", description="Plus-values à long terme."),
+            reference=ReferenceBox(code="5HG", description="Plus-values à long terme.", type="int"),
             kind=BoxKind.PARTNER_1
         )
     ]
@@ -32,22 +32,22 @@ def test__generate_boxes_partner_and_children():
     assert boxes == [
         Box(
             code="1AC",
-            reference=ReferenceBox(code="1AC", description="Salaires et pensions."),
+            reference=ReferenceBox(code="1AC", description="Salaires et pensions.", type="int"),
             kind=BoxKind.PARTNER_0
         ),
         Box(
             code="1BC",
-            reference=ReferenceBox(code="1AC", description="Salaires et pensions."),
+            reference=ReferenceBox(code="1AC", description="Salaires et pensions.", type="int"),
             kind=BoxKind.PARTNER_1
         ),
         Box(
             code="1CC",
-            reference=ReferenceBox(code="1AC", description="Salaires et pensions."),
+            reference=ReferenceBox(code="1AC", description="Salaires et pensions.", type="int"),
             kind=BoxKind.CHILD
         ),
         Box(
             code="1DC",
-            reference=ReferenceBox(code="1AC", description="Salaires et pensions."),
+            reference=ReferenceBox(code="1AC", description="Salaires et pensions.", type="int"),
             kind=BoxKind.CHILD
         ),
     ]
@@ -63,7 +63,7 @@ def test__generate_boxes_common():
     assert boxes == [
         Box(
             code="6FL",
-            reference=ReferenceBox(code="6FL", description="Deficits globaux."),
+            reference=ReferenceBox(code="6FL", description="Deficits globaux.", type="int"),
             kind=BoxKind.COMMON
         )
     ]

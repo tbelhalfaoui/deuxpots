@@ -1,6 +1,8 @@
 from dataclasses import asdict
+
+import pytest
 from deuxpots.box import load_box_mapping
-from deuxpots.individualize import IndividualResult, IndividualizedResults, _individualize, simulate_and_individualize
+from deuxpots.individualize import HouseholdStatusError, IndividualResult, IndividualizedResults, _individualize, simulate_and_individualize
 from deuxpots.tax_calculator import SimulatorResult
 
 
@@ -35,6 +37,8 @@ def test__individualize():
 
 def test_simulate_and_individualize():
     parsed_sheeet = {
+        'AM': 1,
+        'AC': 0,
         '1AJ': 40000,
         '1BJ': 20000,
         # '1CJ': 300,
@@ -57,6 +61,7 @@ def test_simulate_and_individualize():
 
 def test_simulate_and_individualize_user_input_needed():
     parsed_sheeet = {
+        'AO': 1,
         '1AJ': 40000,
         '1BJ': 20000,
         '2DC': 350,
@@ -64,3 +69,11 @@ def test_simulate_and_individualize_user_input_needed():
     box_mapping = load_box_mapping()
     result = simulate_and_individualize(parsed_sheeet, {}, box_mapping)
     assert not result.get('individualized')
+
+
+@pytest.mark.parametrize('parsed_sheeet', [{}, {'AD': 1}, {'AC': 1}, {'AV': 1}, {'AM': 1, 'AO': 1}])
+def test_simulate_and_individualize_bad_household_status(parsed_sheeet):
+    parsed_sheeet = {}
+    box_mapping = load_box_mapping()
+    with pytest.raises(HouseholdStatusError):
+        simulate_and_individualize(parsed_sheeet, {}, box_mapping)

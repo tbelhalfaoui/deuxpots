@@ -1,0 +1,3 @@
+requests==2.29.0
+beautifulsoup==4.12.2
+PyMuPDF==1.22.2

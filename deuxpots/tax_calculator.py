@@ -19,9 +19,13 @@ class IncomeSheet(dict):
 
 @dataclass
 class SimulatorResult:
-    total_tax: int        # Impôt total (net)
-    already_paid: int     # Montant déjà payé
-    remains_to_pay: int   # Reste à payer
+    total_tax: int               # Impôt total (net)
+    already_paid: int            # Montant déjà payé
+    remains_to_pay: int          # Reste à payer
+
+
+class SimulatorError(BaseException):
+    pass
 
 
 def _simulator_api(income_sheet):
@@ -29,15 +33,22 @@ def _simulator_api(income_sheet):
     with open('impots.html', 'w+') as f:
         f.write(resp.text)
     resp.raise_for_status()
-    soup = BeautifulSoup(resp.text)
-    return {input['name']: input['value']
-            for input in soup.select('input[type=hidden]')}
+    soup = BeautifulSoup(resp.text, features="html.parser")
+    inputs = soup.select('input[type=hidden]')
+    error_p = soup.select_one('p.margin-left-30px')
+    return {
+        "error": error_p.text if error_p else None,
+        **{input['name']: input['value'] for input in inputs}
+    }
 
 
 def _format_simulator_results(results):
-    INETIR = int(results.get("IINETIR", 0))
-    IINET = int(results['IINET'])
-    IREST = int(results['IREST'])
+    try:
+        INETIR = int(results.get("IINETIR", 0))
+        IINET = int(results['IINET'])
+        IREST = int(results['IREST'])
+    except KeyError:
+        raise SimulatorError(results["error"])
     remains_to_pay = IINET - IREST
     return SimulatorResult(
         total_tax=INETIR,

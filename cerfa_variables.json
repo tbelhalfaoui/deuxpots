@@ -54,90 +54,6 @@
   },
   {
     "boxes": [
-      "N"
-    ],
-    "type": "int",
-    "description": "Nombre d'enfants mari\u00e9s/pacs\u00e9s et d'enfants non mari\u00e9s charg\u00e9s de famille"
-  },
-  {
-    "boxes": [
-      "R"
-    ],
-    "type": "int",
-    "description": "Nombre de titulaires (autres que les enfants) de la carte invalidit\u00e9 d'au moins 80 %"
-  },
-  {
-    "boxes": [
-      "E"
-    ],
-    "type": "bool",
-    "description": "Situation pouvant donner droit \u00e0 une demi-part suppl\u00e9mentaire : vous vivez seul au 1er janvier de l'ann\u00e9e de perception des revenus et vous avez \u00e9lev\u00e9 un enfant pendant moins de 5 ans durant la p\u00e9riode o\u00f9 vous viviez seul"
-  },
-  {
-    "boxes": [
-      "F"
-    ],
-    "type": "bool",
-    "description": "Situation pouvant donner droit \u00e0 une demi-part suppl\u00e9mentaire : conjoint titulaire d'une pension ou d'une carte d'invalidit\u00e9 (vivant ou d\u00e9c\u00e9d\u00e9 l'ann\u00e9e de perception des revenus)"
-  },
-  {
-    "boxes": [
-      "G"
-    ],
-    "type": "bool",
-    "description": "Titulaire d'une pension de veuve de guerre"
-  },
-  {
-    "boxes": [
-      "K"
-    ],
-    "type": "bool",
-    "description": "Situation pouvant donner droit \u00e0 une demi-part suppl\u00e9mentaire: vous avez eu un enfant d\u00e9c\u00e9d\u00e9 apr\u00e8s l\u2019\u00e2ge de 16 ans ou par suite de faits de guerre"
-  },
-  {
-    "boxes": [
-      "L"
-    ],
-    "type": "bool",
-    "description": "Situation pouvant donner droit \u00e0 une demi-part suppl\u00e9mentaire: vous vivez seul au 1er janvier de l'ann\u00e9e de perception des revenus et vous avez \u00e9lev\u00e9 un enfant pendant au moins 5 ans durant la p\u00e9riode o\u00f9 vous viviez seul (d\u00e9finition depuis 2009) - Un au moins de vos enfants \u00e0 charge ou rattach\u00e9 est issu du mariage avec votre conjoint d\u00e9c\u00e9d\u00e9 (d\u00e9finition avant 2008)"
-  },
-  {
-    "boxes": [
-      "N"
-    ],
-    "type": "bool",
-    "description": "Vous ne viviez pas seul au 1er janvier de l'ann\u00e9e de perception des revenus"
-  },
-  {
-    "boxes": [
-      "P"
-    ],
-    "type": "bool",
-    "description": "Titulaire d'une pension pour une invalidit\u00e9 d'au moins 40 % ou d'une carte d'invalidit\u00e9 d'au moins 80%"
-  },
-  {
-    "boxes": [
-      "S"
-    ],
-    "type": "bool",
-    "description": "Vous \u00eates mari\u00e9s/pacs\u00e9s et l'un des deux d\u00e9clarants \u00e2g\u00e9 de plus de 75 ans est titulaire de la carte du combattant ou d'une pension militaire d'invalidit\u00e9 ou de victime de guerre"
-  },
-  {
-    "boxes": [
-      "T"
-    ],
-    "type": "bool",
-    "description": "Vous \u00eates parent isol\u00e9 au 1er janvier de l'ann\u00e9e de perception des revenus"
-  },
-  {
-    "boxes": [
-      "W"
-    ],
-    "type": "bool",
-    "description": "Vous ou votre conjoint (m\u00eame s'il est d\u00e9c\u00e9d\u00e9), \u00e2g\u00e9s de plus de 75 ans, \u00eates titulaire de la carte du combattant ou d'une pension militaire d'invalidit\u00e9 ou de victime de guerre"
-  },
-  {
-    "boxes": [
       "6DE"
     ],
     "type": "int",
@@ -382,44 +298,9 @@
   },
   {
     "boxes": [
-      "F"
-    ],
-    "type": "float",
-    "description": "Nombre d'enfants \u00e0 charge non mari\u00e9s, qui ne sont pas en r\u00e9sidence altern\u00e9e, de moins de 18 ans au 1er janvier de l'ann\u00e9e de perception des revenus, ou n\u00e9s durant la m\u00eame ann\u00e9e ou handicap\u00e9s quel que soit leur \u00e2ge"
-  },
-  {
-    "boxes": [
-      "G"
-    ],
-    "type": "float",
-    "description": "Nombre d'enfants qui ne sont pas en r\u00e9sidence altern\u00e9e \u00e0 charge titulaires de la carte d'invalidit\u00e9."
-  },
-  {
-    "boxes": [
-      "H"
-    ],
-    "type": "float",
-    "description": "Nombre d'enfants \u00e0 charge en r\u00e9sidence altern\u00e9e, non mari\u00e9s de moins de 18 ans au 1er janvier de l'ann\u00e9e de perception des revenus, ou n\u00e9s durant la m\u00eame ann\u00e9e ou handicap\u00e9s quel que soit leur \u00e2ge"
-  },
-  {
-    "boxes": [
-      "I"
-    ],
-    "type": "float",
-    "description": "Nombre d'enfants \u00e0 charge en r\u00e9sidence altern\u00e9e titulaires de la carte d'invalidit\u00e9"
-  },
-  {
-    "boxes": [
-      "J"
-    ],
-    "type": "int",
-    "description": "Nombre d'enfants majeurs c\u00e9libataires sans enfant"
-  },
-  {
-    "boxes": [
       "2ZZ"
     ],
-    "type": "float",
+    "type": "int",
     "description": "Produits des bons ou contrats de capitalisation et d'assurance vie de moins de 8 ans pour les contrats souscrits apr\u00e8s le 26 septembre 1997, dont le produits sont associ\u00e9s aux primes vers\u00e9es apr\u00e8s le 27 septembre 2017, et que le b\u00e9n\u00e9ficiaire d\u00e9cide de soumettre au pr\u00e9l\u00e8vement forfaitaire unique au titre de l'imp\u00f4t sur le revenu"
   },
   {
@@ -9049,7 +8930,7 @@
       "1DJ",
       "1EJ"
     ],
-    "type": "float",
+    "type": "int",
     "description": "Salaires imposables"
   },
   {
@@ -9060,7 +8941,7 @@
       "1DP",
       "1EP"
     ],
-    "type": "float",
+    "type": "int",
     "description": "Allocations ch\u00f4mage imposables"
   },
   {
@@ -9071,92 +8952,8 @@
       "1DS",
       "1ES"
     ],
-    "type": "float",
+    "type": "int",
     "description": "Retraites au sens strict imposables (rentes \u00e0 titre on\u00e9reux exclues)"
-  },
-  {
-    "boxes": [
-      "N"
-    ],
-    "type": "int",
-    "description": "Nombre d'enfants mari\u00e9s/pacs\u00e9s et d'enfants non mari\u00e9s charg\u00e9s de famille"
-  },
-  {
-    "boxes": [
-      "R"
-    ],
-    "type": "int",
-    "description": "Nombre de titulaires (autres que les enfants) de la carte invalidit\u00e9 d'au moins 80 %"
-  },
-  {
-    "boxes": [
-      "E"
-    ],
-    "type": "bool",
-    "description": "Situation pouvant donner droit \u00e0 une demi-part suppl\u00e9mentaire : vous vivez seul au 1er janvier de l'ann\u00e9e de perception des revenus et vous avez \u00e9lev\u00e9 un enfant pendant moins de 5 ans durant la p\u00e9riode o\u00f9 vous viviez seul"
-  },
-  {
-    "boxes": [
-      "F"
-    ],
-    "type": "bool",
-    "description": "Situation pouvant donner droit \u00e0 une demi-part suppl\u00e9mentaire : conjoint titulaire d'une pension ou d'une carte d'invalidit\u00e9 (vivant ou d\u00e9c\u00e9d\u00e9 l'ann\u00e9e de perception des revenus)"
-  },
-  {
-    "boxes": [
-      "G"
-    ],
-    "type": "bool",
-    "description": "Titulaire d'une pension de veuve de guerre"
-  },
-  {
-    "boxes": [
-      "K"
-    ],
-    "type": "bool",
-    "description": "Situation pouvant donner droit \u00e0 une demi-part suppl\u00e9mentaire: vous avez eu un enfant d\u00e9c\u00e9d\u00e9 apr\u00e8s l\u2019\u00e2ge de 16 ans ou par suite de faits de guerre"
-  },
-  {
-    "boxes": [
-      "L"
-    ],
-    "type": "bool",
-    "description": "Situation pouvant donner droit \u00e0 une demi-part suppl\u00e9mentaire: vous vivez seul au 1er janvier de l'ann\u00e9e de perception des revenus et vous avez \u00e9lev\u00e9 un enfant pendant au moins 5 ans durant la p\u00e9riode o\u00f9 vous viviez seul (d\u00e9finition depuis 2009) - Un au moins de vos enfants \u00e0 charge ou rattach\u00e9 est issu du mariage avec votre conjoint d\u00e9c\u00e9d\u00e9 (d\u00e9finition avant 2008)"
-  },
-  {
-    "boxes": [
-      "N"
-    ],
-    "type": "bool",
-    "description": "Vous ne viviez pas seul au 1er janvier de l'ann\u00e9e de perception des revenus"
-  },
-  {
-    "boxes": [
-      "P"
-    ],
-    "type": "bool",
-    "description": "Titulaire d'une pension pour une invalidit\u00e9 d'au moins 40 % ou d'une carte d'invalidit\u00e9 d'au moins 80%"
-  },
-  {
-    "boxes": [
-      "S"
-    ],
-    "type": "bool",
-    "description": "Vous \u00eates mari\u00e9s/pacs\u00e9s et l'un des deux d\u00e9clarants \u00e2g\u00e9 de plus de 75 ans est titulaire de la carte du combattant ou d'une pension militaire d'invalidit\u00e9 ou de victime de guerre"
-  },
-  {
-    "boxes": [
-      "T"
-    ],
-    "type": "bool",
-    "description": "Vous \u00eates parent isol\u00e9 au 1er janvier de l'ann\u00e9e de perception des revenus"
-  },
-  {
-    "boxes": [
-      "W"
-    ],
-    "type": "bool",
-    "description": "Vous ou votre conjoint (m\u00eame s'il est d\u00e9c\u00e9d\u00e9), \u00e2g\u00e9s de plus de 75 ans, \u00eates titulaire de la carte du combattant ou d'une pension militaire d'invalidit\u00e9 ou de victime de guerre"
   },
   {
     "boxes": [
@@ -10494,7 +10291,7 @@
       "1DO",
       "1EO"
     ],
-    "type": "float",
+    "type": "int",
     "description": "Pensions alimentaires per\u00e7ues"
   },
   {
@@ -10504,7 +10301,7 @@
       "1CZ",
       "1DZ"
     ],
-    "type": "float",
+    "type": "int",
     "description": "Pensions d'invalidit\u00e9"
   },
   {
@@ -10646,7 +10443,7 @@
     "boxes": [
       "2YY"
     ],
-    "type": "float",
+    "type": "int",
     "description": "Produits des bons ou contrats de capitalisation et d'assurance vie de moins de 8 ans pour les contrats souscrits apr\u00e8s le 26 septembre 1997, dont le produits sont associ\u00e9s aux primes vers\u00e9es avant le 27 septembre 2017, et qui n'ont pas \u00e9t\u00e9 soumis au pr\u00e9l\u00e8vement lib\u00e9ratoire"
   },
   {
@@ -11238,7 +11035,7 @@
     "boxes": [
       "3UA"
     ],
-    "type": "float",
+    "type": "int",
     "description": "Plus-values b\u00e9n\u00e9ficiant de l'abattement pour dur\u00e9e de d\u00e9tention renforc\u00e9 et plus-values r\u00e9alis\u00e9es par les dirigeants de PME lors de leur d\u00e9part \u00e0 la retraite : plus-values apr\u00e8s abattements"
   },
   {
@@ -11259,7 +11056,7 @@
       "8JV",
       "8KV"
     ],
-    "type": "float",
+    "type": "int",
     "description": "Pre\u0301le\u0300vement a\u0300 la source de\u0301ja\u0300 paye\u0301 - retenue \u00e0 la source sur les salaires et pensions"
   },
   {
@@ -11269,7 +11066,7 @@
       "8JW",
       "8KW"
     ],
-    "type": "float",
+    "type": "int",
     "description": "Pre\u0301le\u0300vement a\u0300 la source de\u0301ja\u0300 paye\u0301 - acomptes d'imp\u00f4t sur le revenu"
   },
   {
@@ -11279,7 +11076,7 @@
       "8JX",
       "8KX"
     ],
-    "type": "float",
+    "type": "int",
     "description": "Pre\u0301le\u0300vement a\u0300 la source de\u0301ja\u0300 paye\u0301 - acomptes de pr\u00e9l\u00e8vements sociaux"
   },
   {
@@ -11289,7 +11086,7 @@
       "8JY",
       "8KY"
     ],
-    "type": "float",
+    "type": "int",
     "description": "Pre\u0301le\u0300vement a\u0300 la source - Remboursement de trop-pre\u0301leve\u0301 de\u0301ja\u0300 obtenu - imp\u00f4t sur le revenu"
   },
   {
@@ -11299,7 +11096,113 @@
       "8JZ",
       "8KZ"
     ],
-    "type": "float",
+    "type": "int",
     "description": "Pre\u0301le\u0300vement a\u0300 la source de\u0301ja\u0300 paye\u0301 - Remboursement de trop-pre\u0301leve\u0301 de\u0301ja\u0300 obtenu - pr\u00e9l\u00e8vements sociaux"
+  },
+  {
+    "boxes": [
+      "AM"
+    ],
+    "type": "bool",
+    "description": "Mari\u00e9\u00b7e"
+  },
+  {
+    "boxes": [
+      "AO"
+    ],
+    "type": "bool",
+    "description": "Pacs\u00e9\u00b7e"
+  },
+  {
+    "boxes": [
+      "AD"
+    ],
+    "type": "bool",
+    "description": "Divorc\u00e9\u00b7e/s\u00e9par\u00e9\u00b7e"
+  },
+  {
+    "boxes": [
+      "AC"
+    ],
+    "type": "bool",
+    "description": "C\u00e9libataire"
+  },
+  {
+    "boxes": [
+      "AV"
+    ],
+    "type": "bool",
+    "description": "Veuf\u00b7ve"
+  },
+  {
+    "boxes": [
+      "AP",
+      "AF"
+    ],
+    "type": "bool",
+    "description": "Titulaire d'une pension pour une invalidit\u00e9 d'au moins 40 % ou d'une carte d'invalidit\u00e9 d'au moins 80%"
+  },
+  {
+    "boxes": [
+      "AS"
+    ],
+    "type": "bool",
+    "description": "Vous ou votre conjoint (m\u00eame s'il est d\u00e9c\u00e9d\u00e9), \u00e2g\u00e9s de plus de 75 ans, \u00eates titulaire de la carte du combattant ou d'une pension militaire d'invalidit\u00e9 ou de victime de guerre"
+  },
+  {
+    "boxes": [
+      "BT"
+    ],
+    "type": "bool",
+    "description": "Vous \u00eates parent isol\u00e9 au 1er janvier de l'ann\u00e9e de perception des revenus"
+  },
+  {
+    "boxes": [
+      "CF"
+    ],
+    "type": "int",
+    "description": "Nombre d'enfants \u00e0 charge non mari\u00e9s, qui ne sont pas en r\u00e9sidence altern\u00e9e, de moins de 18 ans au 1er janvier de l'ann\u00e9e de perception des revenus, ou n\u00e9s durant la m\u00eame ann\u00e9e ou handicap\u00e9s quel que soit leur \u00e2ge"
+  },
+  {
+    "boxes": [
+      "CG"
+    ],
+    "type": "int",
+    "description": "Nombre d'enfants qui ne sont pas en r\u00e9sidence altern\u00e9e \u00e0 charge titulaires de la carte d'invalidit\u00e9."
+  },
+  {
+    "boxes": [
+      "CH"
+    ],
+    "type": "int",
+    "description": "Nombre d'enfants \u00e0 charge en r\u00e9sidence altern\u00e9e, non mari\u00e9s de moins de 18 ans au 1er janvier de l'ann\u00e9e de perception des revenus, ou n\u00e9s durant la m\u00eame ann\u00e9e ou handicap\u00e9s quel que soit leur \u00e2ge"
+  },
+  {
+    "boxes": [
+      "CI"
+    ],
+    "type": "int",
+    "description": "Nombre d'enfants \u00e0 charge en r\u00e9sidence altern\u00e9e titulaires de la carte d'invalidit\u00e9"
+  },
+  {
+    "boxes": [
+      "CR"
+    ],
+    "type": "int",
+    "description": "Nombre de titulaires (autres que les enfants) de la carte invalidit\u00e9 d'au moins 80 %"
+  },
+  {
+    "boxes": [
+      "DJ"
+    ],
+    "type": "int",
+    "description": "Nombre d'enfants majeurs c\u00e9libataires sans enfant"
+  },
+  {
+    "boxes": [
+      "DN"
+    ],
+    "type": "int",
+    "description": "Nombre d'enfants mari\u00e9s/pacs\u00e9s et d'enfants non mari\u00e9s charg\u00e9s de famille"
   }
 ]

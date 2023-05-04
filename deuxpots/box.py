@@ -17,6 +17,7 @@ class BoxKind(Enum):
 class ReferenceBox:
     code: str
     description: str
+    type: str
 
 
 @dataclass
@@ -30,7 +31,8 @@ def _generate_boxes(cerfa_variable):
     box_codes = cerfa_variable['boxes']
     ref = ReferenceBox(
         code=box_codes[0],
-        description=cerfa_variable['description']
+        description=cerfa_variable['description'],
+        type=cerfa_variable['type']
     )
     if len(box_codes) == 1:
         yield Box(

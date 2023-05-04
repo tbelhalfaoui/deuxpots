@@ -23,14 +23,13 @@ class ValuedBox:
         return self.DEFAUT_RATIO_FROM_KIND.get(self.box.kind)
     
     def individualized_value(self, partner_idx) -> Optional[int]:
-        if partner_idx not in {0, 1}:
-            raise ValueError("Can only get individualized value for partner 0 or 1.")
+        assert partner_idx in {0, 1}
         if self.ratio_0 is None:
             return
         if partner_idx == 0:
-            return int(self.raw_value * self.ratio_0)
+            return round(self.raw_value * self.ratio_0)
         if partner_idx == 1:
-            return int(self.raw_value * (1 - self.ratio_0))
+            return round(self.raw_value * (1 - self.ratio_0))
 
 
 def build_valued_box(code, raw_value, box_mapping, ratio_0=None):

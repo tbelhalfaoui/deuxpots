@@ -2,7 +2,7 @@ import pytest
 import requests as rq
 from difflib import SequenceMatcher
 from deuxpots.box import Box, BoxKind, ReferenceBox
-from deuxpots.tax_calculator import SIMULATOR_URL, SimulatorResult, _format_simulator_results, _simulator_api, build_income_sheet, compute_tax
+from deuxpots.tax_calculator import SIMULATOR_URL, SimulatorError, SimulatorResult, _format_simulator_results, _simulator_api, build_income_sheet, compute_tax
 from deuxpots.valued_box import ValuedBox
 
 
@@ -71,6 +71,18 @@ def test_compute_tax_single_overpaid():
         '8HW': 10000
     })
     assert res.remains_to_pay < 0
+
+
+def test_compute_tax_error():
+    with pytest.raises(SimulatorError) as e:
+        compute_tax({
+            '0DA': '1950',
+            'pre_situation_famille': 'C',   # Should be O or M (not single)
+            'pre_situation_residence': 'M',
+            '1AJ': 50000,
+            '1BJ': 30000,
+        })
+        assert len(e.value.args[0]) > 80
 
 
 @pytest.fixture
