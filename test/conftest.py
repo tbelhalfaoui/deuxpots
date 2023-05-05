@@ -8,7 +8,7 @@ from deuxpots.pdf_tax_parser import load_family_box_coords
 
 @pytest.fixture
 def tax_sheet_pdf_path():
-    return Path("declaration.pdf")
+    return Path("test/resources/declaration.pdf")
 
 
 @pytest.fixture
