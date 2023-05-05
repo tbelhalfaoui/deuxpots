@@ -1,11 +1,9 @@
-from typing import List, Tuple
+from typing import Tuple
 from dataclasses import dataclass
+from deuxpots.pdf_tax_parser import HOUSEHOLD_STATUS_FIELD, HOUSEHOLD_STATUS_VALUES_TOGETHER
 from deuxpots.tax_calculator import build_income_sheet, compute_tax
 
-from deuxpots.valued_box import ValuedBox, build_valued_box
-
-
-HOUSEHOLD_STATUSES = ['AM', 'AO', 'AD', 'AC', 'AV']
+from deuxpots.valued_box import build_valued_box
 
 
 @dataclass
@@ -53,28 +51,21 @@ class HouseholdStatusError(BaseException):
     pass
 
 
-def _check_household_status(income_sheet, box_mapping):
-    household_status_ = []
-    for status in HOUSEHOLD_STATUSES:
-        if income_sheet.get(status):
-            household_status_.append(status)
-    if len(household_status_) != 1:
-        raise HouseholdStatusError(f"Un seul statut du foyer fiscal est possible, mais "
-                                   f"{len(household_status_)} détecté(s) : {household_status_}")
-    household_status = household_status_[0]
-    if household_status not in {'AM', 'AO'}:
+def _check_and_strip_household_status(income_sheet, box_mapping):
+    status = income_sheet.get(HOUSEHOLD_STATUS_FIELD, 'aucun')
+    if status not in HOUSEHOLD_STATUS_VALUES_TOGETHER:
         raise HouseholdStatusError(f"La feuille d'impôt à individualiser doit être commune "
-                                   f"(marié·e ou pacsé·e). Le statut détecté est : {box_mapping[household_status]}")
+                                   f"(marié·e ou pacsé·e). Le statut détecté est : {status}.")
+    del income_sheet[HOUSEHOLD_STATUS_FIELD]
 
 
 def simulate_and_individualize(parsed_sheeet, user_ratios, box_mapping):
-    _check_household_status(parsed_sheeet, box_mapping)
+    _check_and_strip_household_status(parsed_sheeet, box_mapping)
     valboxes = [build_valued_box(code=box_code,
                                  raw_value=box_value,
                                  ratio_0=user_ratios.get(box_code),
                                  box_mapping=box_mapping)
-                for box_code, box_value in parsed_sheeet.items()
-                if box_code not in HOUSEHOLD_STATUSES]
+                for box_code, box_value in parsed_sheeet.items()]
 
     simu_results = {}
     for pix in [0, 1, None]:

@@ -1,8 +1,8 @@
-from dataclasses import asdict
-
 import pytest
-from deuxpots.box import load_box_mapping
-from deuxpots.individualize import HouseholdStatusError, IndividualResult, IndividualizedResults, _individualize, simulate_and_individualize
+from deuxpots.individualize import (
+    HouseholdStatusError, IndividualResult, IndividualizedResults,
+    _individualize, simulate_and_individualize
+)
 from deuxpots.tax_calculator import SimulatorResult
 
 
@@ -35,10 +35,9 @@ def test__individualize():
     )
 
 
-def test_simulate_and_individualize():
+def test_simulate_and_individualize(box_mapping):
     parsed_sheeet = {
-        'AM': 1,
-        'AC': 0,
+        'pre_situation_famille': 'M',
         '1AJ': 40000,
         '1BJ': 20000,
         # '1CJ': 300,
@@ -53,27 +52,23 @@ def test_simulate_and_individualize():
         # '1CJ': 0,
         # '1DJ': .3,
     }
-    box_mapping = load_box_mapping()
     result = simulate_and_individualize(parsed_sheeet, user_ratios, box_mapping)
     assert result['individualized'].partners[0].remains_to_pay > 1000
     assert result['individualized'].partners[1].remains_to_pay < 4000
 
 
-def test_simulate_and_individualize_user_input_needed():
+def test_simulate_and_individualize_user_input_needed(box_mapping):
     parsed_sheeet = {
-        'AO': 1,
+        'pre_situation_famille': 'O',
         '1AJ': 40000,
         '1BJ': 20000,
         '2DC': 350,
     }
-    box_mapping = load_box_mapping()
     result = simulate_and_individualize(parsed_sheeet, {}, box_mapping)
     assert not result.get('individualized')
 
 
 @pytest.mark.parametrize('parsed_sheeet', [{}, {'AD': 1}, {'AC': 1}, {'AV': 1}, {'AM': 1, 'AO': 1}])
-def test_simulate_and_individualize_bad_household_status(parsed_sheeet):
-    parsed_sheeet = {}
-    box_mapping = load_box_mapping()
+def test_simulate_and_individualize_bad_household_status(parsed_sheeet, box_mapping):
     with pytest.raises(HouseholdStatusError):
         simulate_and_individualize(parsed_sheeet, {}, box_mapping)

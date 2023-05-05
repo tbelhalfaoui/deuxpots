@@ -3,8 +3,6 @@ from enum import Enum
 
 from dataclasses import dataclass
 
-CERFA_VARIABLES_PATH = "cerfa_variables.json"
-
 
 class BoxKind(Enum):
     COMMON = 1
@@ -65,7 +63,7 @@ def build_box_mapping(cerfa_variables):
             for box in _generate_boxes(var)}        
 
 
-def load_box_mapping(cerfa_variables_path=CERFA_VARIABLES_PATH):
+def load_box_mapping(cerfa_variables_path):
     with open(cerfa_variables_path) as f:
         cerfa_variables = json.load(f)
     return build_box_mapping(cerfa_variables)

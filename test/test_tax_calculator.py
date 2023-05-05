@@ -1,8 +1,10 @@
 import pytest
 import requests as rq
-from difflib import SequenceMatcher
 from deuxpots.box import Box, BoxKind, ReferenceBox
-from deuxpots.tax_calculator import SIMULATOR_URL, SimulatorError, SimulatorResult, _format_simulator_results, _simulator_api, build_income_sheet, compute_tax
+from deuxpots.tax_calculator import (
+    SIMULATOR_URL, SimulatorError, SimulatorResult,
+    _format_simulator_results, _simulator_api, build_income_sheet, compute_tax
+)
 from deuxpots.valued_box import ValuedBox
 
 
@@ -91,7 +93,7 @@ def valboxes():
         ValuedBox(
             box=Box(
                 code="1BC",
-                reference=ReferenceBox(code="1AC", description="Salaires et pensions."),
+                reference=ReferenceBox(code="1AC", description="Salaires et pensions.", type="int"),
                 kind=BoxKind.PARTNER_1
             ),
             raw_value=200,
@@ -100,7 +102,7 @@ def valboxes():
         ValuedBox(
             box=Box(
                 code="1AC",
-                reference=ReferenceBox(code="1AC", description="Salaires et pensions."),
+                reference=ReferenceBox(code="1AC", description="Salaires et pensions.", type="int"),
                 kind=BoxKind.PARTNER_0
             ),
             raw_value=100,
@@ -109,7 +111,7 @@ def valboxes():
         ValuedBox(
             box=Box(
                 code="6FL",
-                reference=ReferenceBox(code="6FL", description="Deficits globaux."),
+                reference=ReferenceBox(code="6FL", description="Deficits globaux.", type="int"),
                 kind=BoxKind.COMMON
             ),
             raw_value=1000,
@@ -118,7 +120,7 @@ def valboxes():
         ValuedBox(
             box=Box(
                 code="1CC",
-                reference=ReferenceBox(code="1AC", description="Salaires et pensions."),
+                reference=ReferenceBox(code="1AC", description="Salaires et pensions.", type="int"),
                 kind=BoxKind.CHILD
             ),
             raw_value=100,
@@ -127,11 +129,20 @@ def valboxes():
         ValuedBox(
             box=Box(
                 code="1DC",
-                reference=ReferenceBox(code="1AC", description="Salaires et pensions."),
+                reference=ReferenceBox(code="1AC", description="Salaires et pensions.", type="int"),
                 kind=BoxKind.CHILD
             ),
             raw_value=400,
             ratio_0=.6
+        ),
+        ValuedBox(
+            box=Box(
+                code="AS",
+                reference=ReferenceBox(code="AS", description="Titulaire d'une pension militaire.", type='bool'),
+                kind=BoxKind.COMMON
+            ),
+            raw_value=1,
+            ratio_0=0,
         )
     ]
 
@@ -141,7 +152,7 @@ def test_build_income_sheet_missing_ratio():
         ValuedBox(
             box=Box(
                 code="6FL",
-                reference=ReferenceBox(code="6FL", description="Deficits globaux."),
+                reference=ReferenceBox(code="6FL", description="Deficits globaux.", type="int"),
                 kind=BoxKind.COMMON
             ),
             raw_value=1000
@@ -157,7 +168,8 @@ def test_build_income_sheet_partner_0(valboxes):
         'pre_situation_residence': 'M',
         '0DA': '1950',
         '1AC': 360,  # 100 + .2 * 100 + .6 * 400
-        '6FL': 450,  # .45 * 1000
+        '6FL': 450,  # .45 * 1000,
+        'AS': 0,
     }
     assert isinstance(income_sheet['1AC'], int)
     assert isinstance(income_sheet['6FL'], int)
@@ -171,6 +183,7 @@ def test_build_income_sheet_partner_1(valboxes):
         '0DA': '1950',
         '1AC': 440,  # 200 + .8 * 100 + .4 * 400
         '6FL': 550,  # .55 * 1000
+        'AS': 1,
     }
     assert isinstance(income_sheet['1AC'], int)
     assert isinstance(income_sheet['6FL'], int)
@@ -187,7 +200,8 @@ def test_build_income_sheet_together(valboxes):
         '1BC': 200,
         '1CC': 100,
         '1DC': 400,
-        '6FL': 1000
+        '6FL': 1000,
+        'AS': 1,
     }
     for box in ['1AC', '1BC', '1CC', '1DC', '6FL']:
         assert isinstance(income_sheet[box], int)

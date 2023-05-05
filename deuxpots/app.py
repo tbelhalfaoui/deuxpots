@@ -2,22 +2,25 @@ from dataclasses import asdict
 import json
 from flask import Flask
 from flask import Flask, request
+from deuxpots import CERFA_VARIABLES_PATH, FAMILY_BOX_COORDS_PATH
 
 from deuxpots.box import load_box_mapping
 from deuxpots.individualize import simulate_and_individualize
-from deuxpots.pdf_tax_parser import parse_tax_pdf
+from deuxpots.pdf_tax_parser import load_family_box_coords, parse_tax_pdf
 
-BOX_MAPPING = load_box_mapping()
+BOX_MAPPING = load_box_mapping(CERFA_VARIABLES_PATH)
+FAMILY_BOX_COORDS = load_family_box_coords(FAMILY_BOX_COORDS_PATH)
+
 
 app = Flask("deuxpots")
 
 
 @app.route('/individualize', methods=['POST'])
 def individualize():
-    params = json.load(request.files['params'])
+    user_boxes = json.loads(request.form['boxes'])
     tax_pdf = request.files['tax_pdf'].read()
-    parsed_sheeet = parse_tax_pdf(tax_pdf)
-    user_ratios = {box['code']: box['ratio_0'] for box in params['boxes']}
+    parsed_sheeet = parse_tax_pdf(tax_pdf, FAMILY_BOX_COORDS)
+    user_ratios = {box['code']: box['ratio_0'] for box in user_boxes}
     result = simulate_and_individualize(parsed_sheeet, user_ratios, BOX_MAPPING)
     return dict(
         boxes=list(map(serialize_box, result['boxes'])),
