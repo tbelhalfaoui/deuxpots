@@ -2,6 +2,7 @@ from dataclasses import asdict
 import json
 from flask import Flask
 from flask import Flask, request
+import flask
 from deuxpots import CERFA_VARIABLES_PATH, FAMILY_BOX_COORDS_PATH
 
 from deuxpots.box import load_box_mapping
@@ -22,10 +23,13 @@ def individualize():
     parsed_sheeet = parse_tax_pdf(tax_pdf, FAMILY_BOX_COORDS)
     user_ratios = {box['code']: box['ratio_0'] for box in user_boxes}
     result = simulate_and_individualize(parsed_sheeet, user_ratios, BOX_MAPPING)
-    return dict(
+    response = dict(
         boxes=list(map(serialize_box, result['boxes'])),
         individualized=asdict(result['individualized']) if result.get('individualized') else None
     )
+    response = flask.jsonify(response)
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    return response
 
 def serialize_box(valbox):
     return dict(
