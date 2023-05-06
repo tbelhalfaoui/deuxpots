@@ -35,7 +35,8 @@ def serialize_box(valbox):
     return dict(
         code=valbox.box.code,
         description=valbox.box.reference.description,
-        ratio_0=valbox.ratio_0
+        raw_value=valbox.raw_value,
+        ratio_0=valbox.ratio_0,
     )
 
 

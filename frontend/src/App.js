@@ -13,8 +13,8 @@ function App() {
   return (
       <div class="container">
         <Header />
-        <PdfSubmitForm setData={setBoxes} />
-        <TaxBoxesPanel boxes={boxes} />
+        <PdfSubmitForm setBoxes={setBoxes} />
+        <TaxBoxesPanel boxes={boxes} setBoxes={setBoxes} />
       </div>
   );
 }

@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
 
-export const PdfSubmitForm = ({setData}) => {
+
+export const PdfSubmitForm = ({setBoxes}) => {
     const { register, handleSubmit } = useForm();
 
     const sendTaxSheet = async (data) => {
@@ -16,7 +17,11 @@ export const PdfSubmitForm = ({setData}) => {
         ).then(
           res => {console.log(res); return res;}
         ).then(
-          data => setData(data.boxes)
+          data => Object.fromEntries(
+              data.boxes.map(box => [box.code, box])
+            )
+        ).then(
+          boxes => setBoxes(boxes)
         );
     }
 
