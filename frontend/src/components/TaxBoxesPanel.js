@@ -1,9 +1,9 @@
 import { useState } from "react"
 import { TaxBox } from './TaxBox.js'
 
-export const TaxBoxesPanel = ({boxes, setBoxes}) => {
+export const TaxBoxesPanel = ({boxes, setBoxes, step, setStep}) => {
 
-    const [ showAutofilled, setShowAutoFilled ] = useState(false);
+    const [ showAutoFilled, setShowAutoFilled ] = useState(false);
     const [ unlockTotals, setUnlockTotals ] = useState(false);
 
     const onSliderChange = async (evt) => {
@@ -19,12 +19,17 @@ export const TaxBoxesPanel = ({boxes, setBoxes}) => {
         setBoxes(boxesNew);
     }
 
-    const onBoxChange = async (values, sourceInfo) => {
-        const evt = sourceInfo.event;
-        const [boxCode, fieldName] = evt.target.name.split('.');
+    const initializeBoxValues = () => {
+        // let boxesNew = { ...boxes };
+        // boxesNew[boxCode]['partner_0_value'] = Math.round(boxesNew[boxCode]['ratio_0'] * boxesNew[boxCode]['raw_value']);
+        // boxesNew[boxCode]['partner_1_value'] = Math.round((1 - boxesNew[boxCode]['ratio_0']) * boxesNew[boxCode]['raw_value']);
+        // boxesNew[boxCode]['ratio_0'] = boxesNew[boxCode]['partner_0_value'] / boxesNew[boxCode]['raw_value'];
+        // setBoxes(boxesNew);
+    }
 
+    const handleBoxChange = async (boxCode, fieldName, value) => {
         let boxesNew = { ...boxes };
-        boxesNew[boxCode][fieldName] = values.floatValue;
+        boxesNew[boxCode][fieldName] = value;
         
         if (fieldName == 'partner_0_value') {
             if (!unlockTotals) {
@@ -49,8 +54,15 @@ export const TaxBoxesPanel = ({boxes, setBoxes}) => {
         if (fieldName == 'raw_value') {
             boxesNew[boxCode]['partner_0_value'] = Math.round(boxesNew[boxCode]['ratio_0'] * boxesNew[boxCode]['raw_value']);
             boxesNew[boxCode]['partner_1_value'] = Math.round((1 - boxesNew[boxCode]['ratio_0']) * boxesNew[boxCode]['raw_value']);
+            boxesNew[boxCode]['ratio_0'] = boxesNew[boxCode]['partner_0_value'] / boxesNew[boxCode]['raw_value'];
         }        
         setBoxes(boxesNew);
+    }
+
+    const onBoxChange = async (values, sourceInfo) => {
+        const evt = sourceInfo.event;
+        const [boxCode, fieldName] = evt.target.name.split('.');
+        handleBoxChange(boxCode, fieldName, values.floatValue)
     };
 
     const toggleShowAutofilled = async (evt) => {
@@ -61,14 +73,14 @@ export const TaxBoxesPanel = ({boxes, setBoxes}) => {
         setUnlockTotals(evt.target.checked);
     };
 
-    return (
+    return (step == 1) && (
         <form>
             <div id="containerStep2" class="container py-2 text-start">
                 <div>
                     <div>
                         <div class="form-check form-switch py-2">
-                            <input class="form-check-input" type="checkbox" role="switch" id="showAutofilled" checked={showAutofilled} onChange={toggleShowAutofilled} />
-                            <label class="form-check-label" for="showAutofilled">Afficher toutes les cases, même celles déjà individualisées.</label>
+                            <input class="form-check-input" type="checkbox" role="switch" id="showAutofilled" checked={showAutoFilled} onChange={toggleShowAutofilled} />
+                            <label class="form-check-label" for="showAutofilled">Afficher toutes les cases, même celles individualisées automatiquement.</label>
                         </div>
                         <div class="form-check form-switch py-2">
                             <input class="form-check-input" type="checkbox" role="switch" id="unlockTotals" checked={unlockTotals} onChange={toggleUnlockTotals} />
@@ -81,11 +93,12 @@ export const TaxBoxesPanel = ({boxes, setBoxes}) => {
                             <div class="col-1"><h6>Déclarant·e 2</h6></div>
                         </div>
                             {Object.values(boxes).map(box => (
-                                <TaxBox box={box} onValueChange={onBoxChange} onSliderChange={onSliderChange} unlockTotals={unlockTotals} />
+                                <TaxBox box={box} onValueChange={onBoxChange} onSliderChange={onSliderChange}
+                                unlockTotals={unlockTotals} showAutoFilled={showAutoFilled} />
                             ))}
                     </div>
                 </div>
             </div>
         </form>
-);
+    );
 }

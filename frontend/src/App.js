@@ -9,12 +9,13 @@ import { TaxBoxesPanel } from "./components/TaxBoxesPanel.js";
 
 function App() {
   const [boxes, setBoxes] = useState([]);
+  const [step, setStep] = useState(0);
 
   return (
       <div class="container">
         <Header />
-        <PdfSubmitForm setBoxes={setBoxes} />
-        <TaxBoxesPanel boxes={boxes} setBoxes={setBoxes} />
+        <PdfSubmitForm setBoxes={setBoxes} step={step} setStep={setStep} />
+        <TaxBoxesPanel boxes={boxes} setBoxes={setBoxes} step={step} setStep={setStep} />
       </div>
   );
 }

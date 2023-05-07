@@ -37,6 +37,8 @@ def serialize_box(valbox):
         description=valbox.box.reference.description,
         raw_value=valbox.raw_value,
         ratio_0=valbox.ratio_0,
+        partner_0_value=valbox.individualized_value(0),
+        partner_1_value=valbox.individualized_value(1),
     )
 
 

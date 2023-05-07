@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 
 
-export const PdfSubmitForm = ({setBoxes}) => {
+export const PdfSubmitForm = ({setBoxes, step, setStep}) => {
     const { register, handleSubmit } = useForm();
 
     const sendTaxSheet = async (data) => {
@@ -18,14 +18,20 @@ export const PdfSubmitForm = ({setBoxes}) => {
           res => {console.log(res); return res;}
         ).then(
           data => Object.fromEntries(
-              data.boxes.map(box => [box.code, box])
+              data.boxes.map(box => [box.code, {
+                ...box,
+                original_raw_value: box.raw_value,
+                original_ratio_0: box.ratio_0,
+              }])
             )
         ).then(
-          boxes => setBoxes(boxes)
-        );
+          setBoxes
+        ).then(
+          setStep(1)
+        )
     }
 
-    return (
+    return (step == 0) && (
         <form onSubmit={handleSubmit(sendTaxSheet)}>
         <div class="container py-4 text-center" id="containerStep1">
            <div class="row gx-10 justify-content-center">
