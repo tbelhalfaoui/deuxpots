@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { TaxBox } from './TaxBox.js'
 
-export const TaxBoxesPanel = ({boxes, setBoxes, step, setStep}) => {
+export const TaxBoxesPanel = ({boxes, setBoxes, setStep}) => {
 
     const [ showAutoFilled, setShowAutoFilled ] = useState(false);
     const [ unlockTotals, setUnlockTotals ] = useState(false);
@@ -72,15 +72,15 @@ export const TaxBoxesPanel = ({boxes, setBoxes, step, setStep}) => {
     const toggleUnlockTotals = async (evt) => {
         setUnlockTotals(evt.target.checked);
     };
-
-    return (step == 1) && (
+    
+    return (
         <form>
             <div id="containerStep2" class="container py-2 text-start">
                 <div>
                     <div>
                         <div class="form-check form-switch py-2">
                             <input class="form-check-input" type="checkbox" role="switch" id="showAutofilled" checked={showAutoFilled} onChange={toggleShowAutofilled} />
-                            <label class="form-check-label" for="showAutofilled">Afficher toutes les cases, même celles individualisées automatiquement.</label>
+                            <label class="form-check-label" for="showAutofilled">Afficher les cases préremplies.</label>
                         </div>
                         <div class="form-check form-switch py-2">
                             <input class="form-check-input" type="checkbox" role="switch" id="unlockTotals" checked={unlockTotals} onChange={toggleUnlockTotals} />
