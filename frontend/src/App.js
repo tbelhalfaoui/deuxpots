@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react"
-import { useForm } from "react-hook-form";
 import { Header } from './components/Header.js'
 import { PdfSubmitForm } from './components/PdfSubmitForm.js'
 import { Accordion, AccordionStepItem } from './components/Accordion';

@@ -7,8 +7,7 @@ export const PdfSubmitForm = ({setBoxes, setStep}) => {
     const sendTaxSheet = async (data) => {
         const formData = new FormData();
         formData.append("tax_pdf", data.file[0]);
-        formData.append("boxes", "{}");
-        await fetch("http://localhost:8888/individualize", {
+        await fetch("http://localhost:8888/parse", {
             method: "POST",
             body: formData,
             mode: 'cors',
@@ -20,8 +19,11 @@ export const PdfSubmitForm = ({setBoxes, setStep}) => {
               (box1, box2) => box1.code.localeCompare(box2.code)
             ).map(box => [box.code, {
               ...box,
+              description: box.description,
               original_raw_value: box.raw_value,
               original_attribution: box.attribution,
+              partner_0_value: box.raw_value * (1 - box.attribution),
+              partner_1_value: box.raw_value * box.attribution,
             }])
           )
         ).then(
