@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { TaxBox } from './TaxBox.js'
 
 
-export const TaxBoxesPanel = ({boxes, setBoxes, setStep}) => {
+export const TaxBoxesPanel = ({ boxes, setBoxes, setStep, setIndividualizedResults }) => {
 
     const [ showAutoFilled, setShowAutoFilled ] = useState(false);
     const [ unlockTotals, setUnlockTotals ] = useState(false);
@@ -19,14 +19,6 @@ export const TaxBoxesPanel = ({boxes, setBoxes, setStep}) => {
         boxesNew[boxCode]['partner_0_value'] = Math.round((1 - boxesNew[boxCode]['attribution']) * boxesNew[boxCode]['raw_value']);
         boxesNew[boxCode]['partner_1_value'] = Math.round(boxesNew[boxCode]['attribution'] * boxesNew[boxCode]['raw_value']);
         setBoxes(boxesNew);
-    }
-
-    const initializeBoxValues = () => {
-        // let boxesNew = { ...boxes };
-        // boxesNew[boxCode]['partner_0_value'] = Math.round(boxesNew[boxCode]['attribution'] * boxesNew[boxCode]['raw_value']);
-        // boxesNew[boxCode]['partner_1_value'] = Math.round((1 - boxesNew[boxCode]['attribution']) * boxesNew[boxCode]['raw_value']);
-        // boxesNew[boxCode]['attribution'] = boxesNew[boxCode]['partner_0_value'] / boxesNew[boxCode]['raw_value'];
-        // setBoxes(boxesNew);
     }
 
     const handleBoxChange = async (boxCode, fieldName, value) => {
@@ -75,7 +67,7 @@ export const TaxBoxesPanel = ({boxes, setBoxes, setStep}) => {
         setUnlockTotals(evt.target.checked);
     };
 
-    const sendUserBoxes = async (evt) => {
+    const fetchIndividualizedResults = async (evt) => {
         evt.preventDefault();
         await fetch("http://localhost:8888/individualize", {
             method: "POST",
@@ -88,14 +80,14 @@ export const TaxBoxesPanel = ({boxes, setBoxes, setStep}) => {
         }).then(
           res => res.json()
         ).then(
-          data => {console.log(data); return data;}
+            data => {console.log(data.individualized); setIndividualizedResults(data.individualized);}
         ).then(
           setStep(3)
-        );
+        )
     };
     
     return (
-        <form onSubmit={sendUserBoxes}>
+        <form method="POST" onSubmit={fetchIndividualizedResults}>
             <div id="containerStep2" class="container py-2 text-start">
                 <div class="text-center">
                     <input type="submit" class="btn btn-primary" />
