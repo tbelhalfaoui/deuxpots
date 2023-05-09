@@ -50,7 +50,7 @@ def _individualize(simu_partner_0, simu_partner_1, simu_together):
 def simulate_and_individualize(user_boxes, box_mapping):
     valboxes = [build_valued_box(code=box['code'],
                                 raw_value=box['raw_value'],
-                                ratio_0=box['ratio_0'],
+                                ratio=box['ratio'],
                                 box_mapping=box_mapping)
                 for box in user_boxes]
     simu_results = {}

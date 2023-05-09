@@ -78,7 +78,7 @@ def test_parse_tax_pdf(tax_sheet_pdf_path, expected_parsed_raw_values, expected_
     valboxes = parse_tax_pdf(pdf_content, family_box_coords, box_mapping)
     for valbox in valboxes:
         valbox.raw_value == expected_parsed_raw_values[valbox.box.code]
-        valbox.ratio_0 == expected_parsed_ratios[valbox.box.code]
+        valbox.ratio == expected_parsed_ratios[valbox.box.code]
 
 
 @pytest.mark.parametrize('status', ['O', 'M'])

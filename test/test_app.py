@@ -15,13 +15,13 @@ def test_parse(tax_sheet_pdf_path):
             assert valbox['box']['code']
             assert valbox['box']['reference']['description']
             assert valbox['raw_value']
-            assert 'ratio_0' in valbox  # can be None
+            assert 'ratio' in valbox  # can be None
 
 
 def test_individualize():
     user_boxes = [
-        {'code': '1AJ', 'raw_value': 40000, 'ratio_0': .2},
-        {'code': '1BJ', 'raw_value': 20000, 'ratio_0': .6},
+        {'code': '1AJ', 'raw_value': 40000, 'ratio': .2},
+        {'code': '1BJ', 'raw_value': 20000, 'ratio': .6},
     ]
     with app.test_client() as test_client:
         res = test_client.post('/individualize',

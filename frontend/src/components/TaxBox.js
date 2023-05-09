@@ -11,7 +11,7 @@ export const NumberBox = ( props ) => (
 )
 
 export const TaxBox = ({box, onValueChange, onSliderChange, unlockTotals, showAutoFilled}) => 
-    ((box.original_ratio_0 == null) || (showAutoFilled)) && (
+    ((box.original_ratio == null) || (showAutoFilled)) && (
     <div class="row">
         <div class="col-1">
             <NumberBox name={`${box.code}.raw_value`} value={box.raw_value} onValueChange={onValueChange} disabled={!unlockTotals} />
@@ -25,7 +25,7 @@ export const TaxBox = ({box, onValueChange, onSliderChange, unlockTotals, showAu
             min="0" max={box.raw_value}
             step={(box.raw_value <= 10) ? 1 : parseInt(box.raw_value / 10)}
             disabled={box.raw_value == ""}
-            value={(box.raw_value != "") ? (1 - box.ratio_0) * box.raw_value : ""}
+            value={(box.raw_value != "") ? (1 - box.ratio) * box.raw_value : ""}
             onChange={onSliderChange} />
         </div>
         <div class="col-1">

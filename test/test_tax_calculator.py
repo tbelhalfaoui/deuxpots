@@ -97,7 +97,7 @@ def valboxes():
                 kind=BoxKind.PARTNER_1
             ),
             raw_value=200,
-            ratio_0=0,
+            ratio=1,
         ),
         ValuedBox(
             box=Box(
@@ -106,7 +106,7 @@ def valboxes():
                 kind=BoxKind.PARTNER_0
             ),
             raw_value=100,
-            ratio_0=1,
+            ratio=0,
         ),
         ValuedBox(
             box=Box(
@@ -115,7 +115,7 @@ def valboxes():
                 kind=BoxKind.COMMON
             ),
             raw_value=1000,
-            ratio_0=.45
+            ratio=.55
         ),
         ValuedBox(
             box=Box(
@@ -124,7 +124,7 @@ def valboxes():
                 kind=BoxKind.CHILD
             ),
             raw_value=100,
-            ratio_0=.2
+            ratio=.8
         ),
         ValuedBox(
             box=Box(
@@ -133,7 +133,7 @@ def valboxes():
                 kind=BoxKind.CHILD
             ),
             raw_value=400,
-            ratio_0=.6
+            ratio=.4
         ),
         ValuedBox(
             box=Box(
@@ -142,7 +142,7 @@ def valboxes():
                 kind=BoxKind.COMMON
             ),
             raw_value=1,
-            ratio_0=0,
+            ratio=1,
         )
     ]
 
