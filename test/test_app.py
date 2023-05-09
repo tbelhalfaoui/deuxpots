@@ -25,7 +25,7 @@ def test_individualize():
     ]
     with app.test_client() as test_client:
         res = test_client.post('/individualize',
-                               data=dict(boxes=json.dumps(user_boxes)))
+                               json=dict(boxes=user_boxes))
         assert res.status_code == 200
         assert res.json['individualized']
         assert 'partners' in res.json['individualized']

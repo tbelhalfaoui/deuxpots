@@ -22,8 +22,8 @@ export const PdfSubmitForm = ({setBoxes, setStep}) => {
               description: box.description,
               original_raw_value: box.raw_value,
               original_attribution: box.attribution,
-              partner_0_value: box.raw_value * (1 - box.attribution),
-              partner_1_value: box.raw_value * box.attribution,
+              partner_0_value: box.attribution && (box.raw_value * (1 - box.attribution)),
+              partner_1_value: box.attribution && (box.raw_value * box.attribution),
             }])
           )
         ).then(

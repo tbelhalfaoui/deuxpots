@@ -1,5 +1,7 @@
 import { useState } from "react"
+import { useForm } from "react-hook-form";
 import { TaxBox } from './TaxBox.js'
+
 
 export const TaxBoxesPanel = ({boxes, setBoxes, setStep}) => {
 
@@ -72,10 +74,32 @@ export const TaxBoxesPanel = ({boxes, setBoxes, setStep}) => {
     const toggleUnlockTotals = async (evt) => {
         setUnlockTotals(evt.target.checked);
     };
+
+    const sendUserBoxes = async (evt) => {
+        evt.preventDefault();
+        await fetch("http://localhost:8888/individualize", {
+            method: "POST",
+            body: JSON.stringify({'boxes': Object.values(boxes)}),
+            mode: 'cors',
+            headers: {
+                'Content-type':'application/json', 
+                'Accept':'application/json'
+            }
+        }).then(
+          res => res.json()
+        ).then(
+          data => {console.log(data); return data;}
+        ).then(
+          setStep(3)
+        );
+    };
     
     return (
-        <form>
+        <form onSubmit={sendUserBoxes}>
             <div id="containerStep2" class="container py-2 text-start">
+                <div class="text-center">
+                    <input type="submit" class="btn btn-primary" />
+                </div>
                 <div>
                     <div>
                         <div class="form-check form-switch py-2">
@@ -97,6 +121,9 @@ export const TaxBoxesPanel = ({boxes, setBoxes, setStep}) => {
                                 unlockTotals={unlockTotals} showAutoFilled={showAutoFilled} />
                             ))}
                     </div>
+                </div>
+                <div class="text-center">
+                    <input type="submit" class="btn btn-primary" />
                 </div>
             </div>
         </form>

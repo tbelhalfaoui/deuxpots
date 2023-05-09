@@ -30,7 +30,10 @@ def parse():
 
 @app.route('/individualize', methods=['POST'])
 def individualize():
-    user_boxes = [FlatBox(**box) for box in json.loads(request.form['boxes'])]
+    user_boxes = [FlatBox(code=box['code'],
+                          raw_value=box['raw_value'],
+                          attribution=box['attribution'])
+                  for box in request.json['boxes']]
     valboxes = [ValuedBox.from_flat_box(flatbox, BOX_MAPPING)
                 for flatbox in user_boxes]
     result = simulate_and_individualize(valboxes)
