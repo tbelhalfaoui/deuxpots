@@ -1,9 +1,10 @@
 import json
 import re
 import fitz
+from deuxpots.flatbox import FlatBox, flatten
 
 from deuxpots.tax_calculator import IncomeSheet
-from deuxpots.valued_box import build_valued_box
+from deuxpots.valued_box import ValuedBox
 
 HOUSEHOLD_STATUS_FIELD = "pre_situation_famille"
 HOUSEHOLD_STATUS_VALUES = ['M', 'O', 'D', 'C', 'V']
@@ -99,7 +100,6 @@ def _parse_tax_pdf(pdf_content, family_box_coords):
 def parse_tax_pdf(pdf_content, family_box_coords, box_mapping):
     parsed_sheet = _parse_tax_pdf(pdf_content, family_box_coords)
     _check_and_strip_household_status(parsed_sheet, box_mapping)
-    return [build_valued_box(code=box_code,
-                             raw_value=box_value,
-                             box_mapping=box_mapping)
+    return [ValuedBox.from_flat_box(FlatBox(code=box_code, raw_value=box_value),
+                                        box_mapping=box_mapping)
             for box_code, box_value in parsed_sheet.items()]

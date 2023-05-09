@@ -44,10 +44,10 @@ class ValuedBox:
         if partner_idx == 1:
             return round(self.raw_value * self.attribution)
 
-
-def build_valued_box(code, raw_value, box_mapping, attribution=None):
-    try:
-        box = box_mapping[code]
-    except KeyError:
-        raise UnknownBoxCode(f"La case {code}, trouvée dans la déclaration, est inconnue.")
-    return ValuedBox(box, raw_value=raw_value, attribution=attribution)
+    @staticmethod
+    def from_flat_box(flat_box, box_mapping):
+        try:
+            box = box_mapping[flat_box.code]
+        except KeyError:
+            raise UnknownBoxCode(f"La case {flat_box.code}, trouvée dans la déclaration, est inconnue.")
+        return ValuedBox(box, raw_value=flat_box.raw_value, attribution=flat_box.attribution)

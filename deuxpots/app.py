@@ -1,15 +1,15 @@
 from dataclasses import asdict
 import json
-import logging
 from flask import Flask
 from flask import Flask, request
-import flask
 from flask_cors import CORS
 
 from deuxpots import CERFA_VARIABLES_PATH, FAMILY_BOX_COORDS_PATH
 from deuxpots.box import load_box_mapping
+from deuxpots.flatbox import FlatBox, flatten
 from deuxpots.individualize import simulate_and_individualize
-from deuxpots.pdf_tax_parser import HOUSEHOLD_STATUS_FIELD, HOUSEHOLD_STATUS_VALUES_TOGETHER, load_family_box_coords, parse_tax_pdf
+from deuxpots.pdf_tax_parser import load_family_box_coords, parse_tax_pdf
+from deuxpots.valued_box import ValuedBox
 
 BOX_MAPPING = load_box_mapping(CERFA_VARIABLES_PATH)
 FAMILY_BOX_COORDS = load_family_box_coords(FAMILY_BOX_COORDS_PATH)
@@ -24,24 +24,19 @@ def parse():
     tax_pdf = request.files['tax_pdf'].read()
     valboxes = parse_tax_pdf(tax_pdf, FAMILY_BOX_COORDS, BOX_MAPPING)
     return dict(
-        boxes=[asdict(valbox) for valbox in valboxes]
+        boxes=[asdict(flatten(valbox)) for valbox in valboxes]
     )
 
 
 @app.route('/individualize', methods=['POST'])
 def individualize():
-    user_boxes = json.loads(request.form['boxes'])
-    result = simulate_and_individualize(user_boxes, BOX_MAPPING)
+    user_boxes = [FlatBox(**box) for box in json.loads(request.form['boxes'])]
+    valboxes = [ValuedBox.from_flat_box(flatbox, BOX_MAPPING)
+                for flatbox in user_boxes]
+    result = simulate_and_individualize(valboxes)
     return dict(
         individualized=asdict(result)
     )
-
-def toto():
-    print("***** hello")
-    logging.info('**** This is an info')
-    logging.warning('**** This is a warning')
-    logging.error('**** This is an error')
-    assert False
 
 
 if __name__ == '__main__':

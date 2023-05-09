@@ -2,8 +2,7 @@ from typing import Tuple
 from dataclasses import dataclass
 from deuxpots.pdf_tax_parser import HOUSEHOLD_STATUS_FIELD, HOUSEHOLD_STATUS_VALUES_TOGETHER
 from deuxpots.tax_calculator import build_income_sheet, compute_tax
-
-from deuxpots.valued_box import build_valued_box
+from deuxpots.valued_box import ValuedBox
 
 
 @dataclass
@@ -47,12 +46,7 @@ def _individualize(simu_partner_0, simu_partner_1, simu_together):
     return res
 
 
-def simulate_and_individualize(user_boxes, box_mapping):
-    valboxes = [build_valued_box(code=box['code'],
-                                raw_value=box['raw_value'],
-                                attribution=box['attribution'],
-                                box_mapping=box_mapping)
-                for box in user_boxes]
+def simulate_and_individualize(valboxes):
     simu_results = {}
     for pix in [0, 1, None]:
         income_sheet = build_income_sheet(valboxes, individualize=pix)

@@ -1,5 +1,5 @@
 import json
-from deuxpots.app import app, toto
+from deuxpots.app import app
 
 
 app.config['TESTING'] = True
@@ -12,8 +12,8 @@ def test_parse(tax_sheet_pdf_path):
         )) # multipart/form-data request
         assert res.status_code == 200
         for valbox in res.json['boxes']:
-            assert valbox['box']['code']
-            assert valbox['box']['reference']['description']
+            assert valbox['code']
+            assert valbox['description']
             assert valbox['raw_value']
             assert 'attribution' in valbox  # can be None
 

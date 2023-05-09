@@ -3,7 +3,8 @@ import json
 import pytest
 
 from deuxpots.box import Box, BoxKind, ReferenceBox
-from deuxpots.valued_box import UnknownBoxCode, ValuedBox, build_valued_box
+from deuxpots.flatbox import FlatBox
+from deuxpots.valued_box import UnknownBoxCode, ValuedBox
 
 
 def test_valued_box_partner_0():
@@ -114,21 +115,21 @@ def test_individualize_wrong_partner_id():
         valbox.individualized_value(3)
 
 
-def test_build_valued_box():
+def test_from_flat_box():
     box = Box(
         code="1CC",
         reference=ReferenceBox(code="1AC", description="Salaires et pensions.", type='int'),
         kind=BoxKind.CHILD
     )
-    valbox = build_valued_box(code="1CC", raw_value=1254, box_mapping={"1CC": box}, attribution=.3)
+    valbox = ValuedBox.from_flat_box(FlatBox(code="1CC", raw_value=1254, attribution=.3), box_mapping={"1CC": box})
     assert valbox.box == box
     assert valbox.raw_value == 1254
     assert valbox.attribution == .3
 
 
-def test_build_valued_box_unknown_code():
+def test_from_flat_box_unknown_code():
     with pytest.raises(UnknownBoxCode):
-        build_valued_box(code="ZZ", raw_value=100, box_mapping={}, attribution=.3)
+        ValuedBox.from_flat_box(FlatBox(code="ZZ", raw_value=100, attribution=.3), box_mapping={})
 
 
 def test_serialize_valued_box():
