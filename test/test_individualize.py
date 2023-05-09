@@ -1,8 +1,9 @@
 import pytest
 from deuxpots.individualize import (
-    HouseholdStatusError, IndividualResult, IndividualizedResults,
+    IndividualResult, IndividualizedResults,
     _individualize, simulate_and_individualize
 )
+from deuxpots.pdf_tax_parser import HouseholdStatusError
 from deuxpots.tax_calculator import SimulatorResult
 
 
@@ -36,39 +37,22 @@ def test__individualize():
 
 
 def test_simulate_and_individualize(box_mapping):
-    parsed_sheeet = {
-        'pre_situation_famille': 'M',
-        '1AJ': 40000,
-        '1BJ': 20000,
-        # '1CJ': 300,
-        # '1DJ': 400,
-        '2DC': 350,
-        '8HV': 700, 
-        '8IV': 7000,
-        '8HW': 600,
-    }
-    user_ratios = {
-        '2DC': 0,
-        # '1CJ': 0,
-        # '1DJ': .3,
-    }
-    result = simulate_and_individualize(parsed_sheeet, user_ratios, box_mapping)
-    assert result['individualized'].partners[0].remains_to_pay > 1000
-    assert result['individualized'].partners[1].remains_to_pay < 4000
+    user_boxes = [
+        {'code': '1AJ', 'raw_value': 40000, 'ratio_0': 1},
+        {'code': '1BJ', 'raw_value': 20000, 'ratio_0': 0},
+        {'code': '2DC', 'raw_value': 350, 'ratio_0': 0},
+        {'code': '8HV', 'raw_value': 700, 'ratio_0': .9},
+        {'code': '8IV', 'raw_value': 7000, 'ratio_0': .1},
+        {'code': '8HW', 'raw_value': 600, 'ratio_0': 1},
+    ]
+    result = simulate_and_individualize(user_boxes, box_mapping)
+    assert result.partners[0].remains_to_pay > 1000
+    assert result.partners[1].remains_to_pay < 4000
 
 
-def test_simulate_and_individualize_user_input_needed(box_mapping):
-    parsed_sheeet = {
-        'pre_situation_famille': 'O',
-        '1AJ': 40000,
-        '1BJ': 20000,
-        '2DC': 350,
-    }
-    result = simulate_and_individualize(parsed_sheeet, {}, box_mapping)
-    assert not result.get('individualized')
-
-
-@pytest.mark.parametrize('parsed_sheeet', [{}, {'AD': 1}, {'AC': 1}, {'AV': 1}, {'AM': 1, 'AO': 1}])
-def test_simulate_and_individualize_bad_household_status(parsed_sheeet, box_mapping):
-    with pytest.raises(HouseholdStatusError):
-        simulate_and_individualize(parsed_sheeet, {}, box_mapping)
+def test_simulate_and_individualize_missing_ratio(box_mapping):
+    user_boxes = [
+        {'code': '2DC', 'raw_value': 3, 'ratio_0': None},
+    ]
+    with pytest.raises(AssertionError):
+        simulate_and_individualize(user_boxes, box_mapping)

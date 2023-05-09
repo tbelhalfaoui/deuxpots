@@ -1,7 +1,9 @@
+from dataclasses import asdict
+import json
 import pytest
 
 from deuxpots.box import Box, BoxKind, ReferenceBox
-from deuxpots.valued_box import ValuedBox, build_valued_box
+from deuxpots.valued_box import UnknownBoxCode, ValuedBox, build_valued_box
 
 
 def test_valued_box_partner_0():
@@ -122,3 +124,21 @@ def test_build_valued_box():
     assert valbox.box == box
     assert valbox.raw_value == 1254
     assert valbox.ratio_0 == .3
+
+
+def test_build_valued_box_unknown_code():
+    with pytest.raises(UnknownBoxCode):
+        build_valued_box(code="ZZ", raw_value=100, box_mapping={}, ratio_0=.3)
+
+
+def test_serialize_valued_box():
+    valbox = ValuedBox(
+        box=Box(
+            code="6FL",
+            reference=ReferenceBox(code="6FL", description="Deficits globaux.", type='int'),
+            kind=BoxKind.PARTNER_0
+        ),
+        ratio_0=.3,
+        raw_value=800,
+    )
+    assert json.dumps(asdict(valbox))

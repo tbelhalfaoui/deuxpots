@@ -1,14 +1,14 @@
 import json
-from enum import Enum
+from enum import StrEnum
 
 from dataclasses import dataclass
 
 
-class BoxKind(Enum):
-    COMMON = 1
-    PARTNER_0 = 2
-    PARTNER_1 = 3
-    CHILD = 4
+class BoxKind(StrEnum):
+    COMMON = 'commmon'
+    PARTNER_0 = 'partner_0'
+    PARTNER_1 = 'partner_1'
+    CHILD = 'child'
 
 
 @dataclass

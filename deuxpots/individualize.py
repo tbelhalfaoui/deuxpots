@@ -47,39 +47,16 @@ def _individualize(simu_partner_0, simu_partner_1, simu_together):
     return res
 
 
-class HouseholdStatusError(BaseException):
-    pass
-
-
-def _check_and_strip_household_status(income_sheet, box_mapping):
-    status = income_sheet.get(HOUSEHOLD_STATUS_FIELD, 'aucun')
-    if status not in HOUSEHOLD_STATUS_VALUES_TOGETHER:
-        raise HouseholdStatusError(f"La feuille d'impôt à individualiser doit être commune "
-                                   f"(marié·e ou pacsé·e). Le statut détecté est : {status}.")
-    del income_sheet[HOUSEHOLD_STATUS_FIELD]
-
-
-def simulate_and_individualize(parsed_sheeet, user_ratios, box_mapping):
-    _check_and_strip_household_status(parsed_sheeet, box_mapping)
-    valboxes = [build_valued_box(code=box_code,
-                                 raw_value=box_value,
-                                 ratio_0=user_ratios.get(box_code),
-                                 box_mapping=box_mapping)
-                for box_code, box_value in parsed_sheeet.items()]
-
+def simulate_and_individualize(user_boxes, box_mapping):
+    valboxes = [build_valued_box(code=box['code'],
+                                raw_value=box['raw_value'],
+                                ratio_0=box['ratio_0'],
+                                box_mapping=box_mapping)
+                for box in user_boxes]
     simu_results = {}
     for pix in [0, 1, None]:
         income_sheet = build_income_sheet(valboxes, individualize=pix)
-        if income_sheet is None:
-            break
         simu_results[pix] = compute_tax(income_sheet)
-    if len(simu_results) != 3:
-        return dict(boxes=valboxes)
-    
-    results = _individualize(simu_partner_0=simu_results[0],
-                            simu_partner_1=simu_results[1],
-                            simu_together=simu_results[None])
-    return dict(
-        boxes=valboxes,
-        individualized=results
-    )
+    return _individualize(simu_partner_0=simu_results[0],
+                          simu_partner_1=simu_results[1],
+                          simu_together=simu_results[None])

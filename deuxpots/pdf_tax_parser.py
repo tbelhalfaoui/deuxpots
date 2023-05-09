@@ -3,6 +3,7 @@ import re
 import fitz
 
 from deuxpots.tax_calculator import IncomeSheet
+from deuxpots.valued_box import build_valued_box
 
 HOUSEHOLD_STATUS_FIELD = "pre_situation_famille"
 HOUSEHOLD_STATUS_VALUES = ['M', 'O', 'D', 'C', 'V']
@@ -10,6 +11,10 @@ HOUSEHOLD_STATUS_VALUES_TOGETHER = {'M', 'O'}  # marriage or civil union
 
 
 class TaxSheetParsingError(BaseException):
+    pass
+
+
+class HouseholdStatusError(BaseException):
     pass
 
 
@@ -72,7 +77,15 @@ def _extract_income_fields(fitz_doc):
             yield from _parse_line(line)
 
 
-def parse_tax_pdf(pdf_content, family_box_coords):
+def _check_and_strip_household_status(income_sheet, box_mapping):
+    status = income_sheet.get(HOUSEHOLD_STATUS_FIELD)
+    if status not in HOUSEHOLD_STATUS_VALUES_TOGETHER:
+        raise HouseholdStatusError(f"La feuille d'impôt à individualiser doit être commune (marié·e ou pacsé·e). "
+                                   f"Le statut détecté est : {box_mapping.get(status, 'aucun')}.")
+    del income_sheet[HOUSEHOLD_STATUS_FIELD]
+
+
+def _parse_tax_pdf(pdf_content, family_box_coords):
     income_sheet = IncomeSheet()
     with fitz.open(stream=pdf_content) as fitz_doc:
         for box_code, box_value in _extract_income_fields(fitz_doc):
@@ -81,3 +94,12 @@ def parse_tax_pdf(pdf_content, family_box_coords):
             income_sheet[box_code] = box_value
     _agregate_household_status(income_sheet)
     return income_sheet
+
+
+def parse_tax_pdf(pdf_content, family_box_coords, box_mapping):
+    parsed_sheet = _parse_tax_pdf(pdf_content, family_box_coords)
+    _check_and_strip_household_status(parsed_sheet, box_mapping)
+    return [build_valued_box(code=box_code,
+                             raw_value=box_value,
+                             box_mapping=box_mapping)
+            for box_code, box_value in parsed_sheet.items()]

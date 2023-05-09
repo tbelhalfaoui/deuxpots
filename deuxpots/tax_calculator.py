@@ -30,8 +30,6 @@ class SimulatorError(BaseException):
 
 def _simulator_api(income_sheet):
     resp = rq.post(SIMULATOR_URL, data=income_sheet)
-    with open('impots.html', 'w+') as f:
-        f.write(resp.text)
     resp.raise_for_status()
     soup = BeautifulSoup(resp.text, features="html.parser")
     inputs = soup.select('input[type=hidden]')
@@ -62,8 +60,7 @@ def compute_tax(income_sheet: IncomeSheet) -> SimulatorResult:
 
 
 def build_income_sheet(valboxes, individualize=None):
-    if any(valbox.ratio_0 is None for valbox in valboxes):
-        return
+    assert all(valbox.ratio_0 is not None for valbox in valboxes)
     if individualize is None:
         sheet = IncomeSheet({
             '0DA': '1950',

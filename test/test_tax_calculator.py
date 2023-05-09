@@ -148,17 +148,17 @@ def valboxes():
 
 
 def test_build_income_sheet_missing_ratio():
-    income_sheet = build_income_sheet([
-        ValuedBox(
-            box=Box(
-                code="6FL",
-                reference=ReferenceBox(code="6FL", description="Deficits globaux.", type="int"),
-                kind=BoxKind.COMMON
-            ),
-            raw_value=1000
-        )
-    ], individualize=0)
-    assert income_sheet is None
+    with pytest.raises(AssertionError):
+        build_income_sheet([
+            ValuedBox(
+                box=Box(
+                    code="6FL",
+                    reference=ReferenceBox(code="6FL", description="Deficits globaux.", type="int"),
+                    kind=BoxKind.COMMON
+                ),
+                raw_value=1000
+            )
+        ], individualize=0)
 
 
 def test_build_income_sheet_partner_0(valboxes):

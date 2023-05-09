@@ -1,45 +1,47 @@
 from dataclasses import asdict
 import json
+import logging
 from flask import Flask
 from flask import Flask, request
 import flask
-from deuxpots import CERFA_VARIABLES_PATH, FAMILY_BOX_COORDS_PATH
+from flask_cors import CORS
 
+from deuxpots import CERFA_VARIABLES_PATH, FAMILY_BOX_COORDS_PATH
 from deuxpots.box import load_box_mapping
 from deuxpots.individualize import simulate_and_individualize
-from deuxpots.pdf_tax_parser import load_family_box_coords, parse_tax_pdf
+from deuxpots.pdf_tax_parser import HOUSEHOLD_STATUS_FIELD, HOUSEHOLD_STATUS_VALUES_TOGETHER, load_family_box_coords, parse_tax_pdf
 
 BOX_MAPPING = load_box_mapping(CERFA_VARIABLES_PATH)
 FAMILY_BOX_COORDS = load_family_box_coords(FAMILY_BOX_COORDS_PATH)
 
 
 app = Flask("deuxpots")
+CORS(app, CORS_ALLOW_HEADERS="*")
+
+
+@app.route('/parse', methods=['POST'])
+def parse():
+    tax_pdf = request.files['tax_pdf'].read()
+    valboxes = parse_tax_pdf(tax_pdf, FAMILY_BOX_COORDS, BOX_MAPPING)
+    return dict(
+        boxes=[asdict(valbox) for valbox in valboxes]
+    )
 
 
 @app.route('/individualize', methods=['POST'])
 def individualize():
     user_boxes = json.loads(request.form['boxes'])
-    tax_pdf = request.files['tax_pdf'].read()
-    parsed_sheeet = parse_tax_pdf(tax_pdf, FAMILY_BOX_COORDS)
-    user_ratios = {box['code']: box['ratio_0'] for box in user_boxes}
-    result = simulate_and_individualize(parsed_sheeet, user_ratios, BOX_MAPPING)
-    response = dict(
-        boxes=list(map(serialize_box, result['boxes'])),
-        individualized=asdict(result['individualized']) if result.get('individualized') else None
-    )
-    response = flask.jsonify(response)
-    response.headers.add('Access-Control-Allow-Origin', '*')
-    return response
-
-def serialize_box(valbox):
+    result = simulate_and_individualize(user_boxes, BOX_MAPPING)
     return dict(
-        code=valbox.box.code,
-        description=valbox.box.reference.description,
-        raw_value=valbox.raw_value,
-        ratio_0=valbox.ratio_0,
-        partner_0_value=valbox.individualized_value(0),
-        partner_1_value=valbox.individualized_value(1),
+        individualized=asdict(result)
     )
+
+def toto():
+    print("***** hello")
+    logging.info('**** This is an info')
+    logging.warning('**** This is a warning')
+    logging.error('**** This is an error')
+    assert False
 
 
 if __name__ == '__main__':
