@@ -3,7 +3,7 @@ from typing import Optional
 from deuxpots.box import Box, BoxKind
 
 
-DEFAUT_RATIO_FROM_KIND = {
+DEFAUT_ATTRIBUTION_FROM_KIND = {
     BoxKind.PARTNER_0: 0,
     BoxKind.PARTNER_1: 1,
 }
@@ -17,37 +17,37 @@ class UnknownBoxCode(KeyError):
 class ValuedBox:
     box: Box
     raw_value: int = None
-    ratio: float = None
+    attribution: float = None
 
     def __post_init__(self):
         """
-        Automatically set the ratio for PARTNER_i boxes.
+        Automatically set the attribution for PARTNER_i boxes.
         For CHILD and COMMON boxes, let the user decide (return None).
 
-        The ratio for the second partner (partner 1).
+        The attribution for the second partner (partner 1).
         Example:
-            * ratio = 0 means "100% for partner 0".
-            * ratio = 1 means "100% for partner 1".
-            * ratio = .2 means "20% for partner 1 and 80% for partner 0".
+            * attribution = 0 means "100% for partner 0".
+            * attribution = 1 means "100% for partner 1".
+            * attribution = .2 means "20% for partner 1 and 80% for partner 0".
         
         """
         
-        if self.ratio is None:
-            self.ratio = DEFAUT_RATIO_FROM_KIND.get(self.box.kind)
+        if self.attribution is None:
+            self.attribution = DEFAUT_ATTRIBUTION_FROM_KIND.get(self.box.kind)
     
     def individualized_value(self, partner_idx) -> Optional[int]:
         assert partner_idx in {0, 1}
-        if self.ratio is None:
+        if self.attribution is None:
             return
         if partner_idx == 0:
-            return round(self.raw_value * (1 - self.ratio))
+            return round(self.raw_value * (1 - self.attribution))
         if partner_idx == 1:
-            return round(self.raw_value * self.ratio)
+            return round(self.raw_value * self.attribution)
 
 
-def build_valued_box(code, raw_value, box_mapping, ratio=None):
+def build_valued_box(code, raw_value, box_mapping, attribution=None):
     try:
         box = box_mapping[code]
     except KeyError:
         raise UnknownBoxCode(f"La case {code}, trouvée dans la déclaration, est inconnue.")
-    return ValuedBox(box, raw_value=raw_value, ratio=ratio)
+    return ValuedBox(box, raw_value=raw_value, attribution=attribution)

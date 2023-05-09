@@ -38,21 +38,21 @@ def test__individualize():
 
 def test_simulate_and_individualize(box_mapping):
     user_boxes = [
-        {'code': '1AJ', 'raw_value': 40000, 'ratio': 0},
-        {'code': '1BJ', 'raw_value': 20000, 'ratio': 1},
-        {'code': '2DC', 'raw_value': 350, 'ratio': 1},
-        {'code': '8HV', 'raw_value': 700, 'ratio': .1},
-        {'code': '8IV', 'raw_value': 7000, 'ratio': .9},
-        {'code': '8HW', 'raw_value': 600, 'ratio': 0},
+        {'code': '1AJ', 'raw_value': 40000, 'attribution': 0},
+        {'code': '1BJ', 'raw_value': 20000, 'attribution': 1},
+        {'code': '2DC', 'raw_value': 350, 'attribution': 1},
+        {'code': '8HV', 'raw_value': 700, 'attribution': .1},
+        {'code': '8IV', 'raw_value': 7000, 'attribution': .9},
+        {'code': '8HW', 'raw_value': 600, 'attribution': 0},
     ]
     result = simulate_and_individualize(user_boxes, box_mapping)
     assert result.partners[0].remains_to_pay > 1000
     assert result.partners[1].remains_to_pay < 4000
 
 
-def test_simulate_and_individualize_missing_ratio(box_mapping):
+def test_simulate_and_individualize_missing_attribution(box_mapping):
     user_boxes = [
-        {'code': '2DC', 'raw_value': 3, 'ratio': None},
+        {'code': '2DC', 'raw_value': 3, 'attribution': None},
     ]
     with pytest.raises(AssertionError):
         simulate_and_individualize(user_boxes, box_mapping)

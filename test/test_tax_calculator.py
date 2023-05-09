@@ -97,7 +97,7 @@ def valboxes():
                 kind=BoxKind.PARTNER_1
             ),
             raw_value=200,
-            ratio=1,
+            attribution=1,
         ),
         ValuedBox(
             box=Box(
@@ -106,7 +106,7 @@ def valboxes():
                 kind=BoxKind.PARTNER_0
             ),
             raw_value=100,
-            ratio=0,
+            attribution=0,
         ),
         ValuedBox(
             box=Box(
@@ -115,7 +115,7 @@ def valboxes():
                 kind=BoxKind.COMMON
             ),
             raw_value=1000,
-            ratio=.55
+            attribution=.55
         ),
         ValuedBox(
             box=Box(
@@ -124,7 +124,7 @@ def valboxes():
                 kind=BoxKind.CHILD
             ),
             raw_value=100,
-            ratio=.8
+            attribution=.8
         ),
         ValuedBox(
             box=Box(
@@ -133,7 +133,7 @@ def valboxes():
                 kind=BoxKind.CHILD
             ),
             raw_value=400,
-            ratio=.4
+            attribution=.4
         ),
         ValuedBox(
             box=Box(
@@ -142,12 +142,12 @@ def valboxes():
                 kind=BoxKind.COMMON
             ),
             raw_value=1,
-            ratio=1,
+            attribution=1,
         )
     ]
 
 
-def test_build_income_sheet_missing_ratio():
+def test_build_income_sheet_missing_attribution():
     with pytest.raises(AssertionError):
         build_income_sheet([
             ValuedBox(

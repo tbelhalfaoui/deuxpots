@@ -13,17 +13,17 @@ export const TaxBoxesPanel = ({boxes, setBoxes, setStep}) => {
             value = "";
         }
         let boxesNew = { ...boxes };
-        boxesNew[boxCode].ratio = 1 - value / boxesNew[boxCode].raw_value;
-        boxesNew[boxCode]['partner_0_value'] = Math.round(boxesNew[boxCode]['ratio'] * boxesNew[boxCode]['raw_value']);
-        boxesNew[boxCode]['partner_1_value'] = Math.round((1 - boxesNew[boxCode]['ratio']) * boxesNew[boxCode]['raw_value']);
+        boxesNew[boxCode].attribution = 1 - value / boxesNew[boxCode].raw_value;
+        boxesNew[boxCode]['partner_0_value'] = Math.round(boxesNew[boxCode]['attribution'] * boxesNew[boxCode]['raw_value']);
+        boxesNew[boxCode]['partner_1_value'] = Math.round((1 - boxesNew[boxCode]['attribution']) * boxesNew[boxCode]['raw_value']);
         setBoxes(boxesNew);
     }
 
     const initializeBoxValues = () => {
         // let boxesNew = { ...boxes };
-        // boxesNew[boxCode]['partner_0_value'] = Math.round(boxesNew[boxCode]['ratio'] * boxesNew[boxCode]['raw_value']);
-        // boxesNew[boxCode]['partner_1_value'] = Math.round((1 - boxesNew[boxCode]['ratio']) * boxesNew[boxCode]['raw_value']);
-        // boxesNew[boxCode]['ratio'] = boxesNew[boxCode]['partner_0_value'] / boxesNew[boxCode]['raw_value'];
+        // boxesNew[boxCode]['partner_0_value'] = Math.round(boxesNew[boxCode]['attribution'] * boxesNew[boxCode]['raw_value']);
+        // boxesNew[boxCode]['partner_1_value'] = Math.round((1 - boxesNew[boxCode]['attribution']) * boxesNew[boxCode]['raw_value']);
+        // boxesNew[boxCode]['attribution'] = boxesNew[boxCode]['partner_0_value'] / boxesNew[boxCode]['raw_value'];
         // setBoxes(boxesNew);
     }
 
@@ -36,25 +36,25 @@ export const TaxBoxesPanel = ({boxes, setBoxes, setStep}) => {
                 boxesNew[boxCode]['partner_1_value'] = Math.round(boxesNew[boxCode]['raw_value'] - boxesNew[boxCode]['partner_0_value']);
             }
             else {
-                boxesNew[boxCode]['partner_1_value'] = Math.round((1 - boxesNew[boxCode]['ratio']) * boxesNew[boxCode]['raw_value']);
+                boxesNew[boxCode]['partner_1_value'] = Math.round((1 - boxesNew[boxCode]['attribution']) * boxesNew[boxCode]['raw_value']);
                 boxesNew[boxCode]['raw_value'] = Math.round(boxesNew[boxCode]['partner_0_value'] + boxesNew[boxCode]['partner_1_value']);
             }
-            boxesNew[boxCode]['ratio'] = boxesNew[boxCode]['partner_0_value'] / boxesNew[boxCode]['raw_value'];
+            boxesNew[boxCode]['attribution'] = boxesNew[boxCode]['partner_0_value'] / boxesNew[boxCode]['raw_value'];
         }
         else if (fieldName == 'partner_1_value') {
             if (!unlockTotals) {
                 boxesNew[boxCode]['partner_0_value'] = Math.round(boxesNew[boxCode]['raw_value'] - boxesNew[boxCode]['partner_1_value']);
             }
             else {
-                boxesNew[boxCode]['partner_0_value'] = Math.round(boxesNew[boxCode]['ratio'] * boxesNew[boxCode]['raw_value']);
+                boxesNew[boxCode]['partner_0_value'] = Math.round(boxesNew[boxCode]['attribution'] * boxesNew[boxCode]['raw_value']);
                 boxesNew[boxCode]['raw_value'] = Math.round(boxesNew[boxCode]['partner_0_value'] + boxesNew[boxCode]['partner_1_value']);
             }
-            boxesNew[boxCode]['ratio'] = boxesNew[boxCode]['partner_0_value'] / boxesNew[boxCode]['raw_value'];
+            boxesNew[boxCode]['attribution'] = boxesNew[boxCode]['partner_0_value'] / boxesNew[boxCode]['raw_value'];
         }
         if (fieldName == 'raw_value') {
-            boxesNew[boxCode]['partner_0_value'] = Math.round(boxesNew[boxCode]['ratio'] * boxesNew[boxCode]['raw_value']);
-            boxesNew[boxCode]['partner_1_value'] = Math.round((1 - boxesNew[boxCode]['ratio']) * boxesNew[boxCode]['raw_value']);
-            boxesNew[boxCode]['ratio'] = boxesNew[boxCode]['partner_0_value'] / boxesNew[boxCode]['raw_value'];
+            boxesNew[boxCode]['partner_0_value'] = Math.round(boxesNew[boxCode]['attribution'] * boxesNew[boxCode]['raw_value']);
+            boxesNew[boxCode]['partner_1_value'] = Math.round((1 - boxesNew[boxCode]['attribution']) * boxesNew[boxCode]['raw_value']);
+            boxesNew[boxCode]['attribution'] = boxesNew[boxCode]['partner_0_value'] / boxesNew[boxCode]['raw_value'];
         }        
         setBoxes(boxesNew);
     }

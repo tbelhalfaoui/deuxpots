@@ -17,7 +17,7 @@ def test_valued_box_partner_0():
     )
     assert valbox.individualized_value(0) == 300
     assert valbox.individualized_value(1) == 0
-    valbox.ratio = .7
+    valbox.attribution = .7
     assert valbox.individualized_value(0) == 90
     assert valbox.individualized_value(1) == 210
 
@@ -32,7 +32,7 @@ def test_valued_box_partner_1():
     )
     assert valbox.individualized_value(0) == 0
     assert valbox.individualized_value(1) == 1000
-    valbox.ratio = .6
+    valbox.attribution = .6
     assert valbox.individualized_value(0) == 400
     assert valbox.individualized_value(1) == 600
 
@@ -48,7 +48,7 @@ def test_valued_box_common():
     )
     assert valbox.individualized_value(0) is None
     assert valbox.individualized_value(1) is None
-    valbox.ratio = .3
+    valbox.attribution = .3
     assert valbox.individualized_value(0) == 560
     assert valbox.individualized_value(1) == 240
 
@@ -64,7 +64,7 @@ def test_valued_box_child():
     )
     assert valbox.individualized_value(0) is None
     assert valbox.individualized_value(1) is None
-    valbox.ratio = 1
+    valbox.attribution = 1
     assert valbox.individualized_value(0) == 0
     assert valbox.individualized_value(1) == 73229
 
@@ -80,7 +80,7 @@ def test_valued_box_partner_0_boolean():
     )
     assert valbox.individualized_value(0) == 1
     assert valbox.individualized_value(1) == 0
-    valbox.ratio = .8
+    valbox.attribution = .8
     assert valbox.individualized_value(0) == 0
     assert valbox.individualized_value(1) == 1
 
@@ -96,7 +96,7 @@ def test_valued_box_common_boolean():
     )
     assert valbox.individualized_value(0) is None
     assert valbox.individualized_value(1) is None
-    valbox.ratio = .8
+    valbox.attribution = .8
     assert valbox.individualized_value(0) == 0
     assert valbox.individualized_value(1) == 1
 
@@ -120,15 +120,15 @@ def test_build_valued_box():
         reference=ReferenceBox(code="1AC", description="Salaires et pensions.", type='int'),
         kind=BoxKind.CHILD
     )
-    valbox = build_valued_box(code="1CC", raw_value=1254, box_mapping={"1CC": box}, ratio=.3)
+    valbox = build_valued_box(code="1CC", raw_value=1254, box_mapping={"1CC": box}, attribution=.3)
     assert valbox.box == box
     assert valbox.raw_value == 1254
-    assert valbox.ratio == .3
+    assert valbox.attribution == .3
 
 
 def test_build_valued_box_unknown_code():
     with pytest.raises(UnknownBoxCode):
-        build_valued_box(code="ZZ", raw_value=100, box_mapping={}, ratio=.3)
+        build_valued_box(code="ZZ", raw_value=100, box_mapping={}, attribution=.3)
 
 
 def test_serialize_valued_box():
@@ -138,7 +138,7 @@ def test_serialize_valued_box():
             reference=ReferenceBox(code="6FL", description="Deficits globaux.", type='int'),
             kind=BoxKind.PARTNER_0
         ),
-        ratio=.7,
+        attribution=.7,
         raw_value=800,
     )
     assert json.dumps(asdict(valbox))

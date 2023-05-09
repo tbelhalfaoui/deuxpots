@@ -21,7 +21,7 @@ export const PdfSubmitForm = ({setBoxes, setStep}) => {
             ).map(box => [box.code, {
               ...box,
               original_raw_value: box.raw_value,
-              original_ratio: box.ratio,
+              original_attribution: box.attribution,
             }])
           )
         ).then(

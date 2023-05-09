@@ -44,7 +44,7 @@ def expected_parsed_raw_values():
 
 
 @pytest.fixture
-def expected_parsed_ratios():
+def expected_parsed_attributions():
     return {
             'pre_situation_famille': 'M',
             '8HV': 1,
@@ -71,14 +71,14 @@ def test__parse_tax_pdf(tax_sheet_pdf_path, expected_parsed_raw_values, family_b
     assert parsed_sheet == IncomeSheet(expected_parsed_raw_values)
 
 
-def test_parse_tax_pdf(tax_sheet_pdf_path, expected_parsed_raw_values, expected_parsed_ratios,
+def test_parse_tax_pdf(tax_sheet_pdf_path, expected_parsed_raw_values, expected_parsed_attributions,
                        family_box_coords, box_mapping):
     with tax_sheet_pdf_path.open("rb") as f:
         pdf_content = f.read()
     valboxes = parse_tax_pdf(pdf_content, family_box_coords, box_mapping)
     for valbox in valboxes:
         valbox.raw_value == expected_parsed_raw_values[valbox.box.code]
-        valbox.ratio == expected_parsed_ratios[valbox.box.code]
+        valbox.attribution == expected_parsed_attributions[valbox.box.code]
 
 
 @pytest.mark.parametrize('status', ['O', 'M'])
