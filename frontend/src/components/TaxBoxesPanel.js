@@ -1,12 +1,16 @@
 import { useState } from "react"
 import { useForm } from "react-hook-form";
 import { TaxBox } from './TaxBox.js'
+import { SubmitButton } from './SubmitButton.js'
 
 
 export const TaxBoxesPanel = ({ boxes, setBoxes, setStep, setIndividualizedResults }) => {
 
     const [ showAutoFilled, setShowAutoFilled ] = useState(false);
     const [ unlockTotals, setUnlockTotals ] = useState(false);
+    const [errorMsg, setErrorMsg] = useState();
+    const [isLoading, setIsLoading] = useState(false);
+
 
     const onSliderChange = async (evt) => {
         var value = evt.target.value;
@@ -69,6 +73,8 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setStep, setIndividualizedResul
 
     const fetchIndividualizedResults = async (evt) => {
         evt.preventDefault();
+        setIsLoading(true);
+
         await fetch("http://localhost:8888/individualize", {
             method: "POST",
             body: JSON.stringify({'boxes': Object.values(boxes)}),
@@ -78,20 +84,34 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setStep, setIndividualizedResul
                 'Accept':'application/json'
             }
         }).then(
+            res => (!res.ok) ? res.text().then(text => {throw new Error(text)}) : res
+        ).then(
           res => res.json()
         ).then(
-            data => {console.log(data.individualized); setIndividualizedResults(data.individualized);}
+            data => setIndividualizedResults(data.individualized)
         ).then(
-          setStep(3)
+          () => setStep(3) || setErrorMsg(null)
+        ).catch(
+            e => setErrorMsg(e)
+        ).finally(
+            () => setIsLoading(false)
         )
     };
     
     return (
         <form method="POST" onSubmit={fetchIndividualizedResults}>
             <div id="containerStep2" class="container py-2 text-start">
-                <div class="text-center">
-                    <input type="submit" class="btn btn-primary" />
-                </div>
+                {errorMsg && 
+                (<div class="alert alert-danger" role="alert">
+                    {errorMsg.message}
+                </div>)}
+                {!boxes &&
+                (<div class="text-center">
+                    <div class="spinner-border" role="status">
+                        <span class="sr-only"></span>
+                    </div>
+                </div>)}
+                <SubmitButton isLoading={isLoading} />
                 <div>
                     <div>
                         <div class="form-check form-switch py-2">
@@ -114,9 +134,7 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setStep, setIndividualizedResul
                             ))}
                     </div>
                 </div>
-                <div class="text-center">
-                    <input type="submit" class="btn btn-primary" />
-                </div>
+                <SubmitButton isLoading={isLoading} />
             </div>
         </form>
     );

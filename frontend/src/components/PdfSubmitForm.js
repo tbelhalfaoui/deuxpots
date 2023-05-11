@@ -1,10 +1,17 @@
 import { useForm } from "react-hook-form";
+import React, { useState } from "react"
+import { SubmitButton } from "./SubmitButton";
 
 
-export const PdfSubmitForm = ({setBoxes, setStep}) => {
+export const PdfSubmitForm = ({setBoxes, setStep, isError}) => {
     const { register, handleSubmit } = useForm();
+    const [errorMsg, setErrorMsg] = useState();
+    const [isLoading, setIsLoading] = useState(false);
+
 
     const sendTaxSheet = async (data) => {
+        setIsLoading(true);
+
         const formData = new FormData();
         formData.append("tax_pdf", data.file[0]);
         await fetch("http://localhost:8888/parse", {
@@ -12,7 +19,9 @@ export const PdfSubmitForm = ({setBoxes, setStep}) => {
             body: formData,
             mode: 'cors',
         }).then(
-          res => res.json()
+          res => (!res.ok) ? res.text().then(text => {throw new Error(text)}) : res
+        ).then(
+          res => res.json(),
         ).then(
           data => Object.fromEntries(
             data.boxes.sort(
@@ -29,19 +38,27 @@ export const PdfSubmitForm = ({setBoxes, setStep}) => {
         ).then(
           setBoxes
         ).then(
-          setStep(2)
-        )
+          () => setErrorMsg(null) || setStep(2)
+        ).catch(
+          e => setErrorMsg(e)
+        ).finally(
+          () => setIsLoading(false)
+        );
     }
 
     return (
         <form onSubmit={handleSubmit(sendTaxSheet)}>
-        <div class="container py-4 text-center" id="containerStep1">
+          {errorMsg && 
+          (<div class="alert alert-danger" role="alert">
+            {errorMsg.message}
+          </div>)}
+          <div class="container py-4 text-center" id="containerStep1">
            <div class="row gx-10 justify-content-center">
              <div class="col-4">
                <input type="file" class="form-control" {...register("file")} />
              </div>
-             <div class="col-1">
-               <input type="submit" class="btn btn-primary" />
+             <div class="col-2">
+              <SubmitButton isLoading={isLoading} />
              </div>
            </div>
           </div>
