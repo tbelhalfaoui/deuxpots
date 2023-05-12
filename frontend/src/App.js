@@ -12,9 +12,9 @@ function App() {
   const [individualizedResults, setIndividualizedResults] = useState();
   const [step, setStep] = useState(1);
   const [maxStep, setMaxStep] = useState(1);
-
+  
   return (
-      <div class="container">
+      <div class="container py-4">
         <Header />
         <Accordion>
           <AccordionStepItem title="1. Sélectionnez le fichier PDF de votre déclaration commune."

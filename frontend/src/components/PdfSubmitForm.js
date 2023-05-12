@@ -14,7 +14,7 @@ export const PdfSubmitForm = ({setBoxes, setStep, isError}) => {
         
         const formData = new FormData();
         formData.append("tax_pdf", evt.target.files[0]);
-        await fetch("http://localhost:8888/parse", {
+        await fetch(`${process.env.REACT_APP_API_URL}/parse`, {
             method: "POST",
             body: formData,
             mode: 'cors',

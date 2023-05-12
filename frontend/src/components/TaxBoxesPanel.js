@@ -86,7 +86,7 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setStep, setIndividualizedResul
         setErrorMsg(null);
         setIsLoading(true);
 
-        await fetch("http://localhost:8888/individualize", {
+        await fetch(`${process.env.REACT_APP_API_URL}/individualize`, {
             method: "POST",
             body: JSON.stringify({'boxes': Object.values(boxes)}),
             mode: 'cors',

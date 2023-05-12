@@ -24,10 +24,32 @@ déclaration d'impôt (relatives à la situation familiale), est construit à la
 [Labelme](https://github.com/wkentaro/labelme), en utilisant l'image d'exemple `family_page.png`.
 
 
-### API Python
+### Lancement de l'application
 
-Pour lancer l'API Python :
+#### Backend
+Depuis le dossier `backend` (et de préférence dans un environnement virtuel) :
+
+Installer les dépendances :
 ```bash
-flask --app deuxpots/app.py run --debug --port 8888
+pip install -r requirements.txt
+pip install -r requirements_dev.txt
+```
+NB : A cause d'une incompatibilité de version de NumPy, il faut installer `openfisca-core` puis `openfisca` manuellement depuis leurs dépôts Git respectifs, en supprimant la version de NumPy dans leur fichier `requirements.txt`.
+
+Pour lancer l'API Python (en mode développement) :
+```bash
+flask --app deuxpots/app.py run --debug --port 8080
 ```
 
+#### Frontend
+Depuis le dossier `frontend`:
+
+Installer les dépendances :
+```bash
+npm install
+```
+
+Lancer le frontend (en mode développement):
+```bash
+npm run start
+```

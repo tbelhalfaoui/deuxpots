@@ -1,0 +1,12 @@
+# Generic
+.git
+.DS_Store
+.vscode
+
+# Backend
+backend/venv
+.pytest_cache
+**/*.pyc
+
+# Frontend
+frontend/node_modules
