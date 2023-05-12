@@ -28,7 +28,7 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setStep, setIndividualizedResul
         let boxesNew = { ...boxes };
         boxesNew[boxCode][fieldName] = value;
         
-        if (fieldName == 'partner_0_value') {
+        if (fieldName === 'partner_0_value') {
             if (!unlockTotals) {
                 boxesNew[boxCode]['partner_1_value'] = Math.round(boxesNew[boxCode]['raw_value'] - boxesNew[boxCode]['partner_0_value']);
             }
@@ -38,7 +38,7 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setStep, setIndividualizedResul
             }
             boxesNew[boxCode]['attribution'] = boxesNew[boxCode]['partner_1_value'] / boxesNew[boxCode]['raw_value'];
         }
-        else if (fieldName == 'partner_1_value') {
+        else if (fieldName === 'partner_1_value') {
             if (!unlockTotals) {
                 boxesNew[boxCode]['partner_0_value'] = Math.round(boxesNew[boxCode]['raw_value'] - boxesNew[boxCode]['partner_1_value']);
             }
@@ -48,7 +48,7 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setStep, setIndividualizedResul
             }
             boxesNew[boxCode]['attribution'] = boxesNew[boxCode]['partner_1_value'] / boxesNew[boxCode]['raw_value'];
         }
-        if (fieldName == 'raw_value') {
+        if (fieldName === 'raw_value') {
             boxesNew[boxCode]['partner_0_value'] = Math.round(boxesNew[boxCode]['attribution'] * boxesNew[boxCode]['raw_value']);
             boxesNew[boxCode]['partner_1_value'] = Math.round((1 - boxesNew[boxCode]['attribution']) * boxesNew[boxCode]['raw_value']);
             boxesNew[boxCode]['attribution'] = boxesNew[boxCode]['partner_1_value'] / boxesNew[boxCode]['raw_value'];
@@ -76,7 +76,7 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setStep, setIndividualizedResul
         const allBoxesAreFilled = Object.values(boxes).flatMap(
             box => [box.raw_value, box.partner_0_value, box.partner_1_value]
         ).every(
-            value => value || (value == 0)
+            value => value || (value === 0)
         )
         if (!allBoxesAreFilled) {
             setErrorMsg('Toutes les cases en rouge doivent être remplies.')

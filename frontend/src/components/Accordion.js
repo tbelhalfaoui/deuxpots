@@ -25,7 +25,7 @@ export const AccordionItem = ({ title, name, isExpanded, onExpand, enabled, chil
 
 export const AccordionStepItem = ({ title, itemStep, currentStep, maxCurrentStep, setStep, children }) => (
     <AccordionItem title={title} name={`step${itemStep}`}
-    isExpanded={currentStep == itemStep}
+    isExpanded={currentStep === itemStep}
     onExpand={() => setStep(itemStep)}
     enabled={itemStep <= maxCurrentStep}>
         {children}

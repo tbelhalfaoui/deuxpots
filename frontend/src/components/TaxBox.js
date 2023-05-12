@@ -3,10 +3,10 @@ import { NumericFormat } from "react-number-format";
 
 export const NumberBox = ( props ) => (
     <NumericFormat
-        class={`form-control ${((!props.value) && (props.value != 0)) && 'invalidBox'}`}
+        class={`form-control ${((!props.value) && (props.value !== 0)) && 'invalidBox'}`}
         thousandSeparator=" "
         decimalScale={0}
-        isAllowed={(val) => (props.max) ? ((val.floatValue <= props.max) || (val.value == "")) : true}
+        isAllowed={(val) => (props.max) ? ((val.floatValue <= props.max) || (val.value === "")) : true}
         defaultValue=""
         {...props} />
 )
@@ -24,8 +24,8 @@ export const TaxBox = ({box, onValueChange, onSliderChange, unlockTotals, showAu
             <input type="range" class="form-range" name={`${box.code}.slider`}
             min="0" max={box.raw_value}
             step={(box.raw_value <= 10) ? 1 : parseInt(box.raw_value / 10)}
-            disabled={box.raw_value == ""}
-            value={(box.raw_value != "") ? box.attribution * box.raw_value : ""}
+            disabled={box.raw_value === ""}
+            value={(box.raw_value !== "") ? box.attribution * box.raw_value : ""}
             onChange={onSliderChange} />
         </div>
         <div class="col-1">

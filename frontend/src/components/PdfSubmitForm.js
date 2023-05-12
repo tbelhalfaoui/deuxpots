@@ -1,9 +1,7 @@
 import React, { useState } from "react"
-import { SubmitButton } from "./SubmitButton";
 
 
 export const PdfSubmitForm = ({setBoxes, setStep, isError}) => {
-    const [taxFile, setTaxFile] = useState();
     const [errorMsg, setErrorMsg] = useState();
     const [isLoading, setIsLoading] = useState(false);
 
