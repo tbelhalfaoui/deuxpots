@@ -1,19 +1,19 @@
-import { useForm } from "react-hook-form";
 import React, { useState } from "react"
 import { SubmitButton } from "./SubmitButton";
 
 
 export const PdfSubmitForm = ({setBoxes, setStep, isError}) => {
-    const { register, handleSubmit } = useForm();
+    const [taxFile, setTaxFile] = useState();
     const [errorMsg, setErrorMsg] = useState();
     const [isLoading, setIsLoading] = useState(false);
 
 
-    const sendTaxSheet = async (data) => {
+    const sendTaxSheet = async (evt) => {
+        evt.preventDefault();
         setIsLoading(true);
-
+        
         const formData = new FormData();
-        formData.append("tax_pdf", data.file[0]);
+        formData.append("tax_pdf", evt.target.files[0]);
         await fetch("http://localhost:8888/parse", {
             method: "POST",
             body: formData,
@@ -40,26 +40,28 @@ export const PdfSubmitForm = ({setBoxes, setStep, isError}) => {
         ).then(
           () => setErrorMsg(null) || setStep(2)
         ).catch(
-          e => setErrorMsg(e)
+          e => setErrorMsg(e.message)
         ).finally(
           () => setIsLoading(false)
         );
     }
 
     return (
-        <form onSubmit={handleSubmit(sendTaxSheet)}>
+        <form onSubmit={sendTaxSheet}>
           {errorMsg && 
           (<div class="alert alert-danger" role="alert">
-            {errorMsg.message}
+            {errorMsg}
           </div>)}
           <div class="container py-4 text-center" id="containerStep1">
            <div class="row gx-10 justify-content-center">
              <div class="col-4">
-               <input type="file" class="form-control" {...register("file")} />
+               <input type="file" class="form-control" name="taxFile" onChange={sendTaxSheet} disabled={isLoading} />
              </div>
-             <div class="col-2">
-              <SubmitButton isLoading={isLoading} />
-             </div>
+             {isLoading && (
+                <div class="spinner-border" role="status">
+                  <span class="sr-only"></span>
+                </div>
+              )}
            </div>
           </div>
         </form>

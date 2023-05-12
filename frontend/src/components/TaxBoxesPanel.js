@@ -1,5 +1,4 @@
 import { useState } from "react"
-import { useForm } from "react-hook-form";
 import { TaxBox } from './TaxBox.js'
 import { SubmitButton } from './SubmitButton.js'
 
@@ -73,6 +72,18 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setStep, setIndividualizedResul
 
     const fetchIndividualizedResults = async (evt) => {
         evt.preventDefault();
+        
+        const allBoxesAreFilled = Object.values(boxes).flatMap(
+            box => [box.raw_value, box.partner_0_value, box.partner_1_value]
+        ).every(
+            value => value || (value == 0)
+        )
+        if (!allBoxesAreFilled) {
+            setErrorMsg('Toutes les cases en rouge doivent être remplies.')
+            return
+        }
+
+        setErrorMsg(null);
         setIsLoading(true);
 
         await fetch("http://localhost:8888/individualize", {
@@ -90,9 +101,9 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setStep, setIndividualizedResul
         ).then(
             data => setIndividualizedResults(data.individualized)
         ).then(
-          () => setStep(3) || setErrorMsg(null)
+          () => setStep(3)
         ).catch(
-            e => setErrorMsg(e)
+            e => setErrorMsg(e.message)
         ).finally(
             () => setIsLoading(false)
         )
@@ -103,7 +114,7 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setStep, setIndividualizedResul
             <div id="containerStep2" class="container py-2 text-start">
                 {errorMsg && 
                 (<div class="alert alert-danger" role="alert">
-                    {errorMsg.message}
+                    {errorMsg}
                 </div>)}
                 {!boxes &&
                 (<div class="text-center">
