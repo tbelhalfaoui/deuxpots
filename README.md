@@ -14,9 +14,20 @@ doit payer (ou récupérer) quel montant.
 
 ## Instructions pour le développement
 
+### Construction des fichiers de données
+
 Voir le notebook `build_cerfa_variables.ipynb` pour la construction des fichiers JSON du dossier `resources`.
 - Le fichier `cerfa_variables.json`, contenant la liste des cases de la déclaration d'impôt,
 est construit à partir du code de [Openfisca-France](https://github.com/openfisca/openfisca-france).
 - Le fichier `family_box_coords.json`, contenant les coordonnées des cases à cocher de la page 2 de la
 déclaration d'impôt (relatives à la situation familiale), est construit à la main avec l'outil
 [Labelme](https://github.com/wkentaro/labelme), en utilisant l'image d'exemple `family_page.png`.
+
+
+### API Python
+
+Pour lancer l'API Python :
+```bash
+flask --app deuxpots/app.py run --debug --port 8888
+```
+

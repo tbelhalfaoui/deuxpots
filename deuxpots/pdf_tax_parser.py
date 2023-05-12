@@ -11,11 +11,11 @@ HOUSEHOLD_STATUS_VALUES = ['M', 'O', 'D', 'C', 'V']
 HOUSEHOLD_STATUS_VALUES_TOGETHER = {'M', 'O'}  # marriage or civil union
 
 
-class TaxSheetParsingError(BaseException):
+class TaxSheetParsingError(Exception):
     pass
 
 
-class HouseholdStatusError(BaseException):
+class HouseholdStatusError(Exception):
     pass
 
 

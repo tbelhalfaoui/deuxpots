@@ -24,7 +24,7 @@ class SimulatorResult:
     remains_to_pay: int          # Reste à payer
 
 
-class SimulatorError(BaseException):
+class SimulatorError(Exception):
     pass
 
 

@@ -1,7 +1,5 @@
 from dataclasses import asdict
-import json
-from time import sleep
-from flask import Flask, abort
+from flask import Flask
 from flask import Flask, request
 from flask_cors import CORS
 
@@ -67,7 +65,3 @@ def individualize():
     return dict(
         individualized=asdict(result)
     )
-
-
-if __name__ == '__main__':
-    app.run(host="0.0.0.0", port=8888, debug=True)
