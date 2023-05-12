@@ -125,24 +125,24 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setStep, setIndividualizedResul
                 <SubmitButton isLoading={isLoading} />
                 <div>
                     <div>
-                        <div class="form-check form-switch py-2">
-                            <input class="form-check-input" type="checkbox" role="switch" id="showAutofilled" checked={showAutoFilled} onChange={toggleShowAutofilled} />
-                            <label class="form-check-label" for="showAutofilled">Afficher les cases préremplies.</label>
+                        <div class="row py-3">
+                            <div class="col-md-6 col-xl-4">
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" role="switch" id="showAutofilled" checked={showAutoFilled} onChange={toggleShowAutofilled} />
+                                    <label class="form-check-label" for="showAutofilled">Afficher les cases préremplies.</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-xl-4">
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" role="switch" id="unlockTotals" checked={unlockTotals} onChange={toggleUnlockTotals} />
+                                    <label class="form-check-label" for="unlockTotals">Déverrouiller les totaux.</label>
+                                </div>  
+                            </div>
                         </div>
-                        <div class="form-check form-switch py-2">
-                            <input class="form-check-input" type="checkbox" role="switch" id="unlockTotals" checked={unlockTotals} onChange={toggleUnlockTotals} />
-                            <label class="form-check-label" for="unlockTotals">Déverrouiller les totaux.</label>
-                        </div>
-                        <div class="row text-center">
-                            <div class="col-1"><h6>Total</h6></div>
-                            <div class="col-1"><h6>Déclarant·e 1</h6></div>
-                            <div class="col-2"><h6>Répartition</h6></div>
-                            <div class="col-1"><h6>Déclarant·e 2</h6></div>
-                        </div>
-                            {Object.values(boxes).map(box => (
-                                <TaxBox box={box} onValueChange={onBoxChange} onSliderChange={onSliderChange}
-                                unlockTotals={unlockTotals} showAutoFilled={showAutoFilled} />
-                            ))}
+                        {Object.values(boxes).map(box => (
+                            <TaxBox box={box} onValueChange={onBoxChange} onSliderChange={onSliderChange}
+                            unlockTotals={unlockTotals} showAutoFilled={showAutoFilled} />
+                        ))}
                     </div>
                 </div>
                 <SubmitButton isLoading={isLoading} />

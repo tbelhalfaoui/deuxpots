@@ -51,8 +51,8 @@ export const PdfSubmitForm = ({setBoxes, setStep, isError}) => {
             {errorMsg}
           </div>)}
           <div class="container py-4 text-center" id="containerStep1">
-           <div class="row gx-10 justify-content-center">
-             <div class="col-4">
+           <div class="row justify-content-center">
+             <div class="col-md-4">
                <input type="file" class="form-control" name="taxFile" onChange={sendTaxSheet} disabled={isLoading} />
              </div>
              {isLoading && (
