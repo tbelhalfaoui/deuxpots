@@ -11,8 +11,15 @@ export const PdfSubmitForm = ({setBoxes, setStep, isError}) => {
         setIsLoading(true);
         
         const formData = new FormData();
-        formData.append("tax_pdf", evt.target.files[0]);
-        await fetch(`${process.env.REACT_APP_API_URL}/parse`, {
+        const queryParams = new URLSearchParams();
+        if (evt.target.tryOnExample) {
+          queryParams.append("demo", "true");
+        }
+        else {
+          formData.append("tax_pdf", evt.target.files[0]);
+        }
+        
+        await fetch(`${process.env.REACT_APP_API_URL}/parse?${queryParams}`, {
             method: "POST",
             body: formData,
             mode: 'cors',
@@ -29,8 +36,8 @@ export const PdfSubmitForm = ({setBoxes, setStep, isError}) => {
               description: box.description,
               original_raw_value: box.raw_value,
               original_attribution: box.attribution,
-              partner_0_value: box.attribution && (box.raw_value * (1 - box.attribution)),
-              partner_1_value: box.attribution && (box.raw_value * box.attribution),
+              partner_0_value: (box.attribution || (box.attribution === 0)) ? box.raw_value * (1 - box.attribution) : "",
+              partner_1_value: (box.attribution || (box.attribution === 0)) ? box.raw_value * box.attribution : "",
             }])
           )
         ).then(
@@ -52,8 +59,16 @@ export const PdfSubmitForm = ({setBoxes, setStep, isError}) => {
           </div>)}
           <div class="container py-4 text-center" id="containerStep1">
            <div class="row justify-content-center">
-             <div class="col-md-4">
+             <div class="col-md-5 col-xl-4">
                <input type="file" class="form-control" name="taxFile" onChange={sendTaxSheet} disabled={isLoading} />
+             </div>
+             <div class="py-2 col-1">
+              ou
+             </div>
+             <div class="col-md-5 col-xl-3">
+               <button type="submit" class="btn btn-primary" name="tryOnExample">
+                Essayer sur un exemple
+               </button>
              </div>
              {isLoading && (
                 <div class="spinner-border" role="status">

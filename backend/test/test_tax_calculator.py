@@ -159,6 +159,24 @@ def test_build_income_sheet_missing_attribution():
                 raw_value=1000
             )
         ], individualize=0)
+    
+
+def test_build_income_sheet_raw_value_empty():
+    income_sheet = build_income_sheet([
+        ValuedBox(
+            box=Box(
+                code="6FL",
+                reference=ReferenceBox(code="6FL", description="Deficits globaux.", type="int"),
+                kind=BoxKind.COMMON
+            ),
+            raw_value=0
+        )
+    ], individualize=0)
+    assert income_sheet == {
+        '0DA': '1950',
+        'pre_situation_famille': 'C',
+        'pre_situation_residence': 'M'
+    }
 
 
 def test_build_income_sheet_partner_0(valboxes):
@@ -205,3 +223,4 @@ def test_build_income_sheet_together(valboxes):
     }
     for box in ['1AC', '1BC', '1CC', '1DC', '6FL']:
         assert isinstance(income_sheet[box], int)
+

@@ -18,6 +18,17 @@ def test_parse(tax_sheet_pdf_path):
             assert 'attribution' in valbox  # can be None
 
 
+def test_parse_demo(tax_sheet_pdf_path):
+    with app.test_client() as test_client:
+        res = test_client.post('/parse?demo=true') 
+        assert res.status_code == 200
+        for valbox in res.json['boxes']:
+            assert valbox['code']
+            assert valbox['description']
+            assert valbox['raw_value']
+            assert 'attribution' in valbox  # can be None
+
+
 def test_individualize():
     user_boxes = [
         {'code': '1AJ', 'raw_value': 40000, 'attribution': .2},

@@ -2,6 +2,7 @@ from dataclasses import asdict
 from flask import Flask
 from flask import Flask, request
 from flask_cors import CORS
+from deuxpots.demo import DEMO_FLAT_BOXES
 
 from deuxpots import CERFA_VARIABLES_PATH, FAMILY_BOX_COORDS_PATH
 from deuxpots.box import load_box_mapping
@@ -39,15 +40,22 @@ def handle_bad_request(e):
     return e.args[0], 400
 
 
-@app.errorhandler(AssertionError)
+@app.errorhandler(Exception)
 def handle_bad_request(e):
-    return " coucou! ", 400
+    return "Une erreur est survenue.", 400
 
 
 @app.route('/parse', methods=['POST'])
 def parse():
+    if request.args.get('demo'):
+        return dict(
+            boxes=[asdict(flatten(ValuedBox.from_flat_box(flatbox, BOX_MAPPING))) for flatbox in DEMO_FLAT_BOXES]
+        )
     tax_pdf = request.files['tax_pdf'].read()
     valboxes = parse_tax_pdf(tax_pdf, FAMILY_BOX_COORDS, BOX_MAPPING)
+    print(dict(
+        boxes=[asdict(flatten(valbox)) for valbox in valboxes]
+    ))
     return dict(
         boxes=[asdict(flatten(valbox)) for valbox in valboxes]
     )

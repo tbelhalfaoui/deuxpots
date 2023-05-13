@@ -15,7 +15,7 @@ export const TaxBox = ({box, onValueChange, onSliderChange, unlockTotals, showAu
     ((box.original_attribution == null) || (showAutoFilled)) && (
     <div>
         <div class="row">
-            <div class="col-md-6">
+            <div class="d-flex align-items-center col-md-6">
                 <label for={`${box.code}.raw_value`} class="form-label">{box.code} - {box.description}</label>
             </div>
             <div class="col-md-6">
@@ -37,7 +37,7 @@ export const TaxBox = ({box, onValueChange, onSliderChange, unlockTotals, showAu
                         min="0" max={box.raw_value}
                         step={(box.raw_value <= 10) ? 1 : parseInt(box.raw_value / 10)}
                         disabled={box.raw_value === ""}
-                        value={(box.raw_value !== "") ? box.attribution * box.raw_value : ""}
+                        value={(!box.partner_0_value && !box.partner_1_value) ? "" : box.attribution * box.raw_value}
                         onChange={onSliderChange} />
                     </div>
                     <div class="p-1 col-4 col-lg-3">

@@ -60,6 +60,7 @@ def compute_tax(income_sheet: IncomeSheet) -> SimulatorResult:
 
 
 def build_income_sheet(valboxes, individualize=None):
+    valboxes = [valbox for valbox in valboxes if valbox.raw_value]
     assert all(valbox.attribution is not None for valbox in valboxes)
     if individualize is None:
         sheet = IncomeSheet({

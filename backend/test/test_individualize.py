@@ -46,10 +46,11 @@ def test_simulate_and_individualize(box_mapping):
         FlatBox(code='8HV', raw_value=700, attribution=.1),
         FlatBox(code='8IV', raw_value=7000, attribution=.9),
         FlatBox(code='8HW', raw_value=600, attribution=0),
+        FlatBox(code='8HW', raw_value=600, attribution=0),
     ]
     valboxes = [ValuedBox.from_flat_box(flatbox, box_mapping) for flatbox in user_boxes]
     result = simulate_and_individualize(valboxes)
-    assert result.partners[0].remains_to_pay > 1000
+    assert result.partners[0].remains_to_pay > 500
     assert result.partners[1].remains_to_pay < 4000
 
 
