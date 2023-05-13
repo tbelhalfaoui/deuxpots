@@ -54,6 +54,2079 @@
   },
   {
     "boxes": [
+      "6DE"
+    ],
+    "type": "int",
+    "description": "CSG d\u00e9ductible calcul\u00e9e sur les revenus du patrimoine"
+  },
+  {
+    "boxes": [
+      "6GI"
+    ],
+    "type": "int",
+    "description": "Pensions alimentaires vers\u00e9es \u00e0 des enfants majeurs (d\u00e9cision de justice d\u00e9finitive avant 2006): 1er enfant"
+  },
+  {
+    "boxes": [
+      "6GJ"
+    ],
+    "type": "int",
+    "description": "Pensions alimentaires vers\u00e9es \u00e0 des enfants majeurs (d\u00e9cision de justice d\u00e9finitive avant 2006): 2eme enfant"
+  },
+  {
+    "boxes": [
+      "6EL"
+    ],
+    "type": "int",
+    "description": "Autres pensions alimentaires vers\u00e9es \u00e0 des enfants majeurs: 1er enfant"
+  },
+  {
+    "boxes": [
+      "6EM"
+    ],
+    "type": "int",
+    "description": "Autres pensions alimentaires vers\u00e9es \u00e0 des enfants majeurs: 2eme enfant"
+  },
+  {
+    "boxes": [
+      "6GP"
+    ],
+    "type": "int",
+    "description": "Autres pensions alimentaires vers\u00e9es d\u00e9cision de justice d\u00e9finitive avant 2006 (mineurs, ascendants)"
+  },
+  {
+    "boxes": [
+      "6GU"
+    ],
+    "type": "int",
+    "description": "Autres pensions alimentaires vers\u00e9es (mineurs, ascendants)"
+  },
+  {
+    "boxes": [
+      "6EU"
+    ],
+    "type": "int",
+    "description": "Frais d'accueil de personnes de plus de 75 ans dans le besoin"
+  },
+  {
+    "boxes": [
+      "6EV"
+    ],
+    "type": "int",
+    "description": "Nombre de personnes de plus de 75 ans dans le besoin accueillies sous votre toit"
+  },
+  {
+    "boxes": [
+      "6DD"
+    ],
+    "type": "int",
+    "description": "D\u00e9ductions diverses"
+  },
+  {
+    "boxes": [
+      "6PS",
+      "6PT",
+      "6PU"
+    ],
+    "type": "int",
+    "description": "Plafond de d\u00e9duction \u00e9pargne retraite (plafond calcul\u00e9 sur les revenus per\u00e7us en n-1)"
+  },
+  {
+    "boxes": [
+      "6RS",
+      "6RT",
+      "6RU"
+    ],
+    "type": "int",
+    "description": "Cotisations d'\u00e9pargne retraite vers\u00e9es au titre d'un PERP, PREFON, COREM et C.G.O.S"
+  },
+  {
+    "boxes": [
+      "6SS",
+      "6ST",
+      "6SU"
+    ],
+    "type": "int",
+    "description": "Rachat de cotisations PERP, PREFON, COREM et C.G.O.S"
+  },
+  {
+    "boxes": [
+      "6AA"
+    ],
+    "type": "int",
+    "description": "Souscriptions en faveur du cin\u00e9ma ou de l\u2019audiovisuel"
+  },
+  {
+    "boxes": [
+      "CC"
+    ],
+    "type": "int",
+    "description": "Souscriptions au capital des SOFIP\u00caCHE"
+  },
+  {
+    "boxes": [
+      "EH"
+    ],
+    "type": "int",
+    "description": null
+  },
+  {
+    "boxes": [
+      "DA"
+    ],
+    "type": "int",
+    "description": "Pertes en capital cons\u00e9cutives \u00e0 la souscription au capital de soci\u00e9t\u00e9s nouvelles ou de soci\u00e9t\u00e9s en difficult\u00e9"
+  },
+  {
+    "boxes": [
+      "6CB"
+    ],
+    "type": "int",
+    "description": "D\u00e9penses de grosses r\u00e9parations effectu\u00e9es par les nus-propri\u00e9taires (d\u00e9penses r\u00e9alis\u00e9es au cours de l'ann\u00e9e de perception des revenus)"
+  },
+  {
+    "boxes": [
+      "6HJ"
+    ],
+    "type": "int",
+    "description": "D\u00e9penses de grosses r\u00e9parations effectu\u00e9es par les nus-propri\u00e9taires: report des d\u00e9penses de l'ann\u00e9e 2009"
+  },
+  {
+    "boxes": [
+      "6HK"
+    ],
+    "type": "int",
+    "description": "D\u00e9penses de grosses r\u00e9parations effectu\u00e9es par les nus-propri\u00e9taires: report des d\u00e9penses de l'ann\u00e9e 2010"
+  },
+  {
+    "boxes": [
+      "6HL"
+    ],
+    "type": "int",
+    "description": "D\u00e9penses de grosses r\u00e9parations effectu\u00e9es par les nus-propri\u00e9taires: report des d\u00e9penses de l'ann\u00e9e 2011"
+  },
+  {
+    "boxes": [
+      "6HM"
+    ],
+    "type": "int",
+    "description": "D\u00e9penses de grosses r\u00e9parations effectu\u00e9es par les nus-propri\u00e9taires: report des d\u00e9penses de l'ann\u00e9e 2012"
+  },
+  {
+    "boxes": [
+      "6HN"
+    ],
+    "type": "int",
+    "description": "D\u00e9penses de grosses r\u00e9parations effectu\u00e9es par les nus-propri\u00e9taires: report des d\u00e9penses de l'ann\u00e9e 2013"
+  },
+  {
+    "boxes": [
+      "6HO"
+    ],
+    "type": "int",
+    "description": "D\u00e9penses de grosses r\u00e9parations effectu\u00e9es par les nus-propri\u00e9taires: report des d\u00e9penses de l'ann\u00e9e 2014"
+  },
+  {
+    "boxes": [
+      "6HP"
+    ],
+    "type": "int",
+    "description": "D\u00e9penses de grosses r\u00e9parations effectu\u00e9es par les nus-propri\u00e9taires: report des d\u00e9penses de l'ann\u00e9e 2015"
+  },
+  {
+    "boxes": [
+      "6HQ"
+    ],
+    "type": "int",
+    "description": "D\u00e9penses de grosses r\u00e9parations effectu\u00e9es par les nus-propri\u00e9taires: report des d\u00e9penses de l'ann\u00e9e 2016"
+  },
+  {
+    "boxes": [
+      "6HR"
+    ],
+    "type": "int",
+    "description": "D\u00e9penses de grosses r\u00e9parations effectu\u00e9es par les nus-propri\u00e9taires: report des d\u00e9penses de l'ann\u00e9e 2017"
+  },
+  {
+    "boxes": [
+      "6GH"
+    ],
+    "type": "int",
+    "description": "Sommes \u00e0 ajouter au revenu imposable"
+  },
+  {
+    "boxes": [
+      "6FA"
+    ],
+    "type": "int",
+    "description": "Deficits globaux des ann\u00e9es ant\u00e9rieures non encore d\u00e9duits les ann\u00e9es pr\u00e9c\u00e9dentes: ann\u00e9e de perception des revenus -6"
+  },
+  {
+    "boxes": [
+      "6FB"
+    ],
+    "type": "int",
+    "description": "Deficits globaux des ann\u00e9es ant\u00e9rieures non encore d\u00e9duits: ann\u00e9e de perception des revenus -5"
+  },
+  {
+    "boxes": [
+      "6FC"
+    ],
+    "type": "int",
+    "description": "Deficits globaux des ann\u00e9es ant\u00e9rieures non encore d\u00e9duits: ann\u00e9e de perception des revenus -4"
+  },
+  {
+    "boxes": [
+      "6FD"
+    ],
+    "type": "int",
+    "description": "Deficits globaux des ann\u00e9es ant\u00e9rieures non encore d\u00e9duits: ann\u00e9e de perception des revenus -3"
+  },
+  {
+    "boxes": [
+      "6FE"
+    ],
+    "type": "int",
+    "description": "Deficits globaux des ann\u00e9es ant\u00e9rieures non encore d\u00e9duits: ann\u00e9e de perception des revenus -2"
+  },
+  {
+    "boxes": [
+      "6FL"
+    ],
+    "type": "int",
+    "description": "Deficits globaux des ann\u00e9es ant\u00e9rieures non encore d\u00e9duits: ann\u00e9e de perception des revenus -1"
+  },
+  {
+    "boxes": [
+      "2ZZ"
+    ],
+    "type": "int",
+    "description": "Produits des bons ou contrats de capitalisation et d'assurance vie de moins de 8 ans pour les contrats souscrits apr\u00e8s le 26 septembre 1997, dont le produits sont associ\u00e9s aux primes vers\u00e9es apr\u00e8s le 27 septembre 2017, et que le b\u00e9n\u00e9ficiaire d\u00e9cide de soumettre au pr\u00e9l\u00e8vement forfaitaire unique au titre de l'imp\u00f4t sur le revenu"
+  },
+  {
+    "boxes": [
+      "7UD"
+    ],
+    "type": "int",
+    "description": "Dons \u00e0 des organismes d'aide aux personnes en difficult\u00e9"
+  },
+  {
+    "boxes": [
+      "7UE"
+    ],
+    "type": "int",
+    "description": "Dons vers\u00e9s du 16.4 au 31.12.2019 pour la conservation et la restauration de la cath\u00e9drale Notre-Dame de Paris "
+  },
+  {
+    "boxes": [
+      "7UF"
+    ],
+    "type": "int",
+    "description": "Dons \u00e0 d'autres oeuvres d'utilit\u00e9 publique ou fiscalement assimilables aux oeuvres d'int\u00e9r\u00eat g\u00e9n\u00e9ral"
+  },
+  {
+    "boxes": [
+      "7XS"
+    ],
+    "type": "int",
+    "description": "Report des ann\u00e9es ant\u00e9rieures des dons (report des r\u00e9ductions et cr\u00e9dits d'imp\u00f4t): ann\u00e9e de perception des revenus -5"
+  },
+  {
+    "boxes": [
+      "7XT"
+    ],
+    "type": "int",
+    "description": "Report des ann\u00e9es ant\u00e9rieures des dons (report des r\u00e9ductions et cr\u00e9dits d'imp\u00f4t): ann\u00e9e de perception des revenus -4"
+  },
+  {
+    "boxes": [
+      "7XU"
+    ],
+    "type": "int",
+    "description": "Report des ann\u00e9es ant\u00e9rieures des dons (report des r\u00e9ductions et cr\u00e9dits d'imp\u00f4t): ann\u00e9e de perception des revenus -3"
+  },
+  {
+    "boxes": [
+      "7XW"
+    ],
+    "type": "int",
+    "description": "Report des ann\u00e9es ant\u00e9rieures des dons (report des r\u00e9ductions et cr\u00e9dits d'imp\u00f4t): ann\u00e9e de perception des revenus -2"
+  },
+  {
+    "boxes": [
+      "7XY"
+    ],
+    "type": "int",
+    "description": "Report des ann\u00e9es ant\u00e9rieures des dons (report des r\u00e9ductions et cr\u00e9dits d'imp\u00f4t): ann\u00e9e de perception des revenus -1"
+  },
+  {
+    "boxes": [
+      "7VA"
+    ],
+    "type": "int",
+    "description": "Dons \u00e0 des organismes d'aides aux personnes \u00e9tablis dans un Etat europ\u00e9en"
+  },
+  {
+    "boxes": [
+      "7VC"
+    ],
+    "type": "int",
+    "description": "Dons \u00e0 des autres organismes \u00e9tablis dans un Etat europ\u00e9en"
+  },
+  {
+    "boxes": [
+      "7AC",
+      "7AE",
+      "7AG"
+    ],
+    "type": "int",
+    "description": "Cotisations syndicales des salari\u00e9es et pensionn\u00e9s"
+  },
+  {
+    "boxes": [
+      "7DB"
+    ],
+    "type": "int",
+    "description": "Sommes vers\u00e9es pour lemploi d'un salari\u00e9 \u00e0 domicile par les personnes ayant excerc\u00e9 une activit\u00e9 professionnelle ou ayant \u00e9t\u00e9 demandeur d'emploi l'ann\u00e9e de perception des revenus d\u00e9clar\u00e9s"
+  },
+  {
+    "boxes": [
+      "7DR"
+    ],
+    "type": "int",
+    "description": "Aides per\u00e7ues pour lemploi \u00e0 domicile (APA, PCH, CESU pr\u00e9financ\u00e9\u2026)"
+  },
+  {
+    "boxes": [
+      "7DD"
+    ],
+    "type": "int",
+    "description": "Sommes vers\u00e9es pour lemploi dun salari\u00e9 \u00e0 domicile pour un ascendant b\u00e9n\u00e9ficiaire de lAPA"
+  },
+  {
+    "boxes": [
+      "7DF"
+    ],
+    "type": "int",
+    "description": "Sommes vers\u00e9es pour lemploi dun salari\u00e9 \u00e0 domicile par les personnes retrait\u00e9s, ou inactives lann\u00e9e de perception des revenus d\u00e9clar\u00e9s"
+  },
+  {
+    "boxes": [
+      "7DQ"
+    ],
+    "type": "bool",
+    "description": "Emploi direct pour la premi\u00e8re fois d'un salari\u00e9 \u00e0 domicile durant l'ann\u00e9e de perception des revenus d\u00e9clar\u00e9s"
+  },
+  {
+    "boxes": [
+      "7DG"
+    ],
+    "type": "bool",
+    "description": "Vous, votre conjoint ou une personne \u00e0 votre charge \u00e0 une carte d'invalidit\u00e9 d'au moins 80 % l'ann\u00e9e de perception des revenus d\u00e9clar\u00e9s"
+  },
+  {
+    "boxes": [
+      "7DL"
+    ],
+    "type": "int",
+    "description": "Nombre d'ascendants b\u00e9n\u00e9ficiaires de l'APA, \u00e2g\u00e9s de plus de 65 ans, pour lesquels des d\u00e9penses ont \u00e9t\u00e9 engag\u00e9es l'ann\u00e9e de perception des revenus d\u00e9clar\u00e9s"
+  },
+  {
+    "boxes": [
+      "7UH"
+    ],
+    "type": "int",
+    "description": "Int\u00e9r\u00eats pay\u00e9s la premi\u00e8re ann\u00e9e de remboursement du pr\u00eat pour l'habitation principale"
+  },
+  {
+    "boxes": [
+      "7UH"
+    ],
+    "type": "int",
+    "description": "Int\u00e9r\u00eats pr\u00eats consommation"
+  },
+  {
+    "boxes": [
+      "7UH"
+    ],
+    "type": "int",
+    "description": "codev"
+  },
+  {
+    "boxes": [
+      "7VY"
+    ],
+    "type": "int",
+    "description": "Int\u00e9r\u00eat des emprunts contract\u00e9s pour l'acquisition ou la construction de l'habitation principale: logements anciens (acquis entre le 06/05/2007 et le 30/09/2011) ou neufs (acquis entre le 06/05/2007 et le 31/12/2009): Premi\u00e8re annuit\u00e9"
+  },
+  {
+    "boxes": [
+      "7VZ"
+    ],
+    "type": "int",
+    "description": "Int\u00e9r\u00eat des emprunts contract\u00e9s pour l'acquisition ou la construction de l'habitation principale: logements anciens (acquis entre le 06/05/2007 et le 30/09/2011) ou neufs (acquis entre le 06/05/2007 et le 31/12/2009): annuit\u00e9s suivantes"
+  },
+  {
+    "boxes": [
+      "7VX"
+    ],
+    "type": "int",
+    "description": "Int\u00e9r\u00eat des emprunts contract\u00e9s pour l'acquisition ou la construction de l'habitation principale: logements neufs BBC acquis ou construits du 01/01/2009 au 30/09/2011"
+  },
+  {
+    "boxes": [
+      "7VW"
+    ],
+    "type": "int",
+    "description": "Int\u00e9r\u00eat des emprunts contract\u00e9s pour l'acquisition ou la construction de l'habitation principale: logements neufs non-BBC acquis ou construits du 01/01/2010 au 31/12/2010: premi\u00e8re annuit\u00e9"
+  },
+  {
+    "boxes": [
+      "7VV"
+    ],
+    "type": "int",
+    "description": "Int\u00e9r\u00eat des emprunts contract\u00e9s pour l'acquisition ou la construction de l'habitation principale: logements neufs non-BBC acquis ou construits du 01/01/2010 au 31/12/2010: annuit\u00e9s suivantes"
+  },
+  {
+    "boxes": [
+      "7VU"
+    ],
+    "type": "int",
+    "description": "Int\u00e9r\u00eat des emprunts contract\u00e9s pour l'acquisition ou la construction de l'habitation principale: logements neufs non-BBC acquis ou construits du 01/01/2011 au 30/09/2011: premi\u00e8re annuit\u00e9"
+  },
+  {
+    "boxes": [
+      "7VT"
+    ],
+    "type": "int",
+    "description": "Int\u00e9r\u00eat des emprunts contract\u00e9s pour l'acquisition ou la construction de l'habitation principale: logements neufs non-BBC acquis ou construits du 01/01/2011 au 30/09/2011: annuit\u00e9s suivantes"
+  },
+  {
+    "boxes": [
+      "7CD"
+    ],
+    "type": "int",
+    "description": "D\u00e9penses d'accueil dans un \u00e9tablissement pour personnes \u00e2g\u00e9es d\u00e9pendantes: 1ere personne"
+  },
+  {
+    "boxes": [
+      "7CE"
+    ],
+    "type": "int",
+    "description": "D\u00e9penses d'accueil dans un \u00e9tablissement pour personnes \u00e2g\u00e9es d\u00e9pendantes: 2\u00e9me personne"
+  },
+  {
+    "boxes": [
+      "7GA"
+    ],
+    "type": "int",
+    "description": "Frais de garde des enfants de moins de 6 ans au 01/01 de l'ann\u00e9e de perception des revenus: 1er enfant \u00e0 charge"
+  },
+  {
+    "boxes": [
+      "7GB"
+    ],
+    "type": "int",
+    "description": "Frais de garde des enfants de moins de 6 ans au 01/01 de l'ann\u00e9e de perception des revenus: 2\u00e8me enfant \u00e0 charge"
+  },
+  {
+    "boxes": [
+      "7GC"
+    ],
+    "type": "int",
+    "description": "Frais de garde des enfants de moins de 6 ans au 01/01 de l'ann\u00e9e de perception des revenus: 3\u00e8me enfant \u00e0 charge"
+  },
+  {
+    "boxes": [
+      "7GE"
+    ],
+    "type": "int",
+    "description": "Frais de garde des enfants de moins de 6 ans au 01/01 de l'ann\u00e9e de perception des revenus: 1er enfant \u00e0 charge en r\u00e9sidence altern\u00e9e"
+  },
+  {
+    "boxes": [
+      "7GF"
+    ],
+    "type": "int",
+    "description": "Frais de garde des enfants de moins de 6 ans au 01/01 de l'ann\u00e9e de perception des revenus: 2\u00e8me enfant \u00e0 charge en r\u00e9sidence altern\u00e9e"
+  },
+  {
+    "boxes": [
+      "7GG"
+    ],
+    "type": "int",
+    "description": "Frais de garde des enfants de moins de 6 ans au 01/01 de l'ann\u00e9e de perception des revenus: 3\u00e8me enfant \u00e0 charge en r\u00e9sidence altern\u00e9e"
+  },
+  {
+    "boxes": [
+      "7EA"
+    ],
+    "type": "int",
+    "description": "Nombre d'enfants \u00e0 charge poursuivant leurs \u00e9tudes au coll\u00e8ge"
+  },
+  {
+    "boxes": [
+      "7EB"
+    ],
+    "type": "int",
+    "description": "Nombre d'enfants \u00e0 charge en r\u00e9sidence altern\u00e9e poursuivant leurs \u00e9tudes au coll\u00e8ge"
+  },
+  {
+    "boxes": [
+      "7EC"
+    ],
+    "type": "int",
+    "description": "Nombre d'enfants \u00e0 charge poursuivant leurs \u00e9tudes au lyc\u00e9e"
+  },
+  {
+    "boxes": [
+      "7ED"
+    ],
+    "type": "int",
+    "description": "Nombre d'enfants \u00e0 charge en r\u00e9sidence altern\u00e9e poursuivant leurs \u00e9tudes au lyc\u00e9e"
+  },
+  {
+    "boxes": [
+      "7EF"
+    ],
+    "type": "int",
+    "description": "Nombre d'enfants \u00e0 charge poursuivant leurs \u00e9tudes dans l'enseignement sup\u00e9rieur"
+  },
+  {
+    "boxes": [
+      "7EG"
+    ],
+    "type": "int",
+    "description": "Nombre d'enfants \u00e0 charge en r\u00e9sidence altern\u00e9e poursuivant leurs \u00e9tudes dans l'enseignement sup\u00e9rieur"
+  },
+  {
+    "boxes": [
+      "7TD"
+    ],
+    "type": "int",
+    "description": "Int\u00e9r\u00eats des pr\u00eats \u00e9tudiants vers\u00e9s avant l'ann\u00e9e de perception des revenus d\u00e9clar\u00e9s"
+  },
+  {
+    "boxes": [
+      "7VO"
+    ],
+    "type": "int",
+    "description": "Nombre d'ann\u00e9es de remboursement du pr\u00eat \u00e9tudiant avant l'ann\u00e9e de perception des revenus d\u00e9clar\u00e9s"
+  },
+  {
+    "boxes": [
+      "7UK"
+    ],
+    "type": "int",
+    "description": "Int\u00e9r\u00eats des pr\u00eats \u00e9tudiants vers\u00e9s durant l'ann\u00e9e de perception des revenus d\u00e9clar\u00e9s"
+  },
+  {
+    "boxes": [
+      "7GZ"
+    ],
+    "type": "int",
+    "description": "Primes de rente survie, contrats d'\u00e9pargne handicap"
+  },
+  {
+    "boxes": [
+      "7WM"
+    ],
+    "type": "int",
+    "description": "Prestations compensatoires: Capital fix\u00e9 en substitution de rente"
+  },
+  {
+    "boxes": [
+      "7WN"
+    ],
+    "type": "int",
+    "description": "Prestations compensatoires: Sommes vers\u00e9es l'ann\u00e9e de perception des revenus d\u00e9clar\u00e9s"
+  },
+  {
+    "boxes": [
+      "7WO"
+    ],
+    "type": "int",
+    "description": "Prestations compensatoires: Sommes totales d\u00e9cid\u00e9es par jugement l'ann\u00e9e de perception des revenus d\u00e9clar\u00e9s ou capital reconstitu\u00e9"
+  },
+  {
+    "boxes": [
+      "7WP"
+    ],
+    "type": "int",
+    "description": "Prestations compensatoires: Report des sommes d\u00e9cid\u00e9es l'ann\u00e9e de perception des revenus -1"
+  },
+  {
+    "boxes": [
+      "7WE"
+    ],
+    "type": "bool",
+    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale de l'habitation principale: \u00e9co-pr\u00eat \u00e0 taux z\u00e9ro avec offre de pr\u00eat \u00e9mise l'ann\u00e9e de perception des revenus d\u00e9clar\u00e9s"
+  },
+  {
+    "boxes": [
+      "7WE"
+    ],
+    "type": "bool",
+    "description": "Scellier"
+  },
+  {
+    "boxes": [
+      "7WG"
+    ],
+    "type": "int",
+    "description": "IntEmp"
+  },
+  {
+    "boxes": [
+      "7WG"
+    ],
+    "type": "int",
+    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale de l'habitation principale: \u00e9co-pr\u00eat \u00e0 taux z\u00e9ro avec offre de pr\u00eat \u00e9mise l'ann\u00e9e de perception des revenus d\u00e9clar\u00e9s -1"
+  },
+  {
+    "boxes": [
+      "7WG"
+    ],
+    "type": "int",
+    "description": "Scellier"
+  },
+  {
+    "boxes": [
+      "7WA"
+    ],
+    "type": "int",
+    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale de l'habitation principale: travaux d'isolation thermique des murs avant le 03/04/2012"
+  },
+  {
+    "boxes": [
+      "7WA"
+    ],
+    "type": "int",
+    "description": "Scellier"
+  },
+  {
+    "boxes": [
+      "7WB"
+    ],
+    "type": "int",
+    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale de l'habitation principale: travaux d'isolation thermique des murs \u00e0 compter du 04/04/2012"
+  },
+  {
+    "boxes": [
+      "7WB"
+    ],
+    "type": "int",
+    "description": "Scellier"
+  },
+  {
+    "boxes": [
+      "7WC"
+    ],
+    "type": "int",
+    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale de l'habitation principale: travaux d'isolation thermique sur plus de la moiti\u00e9 de la surface des murs ext\u00e9rieurs"
+  },
+  {
+    "boxes": [
+      "7WC"
+    ],
+    "type": "int",
+    "description": "Scellier"
+  },
+  {
+    "boxes": [
+      "7VE"
+    ],
+    "type": "int",
+    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale de l'habitation principale: travaux d'isolation thermique de la toiture avant le 04/04/2012"
+  },
+  {
+    "boxes": [
+      "7VF"
+    ],
+    "type": "int",
+    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale de l'habitation principale: travaux d'isolation thermique de la toiture \u00e0 compter du 04/04/2012"
+  },
+  {
+    "boxes": [
+      "7VG"
+    ],
+    "type": "int",
+    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale de l'habitation principale: travaux d'isolation thermique de toute la toiture"
+  },
+  {
+    "boxes": [
+      "7VH"
+    ],
+    "type": "int",
+    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale de l'habitation principale: travaux d'isolation thermique de toute la toiture du 1.9 au 31.12.2014"
+  },
+  {
+    "boxes": [
+      "7VH"
+    ],
+    "type": "int",
+    "description": "Inv. for."
+  },
+  {
+    "boxes": [
+      "7SG"
+    ],
+    "type": "int",
+    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale de l'habitation principale: Mat\u00e9riaux d'isolation thermique des murs (acquisitionn et pose)"
+  },
+  {
+    "boxes": [
+      "7SG"
+    ],
+    "type": "int",
+    "description": "Scellier"
+  },
+  {
+    "boxes": [
+      "7SJ"
+    ],
+    "type": "int",
+    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale de l'habitation principale: Mat\u00e9riaux d'isolation thermique des parois vitr\u00e9es"
+  },
+  {
+    "boxes": [
+      "7SJ"
+    ],
+    "type": "int",
+    "description": "Scellier"
+  },
+  {
+    "boxes": [
+      "7SK"
+    ],
+    "type": "int",
+    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale de l'habitation principale: Volets isolants"
+  },
+  {
+    "boxes": [
+      "7SK"
+    ],
+    "type": "int",
+    "description": "Scellier"
+  },
+  {
+    "boxes": [
+      "7SL"
+    ],
+    "type": "int",
+    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale de l'habitation principale: Portes d'entr\u00e9es donnant sur l'ext\u00e9rieur"
+  },
+  {
+    "boxes": [
+      "7SL"
+    ],
+    "type": "int",
+    "description": "Scellier"
+  },
+  {
+    "boxes": [
+      "7AH"
+    ],
+    "type": "int",
+    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale de l'habitation principale (hors bouquet sur 2 ans) : Mat\u00e9riaux d'isolation thermique des murs (acquisitionn et pose)"
+  },
+  {
+    "boxes": [
+      "7AK"
+    ],
+    "type": "int",
+    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale de l'habitation principale (hors bouquet sur 2 ans) : travaux d'isolation thermique de toute la toiture"
+  },
+  {
+    "boxes": [
+      "7AL"
+    ],
+    "type": "int",
+    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale de l'habitation principale (hors bouquet sur 2 ans) : Mat\u00e9riaux d\u2019isolation des planchers bas sur sous-sol, sur vide sanitaire ou sur passage couvert (acquisition et pose)"
+  },
+  {
+    "boxes": [
+      "7AM"
+    ],
+    "type": "int",
+    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale de l'habitation principale (hors bouquet sur 2 ans) : Mat\u00e9riaux d'isolation thermique des parois vitr\u00e9es"
+  },
+  {
+    "boxes": [
+      "7AN"
+    ],
+    "type": "int",
+    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale de l'habitation principale (hors bouquet sur 2 ans) : Volets isolants"
+  },
+  {
+    "boxes": [
+      "7AQ"
+    ],
+    "type": "int",
+    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale de l'habitation principale (hors bouquet sur 2 ans) : Portes d'entr\u00e9es donnant sur l'ext\u00e9rieur"
+  },
+  {
+    "boxes": [
+      "7VK"
+    ],
+    "type": "int",
+    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale de l'habitation principale: Volets isolants 2015"
+  },
+  {
+    "boxes": [
+      "7VK"
+    ],
+    "type": "int",
+    "description": "Inv. for."
+  },
+  {
+    "boxes": [
+      "7VL"
+    ],
+    "type": "int",
+    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale de l'habitation principale: Portes d'entr\u00e9es donnant sur l'ext\u00e9rieur 2015"
+  },
+  {
+    "boxes": [
+      "7VL"
+    ],
+    "type": "int",
+    "description": "Inv. for."
+  },
+  {
+    "boxes": [
+      "7SM"
+    ],
+    "type": "int",
+    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale de l'habitation principale: \u00c9quipements de production d'\u00e9lectricit\u00e9 utilisant l'\u00e9nergie radiative du soleil"
+  },
+  {
+    "boxes": [
+      "7SM"
+    ],
+    "type": "int",
+    "description": "Scellier"
+  },
+  {
+    "boxes": [
+      "7SM"
+    ],
+    "type": "int",
+    "description": "Location Meubl\u00e9e Censi B"
+  },
+  {
+    "boxes": [
+      "7SN"
+    ],
+    "type": "int",
+    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale de l'habitation principale: Appareils de chauffage au bois ou autres biomasses rempla\u00e7ant un appareil \u00e9quivalent"
+  },
+  {
+    "boxes": [
+      "7SO"
+    ],
+    "type": "int",
+    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale de l'habitation principale: Appareils de chauffage au bois ou autres biomasses ne rempla\u00e7ant pas un appareil \u00e9quivalent"
+  },
+  {
+    "boxes": [
+      "7SP"
+    ],
+    "type": "int",
+    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale de l'habitation principale: Pompes \u00e0 chaleur autres que air/air et autres que g\u00e9othermiques dont la finalit\u00e9 essentielle est la production de chaleur"
+  },
+  {
+    "boxes": [
+      "7SQ"
+    ],
+    "type": "int",
+    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale de l'habitation principale: Pompes \u00e0 chaleur g\u00e9othermiques dont la finalit\u00e9 essentielle est la production de chaleur"
+  },
+  {
+    "boxes": [
+      "7SQ"
+    ],
+    "type": "int",
+    "description": "Scellier"
+  },
+  {
+    "boxes": [
+      "7SR"
+    ],
+    "type": "int",
+    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale de l'habitation principale: Pompes \u00e0 chaleur (autres que air/air) d\u00e9di\u00e9es \u00e0 la production d'eau chaude sanitaire (chauffe-eaux thermodynamiques)"
+  },
+  {
+    "boxes": [
+      "7SR"
+    ],
+    "type": "int",
+    "description": "Scellier"
+  },
+  {
+    "boxes": [
+      "7SS"
+    ],
+    "type": "int",
+    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale de l'habitation principale: \u00c9quipements de fourniture d'eau chaude sanitaire fonctionnant \u00e0 l'\u00e9nergie solaire et dot\u00e9s de capteurs solaires"
+  },
+  {
+    "boxes": [
+      "7TN"
+    ],
+    "type": "int",
+    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale de l'habitation principale en 2015: Appareils de chauffage au bois ou autres biomasses rempla\u00e7ant un appareil \u00e9quivalent"
+  },
+  {
+    "boxes": [
+      "7TP"
+    ],
+    "type": "int",
+    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale de l'habitation principale 2015: Pompes \u00e0 chaleur autres que air/air et autres que g\u00e9othermiques dont la finalit\u00e9 essentielle est la production de chaleur"
+  },
+  {
+    "boxes": [
+      "7TP"
+    ],
+    "type": "int",
+    "description": "Inv. forestiers: Report des d\u00e9penses de travaux des ann\u00e9es ant\u00e9rieures 2016"
+  },
+  {
+    "boxes": [
+      "7TQ"
+    ],
+    "type": "int",
+    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale de l'habitation principale 2015: Pompes \u00e0 chaleur g\u00e9othermiques dont la finalit\u00e9 essentielle est la production de chaleur"
+  },
+  {
+    "boxes": [
+      "7TQ"
+    ],
+    "type": "int",
+    "description": "Inv. forestiers: Report des d\u00e9penses de travaux des ann\u00e9es ant\u00e9rieures avec adh. grp. prod. 2016"
+  },
+  {
+    "boxes": [
+      "7TR"
+    ],
+    "type": "int",
+    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale de l'habitation principale 2015: Pompes \u00e0 chaleur (autres que air/air) d\u00e9di\u00e9es \u00e0 la production d'eau chaude sanitaire (chauffe-eaux thermodynamiques)"
+  },
+  {
+    "boxes": [
+      "7TR"
+    ],
+    "type": "int",
+    "description": "Inv. forestiers: Report des d\u00e9penses de travaux des ann\u00e9es ant\u00e9rieures 2017"
+  },
+  {
+    "boxes": [
+      "7TS"
+    ],
+    "type": "int",
+    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale de l'habitation principale 2015: \u00c9quipements de fourniture d'eau chaude sanitaire fonctionnant \u00e0 l'\u00e9nergie solaire et dot\u00e9s de capteurs solaires"
+  },
+  {
+    "boxes": [
+      "7TS"
+    ],
+    "type": "int",
+    "description": "Inv. forestiers: Report des d\u00e9penses de travaux des ann\u00e9es ant\u00e9rieures avec adh. grp. prod. 2017"
+  },
+  {
+    "boxes": [
+      "7AR"
+    ],
+    "type": "int",
+    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale de l'habitation principale en 2015 (hors bouquet sur 2 ans) : Appareils de chauffage au bois ou autres biomasses "
+  },
+  {
+    "boxes": [
+      "7AV"
+    ],
+    "type": "int",
+    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale de l'habitation principale 2015 (hors bouquet sur 2 ans) : Pompes \u00e0 chaleur autres que air/air dont la finalit\u00e9 essentielle est la production de chaleur"
+  },
+  {
+    "boxes": [
+      "7AX"
+    ],
+    "type": "int",
+    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale de l'habitation principale 2015 (hors bouquet sur 2 ans) : Pompes \u00e0 chaleur (autres que air/air) d\u00e9di\u00e9es \u00e0 la production d'eau chaude sanitaire (chauffe-eaux thermodynamiques)"
+  },
+  {
+    "boxes": [
+      "7AY"
+    ],
+    "type": "int",
+    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale de l'habitation principale 2015 (hors bouquet sur 2 ans) : \u00c9quipements de fourniture d'eau chaude sanitaire fonctionnant \u00e0 l'\u00e9nergie solaire et dot\u00e9s de capteurs solaires"
+  },
+  {
+    "boxes": [
+      "7AZ"
+    ],
+    "type": "int",
+    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale de l'habitation principale 2015 (hors bouquet sur 2 ans) : \u00c9quipements de fourniture d'eau chaude sanitaire fonctionnant \u00e0 l'\u00e9nergie hydraulique"
+  },
+  {
+    "boxes": [
+      "7BB"
+    ],
+    "type": "int",
+    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale de l'habitation principale (hors bouquet sur 2 ans) : Syst\u00e8mes de production d'\u00e9lectricit\u00e9 utilisant une source d'\u00e9nergie renouvelable (\u00e9olien, hydraulique)"
+  },
+  {
+    "boxes": [
+      "7BM"
+    ],
+    "type": "int",
+    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale de l'habitation principale : Syst\u00e8mes de production d'\u00e9lectricit\u00e9 utilisant une source d'\u00e9nergie renouvelable (\u00e9olien, hydraulique) avec signature d'un devis et versement d'un acompte avant le 1.1.2016"
+  },
+  {
+    "boxes": [
+      "7BN"
+    ],
+    "type": "int",
+    "description": "D\u00e9penses de pose d\u2019\u00e9quipements de chauffage ou de fourniture d\u2019eau chaude utilisant une source d\u2019\u00e9nergie renouvelable, de syst\u00e8mes de fourniture d\u2019\u00e9lectricit\u00e9 utilisant l\u2019\u00e9nergie hydraulique ou la biomasse et de pompes \u00e0 chaleur autres que air/air (\u00e0 l\u2019exception du co\u00fbt de la pose de l\u2019\u00e9changeur de chaleur souterrain des pompes \u00e0 chaleur g\u00e9othermiques)"
+  },
+  {
+    "boxes": [
+      "7BQ"
+    ],
+    "type": "int",
+    "description": "D\u00e9pose d\u2019une cuve \u00e0 fioul"
+  },
+  {
+    "boxes": [
+      "7ST"
+    ],
+    "type": "int",
+    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale de l'habitation principale: Autres \u00e9quipements de production d'\u00e9nergie utilisant une source d'\u00e9nergie renouvelable (\u00e9olien, hydraulique)"
+  },
+  {
+    "boxes": [
+      "7SU"
+    ],
+    "type": "int",
+    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale de l'habitation principale: \u00c9quipements de r\u00e9cup\u00e9ration et de traitement des eaux pluviales"
+  },
+  {
+    "boxes": [
+      "7SV"
+    ],
+    "type": "int",
+    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale de l'habitation principale: Diagnostic de performance \u00e9nerg\u00e9tique"
+  },
+  {
+    "boxes": [
+      "7SW"
+    ],
+    "type": "int",
+    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale de l'habitation principale: \u00c9quipements de raccordement \u00e0 un r\u00e9seau de chaleur"
+  },
+  {
+    "boxes": [
+      "7BC"
+    ],
+    "type": "int",
+    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale de l'habitation principale (hors bouquet sur 2 ans) : Diagnostic de performance \u00e9nerg\u00e9tique"
+  },
+  {
+    "boxes": [
+      "7BD"
+    ],
+    "type": "int",
+    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale de l'habitation principale (hors bouquet sur 2 ans) : \u00c9quipements de raccordement \u00e0 un r\u00e9seau de chaleur"
+  },
+  {
+    "boxes": [
+      "7BE"
+    ],
+    "type": "int",
+    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale de l'habitation principale (hors bouquet sur 2 ans) : Compteurs individuels de chauffage ou d'eau chaude sanitaire dans immeuble collectif"
+  },
+  {
+    "boxes": [
+      "7BF"
+    ],
+    "type": "int",
+    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale de l'habitation principale (hors bouquet sur 2 ans) : Syst\u00e8me de charge pour v\u00e9hicules \u00e9lectriques "
+  },
+  {
+    "boxes": [
+      "7BH"
+    ],
+    "type": "int",
+    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale de l'habitation principale (hors bouquet sur 2 ans) : Equipements install\u00e9s dans les DOM (raccordement \u00e0 un r\u00e9seau de froid) "
+  },
+  {
+    "boxes": [
+      "7BK"
+    ],
+    "type": "int",
+    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale de l'habitation principale (hors bouquet sur 2 ans) : Equipements install\u00e9s dans les DOM (protection des parois vitr\u00e9s)"
+  },
+  {
+    "boxes": [
+      "7BL"
+    ],
+    "type": "int",
+    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale de l'habitation principale (hors bouquet sur 2 ans) : Equipements install\u00e9s dans les DOM (optimisation de la ventilation naturelle)"
+  },
+  {
+    "boxes": [
+      "7WQ"
+    ],
+    "type": "bool",
+    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale de l'habitation principale: d\u00e9penses d'isolation thermique des parois vitr\u00e9es du 01/01/2012 au 03/04/2012"
+  },
+  {
+    "boxes": [
+      "7WS"
+    ],
+    "type": "bool",
+    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale de l'habitation principale: d\u00e9penses d'isolations des parois vitr\u00e9es \u00e0 compter du 04/04/2012"
+  },
+  {
+    "boxes": [
+      "7WT"
+    ],
+    "type": "bool",
+    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale de l'habitation principale: d\u00e9penses d'isolation thermique des parois vitr\u00e9es r\u00e9alis\u00e9es sur au moins la moiti\u00e9 des fen\u00eatres du logement "
+  },
+  {
+    "boxes": [
+      "7WU"
+    ],
+    "type": "bool",
+    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale de l'habitation principale: achat de volets avant 2012"
+  },
+  {
+    "boxes": [
+      "7WV"
+    ],
+    "type": "bool",
+    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale de l'habitation principale: achat de volets en 2012"
+  },
+  {
+    "boxes": [
+      "7WV"
+    ],
+    "type": "bool",
+    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale de l'habitation principale: achat en 2015 de mat\u00e9riaux d'isolation thermique des parois vitr\u00e9es concernant au moins la moiti\u00e9 des fen\u00eatres"
+  },
+  {
+    "boxes": [
+      "7WW"
+    ],
+    "type": "bool",
+    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale de l'habitation principale: vous avez r\u00e9alis\u00e9 des d\u00e9penses d'acquisitions de portes d'entr\u00e9es donnant sur l'ext\u00e9rieur, avant le 1.1.2012"
+  },
+  {
+    "boxes": [
+      "7WW"
+    ],
+    "type": "bool",
+    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale de l'habitation principale: achat en 2015 de mat\u00e9riaux d'isolation thermique des parois vitr\u00e9es concernant moins de la moiti\u00e9 des fen\u00eatres"
+  },
+  {
+    "boxes": [
+      "7WX"
+    ],
+    "type": "bool",
+    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale de l'habitation principale: achat de portes en 2012"
+  },
+  {
+    "boxes": [
+      "7WH"
+    ],
+    "type": "bool",
+    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale de l'habitation principale (logement achev\u00e9 depuis plus de 2 ans): bouquet de travaux r\u00e9alis\u00e9 pendant l'ann\u00e9e de perception des revenus"
+  },
+  {
+    "boxes": [
+      "7WK"
+    ],
+    "type": "bool",
+    "description": "Votre habitation principale est une maison individuelle"
+  },
+  {
+    "boxes": [
+      "7WF"
+    ],
+    "type": "bool",
+    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale de l'habitation principale: d\u00e9penses d'isolation thermique des parois vitr\u00e9es avant le 01/01/n-1"
+  },
+  {
+    "boxes": [
+      "7WF"
+    ],
+    "type": "bool",
+    "description": "Scellier"
+  },
+  {
+    "boxes": [
+      "7WI"
+    ],
+    "type": "int",
+    "description": "D\u00e9penses en faveur de l'aide aux personnes r\u00e9alis\u00e9es dans l'habitation principale: Ascenseurs \u00e9lectriques \u00e0 traction"
+  },
+  {
+    "boxes": [
+      "7WI"
+    ],
+    "type": "int",
+    "description": "D\u00e9penses en faveur de l'aide aux personnes r\u00e9alis\u00e9es dans l'habitation principale: d\u00e9penses pay\u00e9es en 2015 de mat\u00e9riaux d'isolation des toitures, pos\u00e9s sur une partie de la toiture"
+  },
+  {
+    "boxes": [
+      "7WI"
+    ],
+    "type": "int",
+    "description": "D\u00e9penses en faveur de l'aide aux personnes r\u00e9alis\u00e9es dans l'habitation principale: \u00e9quipements permettant l\u2019adaptation des logements \u00e0 la perte d\u2019autonomie ou au handicap"
+  },
+  {
+    "boxes": [
+      "7WJ"
+    ],
+    "type": "int",
+    "description": "D\u00e9penses en faveur de l'aide aux personnes r\u00e9alis\u00e9es dans l'habitation principale: \u00e9quipements sp\u00e9cialement con\u00e7us pour les personnes \u00e2g\u00e9es ou handicap\u00e9es"
+  },
+  {
+    "boxes": [
+      "7WL"
+    ],
+    "type": "int",
+    "description": "D\u00e9penses en faveur de l'aide aux personnes r\u00e9alis\u00e9es dans l'habitation principale: travaux de pr\u00e9vention des risques technologiques"
+  },
+  {
+    "boxes": [
+      "7WR"
+    ],
+    "type": "int",
+    "description": "D\u00e9penses en faveur de l'aide aux personnes r\u00e9alis\u00e9es dans des habitations donn\u00e9es en location : travaux de pr\u00e9vention des risques technologiques"
+  },
+  {
+    "boxes": [
+      "7UR"
+    ],
+    "type": "int",
+    "description": "Investissements r\u00e9alis\u00e9s en n-1, total r\u00e9duction d\u2019imp\u00f4t"
+  },
+  {
+    "boxes": [
+      "7OZ"
+    ],
+    "type": "int",
+    "description": "Investissements outre-mer: report de r\u00e9duction d'imp\u00f4t non imput\u00e9e les ann\u00e9es ant\u00e9rieures ann\u00e9e n-6"
+  },
+  {
+    "boxes": [
+      "7OZ"
+    ],
+    "type": "int",
+    "description": "Location Meubl\u00e9e Censi B"
+  },
+  {
+    "boxes": [
+      "7PZ"
+    ],
+    "type": "int",
+    "description": "Investissements outre-mer r\u00e9alis\u00e9s en 2007 dans le cadre d'une entreprise: report de r\u00e9duction d'imp\u00f4t non imput\u00e9e les ann\u00e9es ant\u00e9rieures"
+  },
+  {
+    "boxes": [
+      "7QZ"
+    ],
+    "type": "int",
+    "description": "Investissements outre-mer r\u00e9alis\u00e9s en 2008 dans le casdre d'une entreprise: report de r\u00e9duction d'imp\u00f4t non imput\u00e9e les ann\u00e9es ant\u00e9rieures"
+  },
+  {
+    "boxes": [
+      "HQZ"
+    ],
+    "type": "int",
+    "description": "Investissements outre-mer r\u00e9alis\u00e9s en 2008 dans le casdre d'une entreprise: report de r\u00e9duction d'imp\u00f4t non imput\u00e9e les ann\u00e9es ant\u00e9rieures"
+  },
+  {
+    "boxes": [
+      "7RZ"
+    ],
+    "type": "int",
+    "description": "Investissements outre-mer: report de r\u00e9duction d'imp\u00f4t non imput\u00e9e les ann\u00e9es ant\u00e9rieures ann\u00e9e n-3"
+  },
+  {
+    "boxes": [
+      "7RZ"
+    ],
+    "type": "int",
+    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale des logements donn\u00e9s en location : Dans les logements situ\u00e9s dans les d\u00e9partements d\u2019outre-mer : \u00e9quipements de raccordement \u00e0 un r\u00e9seau de froid ;  \u00e9quipements ou mat\u00e9riaux de protection des parois vitr\u00e9es ou opaques contre les rayonnements solaires ;  \u00e9quipements visant \u00e0 l\u2019optimisation de la ventilation naturelle "
+  },
+  {
+    "boxes": [
+      "7QV"
+    ],
+    "type": "int",
+    "description": "Investissements outre-mer dans le cadre de l'entreprise : Investissements immobliliers engag\u00e9s avant le 1.1.2011 et investissements ayant re\u00e7u un agr\u00e9ment avant le 5.12.2010, nvestissements ayant fait l'objet avant 2009 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un accompte d'au moins 50%"
+  },
+  {
+    "boxes": [
+      "HQV"
+    ],
+    "type": "int",
+    "description": "Investissements outre-mer dans le cadre de l'entreprise : Investissements immobliliers engag\u00e9s avant le 1.1.2011 et investissements ayant re\u00e7u un agr\u00e9ment avant le 5.12.2010, nvestissements ayant fait l'objet avant 2009 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un accompte d'au moins 50%"
+  },
+  {
+    "boxes": [
+      "7QO"
+    ],
+    "type": "int",
+    "description": "Investissements outre-mer dans le cadre de l'entreprise : Investissements immobliliers engag\u00e9s avant le 1.1.2011 et investissements ayant re\u00e7u un agr\u00e9ment avant le 5.12.2010 \u00e0 hauteur de 50%"
+  },
+  {
+    "boxes": [
+      "7QP"
+    ],
+    "type": "int",
+    "description": "Investissements outre-mer dans le cadre de l'entreprise : Investissements immobliliers engag\u00e9s avant le 1.1.2011 et investissements ayant re\u00e7u un agr\u00e9ment avant le 5.12.2010 \u00e0 hauteur de 60%"
+  },
+  {
+    "boxes": [
+      "HQO"
+    ],
+    "type": "int",
+    "description": "Investissements outre-mer dans le cadre de l'entreprise : Investissements immobliliers engag\u00e9s avant le 1.1.2011 et investissements ayant re\u00e7u un agr\u00e9ment avant le 5.12.2010 \u00e0 hauteur de 50%"
+  },
+  {
+    "boxes": [
+      "HQP"
+    ],
+    "type": "int",
+    "description": "Investissements outre-mer dans le cadre de l'entreprise : Investissements immobliliers engag\u00e9s avant le 1.1.2011 et investissements ayant re\u00e7u un agr\u00e9ment avant le 5.12.2010 \u00e0 hauteur de 60%"
+  },
+  {
+    "boxes": [
+      "7PA"
+    ],
+    "type": "int",
+    "description": "Investissements outre-mer dans le cadre de l'entreprise : Autres investissements ayant fait l'objet en 2009 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un accompte d'au moins 50%, Investissements donn\u00e9s en location \u00e0 une entreprise exploitante \u00e0 laquelle vous r\u00e9troc\u00e9dez la r\u00e9duction d'imp\u00f4t \u00e0 hauteur de 52,63%"
+  },
+  {
+    "boxes": [
+      "7PA"
+    ],
+    "type": "int",
+    "description": "Investissements destin\u00e9s \u00e0 la location meubl\u00e9e non professionnelle : Report du solde de r\u00e9duction d'imp\u00f4t non encore imput\u00e9 2013"
+  },
+  {
+    "boxes": [
+      "HPA"
+    ],
+    "type": "int",
+    "description": "Investissements outre-mer dans le cadre de l'entreprise : Autres investissements ayant fait l'objet en 2009 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un accompte d'au moins 50%, Investissements donn\u00e9s en location \u00e0 une entreprise exploitante \u00e0 laquelle vous r\u00e9troc\u00e9dez la r\u00e9duction d'imp\u00f4t \u00e0 hauteur de 52,63%"
+  },
+  {
+    "boxes": [
+      "7PB"
+    ],
+    "type": "int",
+    "description": "Investissements outre-mer dans le cadre de l'entreprise : Autres investissements ayant fait l'objet en 2009 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un accompte d'au moins 50%, Investissements donn\u00e9s en location \u00e0 une entreprise exploitante \u00e0 laquelle vous r\u00e9troc\u00e9dez la r\u00e9duction d'imp\u00f4t \u00e0 hauteur de 62,5%"
+  },
+  {
+    "boxes": [
+      "HPB"
+    ],
+    "type": "int",
+    "description": "Investissements outre-mer dans le cadre de l'entreprise : Autres investissements ayant fait l'objet en 2009 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un accompte d'au moins 50%, Investissements donn\u00e9s en location \u00e0 une entreprise exploitante \u00e0 laquelle vous r\u00e9troc\u00e9dez la r\u00e9duction d'imp\u00f4t \u00e0 hauteur de 62,5%"
+  },
+  {
+    "boxes": [
+      "7PB"
+    ],
+    "type": "int",
+    "description": "Investissements destin\u00e9s \u00e0 la location meubl\u00e9e non professionnelle : Report du solde de r\u00e9duction d'imp\u00f4t non encore imput\u00e9 2013"
+  },
+  {
+    "boxes": [
+      "7PC"
+    ],
+    "type": "int",
+    "description": "Investissements outre-mer dans le cadre de l'entreprise : Autres investissements ayant fait l'objet en 2009 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un accompte d'au moins 50%, Investissements dans votre entreprise, montant de la r\u00e9duction d' imp\u00f4t calcul\u00e9e"
+  },
+  {
+    "boxes": [
+      "7PC"
+    ],
+    "type": "int",
+    "description": "Investissements destin\u00e9s \u00e0 la location meubl\u00e9e non professionnelle : Report du solde de r\u00e9duction d'imp\u00f4t non encore imput\u00e9 2013"
+  },
+  {
+    "boxes": [
+      "7PC"
+    ],
+    "type": "int",
+    "description": "Scellier"
+  },
+  {
+    "boxes": [
+      "7PD"
+    ],
+    "type": "int",
+    "description": "Investissements outre-mer dans le cadre de l'entreprise : Autres investissements ayant fait l'objet en 2009 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un accompte d'au moins 50%, Investissements dans votre entreprise, montant de la r\u00e9duction d' imp\u00f4t dont vous demandez l'imputation en 2011"
+  },
+  {
+    "boxes": [
+      "7PD"
+    ],
+    "type": "int",
+    "description": "Investissements destin\u00e9s \u00e0 la location meubl\u00e9e non professionnelle : Report du solde de r\u00e9duction d'imp\u00f4t non encore imput\u00e9 2013"
+  },
+  {
+    "boxes": [
+      "7PD"
+    ],
+    "type": "int",
+    "description": "Scellier"
+  },
+  {
+    "boxes": [
+      "HPD"
+    ],
+    "type": "int",
+    "description": "Investissements outre-mer dans le cadre de l'entreprise : Autres investissements ayant fait l'objet en 2009 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un accompte d'au moins 50%, Investissements dans votre entreprise, montant de la r\u00e9duction d' imp\u00f4t dont vous demandez l'imputation en 2011"
+  },
+  {
+    "boxes": [
+      "7QE"
+    ],
+    "type": "int",
+    "description": "Investissements outre-mer dans le cadre de l'entreprise : Autres investissements ayant fait l'objet avant 1.1.2009 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un accompte d'au moins 50%"
+  },
+  {
+    "boxes": [
+      "7QE"
+    ],
+    "type": "int",
+    "description": "Pinel"
+  },
+  {
+    "boxes": [
+      "HQE"
+    ],
+    "type": "int",
+    "description": "Investissements outre-mer dans le cadre de l'entreprise : Autres investissements ayant fait l'objet avant 1.1.2009 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un accompte d'au moins 50%"
+  },
+  {
+    "boxes": [
+      "7PE"
+    ],
+    "type": "int",
+    "description": "Investissements outre-mer dans le cadre de l'entreprise : Autres investissements ayant fait l'objet en 2010 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un accompte d'au moins 50%, Investissements donn\u00e9s en location \u00e0 une entreprise exploitante \u00e0 laquelle vous r\u00e9troc\u00e9dez la r\u00e9duction d'imp\u00f4t \u00e0 hauteur de 52,63%"
+  },
+  {
+    "boxes": [
+      "7PE"
+    ],
+    "type": "int",
+    "description": "Investissements destin\u00e9s \u00e0 la location meubl\u00e9e non professionnelle : Report du solde de r\u00e9duction d'imp\u00f4t non encore imput\u00e9 2013 (investissements r\u00e9alis\u00e9s et achev\u00e9s en 2013)"
+  },
+  {
+    "boxes": [
+      "7PE"
+    ],
+    "type": "int",
+    "description": "Scellier"
+  },
+  {
+    "boxes": [
+      "7PF"
+    ],
+    "type": "int",
+    "description": "Investissements outre-mer dans le cadre de l'entreprise : Autres investissements ayant fait l'objet en 2010 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un accompte d'au moins 50%, Investissements donn\u00e9s en location \u00e0 une entreprise exploitante \u00e0 laquelle vous r\u00e9troc\u00e9dez la r\u00e9duction d'imp\u00f4t \u00e0 hauteur de 62,5%"
+  },
+  {
+    "boxes": [
+      "7PF"
+    ],
+    "type": "int",
+    "description": "Investissements destin\u00e9s \u00e0 la location meubl\u00e9e non professionnelle : Report du solde de r\u00e9duction d'imp\u00f4t non encore imput\u00e9 2014 (investissements r\u00e9alis\u00e9s en 2009 et achev\u00e9s de 2010 \u00e0 2015)"
+  },
+  {
+    "boxes": [
+      "HPE"
+    ],
+    "type": "int",
+    "description": "Investissements outre-mer dans le cadre de l'entreprise : Autres investissements ayant fait l'objet en 2010 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un accompte d'au moins 50%, Investissements donn\u00e9s en location \u00e0 une entreprise exploitante \u00e0 laquelle vous r\u00e9troc\u00e9dez la r\u00e9duction d'imp\u00f4t \u00e0 hauteur de 52,63%"
+  },
+  {
+    "boxes": [
+      "HPF"
+    ],
+    "type": "int",
+    "description": "Investissements outre-mer dans le cadre de l'entreprise : Autres investissements ayant fait l'objet en 2010 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un accompte d'au moins 50%, Investissements donn\u00e9s en location \u00e0 une entreprise exploitante \u00e0 laquelle vous r\u00e9troc\u00e9dez la r\u00e9duction d'imp\u00f4t \u00e0 hauteur de 62,5%"
+  },
+  {
+    "boxes": [
+      "7PG"
+    ],
+    "type": "int",
+    "description": "Investissements outre-mer dans le cadre de l'entreprise : Autres investissements ayant fait l'objet en 2010 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un accompte d'au moins 50%, Investissements dans votre entreprise, montant de la r\u00e9duction d' imp\u00f4t calcul\u00e9e"
+  },
+  {
+    "boxes": [
+      "7PH"
+    ],
+    "type": "int",
+    "description": "Investissements outre-mer dans le cadre de l'entreprise : Autres investissements ayant fait l'objet en 2010 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un accompte d'au moins 50%, Investissements dans votre entreprise, montant de la r\u00e9duction d' imp\u00f4t dont vous demandez l'imputation en 2011"
+  },
+  {
+    "boxes": [
+      "7PH"
+    ],
+    "type": "int",
+    "description": "Investissements outre-mer dans le cadre de l'entreprise : Autres investissements ayant fait l'objet en 2010 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un accompte d'au moins 50%, Investissements dans votre entreprise, montant de la r\u00e9duction d' imp\u00f4t dont vous demandez l'imputation en 2011"
+  },
+  {
+    "boxes": [
+      "HPH"
+    ],
+    "type": "int",
+    "description": "Investissements outre-mer dans le cadre de l'entreprise : Autres investissements ayant fait l'objet en 2010 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un accompte d'au moins 50%, Investissements dans votre entreprise, montant de la r\u00e9duction d' imp\u00f4t dont vous demandez l'imputation en 2011"
+  },
+  {
+    "boxes": [
+      "7PI"
+    ],
+    "type": "int",
+    "description": "Investissements outre-mer dans le cadre de l'entreprise : Investissements autres que ceux des lignes pr\u00e9c\u00e9dentes, Investissements donn\u00e9s en location \u00e0 une entreprise exploitante \u00e0 laquelle vous r\u00e9troc\u00e9dez la r\u00e9duction d'imp\u00f4t \u00e0 hauteur de 52,63%"
+  },
+  {
+    "boxes": [
+      "7PI"
+    ],
+    "type": "int",
+    "description": "Investissements destin\u00e9s \u00e0 la location meubl\u00e9e non professionnelle : Report du solde de r\u00e9duction d'imp\u00f4t non encore imput\u00e9 2014 (investissements r\u00e9alis\u00e9s en 2012 et achev\u00e9s de 2012 \u00e0 2015)"
+  },
+  {
+    "boxes": [
+      "HPI"
+    ],
+    "type": "int",
+    "description": "Investissements outre-mer dans le cadre de l'entreprise : Investissements autres que ceux des lignes pr\u00e9c\u00e9dentes, Investissements donn\u00e9s en location \u00e0 une entreprise exploitante \u00e0 laquelle vous r\u00e9troc\u00e9dez la r\u00e9duction d'imp\u00f4t \u00e0 hauteur de 52,63%"
+  },
+  {
+    "boxes": [
+      "7PJ"
+    ],
+    "type": "int",
+    "description": "Investissements outre-mer dans le cadre de l'entreprise : Investissements autres que ceux des lignes pr\u00e9c\u00e9dentes, Investissements donn\u00e9s en location \u00e0 une entreprise exploitante \u00e0 laquelle vous r\u00e9troc\u00e9dez la r\u00e9duction d'imp\u00f4t \u00e0 hauteur de 62,5%"
+  },
+  {
+    "boxes": [
+      "7PJ"
+    ],
+    "type": "int",
+    "description": "Investissements destin\u00e9s \u00e0 la location meubl\u00e9e non professionnelle : Report du solde de r\u00e9duction d'imp\u00f4t non encore imput\u00e9 2014 (investissements r\u00e9alis\u00e9s et achev\u00e9s de 2013 \u00e0 2015)"
+  },
+  {
+    "boxes": [
+      "HPJ"
+    ],
+    "type": "int",
+    "description": "Investissements outre-mer dans le cadre de l'entreprise : Investissements autres que ceux des lignes pr\u00e9c\u00e9dentes, Investissements donn\u00e9s en location \u00e0 une entreprise exploitante \u00e0 laquelle vous r\u00e9troc\u00e9dez la r\u00e9duction d'imp\u00f4t \u00e0 hauteur de 62,5%"
+  },
+  {
+    "boxes": [
+      "7PK"
+    ],
+    "type": "int",
+    "description": "Investissements outre-mer dans le cadre de l'entreprise : Investissements autres que ceux des lignes pr\u00e9c\u00e9dentes, Investissements dans votre entreprise, montant de la r\u00e9duction d' imp\u00f4t calcul\u00e9e"
+  },
+  {
+    "boxes": [
+      "7PL"
+    ],
+    "type": "int",
+    "description": "Investissements outre-mer dans le cadre de l'entreprise : Investissements autres que ceux des lignes pr\u00e9c\u00e9dentes, Investissements dans votre entreprise, montant de la r\u00e9duction d' imp\u00f4t dont vous demandez l'imputation en 2011"
+  },
+  {
+    "boxes": [
+      "7PL"
+    ],
+    "type": "int",
+    "description": "Location Meubl\u00e9e Censi B"
+  },
+  {
+    "boxes": [
+      "7PM"
+    ],
+    "type": "int",
+    "description": "Investissements outre-mer dans le cadre de l'entreprise : Investissements r\u00e9alis\u00e9s en 2012, Investissements ayant fait l'objet avant 2009 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un acompte d'au moins 50%"
+  },
+  {
+    "boxes": [
+      "7PM"
+    ],
+    "type": "int",
+    "description": "Location Meubl\u00e9e Censi B"
+  },
+  {
+    "boxes": [
+      "7PN"
+    ],
+    "type": "int",
+    "description": "Investissements outre-mer dans le cadre de l'entreprise : Investissements r\u00e9alis\u00e9s en 2012, Investissements ayant fait l'objet en 2009 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un acompte d'au moins 50%, investissements donn\u00e9s en location \u00e0 une entreprise exploitante \u00e0 laquelle vous r\u00e9troc\u00e9dez la r\u00e9duction d'imp\u00f4t \u00e0 hauteur de 50 %"
+  },
+  {
+    "boxes": [
+      "7PN"
+    ],
+    "type": "int",
+    "description": "Location Meubl\u00e9e Censi B"
+  },
+  {
+    "boxes": [
+      "HPL"
+    ],
+    "type": "int",
+    "description": "Investissements outre-mer dans le cadre de l'entreprise : Investissements autres que ceux des lignes pr\u00e9c\u00e9dentes, Investissements dans votre entreprise, montant de la r\u00e9duction d' imp\u00f4t dont vous demandez l'imputation en 2011"
+  },
+  {
+    "boxes": [
+      "HPM"
+    ],
+    "type": "int",
+    "description": "Investissements outre-mer dans le cadre de l'entreprise : Investissements r\u00e9alis\u00e9s en 2012, Investissements ayant fait l'objet avant 2009 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un acompte d'au moins 50%"
+  },
+  {
+    "boxes": [
+      "HPN"
+    ],
+    "type": "int",
+    "description": "Investissements outre-mer dans le cadre de l'entreprise : Investissements r\u00e9alis\u00e9s en 2012, Investissements ayant fait l'objet en 2009 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un acompte d'au moins 50%, investissements donn\u00e9s en location \u00e0 une entreprise exploitante \u00e0 laquelle vous r\u00e9troc\u00e9dez la r\u00e9duction d'imp\u00f4t \u00e0 hauteur de 50 %"
+  },
+  {
+    "boxes": [
+      "7PO"
+    ],
+    "type": "int",
+    "description": "Investissements outre-mer dans le cadre de l'entreprise : Investissements r\u00e9alis\u00e9s en 2012, Investissements ayant fait l'objet en 2009 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un acompte d'au moins 50%, investissements donn\u00e9s en location \u00e0 une entreprise exploitante \u00e0 laquelle vous r\u00e9troc\u00e9dez la r\u00e9duction d'imp\u00f4t \u00e0 hauteur de 60 %"
+  },
+  {
+    "boxes": [
+      "7PO"
+    ],
+    "type": "int",
+    "description": "Location Meubl\u00e9e Censi B"
+  },
+  {
+    "boxes": [
+      "HPO"
+    ],
+    "type": "int",
+    "description": "Investissements outre-mer dans le cadre de l'entreprise : Investissements r\u00e9alis\u00e9s en 2012, Investissements ayant fait l'objet en 2009 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un acompte d'au moins 50%, investissements donn\u00e9s en location \u00e0 une entreprise exploitante \u00e0 laquelle vous r\u00e9troc\u00e9dez la r\u00e9duction d'imp\u00f4t \u00e0 hauteur de 60 %"
+  },
+  {
+    "boxes": [
+      "7PP"
+    ],
+    "type": "int",
+    "description": "Investissements outre-mer dans le cadre de l'entreprise : Investissements r\u00e9alis\u00e9s en 2012, Investissements ayant fait l'objet en 2009 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un acompte d'au moins 50%, investissements dans votre entreprise"
+  },
+  {
+    "boxes": [
+      "7PQ"
+    ],
+    "type": "int",
+    "description": "Investissements outre-mer dans le cadre de l'entreprise : Investissements r\u00e9alis\u00e9s en 2012, Investissements ayant fait l'objet en 2009 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un acompte d'au moins 50%, investissements dans votre entreprise avec exploitation directe, montant de la r\u00e9duction d'imp\u00f4t calcul\u00e9e"
+  },
+  {
+    "boxes": [
+      "7PR"
+    ],
+    "type": "int",
+    "description": "Investissements outre-mer dans le cadre de l'entreprise : Investissements r\u00e9alis\u00e9s en 2012, Investissements ayant fait l'objet en 2009 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un acompte d'au moins 50%, investissements dans votre entreprise avec exploitation directe, montant de la r\u00e9duction d'imp\u00f4t dont vous demandez l'imputation en 2012"
+  },
+  {
+    "boxes": [
+      "7PS"
+    ],
+    "type": "int",
+    "description": "Investissements outre-mer dans le cadre de l'entreprise : Investissements r\u00e9alis\u00e9s en 2012, Investissements ayant fait l'objet en 2010 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un acompte d'au moins 50%, investissements donn\u00e9s en location \u00e0 une entreprise exploitante \u00e0 laquelle vous r\u00e9troc\u00e9dez la r\u00e9duction d'imp\u00f4t \u00e0 hauteur de 50 %"
+  },
+  {
+    "boxes": [
+      "7PT"
+    ],
+    "type": "int",
+    "description": "Investissements outre-mer dans le cadre de l'entreprise : Investissements r\u00e9alis\u00e9s en 2012, Investissements ayant fait l'objet en 2010 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un acompte d'au moins 50%, investissements donn\u00e9s en location \u00e0 une entreprise exploitante \u00e0 laquelle vous r\u00e9troc\u00e9dez la r\u00e9duction d'imp\u00f4t \u00e0 hauteur de 60 %"
+  },
+  {
+    "boxes": [
+      "7PU"
+    ],
+    "type": "int",
+    "description": "Investissements outre-mer dans le cadre de l'entreprise : Investissements r\u00e9alis\u00e9s en 2012, Investissements ayant fait l'objet en 2010 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un acompte d'au moins 50%, investissements dans votre entreprise"
+  },
+  {
+    "boxes": [
+      "7PV"
+    ],
+    "type": "int",
+    "description": "Investissements outre-mer dans le cadre de l'entreprise : Investissements r\u00e9alis\u00e9s en 2012, Investissements ayant fait l'objet en 2010 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un acompte d'au moins 50%, investissements dans votre entreprise avec exploitation directe, montant de la r\u00e9duction d'imp\u00f4t calcul\u00e9e"
+  },
+  {
+    "boxes": [
+      "7PW"
+    ],
+    "type": "int",
+    "description": "Investissements outre-mer dans le cadre de l'entreprise : Investissements r\u00e9alis\u00e9s en 2012, Investissements ayant fait l'objet en 2010 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un acompte d'au moins 50%, investissements dans votre entreprise avec exploitation directe, montant de la r\u00e9duction d'imp\u00f4t dont vous demandez l'imputation en 2012"
+  },
+  {
+    "boxes": [
+      "7PX"
+    ],
+    "type": "int",
+    "description": "Investissements outre-mer dans le cadre de l'entreprise : Investissements r\u00e9alis\u00e9s en 2012, Investissements ayant fait l'objet en 2011 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un acompte d'au moins 50%, investissements donn\u00e9s en location \u00e0 une entreprise exploitante \u00e0 laquelle vous r\u00e9troc\u00e9dez la r\u00e9duction d'imp\u00f4t  \u00e0 hauteur de 52,63 %"
+  },
+  {
+    "boxes": [
+      "7PY"
+    ],
+    "type": "int",
+    "description": "Investissements outre-mer dans le cadre de l'entreprise : Investissements r\u00e9alis\u00e9s en 2012, Investissements ayant fait l'objet en 2011 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un acompte d'au moins 50%, investissements donn\u00e9s en location \u00e0 une entreprise exploitante \u00e0 laquelle vous r\u00e9troc\u00e9dez la r\u00e9duction d'imp\u00f4t \u00e0 hauteur de 62,5 %"
+  },
+  {
+    "boxes": [
+      "HPP"
+    ],
+    "type": "int",
+    "description": "Investissements outre-mer dans le cadre de l'entreprise : Investissements r\u00e9alis\u00e9s en 2012, Investissements ayant fait l'objet en 2009 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un acompte d'au moins 50%, investissements dans votre entreprise"
+  },
+  {
+    "boxes": [
+      "HPQ"
+    ],
+    "type": "int",
+    "description": "Investissements outre-mer dans le cadre de l'entreprise : Investissements r\u00e9alis\u00e9s en 2012, Investissements ayant fait l'objet en 2009 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un acompte d'au moins 50%, investissements dans votre entreprise avec exploitation directe, montant de la r\u00e9duction d'imp\u00f4t calcul\u00e9e"
+  },
+  {
+    "boxes": [
+      "HPR"
+    ],
+    "type": "int",
+    "description": "Investissements outre-mer dans le cadre de l'entreprise : Investissements r\u00e9alis\u00e9s en 2012, Investissements ayant fait l'objet en 2009 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un acompte d'au moins 50%, investissements dans votre entreprise avec exploitation directe, montant de la r\u00e9duction d'imp\u00f4t dont vous demandez l'imputation en 2012"
+  },
+  {
+    "boxes": [
+      "HPS"
+    ],
+    "type": "int",
+    "description": "Investissements outre-mer dans le cadre de l'entreprise : Investissements r\u00e9alis\u00e9s en 2012, Investissements ayant fait l'objet en 2010 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un acompte d'au moins 50%, investissements donn\u00e9s en location \u00e0 une entreprise exploitante \u00e0 laquelle vous r\u00e9troc\u00e9dez la r\u00e9duction d'imp\u00f4t \u00e0 hauteur de 50 %"
+  },
+  {
+    "boxes": [
+      "HPT"
+    ],
+    "type": "int",
+    "description": "Investissements outre-mer dans le cadre de l'entreprise : Investissements r\u00e9alis\u00e9s en 2012, Investissements ayant fait l'objet en 2010 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un acompte d'au moins 50%, investissements donn\u00e9s en location \u00e0 une entreprise exploitante \u00e0 laquelle vous r\u00e9troc\u00e9dez la r\u00e9duction d'imp\u00f4t \u00e0 hauteur de 60 %"
+  },
+  {
+    "boxes": [
+      "HPU"
+    ],
+    "type": "int",
+    "description": "Investissements outre-mer dans le cadre de l'entreprise : Investissements r\u00e9alis\u00e9s en 2012, Investissements ayant fait l'objet en 2010 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un acompte d'au moins 50%, investissements dans votre entreprise"
+  },
+  {
+    "boxes": [
+      "HPV"
+    ],
+    "type": "int",
+    "description": "Investissements outre-mer dans le cadre de l'entreprise : Investissements r\u00e9alis\u00e9s en 2012, Investissements ayant fait l'objet en 2010 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un acompte d'au moins 50%, investissements dans votre entreprise avec exploitation directe, montant de la r\u00e9duction d'imp\u00f4t calcul\u00e9e"
+  },
+  {
+    "boxes": [
+      "HPW"
+    ],
+    "type": "int",
+    "description": "Investissements outre-mer dans le cadre de l'entreprise : Investissements r\u00e9alis\u00e9s en 2012, Investissements ayant fait l'objet en 2010 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un acompte d'au moins 50%, investissements dans votre entreprise avec exploitation directe, montant de la r\u00e9duction d'imp\u00f4t dont vous demandez l'imputation en 2012"
+  },
+  {
+    "boxes": [
+      "HPX"
+    ],
+    "type": "int",
+    "description": "Investissements outre-mer dans le cadre de l'entreprise : Investissements r\u00e9alis\u00e9s en 2012, Investissements ayant fait l'objet en 2011 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un acompte d'au moins 50%, investissements donn\u00e9s en location \u00e0 une entreprise exploitante \u00e0 laquelle vous r\u00e9troc\u00e9dez la r\u00e9duction d'imp\u00f4t  \u00e0 hauteur de 52,63 %"
+  },
+  {
+    "boxes": [
+      "HPY"
+    ],
+    "type": "int",
+    "description": "Investissements outre-mer dans le cadre de l'entreprise : Investissements r\u00e9alis\u00e9s en 2012, Investissements ayant fait l'objet en 2011 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un acompte d'au moins 50%, investissements donn\u00e9s en location \u00e0 une entreprise exploitante \u00e0 laquelle vous r\u00e9troc\u00e9dez la r\u00e9duction d'imp\u00f4t \u00e0 hauteur de 62,5 %"
+  },
+  {
+    "boxes": [
+      "7RG"
+    ],
+    "type": "int",
+    "description": "Investissements outre-mer dans le cadre de l'entreprise : Investissements r\u00e9alis\u00e9s en 2012, Investissements ayant fait l'objet en 2011 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un acompte d'au moins 50%, investissements dans votre entreprise"
+  },
+  {
+    "boxes": [
+      "7RG"
+    ],
+    "type": "int",
+    "description": "QuaEnv"
+  },
+  {
+    "boxes": [
+      "7RH"
+    ],
+    "type": "int",
+    "description": "Investissements outre-mer dans le cadre de l'entreprise : Investissements r\u00e9alis\u00e9s en 2012, Investissements ayant fait l'objet en 2011 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un acompte d'au moins 50%, investissements dans votre entreprise avec exploitation directe, montant de la r\u00e9duction d'imp\u00f4t calcul\u00e9e"
+  },
+  {
+    "boxes": [
+      "7RI"
+    ],
+    "type": "int",
+    "description": "Investissements outre-mer dans le cadre de l'entreprise : Investissements r\u00e9alis\u00e9s en 2012, Investissements ayant fait l'objet en 2011 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un acompte d'au moins 50%, investissements dans votre entreprise avec exploitation directe, montant de la r\u00e9duction d'imp\u00f4t dont vous demandez l'imputation en 2012"
+  },
+  {
+    "boxes": [
+      "7RI"
+    ],
+    "type": "int",
+    "description": "QuaEnv"
+  },
+  {
+    "boxes": [
+      "7RI"
+    ],
+    "type": "int",
+    "description": "Scellier"
+  },
+  {
+    "boxes": [
+      "7RJ"
+    ],
+    "type": "int",
+    "description": "Investissements outre-mer dans le cadre de l'entreprise : Investissements ayant fait l'objet avant 2009 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un acompte d'au moins 50 %"
+  },
+  {
+    "boxes": [
+      "7RJ"
+    ],
+    "type": "int",
+    "description": "QuaEnv"
+  },
+  {
+    "boxes": [
+      "7RJ"
+    ],
+    "type": "int",
+    "description": "Scellier"
+  },
+  {
+    "boxes": [
+      "HRG"
+    ],
+    "type": "int",
+    "description": "Investissements outre-mer dans le cadre de l'entreprise : Investissements r\u00e9alis\u00e9s en 2012, Investissements ayant fait l'objet en 2011 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un acompte d'au moins 50%, investissements dans votre entreprise"
+  },
+  {
+    "boxes": [
+      "HRH"
+    ],
+    "type": "int",
+    "description": "Investissements outre-mer dans le cadre de l'entreprise : Investissements r\u00e9alis\u00e9s en 2012, Investissements ayant fait l'objet en 2011 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un acompte d'au moins 50%, investissements dans votre entreprise avec exploitation directe, montant de la r\u00e9duction d'imp\u00f4t calcul\u00e9e"
+  },
+  {
+    "boxes": [
+      "HRI"
+    ],
+    "type": "int",
+    "description": "Investissements outre-mer dans le cadre de l'entreprise : Investissements r\u00e9alis\u00e9s en 2012, Investissements ayant fait l'objet en 2011 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un acompte d'au moins 50%, investissements dans votre entreprise avec exploitation directe, montant de la r\u00e9duction d'imp\u00f4t dont vous demandez l'imputation en 2012"
+  },
+  {
+    "boxes": [
+      "HRJ"
+    ],
+    "type": "int",
+    "description": "Investissements outre-mer dans le cadre de l'entreprise : Investissements ayant fait l'objet avant 2009 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un acompte d'au moins 50 %"
+  },
+  {
+    "boxes": [
+      "7RK"
+    ],
+    "type": "int",
+    "description": "Investissements outre-mer dans le cadre de l'entreprise : Investissements ayant fait l'objet en 2009 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un acompte d'au moins 50 %, investissements donn\u00e9s en location \u00e0 une entreprise exploitante \u00e0 laquelle vous r\u00e9troc\u00e9dez la r\u00e9duction d'imp\u00f4t \u00e0 hauteur de 52,63 %"
+  },
+  {
+    "boxes": [
+      "7RK"
+    ],
+    "type": "int",
+    "description": "QuaEnv"
+  },
+  {
+    "boxes": [
+      "7RK"
+    ],
+    "type": "int",
+    "description": "Scellier"
+  },
+  {
+    "boxes": [
+      "7RL"
+    ],
+    "type": "int",
+    "description": "Investissements outre-mer dans le cadre de l'entreprise : Investissements ayant fait l'objet en 2009 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un acompte d'au moins 50 %, investissements donn\u00e9s en location \u00e0 une entreprise exploitante \u00e0 laquelle vous r\u00e9troc\u00e9dez la r\u00e9duction d'imp\u00f4t \u00e0 hauteur de 62,5 %"
+  },
+  {
+    "boxes": [
+      "7RL"
+    ],
+    "type": "int",
+    "description": "QuaEnv"
+  },
+  {
+    "boxes": [
+      "7RL"
+    ],
+    "type": "int",
+    "description": "Scellier"
+  },
+  {
+    "boxes": [
+      "7RM"
+    ],
+    "type": "int",
+    "description": "Investissements outre-mer dans le cadre de l'entreprise : Investissements ayant fait l'objet en 2009 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un acompte d'au moins 50 %, investissements dans votre entreprise"
+  },
+  {
+    "boxes": [
+      "7RM"
+    ],
+    "type": "int",
+    "description": "Scellier"
+  },
+  {
+    "boxes": [
+      "7RN"
+    ],
+    "type": "int",
+    "description": "QuaEnv"
+  },
+  {
+    "boxes": [
+      "7RN"
+    ],
+    "type": "int",
+    "description": "Scellier"
+  },
+  {
+    "boxes": [
+      "7RO"
+    ],
+    "type": "int",
+    "description": "Investissements outre-mer dans le cadre de l'entreprise : Investissements ayant fait l'objet en 2009 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un acompte d'au moins 50 %, investissements dans votre entreprise avec exploitation directe, montant de la r\u00e9duction d'imp\u00f4t dont vous demandez l'imputation en 2012"
+  },
+  {
+    "boxes": [
+      "7RO"
+    ],
+    "type": "int",
+    "description": "Scellier"
+  },
+  {
+    "boxes": [
+      "7RP"
+    ],
+    "type": "int",
+    "description": "Investissements outre-mer dans le cadre de l'entreprise : Investissements ayant fait l'objet en 2010 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un acompte d'au moins 50 %, investissements donn\u00e9s en location \u00e0 une entreprise exploitante \u00e0 laquelle vous r\u00e9troc\u00e9dez la r\u00e9duction d'imp\u00f4t \u00e0 hauteur de 52,63 %"
+  },
+  {
+    "boxes": [
+      "7RP"
+    ],
+    "type": "int",
+    "description": "QuaEnv"
+  },
+  {
+    "boxes": [
+      "7RP"
+    ],
+    "type": "int",
+    "description": "Scellier"
+  },
+  {
+    "boxes": [
+      "7RQ"
+    ],
+    "type": "int",
+    "description": "Investissements outre-mer dans le cadre de l'entreprise : Investissements ayant fait l'objet en 2010 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un acompte d'au moins 50 %, investissements donn\u00e9s en location \u00e0 une entreprise exploitante \u00e0 laquelle vous r\u00e9troc\u00e9dez la r\u00e9duction d'imp\u00f4t \u00e0 hauteur de 62,5 %"
+  },
+  {
+    "boxes": [
+      "7RQ"
+    ],
+    "type": "int",
+    "description": "QuaEnv"
+  },
+  {
+    "boxes": [
+      "7RQ"
+    ],
+    "type": "int",
+    "description": "Scellier"
+  },
+  {
+    "boxes": [
+      "7RR"
+    ],
+    "type": "int",
+    "description": "Investissements outre-mer dans le cadre de l'entreprise : Investissements ayant fait l'objet en 2010 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un acompte d'au moins 50 %, investissements dans votre entreprise"
+  },
+  {
+    "boxes": [
+      "7RR"
+    ],
+    "type": "int",
+    "description": "QuaEnv"
+  },
+  {
+    "boxes": [
+      "7RR"
+    ],
+    "type": "int",
+    "description": "Pinel"
+  },
+  {
+    "boxes": [
+      "7RS"
+    ],
+    "type": "int",
+    "description": "Investissements outre-mer dans le cadre de l'entreprise : Investissements ayant fait l'objet en 2010 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un acompte d'au moins 50 %, investissements dans votre entreprise avec exploitation directe, montant de la r\u00e9duction d'imp\u00f4t calcul\u00e9e"
+  },
+  {
+    "boxes": [
+      "7RS"
+    ],
+    "type": "int",
+    "description": "QuaEnv"
+  },
+  {
+    "boxes": [
+      "7RS"
+    ],
+    "type": "int",
+    "description": "Pinel"
+  },
+  {
+    "boxes": [
       "HMB"
     ],
     "type": "int",
@@ -401,6 +2474,13 @@
     ],
     "type": "int",
     "description": "Investissements locatifs neufs dispositif Scellier: Report du solde des r\u00e9ductions d'imp\u00f4ts non encore imput\u00e9, Investissements r\u00e9alis\u00e9s et achev\u00e9s en 2010 ; r\u00e9alis\u00e9s en 2010 et achev\u00e9s en 2011 ; r\u00e9alis\u00e9s et achev\u00e9s en 2011 avec engagement en 2010, Report de l'ann\u00e9e 2014"
+  },
+  {
+    "boxes": [
+      "HLH"
+    ],
+    "type": "int",
+    "description": "Investissements outre-mer dans le cadre de l'entreprise REPORT : Investissements r\u00e9alis\u00e9s en 2010, Investissements ayant fait l'objet en 2009 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un accompte d'au moins 50%, Investissements donn\u00e9s en location \u00e0 une entreprise exploitante \u00e0 laquelle vous r\u00e9troc\u00e9dez la r\u00e9duction d'imp\u00f4t \u00e0 hauteur de 50%"
   },
   {
     "boxes": [
@@ -11023,13 +13103,6 @@
   },
   {
     "boxes": [
-      "HLH"
-    ],
-    "type": "int",
-    "description": "Investissements outre-mer dans le cadre de l'entreprise REPORT : Investissements r\u00e9alis\u00e9s en 2010, Investissements ayant fait l'objet en 2009 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un accompte d'au moins 50%, Investissements donn\u00e9s en location \u00e0 une entreprise exploitante \u00e0 laquelle vous r\u00e9troc\u00e9dez la r\u00e9duction d'imp\u00f4t \u00e0 hauteur de 50%"
-  },
-  {
-    "boxes": [
       "7RS"
     ],
     "type": "int",
@@ -20025,64 +22098,64 @@
   },
   {
     "boxes": [
-      "AP",
-      "AF"
+      "0AP",
+      "0AF"
     ],
     "type": "bool",
     "description": "Titulaire d'une pension pour une invalidit\u00e9 d'au moins 40 % ou d'une carte d'invalidit\u00e9 d'au moins 80%"
   },
   {
     "boxes": [
-      "AS"
+      "0AS"
     ],
     "type": "bool",
     "description": "Vous ou votre conjoint (m\u00eame s'il est d\u00e9c\u00e9d\u00e9), \u00e2g\u00e9s de plus de 75 ans, \u00eates titulaire de la carte du combattant ou d'une pension militaire d'invalidit\u00e9 ou de victime de guerre"
   },
   {
     "boxes": [
-      "CF"
+      "0CF"
     ],
     "type": "int",
     "description": "Nombre d'enfants \u00e0 charge non mari\u00e9s, qui ne sont pas en r\u00e9sidence altern\u00e9e, de moins de 18 ans au 1er janvier de l'ann\u00e9e de perception des revenus, ou n\u00e9s durant la m\u00eame ann\u00e9e ou handicap\u00e9s quel que soit leur \u00e2ge"
   },
   {
     "boxes": [
-      "CG"
+      "0CG"
     ],
     "type": "int",
     "description": "Nombre d'enfants qui ne sont pas en r\u00e9sidence altern\u00e9e \u00e0 charge titulaires de la carte d'invalidit\u00e9."
   },
   {
     "boxes": [
-      "CH"
+      "0CH"
     ],
     "type": "int",
     "description": "Nombre d'enfants \u00e0 charge en r\u00e9sidence altern\u00e9e, non mari\u00e9s de moins de 18 ans au 1er janvier de l'ann\u00e9e de perception des revenus, ou n\u00e9s durant la m\u00eame ann\u00e9e ou handicap\u00e9s quel que soit leur \u00e2ge"
   },
   {
     "boxes": [
-      "CI"
+      "0CI"
     ],
     "type": "int",
     "description": "Nombre d'enfants \u00e0 charge en r\u00e9sidence altern\u00e9e titulaires de la carte d'invalidit\u00e9"
   },
   {
     "boxes": [
-      "CR"
+      "0CR"
     ],
     "type": "int",
     "description": "Nombre de titulaires (autres que les enfants) de la carte invalidit\u00e9 d'au moins 80 %"
   },
   {
     "boxes": [
-      "DJ"
+      "0DJ"
     ],
     "type": "int",
     "description": "Nombre d'enfants majeurs c\u00e9libataires sans enfant"
   },
   {
     "boxes": [
-      "DN"
+      "0DN"
     ],
     "type": "int",
     "description": "Nombre d'enfants mari\u00e9s/pacs\u00e9s et d'enfants non mari\u00e9s charg\u00e9s de famille"

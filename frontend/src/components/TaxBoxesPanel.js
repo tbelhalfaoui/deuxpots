@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { TaxBox } from './TaxBox.js'
 import { SubmitButton } from './SubmitButton.js'
+import { ErrorMessage } from "./ErrorMessage.js";
 
 
 export const TaxBoxesPanel = ({ boxes, setBoxes, setStep, setIndividualizedResults }) => {
@@ -27,32 +28,18 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setStep, setIndividualizedResul
     const handleBoxChange = async (boxCode, fieldName, value) => {
         let boxesNew = { ...boxes };
         boxesNew[boxCode][fieldName] = value;
-        
-        if (fieldName === 'partner_0_value') {
-            if (!unlockTotals) {
-                boxesNew[boxCode]['partner_1_value'] = Math.round(boxesNew[boxCode]['raw_value'] - boxesNew[boxCode]['partner_0_value']);
-            }
-            else {
-                boxesNew[boxCode]['partner_1_value'] = Math.round((1 - boxesNew[boxCode]['attribution']) * boxesNew[boxCode]['raw_value']);
-                boxesNew[boxCode]['raw_value'] = Math.round(boxesNew[boxCode]['partner_0_value'] + boxesNew[boxCode]['partner_1_value']);
-            }
-            boxesNew[boxCode]['attribution'] = boxesNew[boxCode]['partner_1_value'] / boxesNew[boxCode]['raw_value'];
+
+        if (unlockTotals) {
+            boxesNew[boxCode]['raw_value'] = Math.round((boxesNew[boxCode]['partner_0_value'] || 0) + (boxesNew[boxCode]['partner_1_value'] || 0));
+        }
+        else if (fieldName === 'partner_0_value') {
+            boxesNew[boxCode]['partner_1_value'] = Math.round(boxesNew[boxCode]['raw_value'] - boxesNew[boxCode]['partner_0_value']);
         }
         else if (fieldName === 'partner_1_value') {
-            if (!unlockTotals) {
-                boxesNew[boxCode]['partner_0_value'] = Math.round(boxesNew[boxCode]['raw_value'] - boxesNew[boxCode]['partner_1_value']);
-            }
-            else {
-                boxesNew[boxCode]['partner_0_value'] = Math.round(boxesNew[boxCode]['attribution'] * boxesNew[boxCode]['raw_value']);
-                boxesNew[boxCode]['raw_value'] = Math.round(boxesNew[boxCode]['partner_0_value'] + boxesNew[boxCode]['partner_1_value']);
-            }
-            boxesNew[boxCode]['attribution'] = boxesNew[boxCode]['partner_1_value'] / boxesNew[boxCode]['raw_value'];
+            boxesNew[boxCode]['partner_0_value'] = Math.round(boxesNew[boxCode]['raw_value'] - boxesNew[boxCode]['partner_1_value']);
         }
-        if (fieldName === 'raw_value') {
-            boxesNew[boxCode]['partner_0_value'] = Math.round(boxesNew[boxCode]['attribution'] * boxesNew[boxCode]['raw_value']);
-            boxesNew[boxCode]['partner_1_value'] = Math.round((1 - boxesNew[boxCode]['attribution']) * boxesNew[boxCode]['raw_value']);
-            boxesNew[boxCode]['attribution'] = boxesNew[boxCode]['partner_1_value'] / boxesNew[boxCode]['raw_value'];
-        }        
+        boxesNew[boxCode]['attribution'] = boxesNew[boxCode]['partner_1_value'] / boxesNew[boxCode]['raw_value'];
+        
         setBoxes(boxesNew);
     }
 
@@ -112,7 +99,7 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setStep, setIndividualizedResul
         ).then(
           () => setStep(3)
         ).catch(
-            e => setErrorMsg(e.message)
+            e => setErrorMsg(e)
         ).finally(
             () => setIsLoading(false)
         )
@@ -121,10 +108,7 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setStep, setIndividualizedResul
     return (
         <form method="POST" onSubmit={fetchIndividualizedResults}>
             <div id="containerStep2" class="container py-2 text-start">
-                {errorMsg && 
-                (<div class="alert alert-danger" role="alert">
-                    {errorMsg}
-                </div>)}
+                <ErrorMessage error={errorMsg} />
                 {!boxes &&
                 (<div class="text-center">
                     <div class="spinner-border" role="status">
@@ -156,6 +140,7 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setStep, setIndividualizedResul
                         ))}
                     </div>
                 </div>
+                <ErrorMessage error={errorMsg} />
                 <SubmitButton isLoading={isLoading} />
             </div>
         </form>

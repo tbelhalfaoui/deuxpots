@@ -22,13 +22,15 @@ export const TaxBox = ({box, onValueChange, onSliderChange, unlockTotals, showAu
                 <div class="row">
                     <div class="p-1 col-lg-3">
                         <div class="form-floating">
-                            <NumberBox name={`${box.code}.raw_value`} value={box.raw_value} onValueChange={onValueChange} placeholder="Total" disabled={!unlockTotals} />
+                            <NumberBox name={`${box.code}.raw_value`} value={box.raw_value} placeholder="Total"
+                            onValueChange={onValueChange} disabled={true} />
                             <label for={`${box.code}.raw_value`}>Total</label>
                         </div>
                     </div>
                     <div class="p-1 col-4 col-lg-3">
                         <div class="form-floating">
-                            <NumberBox name={`${box.code}.partner_0_value`} value={box.partner_0_value} max={box.raw_value} onValueChange={onValueChange} placeholder="Décl. 1" />
+                            <NumberBox name={`${box.code}.partner_0_value`} value={box.partner_0_value} placeholder="Décl. 1"
+                            max={!unlockTotals && box.raw_value} onValueChange={onValueChange} />
                             <label for={`${box.code}.partner_0_value`}>Décl. 1</label>
                         </div>
                     </div>
@@ -42,7 +44,8 @@ export const TaxBox = ({box, onValueChange, onSliderChange, unlockTotals, showAu
                     </div>
                     <div class="p-1 col-4 col-lg-3">
                         <div class="form-floating">
-                            <NumberBox name={`${box.code}.partner_1_value`} value={box.partner_1_value} max={box.raw_value} onValueChange={onValueChange} placeholder="Décl. 2" />
+                            <NumberBox name={`${box.code}.partner_1_value`} value={box.partner_1_value} placeholder="Décl. 2"
+                            max={!unlockTotals && box.raw_value} onValueChange={onValueChange} />
                             <label for={`${box.code}.partner_1_value`}>Décl. 2</label>
                         </div>
                     </div>

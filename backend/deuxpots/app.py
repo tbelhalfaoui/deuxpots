@@ -40,11 +40,6 @@ def handle_bad_request(e):
     return e.args[0], 400
 
 
-@app.errorhandler(Exception)
-def handle_bad_request(e):
-    return "Une erreur est survenue.", 400
-
-
 @app.route('/parse', methods=['POST'])
 def parse():
     if request.args.get('demo'):

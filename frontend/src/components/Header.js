@@ -6,9 +6,8 @@ export const Header = () => (
       </p>
       <div>
         <p>
-          Lorsqu'on est marié ou pacsé, la déclaration d'impôt commune est obligatoire. Lorsque les deux personnes
-          sont salariées, il est possible d'individualiser le prélèvement à la source. Mais cela ne résout pas le
-          problème :
+          Lorsqu'on est marié ou pacsé, la déclaration d'impôt commune est obligatoire. Certes, lorsque les deux personnes
+          sont salariées, il est possible d'individualiser le prélèvement à la source, mais cela n'est pas suffisant&nbsp;:
         </p>
         <ul>
           <li>Les personnes non-salariées ne sont pas concernées par le prélèvement à la source.</li>

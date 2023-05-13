@@ -75,6 +75,21 @@ def test_compute_tax_single_overpaid():
     assert res.remains_to_pay < 0
 
 
+def test_compute_tax_single_with_child():
+    income_sheet = {
+        '0DA': '1950',
+        'pre_situation_famille': 'C',
+        'pre_situation_residence': 'M',
+        '1AJ': 50000
+    }
+    res_without_child = compute_tax(income_sheet)
+    res_with_child = compute_tax({
+        '0CF': 1,
+        **income_sheet
+    })
+    assert res_with_child.total_tax < res_without_child.total_tax
+
+
 def test_compute_tax_error():
     with pytest.raises(SimulatorError) as e:
         compute_tax({
@@ -137,8 +152,8 @@ def valboxes():
         ),
         ValuedBox(
             box=Box(
-                code="AS",
-                reference=ReferenceBox(code="AS", description="Titulaire d'une pension militaire.", type='bool'),
+                code="0AS",
+                reference=ReferenceBox(code="0AS", description="Titulaire d'une pension militaire.", type='bool'),
                 kind=BoxKind.COMMON
             ),
             raw_value=1,
@@ -187,7 +202,7 @@ def test_build_income_sheet_partner_0(valboxes):
         '0DA': '1950',
         '1AC': 360,  # 100 + .2 * 100 + .6 * 400
         '6FL': 450,  # .45 * 1000,
-        'AS': 0,
+        '0AS': 0,
     }
     assert isinstance(income_sheet['1AC'], int)
     assert isinstance(income_sheet['6FL'], int)
@@ -201,7 +216,7 @@ def test_build_income_sheet_partner_1(valboxes):
         '0DA': '1950',
         '1AC': 440,  # 200 + .8 * 100 + .4 * 400
         '6FL': 550,  # .55 * 1000
-        'AS': 1,
+        '0AS': 1,
     }
     assert isinstance(income_sheet['1AC'], int)
     assert isinstance(income_sheet['6FL'], int)
@@ -219,7 +234,7 @@ def test_build_income_sheet_together(valboxes):
         '1CC': 100,
         '1DC': 400,
         '6FL': 1000,
-        'AS': 1,
+        '0AS': 1,
     }
     for box in ['1AC', '1BC', '1CC', '1DC', '6FL']:
         assert isinstance(income_sheet[box], int)
