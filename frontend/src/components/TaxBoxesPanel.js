@@ -5,10 +5,10 @@ import { SubmitButton } from './SubmitButton.js'
 
 export const TaxBoxesPanel = ({ boxes, setBoxes, setStep, setIndividualizedResults }) => {
 
-    const [ showAutoFilled, setShowAutoFilled ] = useState(false);
+    const [ showAutoFilled, setShowAutoFilled ] = useState(true);
     const [ unlockTotals, setUnlockTotals ] = useState(false);
-    const [errorMsg, setErrorMsg] = useState();
-    const [isLoading, setIsLoading] = useState(false);
+    const [ errorMsg, setErrorMsg ] = useState();
+    const [ isLoading, setIsLoading ] = useState(false);
 
 
     const onSliderChange = async (evt) => {
@@ -99,7 +99,16 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setStep, setIndividualizedResul
         ).then(
           res => res.json()
         ).then(
-            data => setIndividualizedResults(data.individualized)
+            data => {
+                const results = data.individualized;
+                [0, 1].forEach(partnerIndex => {
+                    if (results.partners[partnerIndex].remains_to_pay < 0) {
+                        results.partners[partnerIndex].remains_to_get_back = - results.partners[partnerIndex].remains_to_pay
+                        results.partners[partnerIndex].remains_to_pay = null
+                    }
+                })
+                setIndividualizedResults(results)
+            }
         ).then(
           () => setStep(3)
         ).catch(
@@ -122,10 +131,9 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setStep, setIndividualizedResul
                         <span class="sr-only"></span>
                     </div>
                 </div>)}
-                <SubmitButton isLoading={isLoading} />
                 <div>
                     <div>
-                        <div class="row py-3">
+                        <div class="row">
                             <div class="col-md-6 col-xl-4">
                                 <div class="form-check form-switch">
                                     <input class="form-check-input" type="checkbox" role="switch" id="showAutofilled" checked={showAutoFilled} onChange={toggleShowAutofilled} />
@@ -138,6 +146,9 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setStep, setIndividualizedResul
                                     <label class="form-check-label" for="unlockTotals">Déverrouiller les totaux.</label>
                                 </div>  
                             </div>
+                        </div>
+                        <div class="py-2">
+                            <hr/>
                         </div>
                         {Object.values(boxes).map(box => (
                             <TaxBox box={box} onValueChange={onBoxChange} onSliderChange={onSliderChange}

@@ -21,7 +21,7 @@ function App() {
           itemStep={1} currentStep={step} maxCurrentStep={maxStep} setStep={setStep}>
             <PdfSubmitForm setBoxes={setBoxes} setStep={(s) => setStep(s) || setMaxStep(s)} />
           </AccordionStepItem>
-          <AccordionStepItem title="2. Vérifiez l'attribution des cases à chaque déclarant·e."
+          <AccordionStepItem title="2. Vérifiez et complétez l'attribution de chaque montant déclaré."
           itemStep={2} currentStep={step} maxCurrentStep={maxStep} setStep={setStep}>
             <TaxBoxesPanel boxes={boxes} setBoxes={setBoxes} setStep={(s) => setStep(s) || setMaxStep(s)}
             setIndividualizedResults={setIndividualizedResults} />
