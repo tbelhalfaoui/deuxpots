@@ -38,6 +38,35 @@ def test__individualize():
     )
 
 
+def test__individualize_no_tax():
+    results = _individualize(
+        simu_partner_0=SimulatorResult(total_tax=0, already_paid=100, remains_to_pay=0),
+        simu_partner_1=SimulatorResult(total_tax=0, already_paid=200, remains_to_pay=0),
+        simu_together=SimulatorResult(total_tax=0, already_paid=None, remains_to_pay=None)  # None because unused here
+    )
+    assert results == IndividualizedResults(
+        total_tax_single=0,
+        total_tax_together=0,
+        tax_gain=0,
+        partners=(
+            IndividualResult(
+                tax_if_single=0,
+                proportion=None,
+                total_tax=0,
+                already_paid=100,
+                remains_to_pay=-100,
+            ),
+            IndividualResult(
+                tax_if_single=0,
+                proportion=None,
+                total_tax=0,
+                already_paid=200,
+                remains_to_pay=-200,
+            )
+        )
+    )
+
+
 def test_simulate_and_individualize(box_mapping):
     user_boxes = [
         FlatBox(code='1BJ', raw_value=20000, attribution=1),

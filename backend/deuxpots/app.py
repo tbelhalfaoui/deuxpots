@@ -48,9 +48,6 @@ def parse():
         )
     tax_pdf = request.files['tax_pdf'].read()
     valboxes = parse_tax_pdf(tax_pdf, FAMILY_BOX_COORDS, BOX_MAPPING)
-    print(dict(
-        boxes=[asdict(flatten(valbox)) for valbox in valboxes]
-    ))
     return dict(
         boxes=[asdict(flatten(valbox)) for valbox in valboxes]
     )

@@ -1,4 +1,4 @@
-import json
+from deuxpots.flatbox import flatten
 from deuxpots.app import app
 
 
@@ -11,22 +11,22 @@ def test_parse(tax_sheet_pdf_path):
             tax_pdf=tax_sheet_pdf_path.open('rb')
         )) # multipart/form-data request
         assert res.status_code == 200
-        for valbox in res.json['boxes']:
-            assert valbox['code']
-            assert valbox['description']
-            assert valbox['raw_value']
-            assert 'attribution' in valbox  # can be None
-
+        for flatbox in res.json['boxes']:
+            assert flatbox['code']
+            assert flatbox['description']
+            assert flatbox['raw_value']
+            assert 'attribution' in flatbox  # can be None
+    
 
 def test_parse_demo(tax_sheet_pdf_path):
     with app.test_client() as test_client:
         res = test_client.post('/parse?demo=true') 
         assert res.status_code == 200
-        for valbox in res.json['boxes']:
-            assert valbox['code']
-            assert valbox['description']
-            assert valbox['raw_value']
-            assert 'attribution' in valbox  # can be None
+        for flatbox in res.json['boxes']:
+            assert flatbox['code']
+            assert flatbox['description']
+            assert flatbox['raw_value']
+            assert 'attribution' in flatbox  # can be None
 
 
 def test_individualize():
@@ -37,6 +37,22 @@ def test_individualize():
     with app.test_client() as test_client:
         res = test_client.post('/individualize',
                                json=dict(boxes=user_boxes))
+        assert res.status_code == 200
+        assert res.json['individualized']
+        assert 'partners' in res.json['individualized']
+
+
+def test_full_scenario(tax_sheet_pdf_path):
+    with app.test_client() as test_client:
+        res = test_client.post('/parse', data=dict(
+            tax_pdf=tax_sheet_pdf_path.open('rb')
+        )) # multipart/form-data request
+        assert res.status_code == 200
+        flatboxes = res.json['boxes']
+        for flatbox in flatboxes:
+            flatbox['attribution'] = 0
+        res = test_client.post('/individualize',
+                               json=dict(boxes=flatboxes))
         assert res.status_code == 200
         assert res.json['individualized']
         assert 'partners' in res.json['individualized']

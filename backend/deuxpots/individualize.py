@@ -39,17 +39,23 @@ def _individualize(simu_partner_0, simu_partner_1, simu_together):
     )
     for pix in [0, 1]:
         partner = res.partners[pix]
-        partner.proportion = partner.tax_if_single / res.total_tax_single
-        partner.total_tax = partner.proportion * res.total_tax_together
+        if res.total_tax_single == 0:
+            partner.proportion == None
+            partner.total_tax = 0
+        else:
+            partner.proportion = partner.tax_if_single / res.total_tax_single
+            partner.total_tax = partner.proportion * res.total_tax_together
         partner.remains_to_pay = partner.total_tax - partner.already_paid
     res.tax_gain = res.total_tax_single - res.total_tax_together
     return res
 
 
 def simulate_and_individualize(valboxes):
+    import json
     simu_results = {}
     for pix in [0, 1, None]:
         income_sheet = build_income_sheet(valboxes, individualize=pix)
+        print(json.dumps(income_sheet, indent=4))
         simu_results[pix] = compute_tax(income_sheet)
     return _individualize(simu_partner_0=simu_results[0],
                           simu_partner_1=simu_results[1],

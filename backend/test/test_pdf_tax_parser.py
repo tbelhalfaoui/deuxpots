@@ -34,10 +34,10 @@ def expected_parsed_raw_values():
             '0AP': 1,
             '0AS': 1,
             '0DJ': 1,
-            '0DN': 1,
+            '0DN': 3,
             '0CF': 2,
             '0CG': 1,
-            '0CH': 1,
+            '0CH': 2,
             '0CI': 1, 
             '0CR': 2,
     }
