@@ -19,11 +19,17 @@ export const ResultCard = ({ results, partnerIndex }) =>
                 <ResultRow label="Impôt si déclaration séparée" fieldName="tax_if_single" partnerIndex={partnerIndex} results={results} style={{color: 'gray'}} />
                 <ResultRow label="Impôt commun individualisé" fieldName="total_tax" partnerIndex={partnerIndex} results={results} style={{}} />
                 <ResultRow label="Déjà payé" fieldName="already_paid" partnerIndex={partnerIndex} results={results} style={{color: 'gray'}} />
-                {(results.partners[partnerIndex].remains_to_pay) && 
-                    (<ResultRow label="Reste à payer aux impôts" fieldName="remains_to_pay" partnerIndex={partnerIndex} 
+                {(results.partners[partnerIndex].remains_to_pay && results.partners[1 - partnerIndex].remains_to_pay) &&
+                    (<ResultRow label="Reste à payer" fieldName="remains_to_pay" partnerIndex={partnerIndex}
                     results={results} style={{'font-size': '1.5em'}} />)}
-                {(results.partners[partnerIndex].remains_to_get_back) && 
+                {(results.partners[partnerIndex].remains_to_pay && results.partners[1 - partnerIndex].remains_to_get_back) &&
+                    (<ResultRow label="Reste à payer aux impôts" fieldName="remains_to_pay" partnerIndex={partnerIndex}
+                    results={results} style={{'font-size': '1.5em'}} />)}
+                {(results.partners[partnerIndex].remains_to_get_back && results.partners[1 - partnerIndex].remains_to_pay) &&
                     (<ResultRow label="Reste à récupérer auprès de l'autre co-déclarant·e" fieldName="remains_to_get_back" partnerIndex={partnerIndex}
+                    results={results} style={{'font-size': '1.5em'}} />)}
+                 {(results.partners[partnerIndex].remains_to_get_back && results.partners[1 - partnerIndex].remains_to_get_back) &&
+                    (<ResultRow label="Reste à récupérer" fieldName="remains_to_get_back" partnerIndex={partnerIndex} 
                     results={results} style={{'font-size': '1.5em'}} />)}
             </div>
         </div>

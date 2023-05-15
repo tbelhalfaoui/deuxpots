@@ -71,14 +71,14 @@ export const PdfSubmitForm = ({setBoxes, setStep, isError}) => {
                 ou
               </div>
               <div class="col-md-5 col-xl-3">
-                <button type="submit" class="btn btn-primary" name="tryOnExample">
+                <button type="submit" class="btn btn-primary" name="tryOnExample" disabled={isLoading}>
                   Essayer sur un exemple
                 </button>
               </div>
               {isLoading && (
-                  <div class="spinner-border" role="status">
-                    <span class="sr-only"></span>
-                  </div>
+                <div class="spinner-border" role="status">
+                  <span class="sr-only"></span>
+                </div>
                 )}
              </div>
             </div>
