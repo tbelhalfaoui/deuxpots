@@ -13,7 +13,7 @@ export const NumberBox = ( props ) => (
         {...props} />
 )
 
-export const TaxBox = ({box, onValueChange, onSliderChange, unlockTotals, showAutoFilled, deleteItem}) => 
+export const TaxBox = ({box, onValueChange, onSliderChange, unlockTotals, showAutoFilled, deleteBox}) => 
     ((box.original_attribution == null) || (showAutoFilled)) && (
     <div>
         <div class="row">
@@ -23,7 +23,7 @@ export const TaxBox = ({box, onValueChange, onSliderChange, unlockTotals, showAu
                         <label for={`${box.code}.raw_value`} class="form-label">{box.code} - {box.description}</label>
                     </div>
                     <div class="col-1 col-xl-1">
-                        <button class="btn" style={{color: 'red'}} type="button" onClick={() => deleteItem(box.code)}>
+                        <button class="btn" style={{color: 'red'}} type="button" onClick={() => deleteBox(box.code)}>
                             <FontAwesomeIcon icon={faTrashCan} />
                         </button>
                     </div>

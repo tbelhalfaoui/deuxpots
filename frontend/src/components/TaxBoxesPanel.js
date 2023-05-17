@@ -59,11 +59,17 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setStep, setIndividualizedResul
         setUnlockTotals(evt.target.checked);
     };
 
-    const deleteItem = (boxCode) => {
+    const deleteBox = (boxCode) => {
         let boxesNew = { ...boxes };
         delete boxesNew[boxCode];
         setBoxes(boxesNew);
     };
+
+    const addNewBox = () => {
+        let boxesNew = { ...boxes };
+        boxesNew['new'] = {'code':'new'};
+        setBoxes(boxesNew);
+    }
 
     const fetchIndividualizedResults = async (evt) => {
         evt.preventDefault();
@@ -143,7 +149,7 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setStep, setIndividualizedResul
                                 </div>
                             </div>
                             <div class="d-flex justify-content-center justify-content-md-end pt-3 pt-md-0 col-md-4">
-                                <button class="align-self-center btn btn-sm btn-outline-primary" type="submit">
+                                <button class="align-self-center btn btn-sm btn-outline-primary" type="button" onClick={addNewBox}>
                                     <FontAwesomeIcon icon={faSquarePlus} /> Ajouter une ligne
                                 </button>
                             </div>
@@ -153,7 +159,7 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setStep, setIndividualizedResul
                         </div>
                         {Object.values(boxes).map(box => (
                             <TaxBox box={box} onValueChange={onBoxChange} onSliderChange={onSliderChange}
-                            unlockTotals={unlockTotals} showAutoFilled={showAutoFilled} deleteItem={deleteItem} />
+                            unlockTotals={unlockTotals} showAutoFilled={showAutoFilled} deleteBox={deleteBox} />
                         ))}
                     </div>
                 </div>
