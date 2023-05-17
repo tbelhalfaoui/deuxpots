@@ -1,4 +1,6 @@
 import { useState } from "react"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSquarePlus } from "@fortawesome/free-regular-svg-icons";
 import { TaxBox } from './TaxBox.js'
 import { SubmitButton } from './SubmitButton.js'
 import { ErrorMessage } from "./ErrorMessage.js";
@@ -124,17 +126,26 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setStep, setIndividualizedResul
                 <div>
                     <div>
                         <div class="row">
-                            <div class="col-md-6 col-xl-4">
-                                <div class="form-check form-switch">
-                                    <input class="form-check-input" type="checkbox" role="switch" id="showAutofilled" checked={showAutoFilled} onChange={toggleShowAutofilled} />
-                                    <label class="form-check-label" for="showAutofilled">Afficher les cases préremplies.</label>
+                            <div class="col-md-8">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-check form-switch">
+                                            <input class="form-check-input" type="checkbox" role="switch" id="showAutofilled" checked={showAutoFilled} onChange={toggleShowAutofilled} />
+                                            <label class="form-check-label" for="showAutofilled">Afficher les cases préremplies.</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-check form-switch">
+                                            <input class="form-check-input" type="checkbox" role="switch" id="unlockTotals" checked={unlockTotals} onChange={toggleUnlockTotals} />
+                                            <label class="form-check-label" for="unlockTotals">Déverrouiller les totaux.</label>
+                                        </div>  
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-md-6 col-xl-4">
-                                <div class="form-check form-switch">
-                                    <input class="form-check-input" type="checkbox" role="switch" id="unlockTotals" checked={unlockTotals} onChange={toggleUnlockTotals} />
-                                    <label class="form-check-label" for="unlockTotals">Déverrouiller les totaux.</label>
-                                </div>  
+                            <div class="d-flex justify-content-center justify-content-md-end pt-3 pt-md-0 col-md-4">
+                                <button class="align-self-center btn btn-sm btn-outline-primary" type="submit">
+                                    <FontAwesomeIcon icon={faSquarePlus} /> Ajouter une ligne
+                                </button>
                             </div>
                         </div>
                         <div class="py-2">

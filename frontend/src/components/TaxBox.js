@@ -23,7 +23,7 @@ export const TaxBox = ({box, onValueChange, onSliderChange, unlockTotals, showAu
                         <label for={`${box.code}.raw_value`} class="form-label">{box.code} - {box.description}</label>
                     </div>
                     <div class="col-1 col-xl-1">
-                        <button class="btn btn-link" style={{color: 'red'}} type="button" onClick={() => deleteItem(box.code)}>
+                        <button class="btn" style={{color: 'red'}} type="button" onClick={() => deleteItem(box.code)}>
                             <FontAwesomeIcon icon={faTrashCan} />
                         </button>
                     </div>

@@ -10,7 +10,7 @@ export const PdfSubmitForm = ({setBoxes, setStep, isError}) => {
     const sendTaxSheet = async (evt) => {
         evt.preventDefault();
         setIsLoading(true);
-        
+
         const formData = new FormData();
         const queryParams = new URLSearchParams();
         if (evt.target.tryOnExample) {
@@ -50,6 +50,8 @@ export const PdfSubmitForm = ({setBoxes, setStep, isError}) => {
         ).finally(
           () => setIsLoading(false)
         );
+
+        evt.target.value = '';  // makes onChange to be triggered again, even if re-uploading the same file
     }
 
     return (
