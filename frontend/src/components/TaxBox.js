@@ -1,4 +1,6 @@
 import { NumericFormat } from "react-number-format";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrashCan } from "@fortawesome/free-regular-svg-icons";
 
 
 export const NumberBox = ( props ) => (
@@ -11,14 +13,23 @@ export const NumberBox = ( props ) => (
         {...props} />
 )
 
-export const TaxBox = ({box, onValueChange, onSliderChange, unlockTotals, showAutoFilled}) => 
+export const TaxBox = ({box, onValueChange, onSliderChange, unlockTotals, showAutoFilled, deleteItem}) => 
     ((box.original_attribution == null) || (showAutoFilled)) && (
     <div>
         <div class="row">
-            <div class="d-flex align-items-center col-md-6">
-                <label for={`${box.code}.raw_value`} class="form-label">{box.code} - {box.description}</label>
+            <div class="d-flex align-items-center align-items-stretch col-md-6">
+                <div class="d-flex flex-fill align-items-center row">
+                    <div class="col-10 col-xl-11">
+                        <label for={`${box.code}.raw_value`} class="form-label">{box.code} - {box.description}</label>
+                    </div>
+                    <div class="col-1 col-xl-1">
+                        <button class="btn btn-link" style={{color: 'red'}} type="button" onClick={() => deleteItem(box.code)}>
+                            <FontAwesomeIcon icon={faTrashCan} />
+                        </button>
+                    </div>
+                </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6 d-flex align-items-center">
                 <div class="row">
                     <div class="p-1 col-lg-3">
                         <div class="form-floating">

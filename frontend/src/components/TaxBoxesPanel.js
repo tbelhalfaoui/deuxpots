@@ -57,6 +57,12 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setStep, setIndividualizedResul
         setUnlockTotals(evt.target.checked);
     };
 
+    const deleteItem = (boxCode) => {
+        let boxesNew = { ...boxes };
+        delete boxesNew[boxCode];
+        setBoxes(boxesNew);
+    };
+
     const fetchIndividualizedResults = async (evt) => {
         evt.preventDefault();
         
@@ -136,7 +142,7 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setStep, setIndividualizedResul
                         </div>
                         {Object.values(boxes).map(box => (
                             <TaxBox box={box} onValueChange={onBoxChange} onSliderChange={onSliderChange}
-                            unlockTotals={unlockTotals} showAutoFilled={showAutoFilled} />
+                            unlockTotals={unlockTotals} showAutoFilled={showAutoFilled} deleteItem={deleteItem} />
                         ))}
                     </div>
                 </div>
