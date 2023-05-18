@@ -16,13 +16,13 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setStep, setIndividualizedResul
 
     const onSliderChange = async (evt) => {
         var value = evt.target.value;
-        const boxCode = evt.target.name.split('.')[0];
+        const boxIndexChanged = evt.target.name.split('.')[1];
         if (isNaN(value)) {
             value = "";
         }
 
-        setBoxes(boxes.map(box => {
-            if (box.code == boxCode) {
+        setBoxes(boxes.map((box, boxIndex) => {
+            if (boxIndex == boxIndexChanged) {
                 box.attribution = value / box.raw_value;
                 box.partner_0_value = Math.round((1 - box.attribution) * box.raw_value);
                 box.partner_1_value = Math.round(box.attribution * box.raw_value);
@@ -31,11 +31,10 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setStep, setIndividualizedResul
         }));
     }
 
-    const handleBoxChange = async (boxCode, fieldName, value) =>
-        setBoxes(boxes.map(box => {
-            if (box.code == boxCode) {
+    const handleBoxChange = async (boxIndexChanged, fieldName, value) =>
+        setBoxes(boxes.map((box, boxIndex) => {
+            if (boxIndex == boxIndexChanged) {
                 box[fieldName] = value;
-                box.attribution = box.partner_1_value / box.raw_value;
                 if (unlockTotals) {
                     box.raw_value = Math.round((box.partner_0_value || 0) + (box.partner_1_value || 0));
                 }
@@ -45,14 +44,15 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setStep, setIndividualizedResul
                 else if (fieldName === 'partner_1_value') {
                     box.partner_0_value = Math.round(box.raw_value - box.partner_1_value);
                 }
+                box.attribution = box.partner_1_value / box.raw_value;
             }
             return box;
         }));
 
     const onBoxChange = async (values, sourceInfo) => {
         const evt = sourceInfo.event;
-        const [boxCode, fieldName] = evt.target.name.split('.');
-        handleBoxChange(boxCode, fieldName, values.floatValue)
+        const [fieldName, boxIndex] = evt.target.name.split('.');
+        handleBoxChange(boxIndex, fieldName, values.floatValue)
     };
 
     const toggleShowAutofilled = async (evt) => {
@@ -63,16 +63,12 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setStep, setIndividualizedResul
         setUnlockTotals(evt.target.checked);
     };
 
-    const deleteBox = (boxCode) => {
-        let boxesNew = { ...boxes };
-        delete boxesNew[boxCode];
-        setBoxes(boxesNew);
+    const deleteBox = (boxIndexChanged) => {
+        setBoxes(boxes.filter((box, boxIndex) => boxIndex != boxIndexChanged));
     };
 
     const addNewBox = () => {
-        let boxesNew = { ...boxes };
-        boxesNew['new'] = {'code':'new'};
-        setBoxes(boxesNew);
+        setBoxes([...boxes, {}]);
     }
 
     const fetchIndividualizedResults = async (evt) => {
@@ -161,8 +157,8 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setStep, setIndividualizedResul
                         <div class="py-2">
                             <hr/>
                         </div>
-                        {boxes.map(box => (
-                            <TaxBox box={box} onValueChange={onBoxChange} onSliderChange={onSliderChange}
+                        {boxes.map((box, boxIndex) => (
+                            <TaxBox boxIndex={boxIndex} box={box} onValueChange={onBoxChange} onSliderChange={onSliderChange}
                             unlockTotals={unlockTotals} showAutoFilled={showAutoFilled} deleteBox={deleteBox} />
                         ))}
                     </div>
