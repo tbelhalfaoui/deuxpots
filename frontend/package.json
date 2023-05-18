@@ -17,6 +17,7 @@
     "react-hook-form": "^7.43.9",
     "react-number-format": "^5.1.4",
     "react-scripts": "5.0.1",
+    "react-select-search": "^4.1.6",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

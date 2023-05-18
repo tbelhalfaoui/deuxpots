@@ -63,6 +63,18 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setStep, setIndividualizedResul
         setUnlockTotals(evt.target.checked);
     };
 
+    const toggleBoxEdit = (boxIndexChanged, isBeingEdited) => {
+        const newBoxes = boxes.map(
+            (box, boxIndex) => 
+                (boxIndex == boxIndexChanged) ? {
+                ...box,
+                isBeingEdited: isBeingEdited
+            } : box
+        );
+        setBoxes(newBoxes);
+        console.log((newBoxes[boxIndexChanged].isBeingEdited) ? "yes" : "no");
+    }
+
     const deleteBox = (boxIndexChanged) => {
         setBoxes(boxes.filter((box, boxIndex) => boxIndex != boxIndexChanged));
     };
@@ -159,7 +171,7 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setStep, setIndividualizedResul
                         </div>
                         {boxes.map((box, boxIndex) => (
                             <TaxBox boxIndex={boxIndex} box={box} onValueChange={onBoxChange} onSliderChange={onSliderChange}
-                            unlockTotals={unlockTotals} showAutoFilled={showAutoFilled} deleteBox={deleteBox} />
+                            unlockTotals={unlockTotals} showAutoFilled={showAutoFilled} toggleBoxEdit={toggleBoxEdit} deleteBox={deleteBox} />
                         ))}
                     </div>
                 </div>
