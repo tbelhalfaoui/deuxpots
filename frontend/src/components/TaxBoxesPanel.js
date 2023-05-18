@@ -20,30 +20,34 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setStep, setIndividualizedResul
         if (isNaN(value)) {
             value = "";
         }
-        let boxesNew = { ...boxes };
-        boxesNew[boxCode].attribution = value / boxesNew[boxCode].raw_value;
-        boxesNew[boxCode]['partner_0_value'] = Math.round((1 - boxesNew[boxCode]['attribution']) * boxesNew[boxCode]['raw_value']);
-        boxesNew[boxCode]['partner_1_value'] = Math.round(boxesNew[boxCode]['attribution'] * boxesNew[boxCode]['raw_value']);
-        setBoxes(boxesNew);
+
+        setBoxes(boxes.map(box => {
+            if (box.code == boxCode) {
+                box.attribution = value / box.raw_value;
+                box.partner_0_value = Math.round((1 - box.attribution) * box.raw_value);
+                box.partner_1_value = Math.round(box.attribution * box.raw_value);
+            }
+            return box;
+        }));
     }
 
-    const handleBoxChange = async (boxCode, fieldName, value) => {
-        let boxesNew = { ...boxes };
-        boxesNew[boxCode][fieldName] = value;
-
-        if (unlockTotals) {
-            boxesNew[boxCode]['raw_value'] = Math.round((boxesNew[boxCode]['partner_0_value'] || 0) + (boxesNew[boxCode]['partner_1_value'] || 0));
-        }
-        else if (fieldName === 'partner_0_value') {
-            boxesNew[boxCode]['partner_1_value'] = Math.round(boxesNew[boxCode]['raw_value'] - boxesNew[boxCode]['partner_0_value']);
-        }
-        else if (fieldName === 'partner_1_value') {
-            boxesNew[boxCode]['partner_0_value'] = Math.round(boxesNew[boxCode]['raw_value'] - boxesNew[boxCode]['partner_1_value']);
-        }
-        boxesNew[boxCode]['attribution'] = boxesNew[boxCode]['partner_1_value'] / boxesNew[boxCode]['raw_value'];
-        
-        setBoxes(boxesNew);
-    }
+    const handleBoxChange = async (boxCode, fieldName, value) =>
+        setBoxes(boxes.map(box => {
+            if (box.code == boxCode) {
+                box[fieldName] = value;
+                box.attribution = box.partner_1_value / box.raw_value;
+                if (unlockTotals) {
+                    box.raw_value = Math.round((box.partner_0_value || 0) + (box.partner_1_value || 0));
+                }
+                else if (fieldName === 'partner_0_value') {
+                    box.partner_1_value = Math.round(box.raw_value - box.partner_0_value);
+                }
+                else if (fieldName === 'partner_1_value') {
+                    box.partner_0_value = Math.round(box.raw_value - box.partner_1_value);
+                }
+            }
+            return box;
+        }));
 
     const onBoxChange = async (values, sourceInfo) => {
         const evt = sourceInfo.event;
@@ -157,7 +161,7 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setStep, setIndividualizedResul
                         <div class="py-2">
                             <hr/>
                         </div>
-                        {Object.values(boxes).map(box => (
+                        {boxes.map(box => (
                             <TaxBox box={box} onValueChange={onBoxChange} onSliderChange={onSliderChange}
                             unlockTotals={unlockTotals} showAutoFilled={showAutoFilled} deleteBox={deleteBox} />
                         ))}

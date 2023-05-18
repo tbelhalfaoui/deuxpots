@@ -31,18 +31,17 @@ export const PdfSubmitForm = ({setBoxes, setStep, isError}) => {
         ).then(
           res => res.json(),
         ).then(
-          data => Object.fromEntries(
+          data => 
             data.boxes.sort(
               (box1, box2) => box1.code.localeCompare(box2.code)
-            ).map(box => [box.code, {
+            ).map(box => ({
               ...box,
               description: box.description,
               original_raw_value: box.raw_value,
               original_attribution: box.attribution,
               partner_0_value: (box.attribution || (box.attribution === 0)) ? box.raw_value * (1 - box.attribution) : "",
               partner_1_value: (box.attribution || (box.attribution === 0)) ? box.raw_value * box.attribution : "",
-            }])
-          )
+            }))
         ).then(
           setBoxes
         ).then(
