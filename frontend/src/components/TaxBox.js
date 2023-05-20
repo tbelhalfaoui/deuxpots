@@ -1,4 +1,8 @@
 import { NumericFormat } from "react-number-format";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrashCan } from "@fortawesome/free-regular-svg-icons";
+import SelectSearch from 'react-select-search';
+import Combobox from "react-widgets/Combobox";
 
 
 export const NumberBox = ( props ) => (
@@ -12,31 +16,59 @@ export const NumberBox = ( props ) => (
         {...props} />
 )
 
-export const TaxBox = ({box, onValueChange, onSliderChange, unlockTotals, showAutoFilled}) => 
-    ((box.original_attribution == null) || (showAutoFilled)) && (
+export const TaxBox = ({boxIndex, box, onValueChange, onSliderChange, unlockTotals, showAutoFilled, toggleBoxEdit, deleteBox}) => {
+    const options = [
+        {name: 'Swedish', value: 'sv'},
+        {name: 'English', value: 'en'},
+        {
+            type: 'group',
+            name: 'Group name',
+            items: [
+                {name: 'Spanish', value: 'es'},
+            ]
+        },
+    ];
+
+    return ((box.original_attribution == null) || (showAutoFilled)) && (
     <div>
         <div class="row">
-            <div class="d-flex align-items-center col-md-6">
-                <label for={`${box.code}.raw_value`} class="form-label">{box.code} - {box.description}</label>
+            <div class="d-flex align-items-center align-items-stretch col-md-6">
+                <div class="d-flex flex-fill align-items-center row">
+                    <div class="col-10 col-xl-12">
+                        {(box.isBeingEdited && false) ?
+                            <textarea class="form-control" rows="2" data-bs-toggle="dropdown" aria-expanded="false"
+                            placeholder="Saisissez le code ou le nom de la case à ajouter." value={`${box.code} - ${box.description}`}
+                            onBlur={() => toggleBoxEdit(boxIndex, false)} autoFocus />
+                            : <label for={`raw_value.${boxIndex}`} class="form-label" onClick={() => toggleBoxEdit(boxIndex, true)}>
+                                {box.code} - {box.description}
+                            </label>
+                        }
+                    </div>
+                    {/* <div class="col-1 col-xl-1">
+                        <button class="btn" style={{color: 'red'}} type="button" onClick={() => deleteBox(boxIndex)}>
+                            <FontAwesomeIcon icon={faTrashCan} />
+                        </button>
+                    </div> */}
+                </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6 d-flex align-items-center">
                 <div class="row">
                     <div class="p-1 col-lg-3">
                         <div class="form-floating">
-                            <NumberBox name={`${box.code}.raw_value`} value={box.raw_value} placeholder="Total"
+                            <NumberBox name={`raw_value.${boxIndex}`} value={box.raw_value} placeholder="Total"
                             onValueChange={onValueChange} disabled={true} />
-                            <label for={`${box.code}.raw_value`}>Total</label>
+                            <label for={`raw_value.${boxIndex}`}>Total</label>
                         </div>
                     </div>
                     <div class="p-1 col-4 col-lg-3">
                         <div class="form-floating">
-                            <NumberBox name={`${box.code}.partner_0_value`} value={box.partner_0_value} placeholder="Décl. 1"
+                            <NumberBox name={`partner_0_value.${boxIndex}`} value={box.partner_0_value} placeholder="Décl. 1"
                             max={!unlockTotals && box.raw_value} onValueChange={onValueChange} />
-                            <label for={`${box.code}.partner_0_value`}>Décl. 1</label>
+                            <label for={`partner_0_value.${boxIndex}`}>Décl. 1</label>
                         </div>
                     </div>
                     <div class="d-flex align-items-center p-1 col-4 col-lg-3">
-                        <input type="range" class="form-range" name={`${box.code}.slider`}
+                        <input type="range" class="form-range" name={`slider.${boxIndex}`}
                         min="0" max={box.raw_value}
                         step={(box.raw_value <= 10) ? 1 : parseInt(box.raw_value / 10)}
                         disabled={box.raw_value === ""}
@@ -45,9 +77,9 @@ export const TaxBox = ({box, onValueChange, onSliderChange, unlockTotals, showAu
                     </div>
                     <div class="p-1 col-4 col-lg-3">
                         <div class="form-floating">
-                            <NumberBox name={`${box.code}.partner_1_value`} value={box.partner_1_value} placeholder="Décl. 2"
+                            <NumberBox name={`partner_1_value.${boxIndex}`} value={box.partner_1_value} placeholder="Décl. 2"
                             max={!unlockTotals && box.raw_value} onValueChange={onValueChange} />
-                            <label for={`${box.code}.partner_1_value`}>Décl. 2</label>
+                            <label for={`partner_1_value.${boxIndex}`}>Décl. 2</label>
                         </div>
                     </div>
                 </div>
@@ -57,4 +89,4 @@ export const TaxBox = ({box, onValueChange, onSliderChange, unlockTotals, showAu
             <hr/>
         </div>
     </div>
-)
+)}

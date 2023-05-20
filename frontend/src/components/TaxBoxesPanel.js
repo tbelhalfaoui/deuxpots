@@ -1,4 +1,6 @@
 import { useState } from "react"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSquarePlus } from "@fortawesome/free-regular-svg-icons";
 import { TaxBox } from './TaxBox.js'
 import { SubmitButton } from './SubmitButton.js'
 import { ErrorMessage, WarningMessage } from "./Alert.js";
@@ -14,39 +16,43 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setStep, setIndividualizedResul
 
     const onSliderChange = async (evt) => {
         var value = evt.target.value;
-        const boxCode = evt.target.name.split('.')[0];
+        const boxIndexChanged = evt.target.name.split('.')[1];
         if (isNaN(value)) {
             value = "";
         }
-        let boxesNew = { ...boxes };
-        boxesNew[boxCode].attribution = value / boxesNew[boxCode].raw_value;
-        boxesNew[boxCode]['partner_0_value'] = Math.round((1 - boxesNew[boxCode]['attribution']) * boxesNew[boxCode]['raw_value']);
-        boxesNew[boxCode]['partner_1_value'] = Math.round(boxesNew[boxCode]['attribution'] * boxesNew[boxCode]['raw_value']);
-        setBoxes(boxesNew);
+
+        setBoxes(boxes.map((box, boxIndex) => {
+            if (boxIndex == boxIndexChanged) {
+                box.attribution = value / box.raw_value;
+                box.partner_0_value = Math.round((1 - box.attribution) * box.raw_value);
+                box.partner_1_value = Math.round(box.attribution * box.raw_value);
+            }
+            return box;
+        }));
     }
 
-    const handleBoxChange = async (boxCode, fieldName, value) => {
-        let boxesNew = { ...boxes };
-        boxesNew[boxCode][fieldName] = value;
-
-        if (unlockTotals) {
-            boxesNew[boxCode]['raw_value'] = Math.round((boxesNew[boxCode]['partner_0_value'] || 0) + (boxesNew[boxCode]['partner_1_value'] || 0));
-        }
-        else if (fieldName === 'partner_0_value') {
-            boxesNew[boxCode]['partner_1_value'] = Math.round(boxesNew[boxCode]['raw_value'] - boxesNew[boxCode]['partner_0_value']);
-        }
-        else if (fieldName === 'partner_1_value') {
-            boxesNew[boxCode]['partner_0_value'] = Math.round(boxesNew[boxCode]['raw_value'] - boxesNew[boxCode]['partner_1_value']);
-        }
-        boxesNew[boxCode]['attribution'] = boxesNew[boxCode]['partner_1_value'] / boxesNew[boxCode]['raw_value'];
-        
-        setBoxes(boxesNew);
-    }
+    const handleBoxChange = async (boxIndexChanged, fieldName, value) =>
+        setBoxes(boxes.map((box, boxIndex) => {
+            if (boxIndex == boxIndexChanged) {
+                box[fieldName] = value;
+                if (unlockTotals) {
+                    box.raw_value = Math.round((box.partner_0_value || 0) + (box.partner_1_value || 0));
+                }
+                else if (fieldName === 'partner_0_value') {
+                    box.partner_1_value = Math.round(box.raw_value - box.partner_0_value);
+                }
+                else if (fieldName === 'partner_1_value') {
+                    box.partner_0_value = Math.round(box.raw_value - box.partner_1_value);
+                }
+                box.attribution = box.partner_1_value / box.raw_value;
+            }
+            return box;
+        }));
 
     const onBoxChange = async (values, sourceInfo) => {
         const evt = sourceInfo.event;
-        const [boxCode, fieldName] = evt.target.name.split('.');
-        handleBoxChange(boxCode, fieldName, values.floatValue)
+        const [fieldName, boxIndex] = evt.target.name.split('.');
+        handleBoxChange(boxIndex, fieldName, values.floatValue)
     };
 
     const toggleShowAutofilled = async (evt) => {
@@ -56,6 +62,26 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setStep, setIndividualizedResul
     const toggleUnlockTotals = async (evt) => {
         setUnlockTotals(evt.target.checked);
     };
+
+    const toggleBoxEdit = (boxIndexChanged, isBeingEdited) => {
+        const newBoxes = boxes.map(
+            (box, boxIndex) => 
+                (boxIndex == boxIndexChanged) ? {
+                ...box,
+                isBeingEdited: isBeingEdited
+            } : box
+        );
+        setBoxes(newBoxes);
+        console.log((newBoxes[boxIndexChanged].isBeingEdited) ? "yes" : "no");
+    }
+
+    const deleteBox = (boxIndexChanged) => {
+        setBoxes(boxes.filter((box, boxIndex) => boxIndex != boxIndexChanged));
+    };
+
+    const addNewBox = () => {
+        setBoxes([...boxes, {}]);
+    }
 
     const fetchIndividualizedResults = async (evt) => {
         evt.preventDefault();
@@ -121,25 +147,34 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setStep, setIndividualizedResul
                 <div>
                     <div>
                         <div class="row">
-                            <div class="col-md-6 col-xl-4">
-                                <div class="form-check form-switch">
-                                    <input class="form-check-input" type="checkbox" role="switch" id="showAutofilled" checked={showAutoFilled} onChange={toggleShowAutofilled} />
-                                    <label class="form-check-label" for="showAutofilled">Afficher les cases préremplies.</label>
+                            <div class="col-md-8">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-check form-switch">
+                                            <input class="form-check-input" type="checkbox" role="switch" id="showAutofilled" checked={showAutoFilled} onChange={toggleShowAutofilled} />
+                                            <label class="form-check-label" for="showAutofilled">Afficher les cases préremplies.</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-check form-switch">
+                                            <input class="form-check-input" type="checkbox" role="switch" id="unlockTotals" checked={unlockTotals} onChange={toggleUnlockTotals} />
+                                            <label class="form-check-label" for="unlockTotals">Déverrouiller les totaux.</label>
+                                        </div>  
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-md-6 col-xl-4">
-                                <div class="form-check form-switch">
-                                    <input class="form-check-input" type="checkbox" role="switch" id="unlockTotals" checked={unlockTotals} onChange={toggleUnlockTotals} />
-                                    <label class="form-check-label" for="unlockTotals">Déverrouiller les totaux.</label>
-                                </div>  
+                            <div class="d-flex justify-content-center justify-content-md-end pt-3 pt-md-0 col-md-4">
+                                {/* <button class="align-self-center btn btn-sm btn-outline-primary" type="button" onClick={addNewBox}>
+                                    <FontAwesomeIcon icon={faSquarePlus} /> Ajouter une ligne
+                                </button> */}
                             </div>
                         </div>
                         <div class="py-2">
                             <hr/>
                         </div>
-                        {Object.values(boxes).map(box => (
-                            <TaxBox box={box} onValueChange={onBoxChange} onSliderChange={onSliderChange}
-                            unlockTotals={unlockTotals} showAutoFilled={showAutoFilled} />
+                        {boxes.map((box, boxIndex) => (
+                            <TaxBox boxIndex={boxIndex} box={box} onValueChange={onBoxChange} onSliderChange={onSliderChange}
+                            unlockTotals={unlockTotals} showAutoFilled={showAutoFilled} toggleBoxEdit={toggleBoxEdit} deleteBox={deleteBox} />
                         ))}
                     </div>
                 </div>
