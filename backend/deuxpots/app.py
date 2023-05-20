@@ -4,35 +4,21 @@ from flask import Flask, request
 from flask_cors import CORS
 from deuxpots.demo import DEMO_FLAT_BOXES
 
-from deuxpots import CERFA_VARIABLES_PATH, FAMILY_BOX_COORDS_PATH
+from deuxpots import CERFA_VARIABLES_PATH, CATEGORY_COORDS_PATH
 from deuxpots.box import load_box_mapping
 from deuxpots.flatbox import FlatBox, flatten
 from deuxpots.individualize import simulate_and_individualize
-from deuxpots.pdf_tax_parser import HouseholdStatusError, TaxSheetParsingError, load_family_box_coords, parse_tax_pdf
+from deuxpots.pdf_tax_parser import load_category_coords, parse_tax_pdf
 from deuxpots.tax_calculator import SimulatorError
-from deuxpots.valued_box import UnknownBoxCode, ValuedBox
+from deuxpots.valued_box import ValuedBox
+from deuxpots.warning_utils import UserFacingWarning, handle_warnings
 
 BOX_MAPPING = load_box_mapping(CERFA_VARIABLES_PATH)
-FAMILY_BOX_COORDS = load_family_box_coords(FAMILY_BOX_COORDS_PATH)
+FAMILY_BOX_COORDS = load_category_coords(CATEGORY_COORDS_PATH)
 
 
 app = Flask("deuxpots")
 CORS(app, CORS_ALLOW_HEADERS="*")
-
-
-@app.errorhandler(UnknownBoxCode)
-def handle_bad_request(e):
-    return e.args[0], 400
-
-
-@app.errorhandler(TaxSheetParsingError)
-def handle_bad_request(e):
-    return e.args[0], 400
-
-
-@app.errorhandler(HouseholdStatusError)
-def handle_bad_request(e):
-    return e.args[0], 400
 
 
 @app.errorhandler(SimulatorError)
@@ -41,6 +27,7 @@ def handle_bad_request(e):
 
 
 @app.route('/parse', methods=['POST'])
+@handle_warnings(UserFacingWarning)
 def parse():
     if request.args.get('demo'):
         return dict(

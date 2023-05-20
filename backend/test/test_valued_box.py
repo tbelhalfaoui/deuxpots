@@ -4,7 +4,7 @@ import pytest
 
 from deuxpots.box import Box, BoxKind, ReferenceBox
 from deuxpots.flatbox import FlatBox
-from deuxpots.valued_box import UnknownBoxCode, ValuedBox
+from deuxpots.valued_box import UnknownBoxCodeWarning, ValuedBox
 
 
 def test_valued_box_partner_0():
@@ -121,15 +121,20 @@ def test_from_flat_box():
         reference=ReferenceBox(code="1AC", description="Salaires et pensions.", type='int'),
         kind=BoxKind.CHILD
     )
-    valbox = ValuedBox.from_flat_box(FlatBox(code="1CC", raw_value=1254, attribution=.3), box_mapping={"1CC": box})
+    valbox = ValuedBox.from_flat_box(FlatBox(code="1CC", raw_value=1254, attribution=.3, description="dummy"), box_mapping={"1CC": box})
     assert valbox.box == box
     assert valbox.raw_value == 1254
     assert valbox.attribution == .3
 
 
 def test_from_flat_box_unknown_code():
-    with pytest.raises(UnknownBoxCode):
-        ValuedBox.from_flat_box(FlatBox(code="ZZ", raw_value=100, attribution=.3), box_mapping={})
+    with pytest.warns(UnknownBoxCodeWarning):
+        valbox = ValuedBox.from_flat_box(FlatBox(code="9ZZ", raw_value=100, description="Une nouvelle case!"), box_mapping={})
+    assert valbox.box.code == "9ZZ"
+    assert valbox.box.reference.code == "9ZZ"
+    assert valbox.box.reference.description == "Une nouvelle case!"
+    assert valbox.box.reference.type == "int"
+    assert valbox.raw_value == 100
 
 
 def test_serialize_valued_box():

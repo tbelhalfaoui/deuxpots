@@ -4,7 +4,6 @@ from deuxpots.individualize import (
     IndividualResult, IndividualizedResults,
     _individualize, simulate_and_individualize
 )
-from deuxpots.pdf_tax_parser import HouseholdStatusError
 from deuxpots.tax_calculator import SimulatorResult
 from deuxpots.valued_box import ValuedBox
 

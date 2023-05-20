@@ -1,20 +1,26 @@
+import warnings
 import pytest
-from deuxpots.pdf_tax_parser import HouseholdStatusError, _check_and_strip_household_status, _parse_line, _parse_tax_pdf, parse_tax_pdf
-from deuxpots.tax_calculator import IncomeSheet
-from deuxpots.valued_box import ValuedBox
+from unittest.mock import ANY
+from deuxpots.box import Box
+from deuxpots.flatbox import FlatBox
+from deuxpots.pdf_tax_parser import (
+    HOUSEHOLD_STATUS_VALUES, DuplicateFamilyBox, FamilyBoxBadValue, FamilyBoxExtractionWarning, HouseholdStatusWarning, MissingFamilyBox, _parse_line, _parse_tax_pdf, _strip_and_check_household_status, _warn_if_empty_boxes, parse_tax_pdf,
+)
+from deuxpots.valued_box import UnknownBoxCodeWarning, ValuedBox
+from deuxpots.warning_utils import UserFacingWarning
 
 
-@pytest.mark.parametrize("box", ["1BJ", "8UY"])
-def test__parse_line(box):
-    assert list(_parse_line(f"{box} xxxx : 7348")) == [(box, 7348)]
+@pytest.mark.parametrize("text,flatbox", [
+    ("8UY Micro-entrepreneur : versements libératoires de l'IR : 500",
+     FlatBox(code="8UY", raw_value=500, description="Micro-entrepreneur : versements libératoires de l'IR")),
+    ("5HQ BNC professionnels régime micro - Revenus imposables - Déclarant 1 : 8000",
+     FlatBox(code="5HQ", raw_value=8000, description="BNC professionnels régime micro - Revenus imposables - Déclarant 1"))
+])
+def test__parse_line(text, flatbox):
+    assert list(_parse_line(text)) == [flatbox]
 
 
-@pytest.mark.parametrize("box", ["911", "PAM"])
-def test__parse_line_false_positive(box):
-    assert not list(_parse_line(f"{box} xxxx : 7348"))
-
-
-@pytest.mark.parametrize("box", ["1AJ)", "PAM"])
+@pytest.mark.parametrize("box", ["1AJ)", "PAM", "911"])
 def test__parse_line_false_positive(box):
     """
     Paragraph "Informations connues de l'administration avant modifications éventuelles par le déclarant"
@@ -23,72 +29,119 @@ def test__parse_line_false_positive(box):
 
 
 @pytest.fixture
-def expected_parsed_raw_values():
-    return {
-            'pre_situation_famille': 'M',
-            '8HV': 2000,
-            '8IV': 800,
-            '1AJ': 60000,
-            '1BJ': 20000,
-            '5HQ': 500,
-            '0AP': 1,
-            '0AS': 1,
-            '0DJ': 1,
-            '0DN': 3,
-            '0CF': 2,
-            '0CG': 1,
-            '0CH': 2,
-            '0CI': 1, 
-            '0CR': 2,
-    }
+def expected_flatboxes():
+    return [
+        FlatBox(code='0AM', raw_value=1, description=ANY),
+        FlatBox(code='8HV', raw_value=2000, description=ANY),
+        FlatBox(code='8IV', raw_value=800, description=ANY),
+        FlatBox(code='1AJ', raw_value=60000, description=ANY),
+        FlatBox(code='1BJ', raw_value=20000, description=ANY),
+        FlatBox(code='5HQ', raw_value=500, description=ANY),
+        FlatBox(code='0AP', raw_value=1, description=ANY),
+        FlatBox(code='0AS', raw_value=1, description=ANY),
+        FlatBox(code='0DJ', raw_value=1, description=ANY),
+        FlatBox(code='0DN', raw_value=3, description=ANY),
+        FlatBox(code='0CF', raw_value=2, description=ANY),
+        FlatBox(code='0CG', raw_value=1, description=ANY),
+        FlatBox(code='0CH', raw_value=2, description=ANY),
+        FlatBox(code='0CI', raw_value=1, description=ANY),
+        FlatBox(code='0CR', raw_value=2, description=ANY),
 
+    ]
 
-@pytest.fixture
-def expected_parsed_attributions():
-    return {
-            'pre_situation_famille': 'M',
-            '8HV': 1,
-            '8IV': 0,
-            '1AJ': 0,
-            '1BJ': 1,
-            '5HQ': 0,
-            '0AP': 0,
-            '0AS': None,
-            '0DJ': None,
-            '0DN': None,
-            '0CF': None,
-            '0CG': None,
-            '0CH': None,
-            '0CI': None, 
-            '0CR': None,
-    }
-
-
-def test__parse_tax_pdf(tax_sheet_pdf_path, expected_parsed_raw_values, family_box_coords):
+def test__parse_tax_pdf(tax_sheet_pdf_path, expected_flatboxes, category_coords, box_mapping):
     with tax_sheet_pdf_path.open("rb") as f:
         pdf_content = f.read()
-    parsed_sheet = _parse_tax_pdf(pdf_content, family_box_coords)
-    assert parsed_sheet == IncomeSheet(expected_parsed_raw_values)
+    flatboxes = list(_parse_tax_pdf(pdf_content, category_coords, box_mapping))
+    assert sorted(flatboxes) == sorted(expected_flatboxes)
 
 
-def test_parse_tax_pdf(tax_sheet_pdf_path, expected_parsed_raw_values, expected_parsed_attributions,
-                       family_box_coords, box_mapping):
+def test__warn_if_empty_boxes():
+    with pytest.warns(FamilyBoxExtractionWarning):
+        _warn_if_empty_boxes([
+            FlatBox(code='0AM', raw_value=None),
+        ])
+
+
+@pytest.mark.parametrize('household_status', ['0AM', '0AO'])
+def test__strip_and_check_household_status_correct(household_status):
+    flatboxes_in = [
+        FlatBox(code=household_status, raw_value=1),
+        FlatBox(code='8HV', raw_value=2000),
+    ]
+    flatboxes_expected = [
+        FlatBox(code='8HV', raw_value=2000)
+    ]
+    with warnings.catch_warnings(category=UserFacingWarning):
+        warnings.simplefilter("error")
+        flatboxes_out = _strip_and_check_household_status(flatboxes_in)
+    assert flatboxes_out == flatboxes_expected
+
+
+def test__strip_and_check_household_status_duplicate():
+    flatboxes_in = [
+        FlatBox(code='0AM', raw_value=1),
+        FlatBox(code='0AO', raw_value=1),
+        FlatBox(code='8HV', raw_value=2000),
+    ]
+    flatboxes_expected = [
+        FlatBox(code='8HV', raw_value=2000)
+    ]
+    with pytest.warns(HouseholdStatusWarning):
+        flatboxes_out =  _strip_and_check_household_status(flatboxes_in)
+    assert flatboxes_out == flatboxes_expected
+
+
+def test__strip_and_check_household_status_missing():
+    flatboxes_in = [
+        FlatBox(code='8HV', raw_value=2000),
+    ]
+    flatboxes_expected = [
+        FlatBox(code='8HV', raw_value=2000)
+    ]
+    with pytest.warns(HouseholdStatusWarning):
+        flatboxes_out =  _strip_and_check_household_status(flatboxes_in)
+    assert flatboxes_out == flatboxes_expected
+
+
+@pytest.mark.parametrize('household_status', ['0AC', '0AD', '0AV'])
+def test__strip_and_check_household_status_single(household_status):
+    flatboxes_in = [
+        FlatBox(code=household_status, raw_value=1),
+        FlatBox(code='8HV', raw_value=2000),
+    ]
+    flatboxes_expected = [
+        FlatBox(code='8HV', raw_value=2000)
+    ]
+    with pytest.warns(HouseholdStatusWarning):
+        flatboxes_out =  _strip_and_check_household_status(flatboxes_in)
+    assert flatboxes_out == flatboxes_expected
+
+
+def test_parse_tax_pdf(tax_sheet_pdf_path, expected_flatboxes, category_coords, box_mapping):
     with tax_sheet_pdf_path.open("rb") as f:
+        pdf_content = f.read()        
+    with warnings.catch_warnings(category=UserFacingWarning):
+        warnings.simplefilter("error")
+        valboxes = parse_tax_pdf(pdf_content, category_coords, box_mapping)
+    assert len(valboxes) == len(expected_flatboxes) - 1  # removed household status
+    assert all(isinstance(vb, ValuedBox) for vb in valboxes)
+
+
+@pytest.mark.parametrize("warning,match", [
+    (DuplicateFamilyBox, '0AS'),
+    (MissingFamilyBox, '0AS'),
+    (FamilyBoxBadValue, '0CF: z'),
+    (FamilyBoxExtractionWarning, '0AS, 0CF'),
+    (HouseholdStatusWarning, 'M, D'),
+    (UnknownBoxCodeWarning, '9ZZ'),
+])
+def test_parse_tax_pdf_with_problems(warning, match, tax_sheet_pdf_path_with_problems,
+                                     expected_flatboxes, category_coords, box_mapping):
+    with tax_sheet_pdf_path_with_problems.open("rb") as f:
         pdf_content = f.read()
-    valboxes = parse_tax_pdf(pdf_content, family_box_coords, box_mapping)
-    for valbox in valboxes:
-        valbox.raw_value == expected_parsed_raw_values[valbox.box.code]
-        valbox.attribution == expected_parsed_attributions[valbox.box.code]
-
-
-@pytest.mark.parametrize('status', ['O', 'M'])
-def test__check_and_strip_household_status(status, box_mapping):
-    income_sheet = {'pre_situation_famille': status}
-    _check_and_strip_household_status(income_sheet, box_mapping) 
-    assert income_sheet == {}
-
-
-@pytest.mark.parametrize('status', ['AD', 'AC', 'AV', 'AM', 'AO', None])
-def test__check_and_strip_household_status_bad_status(status, box_mapping):
-    with pytest.raises(HouseholdStatusError):
-        _check_and_strip_household_status({'pre_situation_famille': status}, box_mapping)
+    with pytest.warns(warning, match=match) as w:
+        valboxes = parse_tax_pdf(pdf_content, category_coords, box_mapping)
+    assert len(w) == 6
+    assert ValuedBox(box=Box(code="0AS", reference=ANY, kind=ANY), raw_value=None, attribution=ANY) in valboxes
+    assert ValuedBox(box=Box(code="0CF", reference=ANY, kind=ANY), raw_value=None, attribution=ANY) in valboxes
