@@ -33,8 +33,8 @@ export const TaxBox = ({boxIndex, box, onValueChange, onSliderChange, unlockTota
         <div class="row">
             <div class="d-flex align-items-center align-items-stretch col-md-6">
                 <div class="d-flex flex-fill align-items-center row">
-                    <div class="col-10 col-xl-11">
-                        {(box.isBeingEdited) ?
+                    <div class="col-10 col-xl-12">
+                        {(box.isBeingEdited && false) ?
                             <textarea class="form-control" rows="2" data-bs-toggle="dropdown" aria-expanded="false"
                             placeholder="Saisissez le code ou le nom de la case à ajouter." value={`${box.code} - ${box.description}`}
                             onBlur={() => toggleBoxEdit(boxIndex, false)} autoFocus />
@@ -42,13 +42,12 @@ export const TaxBox = ({boxIndex, box, onValueChange, onSliderChange, unlockTota
                                 {box.code} - {box.description}
                             </label>
                         }
-                        {/* <SelectSearch options={options} search={true} value="sv" name={`language.${boxIndex}`} placeholder="Choose your language" /> */}
                     </div>
-                    <div class="col-1 col-xl-1">
+                    {/* <div class="col-1 col-xl-1">
                         <button class="btn" style={{color: 'red'}} type="button" onClick={() => deleteBox(boxIndex)}>
                             <FontAwesomeIcon icon={faTrashCan} />
                         </button>
-                    </div>
+                    </div> */}
                 </div>
             </div>
             <div class="col-md-6 d-flex align-items-center">

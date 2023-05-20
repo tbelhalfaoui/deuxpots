@@ -161,9 +161,9 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setStep, setIndividualizedResul
                                 </div>
                             </div>
                             <div class="d-flex justify-content-center justify-content-md-end pt-3 pt-md-0 col-md-4">
-                                <button class="align-self-center btn btn-sm btn-outline-primary" type="button" onClick={addNewBox}>
+                                {/* <button class="align-self-center btn btn-sm btn-outline-primary" type="button" onClick={addNewBox}>
                                     <FontAwesomeIcon icon={faSquarePlus} /> Ajouter une ligne
-                                </button>
+                                </button> */}
                             </div>
                         </div>
                         <div class="py-2">
