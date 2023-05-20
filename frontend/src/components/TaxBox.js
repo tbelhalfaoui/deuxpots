@@ -3,11 +3,12 @@ import { NumericFormat } from "react-number-format";
 
 export const NumberBox = ( props ) => (
     <NumericFormat
-        class={`form-control box text-center text-lg-end ${((!props.value) && (props.value !== 0)) && 'invalidBox'}`}
+        class="form-control box text-center text-lg-end"
         thousandSeparator=" "
         decimalScale={0}
         isAllowed={(val) => (props.max) ? ((val.floatValue <= props.max) || (val.value === "")) : true}
         defaultValue=""
+        style={((!props.value) && (props.value !== 0)) ? {'background-color': 'rgb(255, 204, 203)'} : {}}
         {...props} />
 )
 

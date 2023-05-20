@@ -1,8 +1,8 @@
 import React, { useState } from "react"
-import { ErrorMessage } from "./ErrorMessage.js";
+import { ErrorMessage } from "./Alert.js";
 
 
-export const PdfSubmitForm = ({setBoxes, setStep, isError}) => {
+export const PdfSubmitForm = ({setBoxes, setStep, isError, setWarnings}) => {
     const [errorMsg, setErrorMsg] = useState();
     const [isLoading, setIsLoading] = useState(false);
 
@@ -28,21 +28,20 @@ export const PdfSubmitForm = ({setBoxes, setStep, isError}) => {
           res => (!res.ok) ? res.text().then(text => {throw new Error(text)}) : res
         ).then(
           res => res.json(),
-        ).then(
-          data => Object.fromEntries(
-            data.boxes.sort(
-              (box1, box2) => box1.code.localeCompare(box2.code)
-            ).map(box => [box.code, {
-              ...box,
-              description: box.description,
-              original_raw_value: box.raw_value,
-              original_attribution: box.attribution,
-              partner_0_value: (box.attribution || (box.attribution === 0)) ? box.raw_value * (1 - box.attribution) : "",
-              partner_1_value: (box.attribution || (box.attribution === 0)) ? box.raw_value * box.attribution : "",
-            }])
-          )
-        ).then(
-          setBoxes
+        ).then(data => {console.log(data); return data}).then(
+          data =>
+            setBoxes(Object.fromEntries(
+              data.boxes.sort(
+                (box1, box2) => box1.code.localeCompare(box2.code)
+              ).map(box => [box.code, {
+                ...box,
+                description: box.description,
+                original_raw_value: box.raw_value,
+                original_attribution: box.attribution,
+                partner_0_value: ((box.attribution || (box.attribution === 0)) && box.raw_value)  ? box.raw_value * (1 - box.attribution) : "",
+                partner_1_value: ((box.attribution || (box.attribution === 0)) && box.raw_value)  ? box.raw_value * box.attribution : "",
+              }])
+            )) || setWarnings(data.warnings)
         ).then(
           () => setErrorMsg(null) || setStep(2)
         ).catch(

@@ -130,7 +130,7 @@ def _strip_and_check_household_status(flatboxes) -> Tuple[List[FlatBox], List[st
     statuses = [box.code[-1] for box in flatboxes if box.code in HOUSEHOLD_STATUS_VALUES and box.raw_value]
     flatboxes_filtered = [box for box in flatboxes if box.code not in HOUSEHOLD_STATUS_VALUES]
     if len(statuses) != 1:
-        warn(f"La case 'situation du foyer fiscal' n'a pas été correctement détectée "
+        warn(f"La case \"situation du foyer fiscal\" n'a pas été correctement détectée "
              f"({', '.join(statuses)}). "
              f"Merci de vous assurer que la déclaration d'impôt que vous avez utilisée est "
              f"bien une déclaration commune (marié·e·s ou pacsé·e·s).", HouseholdStatusWarning)

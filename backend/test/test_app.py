@@ -17,7 +17,7 @@ def test_parse(tax_sheet_pdf_path):
             assert flatbox['description']
             assert flatbox['raw_value']
             assert 'attribution' in flatbox  # can be None
-            assert not res.json.get('warnings')
+            assert not res.json['warnings']
 
 
 def test_parse_with_warnings(tax_sheet_pdf_path_with_problems):

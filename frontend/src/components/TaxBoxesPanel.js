@@ -1,10 +1,10 @@
 import { useState } from "react"
 import { TaxBox } from './TaxBox.js'
 import { SubmitButton } from './SubmitButton.js'
-import { ErrorMessage } from "./ErrorMessage.js";
+import { ErrorMessage, WarningMessage } from "./Alert.js";
 
 
-export const TaxBoxesPanel = ({ boxes, setBoxes, setStep, setIndividualizedResults }) => {
+export const TaxBoxesPanel = ({ boxes, setBoxes, setStep, setIndividualizedResults, warnings }) => {
 
     const [ showAutoFilled, setShowAutoFilled ] = useState(true);
     const [ unlockTotals, setUnlockTotals ] = useState(false);
@@ -109,6 +109,9 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setStep, setIndividualizedResul
         <form method="POST" onSubmit={fetchIndividualizedResults}>
             <div id="containerStep2" class="container py-2 text-start">
                 <ErrorMessage error={errorMsg} />
+                {warnings.map(msg =>
+                    (<WarningMessage warning={msg} />)
+                )}
                 {!boxes &&
                 (<div class="text-center">
                     <div class="spinner-border" role="status">
