@@ -7,14 +7,14 @@ from deuxpots.box import load_box_mapping
 from deuxpots.pdf_tax_parser import load_category_coords
 
 
-@pytest.fixture
-def tax_sheet_pdf_path():
-    return ROOT_PATH / "test/resources/declaration.pdf"
+@pytest.fixture(params=["declaration_2022.pdf", "declaration_2023.pdf"])
+def tax_sheet_pdf_path(request):
+    return ROOT_PATH / "test/resources" / request.param
 
 
 @pytest.fixture
 def tax_sheet_pdf_path_with_problems():
-    return ROOT_PATH / "test/resources/declaration_with_problems.pdf"
+    return ROOT_PATH / "test/resources/declaration_2022_with_problems.pdf"
 
 
 @pytest.fixture

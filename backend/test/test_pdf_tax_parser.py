@@ -39,14 +39,13 @@ def expected_flatboxes():
         FlatBox(code='5HQ', raw_value=500, description=ANY),
         FlatBox(code='0AP', raw_value=1, description=ANY),
         FlatBox(code='0AS', raw_value=1, description=ANY),
-        FlatBox(code='0DJ', raw_value=1, description=ANY),
-        FlatBox(code='0DN', raw_value=3, description=ANY),
         FlatBox(code='0CF', raw_value=2, description=ANY),
         FlatBox(code='0CG', raw_value=1, description=ANY),
         FlatBox(code='0CH', raw_value=2, description=ANY),
         FlatBox(code='0CI', raw_value=1, description=ANY),
         FlatBox(code='0CR', raw_value=2, description=ANY),
-
+        FlatBox(code='0DJ', raw_value=1, description=ANY),
+        FlatBox(code='0DN', raw_value=3, description=ANY),
     ]
 
 def test__parse_tax_pdf(tax_sheet_pdf_path, expected_flatboxes, category_coords, box_mapping):
@@ -137,7 +136,7 @@ def test_parse_tax_pdf(tax_sheet_pdf_path, expected_flatboxes, category_coords, 
     (UnknownBoxCodeWarning, '9ZZ'),
 ])
 def test_parse_tax_pdf_with_problems(warning, match, tax_sheet_pdf_path_with_problems,
-                                     expected_flatboxes, category_coords, box_mapping):
+                                     category_coords, box_mapping):
     with tax_sheet_pdf_path_with_problems.open("rb") as f:
         pdf_content = f.read()
     with pytest.warns(warning, match=match) as w:
