@@ -15,7 +15,7 @@ function App() {
   const [warnings, setWarnings] = useState([]);
   
   return (
-      <div class="container py-4">
+      <div className="container py-4">
         <Header />
         <Accordion>
           <AccordionStepItem title="1. Sélectionnez le fichier PDF de votre déclaration commune."
@@ -32,8 +32,8 @@ function App() {
             <ResultsPanel results={individualizedResults} />
           </AccordionStepItem>
         </Accordion>
-        <div class="text-center pt-4">
-          <a class="footerLink" href="https://github.com/tbelhalfaoui/deuxpots">Le code source de ce site est ouvert : https://github.com/tbelhalfaoui/deuxpots</a>
+        <div className="text-center pt-4">
+          <a className="footerLink" href="https://github.com/tbelhalfaoui/deuxpots">Le code source de ce site est ouvert : https://github.com/tbelhalfaoui/deuxpots</a>
         </div>
       </div>
   );

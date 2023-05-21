@@ -134,47 +134,47 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setStep, setIndividualizedResul
     
     return (
         <form method="POST" onSubmit={fetchIndividualizedResults}>
-            <div id="containerStep2" class="container py-2 text-start">
+            <div id="containerStep2" className="container py-2 text-start">
                 <ErrorMessage error={errorMsg} />
                 {warnings.map(msg =>
-                    (<WarningMessage warning={msg} />)
+                    (<WarningMessage key={msg} warning={msg} />)
                 )}
                 {!boxes &&
-                (<div class="text-center">
-                    <div class="spinner-border" role="status">
-                        <span class="sr-only"></span>
+                (<div className="text-center">
+                    <div className="spinner-border" role="status">
+                        <span className="sr-only"></span>
                     </div>
                 </div>)}
                 <div>
                     <div>
-                        <div class="row">
-                            <div class="col-md-8">
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <div class="form-check form-switch">
-                                            <input class="form-check-input" type="checkbox" role="switch" id="showAutofilled" checked={showAutoFilled} onChange={toggleShowAutofilled} />
-                                            <label class="form-check-label" for="showAutofilled">Afficher les cases préremplies.</label>
+                        <div className="row">
+                            <div className="col-md-8">
+                                <div className="row">
+                                    <div className="col-lg-6">
+                                        <div className="form-check form-switch">
+                                            <input className="form-check-input" type="checkbox" role="switch" id="showAutofilled" checked={showAutoFilled} onChange={toggleShowAutofilled} />
+                                            <label className="form-check-label" htmlFor="showAutofilled">Afficher les cases préremplies.</label>
                                         </div>
                                     </div>
-                                    <div class="col-lg-6">
-                                        <div class="form-check form-switch">
-                                            <input class="form-check-input" type="checkbox" role="switch" id="unlockTotals" checked={unlockTotals} onChange={toggleUnlockTotals} />
-                                            <label class="form-check-label" for="unlockTotals">Déverrouiller les totaux.</label>
+                                    <div className="col-lg-6">
+                                        <div className="form-check form-switch">
+                                            <input className="form-check-input" type="checkbox" role="switch" id="unlockTotals" checked={unlockTotals} onChange={toggleUnlockTotals} />
+                                            <label className="form-check-label" htmlFor="unlockTotals">Déverrouiller les totaux.</label>
                                         </div>  
                                     </div>
                                 </div>
                             </div>
-                            <div class="d-flex justify-content-center justify-content-md-end pt-3 pt-md-0 col-md-4">
-                                {false && <button class="align-self-center btn btn-sm btn-outline-primary" type="button" onClick={addNewBox}>
+                            <div className="d-flex justify-content-center justify-content-md-end pt-3 pt-md-0 col-md-4">
+                                {false && <button className="align-self-center btn btn-sm btn-outline-primary" type="button" onClick={addNewBox}>
                                     <FontAwesomeIcon icon={faSquarePlus} /> Ajouter une ligne
                                 </button>}
                             </div>
                         </div>
-                        <div class="py-2">
+                        <div className="py-2">
                             <hr/>
                         </div>
                         {boxes.map((box, boxIndex) => (
-                            <TaxBox boxIndex={boxIndex} box={box} onValueChange={onBoxChange} onSliderChange={onSliderChange}
+                            <TaxBox key={box.code} boxIndex={boxIndex} box={box} onValueChange={onBoxChange} onSliderChange={onSliderChange}
                             unlockTotals={unlockTotals} showAutoFilled={showAutoFilled} toggleBoxEdit={toggleBoxEdit} deleteBox={deleteBox} />
                         ))}
                     </div>

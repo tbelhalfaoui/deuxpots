@@ -58,26 +58,26 @@ export const PdfSubmitForm = ({setBoxes, setStep, isError, setWarnings}) => {
     return (
         <form onSubmit={sendTaxSheet}>
           <ErrorMessage error={errorMsg} />
-          <div class="alert alert-primary" role="alert">
+          <div className="alert alert-primary" role="alert">
               <FontAwesomeIcon icon={faCircleInfo} /> Aucune donnée issue de votre déclaration d'impôt ne sera collectée.<br/>
               Seuls les montants, anonymes, seront utilisés temporairement pour faire la simulation.
           </div>
-          <div class="container py-4 text-center" id="containerStep1">
-            <div class="row justify-content-center">
-              <div class="col-md-5 col-xl-4">
-                <input type="file" class="form-control" name="taxFile" onChange={sendTaxSheet} disabled={isLoading} />
+          <div className="container py-4 text-center" id="containerStep1">
+            <div className="row justify-content-center">
+              <div className="col-md-5 col-xl-4">
+                <input type="file" className="form-control" name="taxFile" onChange={sendTaxSheet} disabled={isLoading} />
               </div>
-              <div class="py-2 col-1">
+              <div className="py-2 col-1">
                 ou
               </div>
-              <div class="col-md-5 col-xl-3">
-                <button type="submit" class="btn btn-primary" name="tryOnExample" disabled={isLoading}>
+              <div className="col-md-5 col-xl-3">
+                <button type="submit" className="btn btn-primary" name="tryOnExample" disabled={isLoading}>
                   Essayer sur un exemple
                 </button>
               </div>
               {isLoading && (
-                <div class="spinner-border" role="status">
-                  <span class="sr-only"></span>
+                <div className="spinner-border" role="status">
+                  <span className="sr-only"></span>
                 </div>
                 )}
              </div>
