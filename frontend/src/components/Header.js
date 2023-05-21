@@ -1,7 +1,7 @@
 export const Header = () => (
-    <div class="jumbotron">
-      <h1 class="display-4">Impôt, deux pots</h1>
-      <p class="lead">
+    <div className="jumbotron">
+      <h1 className="display-4">Impôt, deux pots</h1>
+      <p className="lead">
         <i>Deux pots</i> est un outil simple pour offrir le choix à chacun·e qui le souhaite d'indivisualiser son impôt.
       </p>
       <div>

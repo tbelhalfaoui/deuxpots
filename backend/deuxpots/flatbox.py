@@ -15,6 +15,9 @@ class FlatBox:
     description: str = None
     attribution: Optional[float] = None
 
+    def __lt__(self, other):
+        return self.code < other.code
+
 
 def flatten(valbox: ValuedBox) -> FlatBox:
     return FlatBox(

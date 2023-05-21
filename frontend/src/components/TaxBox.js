@@ -1,59 +1,92 @@
 import { NumericFormat } from "react-number-format";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrashCan } from "@fortawesome/free-regular-svg-icons";
+// import SelectSearch from 'react-select-search';
+// import Combobox from "react-widgets/Combobox";
 
 
 export const NumberBox = ( props ) => (
     <NumericFormat
-        class={`form-control box text-center text-lg-end ${((!props.value) && (props.value !== 0)) && 'invalidBox'}`}
+        className="form-control box text-center text-lg-end"
         thousandSeparator=" "
         decimalScale={0}
         isAllowed={(val) => (props.max) ? ((val.floatValue <= props.max) || (val.value === "")) : true}
         defaultValue=""
+        style={((!props.value) && (props.value !== 0)) ? {backgroundColor: 'rgb(255, 204, 203)'} : {}}
         {...props} />
 )
 
-export const TaxBox = ({box, onValueChange, onSliderChange, unlockTotals, showAutoFilled}) => 
-    ((box.original_attribution == null) || (showAutoFilled)) && (
+export const TaxBox = ({boxIndex, box, onValueChange, onSliderChange, unlockTotals, showAutoFilled, toggleBoxEdit, deleteBox}) => {
+    // const options = [
+    //     {name: 'Swedish', value: 'sv'},
+    //     {name: 'English', value: 'en'},
+    //     {
+    //         type: 'group',
+    //         name: 'Group name',
+    //         items: [
+    //             {name: 'Spanish', value: 'es'},
+    //         ]
+    //     },
+    // ];
+
+    return ((box.original_attribution == null) || (showAutoFilled)) && (
     <div>
-        <div class="row">
-            <div class="d-flex align-items-center col-md-6">
-                <label for={`${box.code}.raw_value`} class="form-label">{box.code} - {box.description}</label>
+        <div className="row">
+            <div className="d-flex align-items-center align-items-stretch col-md-6">
+                <div className="d-flex flex-fill align-items-center row">
+                    <div className="col-10 col-xl-12">
+                        {(box.isBeingEdited && false) ?
+                            <textarea className="form-control" rows="2" data-bs-toggle="dropdown"
+                            placeholder="Saisissez le code ou le nom de la case à ajouter." value={`${box.code} - ${box.description}`}
+                            onBlur={() => toggleBoxEdit(boxIndex, false)} autoFocus />
+                            : <label htmlFor={`raw_value.${boxIndex}`} className="form-label" onClick={() => toggleBoxEdit(boxIndex, true)}>
+                                {box.code} - {box.description}
+                            </label>
+                        }
+                    </div>
+                    {false && <div className="col-1 col-xl-1">
+                        <button className="btn" style={{color: 'red'}} type="button" onClick={() => deleteBox(boxIndex)}>
+                            <FontAwesomeIcon icon={faTrashCan} />
+                        </button>
+                    </div>}
+                </div>
             </div>
-            <div class="col-md-6">
-                <div class="row">
-                    <div class="p-1 col-lg-3">
-                        <div class="form-floating">
-                            <NumberBox name={`${box.code}.raw_value`} value={box.raw_value} placeholder="Total"
+            <div className="col-md-6 d-flex align-items-center">
+                <div className="row">
+                    <div className="p-1 col-lg-3">
+                        <div className="form-floating">
+                            <NumberBox name={`raw_value.${boxIndex}`} value={box.raw_value} placeholder="Total"
                             onValueChange={onValueChange} disabled={true} />
-                            <label for={`${box.code}.raw_value`}>Total</label>
+                            <label htmlFor={`raw_value.${boxIndex}`}>Total</label>
                         </div>
                     </div>
-                    <div class="p-1 col-4 col-lg-3">
-                        <div class="form-floating">
-                            <NumberBox name={`${box.code}.partner_0_value`} value={box.partner_0_value} placeholder="Décl. 1"
+                    <div className="p-1 col-4 col-lg-3">
+                        <div className="form-floating">
+                            <NumberBox name={`partner_0_value.${boxIndex}`} value={box.partner_0_value} placeholder="Décl. 1"
                             max={!unlockTotals && box.raw_value} onValueChange={onValueChange} />
-                            <label for={`${box.code}.partner_0_value`}>Décl. 1</label>
+                            <label htmlFor={`partner_0_value.${boxIndex}`}>Décl. 1</label>
                         </div>
                     </div>
-                    <div class="d-flex align-items-center p-1 col-4 col-lg-3">
-                        <input type="range" class="form-range" name={`${box.code}.slider`}
+                    <div className="d-flex align-items-center p-1 col-4 col-lg-3">
+                        <input type="range" className="form-range" name={`slider.${boxIndex}`}
                         min="0" max={box.raw_value}
                         step={(box.raw_value <= 10) ? 1 : parseInt(box.raw_value / 10)}
                         disabled={box.raw_value === ""}
                         value={(!box.partner_0_value && !box.partner_1_value) ? "" : box.attribution * box.raw_value}
                         onChange={onSliderChange} />
                     </div>
-                    <div class="p-1 col-4 col-lg-3">
-                        <div class="form-floating">
-                            <NumberBox name={`${box.code}.partner_1_value`} value={box.partner_1_value} placeholder="Décl. 2"
+                    <div className="p-1 col-4 col-lg-3">
+                        <div className="form-floating">
+                            <NumberBox name={`partner_1_value.${boxIndex}`} value={box.partner_1_value} placeholder="Décl. 2"
                             max={!unlockTotals && box.raw_value} onValueChange={onValueChange} />
-                            <label for={`${box.code}.partner_1_value`}>Décl. 2</label>
+                            <label htmlFor={`partner_1_value.${boxIndex}`}>Décl. 2</label>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="py-2 py-lg-0">
+        <div className="py-2 py-lg-0">
             <hr/>
         </div>
     </div>
-)
+)}

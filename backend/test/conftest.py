@@ -1,20 +1,25 @@
 from pathlib import Path
 import pytest
 from deuxpots import ROOT_PATH
-from deuxpots import CERFA_VARIABLES_PATH, FAMILY_BOX_COORDS_PATH
+from deuxpots import CERFA_VARIABLES_PATH, CATEGORY_COORDS_PATH
 from deuxpots.box import load_box_mapping
 
-from deuxpots.pdf_tax_parser import load_family_box_coords
+from deuxpots.pdf_tax_parser import load_category_coords
+
+
+@pytest.fixture(params=["declaration_2022.pdf", "declaration_2023.pdf"])
+def tax_sheet_pdf_path(request):
+    return ROOT_PATH / "test/resources" / request.param
 
 
 @pytest.fixture
-def tax_sheet_pdf_path():
-    return ROOT_PATH / "test/resources/declaration.pdf"
+def tax_sheet_pdf_path_with_problems():
+    return ROOT_PATH / "test/resources/declaration_2022_with_problems.pdf"
 
 
 @pytest.fixture
-def family_box_coords():
-    return load_family_box_coords(FAMILY_BOX_COORDS_PATH)
+def category_coords():
+    return load_category_coords(CATEGORY_COORDS_PATH)
 
 
 @pytest.fixture

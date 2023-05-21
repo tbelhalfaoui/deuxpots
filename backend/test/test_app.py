@@ -1,5 +1,6 @@
-from deuxpots.flatbox import flatten
+import pytest
 from deuxpots.app import app
+from deuxpots.warning_utils import UserFacingWarning
 
 
 app.config['TESTING'] = True
@@ -16,9 +17,27 @@ def test_parse(tax_sheet_pdf_path):
             assert flatbox['description']
             assert flatbox['raw_value']
             assert 'attribution' in flatbox  # can be None
-    
+            assert not res.json['warnings']
 
-def test_parse_demo(tax_sheet_pdf_path):
+
+def test_parse_with_warnings(tax_sheet_pdf_path_with_problems):
+    with app.test_client() as test_client:
+        with pytest.warns(UserFacingWarning):
+            res = test_client.post('/parse', data=dict(
+                tax_pdf=tax_sheet_pdf_path_with_problems.open('rb')
+            ))
+        assert res.status_code == 200
+        for flatbox in res.json['boxes']:
+            assert flatbox['code']
+            assert flatbox['description']
+            assert 'attribution' in flatbox  # can be None
+            warnings = res.json['warnings']
+            assert len(warnings) == 3
+            assert any('0AS, 0CF' in w for w in warnings)
+            assert any('M, D' in w for w in warnings)
+            assert any('9ZZ' in w for w in warnings)
+
+def test_parse_demo():
     with app.test_client() as test_client:
         res = test_client.post('/parse?demo=true') 
         assert res.status_code == 200
@@ -44,13 +63,18 @@ def test_individualize():
 
 def test_full_scenario(tax_sheet_pdf_path):
     with app.test_client() as test_client:
+        # 1. Parse
         res = test_client.post('/parse', data=dict(
             tax_pdf=tax_sheet_pdf_path.open('rb')
         )) # multipart/form-data request
         assert res.status_code == 200
+
+        # 2. Simulate user actions
         flatboxes = res.json['boxes']
         for flatbox in flatboxes:
             flatbox['attribution'] = 0
+
+        # 3. Individualize
         res = test_client.post('/individualize',
                                json=dict(boxes=flatboxes))
         assert res.status_code == 200

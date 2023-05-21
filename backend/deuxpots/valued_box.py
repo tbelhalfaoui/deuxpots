@@ -1,6 +1,9 @@
 from dataclasses import dataclass
 from typing import Optional
+from warnings import warn
+from deuxpots.box import ReferenceBox
 from deuxpots.box import Box, BoxKind
+from deuxpots.warning_utils import UserFacingWarning
 
 
 DEFAUT_ATTRIBUTION_FROM_KIND = {
@@ -9,7 +12,7 @@ DEFAUT_ATTRIBUTION_FROM_KIND = {
 }
 
 
-class UnknownBoxCode(KeyError):
+class UnknownBoxCodeWarning(UserFacingWarning):
     pass
 
 
@@ -46,8 +49,18 @@ class ValuedBox:
 
     @staticmethod
     def from_flat_box(flat_box, box_mapping):
-        try:
-            box = box_mapping[flat_box.code]
-        except KeyError:
-            raise UnknownBoxCode(f"La case {flat_box.code}, trouvée dans la déclaration, est inconnue.")
+        box = box_mapping.get(flat_box.code)
+        if not box:
+            warn(f"La case \"{flat_box.code}\", trouvée dans la déclaration, est inconnue. "
+                 f"Si cette case existe effectivement, conservez-là. Sinon, c'est une erreur "
+                 f"de détection : merci de la supprimer.", UnknownBoxCodeWarning)
+            box = Box(
+                code=flat_box.code,
+                reference=ReferenceBox(
+                    code=flat_box.code,
+                    description=flat_box.description,
+                    type='int'
+                ),
+                kind=BoxKind.UNKNOWN
+            )
         return ValuedBox(box, raw_value=flat_box.raw_value, attribution=flat_box.attribution)

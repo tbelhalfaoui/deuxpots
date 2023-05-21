@@ -9,6 +9,7 @@ class BoxKind(StrEnum):
     PARTNER_0 = 'partner_0'
     PARTNER_1 = 'partner_1'
     CHILD = 'child'
+    UNKNOWN = 'unknown'
 
 
 @dataclass

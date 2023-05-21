@@ -1,11 +1,11 @@
 export const SubmitButton = ({ isLoading }) => (
-    <div class="text-center">
+    <div className="text-center">
         {!isLoading && (
-            <input type="submit" class="btn btn-primary" value="Continuer" />
+            <input type="submit" className="btn btn-primary" value="Continuer" />
         )}
         {isLoading && (
-            <button class="btn btn-primary" type="submit" disabled>
-                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Chargement...
+            <button className="btn btn-primary" type="submit" disabled>
+                <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Chargement...
             </button>
         )}
     </div>
