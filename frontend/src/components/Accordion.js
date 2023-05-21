@@ -9,7 +9,7 @@ export const AccordionItem = ({ title, name, isExpanded, onExpand, enabled, chil
         <h2 className="accordion-header" id={`heading-${name}`}>
             <button className={`accordion-button ${(!isExpanded) && "collapsed"}`} type="button" data-bs-toggle="collapse"
             aria-expanded={isExpanded} aria-controls={`collapse-${name}`} onClick={onExpand} disabled={!enabled}
-            style={(!enabled) ? {color: 'gray'} : {'': 'bold'}}>
+            style={(!enabled) ? {color: 'gray'} : {fontWeight: 'bold'}}>
                 {title}
             </button>
         </h2>

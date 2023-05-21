@@ -1,8 +1,8 @@
 import React, { useState } from "react"
-import { Header } from './components/Header.js'
-import { PdfSubmitForm } from './components/PdfSubmitForm.js'
 import { Accordion, AccordionStepItem } from './components/Accordion';
 import './App.css';
+import { Header } from './components/Header.js'
+import { PdfSubmitForm } from './components/PdfSubmitForm.js'
 import { TaxBoxesPanel } from "./components/TaxBoxesPanel.js";
 import { ResultsPanel } from "./components/ResultsPanel.js";
 
@@ -22,12 +22,12 @@ function App() {
           itemStep={1} currentStep={step} maxCurrentStep={maxStep} setStep={setStep}>
             <PdfSubmitForm setBoxes={setBoxes} setStep={(s) => setStep(s) || setMaxStep(s)} setWarnings={setWarnings} />
           </AccordionStepItem>
-          <AccordionStepItem title="2. Vérifiez et complétez l'attribution de chaque montant déclaré."
+          <AccordionStepItem title="2. Ajustez la répartition des montants déclarés."
           itemStep={2} currentStep={step} maxCurrentStep={maxStep} setStep={setStep}>
             <TaxBoxesPanel boxes={boxes} setBoxes={setBoxes} setStep={(s) => setStep(s) || setMaxStep(s)}
             setIndividualizedResults={setIndividualizedResults} warnings={warnings} />
           </AccordionStepItem>
-          <AccordionStepItem title="3. Résultats: l'impôt individualisé!"
+          <AccordionStepItem title="3. Résultats&nbsp;: vos impôts individualisés&nbsp;!"
           itemStep={3} currentStep={step} maxCurrentStep={maxStep} setStep={setStep}>
             <ResultsPanel results={individualizedResults} />
           </AccordionStepItem>

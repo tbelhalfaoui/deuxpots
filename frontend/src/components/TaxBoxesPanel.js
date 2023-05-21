@@ -1,4 +1,6 @@
 import { useState } from "react"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircleInfo } from "@fortawesome/free-solid-svg-icons";
 import { TaxBox } from './TaxBox.js'
 import { SubmitButton } from './SubmitButton.js'
 import { ErrorMessage, WarningMessage } from "./Alert.js";
@@ -143,9 +145,14 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setStep, setIndividualizedResul
                         <span className="sr-only"></span>
                     </div>
                 </div>)}
+                <div className="alert alert-primary" role="alert">
+                    <FontAwesomeIcon icon={faCircleInfo} /> Les données suivantes ont été extraites de votre déclaration
+                    de revenus. Merci de vérifier qu'elles sont correctes.<br/>
+                    Les cases en rouge sont à compléter en indiquant la répartition entre les déclarant·e·s.
+                </div>
                 <div>
                     <div>
-                        <div className="py-1">
+                        <div className="py-0">
                             <hr/>
                         </div>
                         {boxes.map((box, boxIndex) => (

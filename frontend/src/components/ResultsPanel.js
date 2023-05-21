@@ -26,7 +26,7 @@ export const ResultCard = ({ results, partnerIndex }) =>
                     (<ResultRow label="Reste à payer aux impôts" fieldName="remains_to_pay" partnerIndex={partnerIndex}
                     results={results} style={{fontSize: '1.5em'}} />)}
                 {(results.partners[partnerIndex].remains_to_get_back && results.partners[1 - partnerIndex].remains_to_pay) &&
-                    (<ResultRow label="Reste à récupérer auprès de l'autre co-déclarant·e" fieldName="remains_to_get_back" partnerIndex={partnerIndex}
+                    (<ResultRow label="Reste à récupérer auprès de votre co-déclarant·e" fieldName="remains_to_get_back" partnerIndex={partnerIndex}
                     results={results} style={{fontSize: '1.5em'}} />)}
                  {(results.partners[partnerIndex].remains_to_get_back && results.partners[1 - partnerIndex].remains_to_get_back) &&
                     (<ResultRow label="Reste à récupérer" fieldName="remains_to_get_back" partnerIndex={partnerIndex} 

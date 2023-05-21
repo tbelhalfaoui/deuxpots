@@ -59,7 +59,7 @@ export const PdfSubmitForm = ({setBoxes, setStep, isError, setWarnings}) => {
           <ErrorMessage error={errorMsg} />
           <div className="alert alert-primary" role="alert">
               <FontAwesomeIcon icon={faCircleInfo} /> Aucune donnée issue de votre déclaration d'impôt ne sera collectée.<br/>
-              Seuls les montants, anonymes, seront utilisés temporairement pour faire la simulation.
+              Seuls les montants, anonymes, seront utilisés temporairement pour faire le calcul de votre impôt.
           </div>
           <div className="container py-4 text-center" id="containerStep1">
             <div className="row justify-content-center">

@@ -132,7 +132,6 @@ def _strip_and_check_household_status(flatboxes) -> Tuple[List[FlatBox], List[st
     if len(statuses) != 1:
         warn(f"La case \"situation du foyer fiscal\" n'a pas été correctement détectée "
              f"({', '.join(statuses)}). "
-             f"Merci de vous assurer que la déclaration d'impôt que vous avez utilisée est "
              f"bien une déclaration commune (marié·e·s ou pacsé·e·s).", HouseholdStatusWarning)
     elif len(statuses) == 1:
         status = statuses[0]

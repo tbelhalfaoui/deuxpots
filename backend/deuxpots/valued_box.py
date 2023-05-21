@@ -52,7 +52,7 @@ class ValuedBox:
         box = box_mapping.get(flat_box.code)
         if not box:
             warn(f"La case \"{flat_box.code}\", trouvée dans la déclaration, est inconnue. "
-                 f"Si cette case existe effectivement, conservez-là. Sinon, c'est une erreur "
+                 f"Si cette case existe effectivement, conservez-la. Sinon, c'est une erreur "
                  f"de détection : merci de la supprimer.", UnknownBoxCodeWarning)
             box = Box(
                 code=flat_box.code,
