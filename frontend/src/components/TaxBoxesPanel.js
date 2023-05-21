@@ -1,6 +1,4 @@
 import { useState } from "react"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSquarePlus } from "@fortawesome/free-regular-svg-icons";
 import { TaxBox } from './TaxBox.js'
 import { SubmitButton } from './SubmitButton.js'
 import { ErrorMessage, WarningMessage } from "./Alert.js";
@@ -8,8 +6,6 @@ import { ErrorMessage, WarningMessage } from "./Alert.js";
 
 export const TaxBoxesPanel = ({ boxes, setBoxes, setStep, setIndividualizedResults, warnings }) => {
 
-    const [ showAutoFilled, setShowAutoFilled ] = useState(true);
-    const [ unlockTotals, setUnlockTotals ] = useState(false);
     const [ errorMsg, setErrorMsg ] = useState();
     const [ isLoading, setIsLoading ] = useState(false);
 
@@ -35,7 +31,7 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setStep, setIndividualizedResul
         setBoxes(boxes.map((box, boxIndex) => {
             if (boxIndex === boxIndexChanged) {
                 box[fieldName] = value;
-                if (unlockTotals) {
+                if (!box.totalIsLocked) {
                     box.raw_value = Math.round((box.partner_0_value || 0) + (box.partner_1_value || 0));
                 }
                 else if (fieldName === 'partner_0_value') {
@@ -44,7 +40,9 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setStep, setIndividualizedResul
                 else if (fieldName === 'partner_1_value') {
                     box.partner_0_value = Math.round(box.raw_value - box.partner_1_value);
                 }
-                box.attribution = box.partner_1_value / box.raw_value;
+                if (box.raw_value) {
+                    box.attribution = box.partner_1_value / box.raw_value;
+                }
             }
             return box;
         }));
@@ -56,33 +54,33 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setStep, setIndividualizedResul
         handleBoxChange(boxIndex, fieldName, values.floatValue)
     };
 
-    const toggleShowAutofilled = async (evt) => {
-        setShowAutoFilled(evt.target.checked);
-    };
-
-    const toggleUnlockTotals = async (evt) => {
-        setUnlockTotals(evt.target.checked);
-    };
-
     const toggleBoxEdit = (boxIndexChanged, isBeingEdited) => {
-        const newBoxes = boxes.map(
+        setBoxes(boxes.map(
             (box, boxIndex) => 
                 (boxIndex === boxIndexChanged) ? {
                 ...box,
                 isBeingEdited: isBeingEdited
             } : box
-        );
-        setBoxes(newBoxes);
-        console.log((newBoxes[boxIndexChanged].isBeingEdited) ? "yes" : "no");
+        ));
+    }
+
+    const toggleTotalLock = (boxIndexChanged, totalIsLocked) => {
+        setBoxes(boxes.map(
+            (box, boxIndex) => 
+                (boxIndex === boxIndexChanged) ? {
+                ...box,
+                totalIsLocked: box.raw_value ? totalIsLocked : false
+            } : box
+        ));
     }
 
     const deleteBox = (boxIndexChanged) => {
         setBoxes(boxes.filter((box, boxIndex) => boxIndex !== boxIndexChanged));
     };
 
-    const addNewBox = () => {
-        setBoxes([...boxes, {}]);
-    }
+    // const addNewBox = () => {
+    //     setBoxes([...boxes, {}]);
+    // }
 
     const fetchIndividualizedResults = async (evt) => {
         evt.preventDefault();
@@ -147,35 +145,12 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setStep, setIndividualizedResul
                 </div>)}
                 <div>
                     <div>
-                        <div className="row">
-                            <div className="col-md-8">
-                                <div className="row">
-                                    <div className="col-lg-6">
-                                        <div className="form-check form-switch">
-                                            <input className="form-check-input" type="checkbox" role="switch" id="showAutofilled" checked={showAutoFilled} onChange={toggleShowAutofilled} />
-                                            <label className="form-check-label" htmlFor="showAutofilled">Afficher les cases préremplies.</label>
-                                        </div>
-                                    </div>
-                                    <div className="col-lg-6">
-                                        <div className="form-check form-switch">
-                                            <input className="form-check-input" type="checkbox" role="switch" id="unlockTotals" checked={unlockTotals} onChange={toggleUnlockTotals} />
-                                            <label className="form-check-label" htmlFor="unlockTotals">Déverrouiller les totaux.</label>
-                                        </div>  
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="d-flex justify-content-center justify-content-md-end pt-3 pt-md-0 col-md-4">
-                                {false && <button className="align-self-center btn btn-sm btn-outline-primary" type="button" onClick={addNewBox}>
-                                    <FontAwesomeIcon icon={faSquarePlus} /> Ajouter une ligne
-                                </button>}
-                            </div>
-                        </div>
-                        <div className="py-2">
+                        <div className="py-1">
                             <hr/>
                         </div>
                         {boxes.map((box, boxIndex) => (
                             <TaxBox key={box.code} boxIndex={boxIndex} box={box} onValueChange={onBoxChange} onSliderChange={onSliderChange}
-                            unlockTotals={unlockTotals} showAutoFilled={showAutoFilled} toggleBoxEdit={toggleBoxEdit} deleteBox={deleteBox} />
+                            toggleBoxEdit={toggleBoxEdit} deleteBox={deleteBox} toggleTotalLock={toggleTotalLock} />
                         ))}
                     </div>
                 </div>
