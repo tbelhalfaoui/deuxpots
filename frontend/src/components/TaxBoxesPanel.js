@@ -8,7 +8,6 @@ import { ErrorMessage, WarningMessage } from "./Alert.js";
 
 export const TaxBoxesPanel = ({ boxes, setBoxes, setStep, setIndividualizedResults, warnings }) => {
 
-    const [ showAutoFilled, setShowAutoFilled ] = useState(true);
     const [ errorMsg, setErrorMsg ] = useState();
     const [ isLoading, setIsLoading ] = useState(false);
 
@@ -55,10 +54,6 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setStep, setIndividualizedResul
         const fieldName = evt.target.name.split('.')[0];
         const boxIndex = parseInt(evt.target.name.split('.')[1]);
         handleBoxChange(boxIndex, fieldName, values.floatValue)
-    };
-
-    const toggleShowAutofilled = async (evt) => {
-        setShowAutoFilled(evt.target.checked);
     };
 
     const toggleBoxEdit = (boxIndexChanged, isBeingEdited) => {
@@ -152,29 +147,12 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setStep, setIndividualizedResul
                 </div>)}
                 <div>
                     <div>
-                        <div className="row">
-                            <div className="col-md-8">
-                                <div className="row">
-                                    <div className="col-lg-6">
-                                        <div className="form-check form-switch">
-                                            <input className="form-check-input" type="checkbox" role="switch" id="showAutofilled" checked={showAutoFilled} onChange={toggleShowAutofilled} />
-                                            <label className="form-check-label" htmlFor="showAutofilled">Afficher les cases préremplies.</label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="d-flex justify-content-center justify-content-md-end pt-3 pt-md-0 col-md-4">
-                                {false && <button className="align-self-center btn btn-sm btn-outline-primary" type="button" onClick={addNewBox}>
-                                    <FontAwesomeIcon icon={faSquarePlus} /> Ajouter une ligne
-                                </button>}
-                            </div>
-                        </div>
-                        <div className="py-2">
+                        <div className="py-1">
                             <hr/>
                         </div>
                         {boxes.map((box, boxIndex) => (
                             <TaxBox key={box.code} boxIndex={boxIndex} box={box} onValueChange={onBoxChange} onSliderChange={onSliderChange}
-                            showAutoFilled={showAutoFilled} toggleBoxEdit={toggleBoxEdit} deleteBox={deleteBox} toggleTotalLock={toggleTotalLock} />
+                            toggleBoxEdit={toggleBoxEdit} deleteBox={deleteBox} toggleTotalLock={toggleTotalLock} />
                         ))}
                     </div>
                 </div>

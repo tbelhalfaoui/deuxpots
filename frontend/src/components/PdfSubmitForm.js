@@ -38,8 +38,6 @@ export const PdfSubmitForm = ({setBoxes, setStep, isError, setWarnings}) => {
               ).map(box => ({
                 ...box,
                 description: box.description,
-                original_raw_value: box.raw_value,
-                original_attribution: box.attribution,
                 partner_0_value: ((box.attribution || (box.attribution === 0)) && box.raw_value) ? box.raw_value * (1 - box.attribution) : "",
                 partner_1_value: ((box.attribution || (box.attribution === 0)) && box.raw_value) ? box.raw_value * box.attribution : "",
                 totalIsLocked: !!box.raw_value

@@ -19,7 +19,7 @@ export const NumberBox = ( props ) => (
         {...props} />
 )
 
-export const TaxBox = ({boxIndex, box, onValueChange, onSliderChange, showAutoFilled, toggleBoxEdit, deleteBox, toggleTotalLock}) => {
+export const TaxBox = ({boxIndex, box, onValueChange, onSliderChange, toggleBoxEdit, deleteBox, toggleTotalLock}) => {
     // const options = [
     //     {name: 'Swedish', value: 'sv'},
     //     {name: 'English', value: 'en'},
@@ -32,7 +32,7 @@ export const TaxBox = ({boxIndex, box, onValueChange, onSliderChange, showAutoFi
     //     },
     // ];
 
-    return ((box.original_attribution == null) || (showAutoFilled)) && (
+    return (
     <div>
         <div className="row">
             <div className="d-flex align-items-center align-items-stretch col-md-6">
