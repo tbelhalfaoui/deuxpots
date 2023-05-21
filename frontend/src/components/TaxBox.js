@@ -1,8 +1,8 @@
 import { NumericFormat } from "react-number-format";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashCan } from "@fortawesome/free-regular-svg-icons";
-import { faLink, faLinkSlash } from "@fortawesome/free-solid-svg-icons";
-
+import { faLock, faLockOpen } from "@fortawesome/free-solid-svg-icons";
+import { OverlayTrigger, Tooltip, Button } from "react-bootstrap";
 // import SelectSearch from 'react-select-search';
 // import Combobox from "react-widgets/Combobox";
 
@@ -53,11 +53,18 @@ export const TaxBox = ({boxIndex, box, onValueChange, onSliderChange, toggleBoxE
                         </button>
                     </div>}
                     <div className="col-1 col-xl-1">
-                        <button className="btn" type="button" onClick={() => toggleTotalLock(boxIndex, !box.totalIsLocked)}>
-                            {box.totalIsLocked ?
-                            (<FontAwesomeIcon style={{color: 'gray'}} icon={faLink} />) :
-                            (<FontAwesomeIcon icon={faLinkSlash} />)}
-                        </button>
+                        <OverlayTrigger placement="left" overlay={
+                            <Tooltip id="tooltip">
+                                {box.totalIsLocked ? "Déverrouiller le total (modifier les deux déclarant·e·s séparement)."
+                                                    : "Verrouiller le total (ajuster la répartition entre les deux déclarant·e·s)."}
+                            </Tooltip>
+                        }>
+                            <button className="btn" type="button" onClick={() => toggleTotalLock(boxIndex, !box.totalIsLocked)}>
+                                {box.totalIsLocked ?
+                                (<FontAwesomeIcon style={{color: 'gray'}} icon={faLock} />) :
+                                (<FontAwesomeIcon icon={faLockOpen} />)}
+                            </button>
+                        </OverlayTrigger>
                     </div>
                 </div>
             </div>
