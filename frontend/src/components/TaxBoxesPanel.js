@@ -16,13 +16,13 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setStep, setIndividualizedResul
 
     const onSliderChange = async (evt) => {
         var value = evt.target.value;
-        const boxIndexChanged = evt.target.name.split('.')[1];
+        const boxIndexChanged = parseInt(evt.target.name.split('.')[1]);
         if (isNaN(value)) {
             value = "";
         }
 
         setBoxes(boxes.map((box, boxIndex) => {
-            if (boxIndex == boxIndexChanged) {
+            if (boxIndex === boxIndexChanged) {
                 box.attribution = value / box.raw_value;
                 box.partner_0_value = Math.round((1 - box.attribution) * box.raw_value);
                 box.partner_1_value = Math.round(box.attribution * box.raw_value);
@@ -33,7 +33,7 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setStep, setIndividualizedResul
 
     const handleBoxChange = async (boxIndexChanged, fieldName, value) =>
         setBoxes(boxes.map((box, boxIndex) => {
-            if (boxIndex == boxIndexChanged) {
+            if (boxIndex === boxIndexChanged) {
                 box[fieldName] = value;
                 if (unlockTotals) {
                     box.raw_value = Math.round((box.partner_0_value || 0) + (box.partner_1_value || 0));
@@ -51,7 +51,8 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setStep, setIndividualizedResul
 
     const onBoxChange = async (values, sourceInfo) => {
         const evt = sourceInfo.event;
-        const [fieldName, boxIndex] = evt.target.name.split('.');
+        const fieldName = evt.target.name.split('.')[0];
+        const boxIndex = parseInt(evt.target.name.split('.')[1]);
         handleBoxChange(boxIndex, fieldName, values.floatValue)
     };
 
@@ -66,7 +67,7 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setStep, setIndividualizedResul
     const toggleBoxEdit = (boxIndexChanged, isBeingEdited) => {
         const newBoxes = boxes.map(
             (box, boxIndex) => 
-                (boxIndex == boxIndexChanged) ? {
+                (boxIndex === boxIndexChanged) ? {
                 ...box,
                 isBeingEdited: isBeingEdited
             } : box
@@ -76,7 +77,7 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setStep, setIndividualizedResul
     }
 
     const deleteBox = (boxIndexChanged) => {
-        setBoxes(boxes.filter((box, boxIndex) => boxIndex != boxIndexChanged));
+        setBoxes(boxes.filter((box, boxIndex) => boxIndex !== boxIndexChanged));
     };
 
     const addNewBox = () => {
@@ -164,9 +165,9 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setStep, setIndividualizedResul
                                 </div>
                             </div>
                             <div class="d-flex justify-content-center justify-content-md-end pt-3 pt-md-0 col-md-4">
-                                {/* <button class="align-self-center btn btn-sm btn-outline-primary" type="button" onClick={addNewBox}>
+                                {false && <button class="align-self-center btn btn-sm btn-outline-primary" type="button" onClick={addNewBox}>
                                     <FontAwesomeIcon icon={faSquarePlus} /> Ajouter une ligne
-                                </button> */}
+                                </button>}
                             </div>
                         </div>
                         <div class="py-2">

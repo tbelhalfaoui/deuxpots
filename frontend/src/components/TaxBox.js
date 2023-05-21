@@ -1,8 +1,8 @@
 import { NumericFormat } from "react-number-format";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashCan } from "@fortawesome/free-regular-svg-icons";
-import SelectSearch from 'react-select-search';
-import Combobox from "react-widgets/Combobox";
+// import SelectSearch from 'react-select-search';
+// import Combobox from "react-widgets/Combobox";
 
 
 export const NumberBox = ( props ) => (
@@ -17,17 +17,17 @@ export const NumberBox = ( props ) => (
 )
 
 export const TaxBox = ({boxIndex, box, onValueChange, onSliderChange, unlockTotals, showAutoFilled, toggleBoxEdit, deleteBox}) => {
-    const options = [
-        {name: 'Swedish', value: 'sv'},
-        {name: 'English', value: 'en'},
-        {
-            type: 'group',
-            name: 'Group name',
-            items: [
-                {name: 'Spanish', value: 'es'},
-            ]
-        },
-    ];
+    // const options = [
+    //     {name: 'Swedish', value: 'sv'},
+    //     {name: 'English', value: 'en'},
+    //     {
+    //         type: 'group',
+    //         name: 'Group name',
+    //         items: [
+    //             {name: 'Spanish', value: 'es'},
+    //         ]
+    //     },
+    // ];
 
     return ((box.original_attribution == null) || (showAutoFilled)) && (
     <div>
@@ -36,7 +36,7 @@ export const TaxBox = ({boxIndex, box, onValueChange, onSliderChange, unlockTota
                 <div class="d-flex flex-fill align-items-center row">
                     <div class="col-10 col-xl-12">
                         {(box.isBeingEdited && false) ?
-                            <textarea class="form-control" rows="2" data-bs-toggle="dropdown" aria-expanded="false"
+                            <textarea class="form-control" rows="2" data-bs-toggle="dropdown"
                             placeholder="Saisissez le code ou le nom de la case à ajouter." value={`${box.code} - ${box.description}`}
                             onBlur={() => toggleBoxEdit(boxIndex, false)} autoFocus />
                             : <label for={`raw_value.${boxIndex}`} class="form-label" onClick={() => toggleBoxEdit(boxIndex, true)}>
@@ -44,11 +44,11 @@ export const TaxBox = ({boxIndex, box, onValueChange, onSliderChange, unlockTota
                             </label>
                         }
                     </div>
-                    {/* <div class="col-1 col-xl-1">
+                    {false && <div class="col-1 col-xl-1">
                         <button class="btn" style={{color: 'red'}} type="button" onClick={() => deleteBox(boxIndex)}>
                             <FontAwesomeIcon icon={faTrashCan} />
                         </button>
-                    </div> */}
+                    </div>}
                 </div>
             </div>
             <div class="col-md-6 d-flex align-items-center">
