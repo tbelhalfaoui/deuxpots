@@ -5,6 +5,7 @@ import { Header } from './components/Header.js'
 import { PdfSubmitForm } from './components/PdfSubmitForm.js'
 import { TaxBoxesPanel } from "./components/TaxBoxesPanel.js";
 import { ResultsPanel } from "./components/ResultsPanel.js";
+import { Footer } from "./components/Footer.js";
 
 
 function App() {
@@ -32,9 +33,7 @@ function App() {
             <ResultsPanel results={individualizedResults} />
           </AccordionStepItem>
         </Accordion>
-        <div className="text-center pt-4">
-          <a className="footerLink" href="https://github.com/tbelhalfaoui/deuxpots">Le code source de ce site est ouvert : https://github.com/tbelhalfaoui/deuxpots</a>
-        </div>
+        <Footer />
       </div>
   );
 }
