@@ -1,12 +1,28 @@
-export const ErrorMessage = ({ error }) => 
-    error && 
-    (<div className="alert alert-danger" role="alert">
-        {(error instanceof TypeError) ? "Une erreur est survenue." : (error instanceof Error) ? error.message : error}
-    </div>)
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircleInfo, faCircleXmark, faTriangleExclamation } from "@fortawesome/free-solid-svg-icons";
 
+
+export const ErrorMessage = ({ error }) => {
+    console.log(error);
+    return error &&
+    (<div className="alert alert-danger" role="alert">
+        <FontAwesomeIcon icon={faCircleXmark} /> {
+            (error instanceof TypeError) ? `Une erreur s'est produite. Il peut s'agir d'un problème avec le serveur ou avec votre connexion Internet.`
+            : (error instanceof Error) ? error.message
+            : error
+        }
+    </div>)}
+
+export const HelpMessageForParser = ({ error }) =>
+    error &&
+    (<div className="alert alert-primary" role="alert">
+        <FontAwesomeIcon icon={faCircleInfo} /> Vous pouvez trouver votre déclaration sur le <a href="https://cfspart.impots.gouv.fr/"><strong>site des impôts</strong></a>,
+        dans la rubrique <strong>Documents</strong>, en cliquant sur <strong>PDF</strong> à côté de <strong>Déclaration en ligne des revenus 20xx</strong>.<br/>
+        Si le problème persiste, n'hésitez pas à écrire à <strong>contact@deuxpots.fr</strong>
+    </div>)
 
 export const WarningMessage = ({ warning }) => 
     warning && 
     (<div className="alert alert-warning" role="alert">
-        {warning}
+        <FontAwesomeIcon icon={faTriangleExclamation} /> {warning}
     </div>)

@@ -37,6 +37,10 @@ class MissingFamilyBox(Warning):
     pass
 
 
+class BadTaxPDF(Exception):
+    pass
+
+
 def load_category_coords(json_path) -> Dict[str, Tuple[float, float, float, float]]:
     rectangles = {}
     with open(json_path) as f:
@@ -181,7 +185,21 @@ def _parse_tax_pdf(pdf_content, category_coords, box_mapping) -> Iterator[FlatBo
         yield from _extract_family_boxes(fitz_doc, family_box_coords, box_mapping)
 
 
+def _tax_pdf_safety_check(pdf_content):
+    try:
+        with fitz.open(stream=pdf_content) as fitz_doc:
+            text_page0 = re.sub('\s', '', fitz_doc[0].get_text()).lower()
+    except fitz.FileDataError:
+        raise BadTaxPDF("Le fichier que vous avez sélectionné n'est pas un PDF valide.")        
+    if "avisdesituationdéclarative" in text_page0 or "avis_ir_rg" in text_page0:
+        raise BadTaxPDF("Le fichier que vous avez sélectionné n'est pas le bon : vous devez "
+                        "utiliser votre déclaration de revenus et non pas votre avis d'impôt.")
+    if not "10330" in text_page0 or not "2042" in text_page0:
+        raise BadTaxPDF("Le fichier que vous avez sélectionné n'est pas une déclaration d'impôt.")
+
+
 def parse_tax_pdf(pdf_content, category_coords, box_mapping) -> List[ValuedBox]:
+    _tax_pdf_safety_check(pdf_content)
     flatboxes = list(_parse_tax_pdf(pdf_content, category_coords, box_mapping))
     _warn_if_empty_boxes(flatboxes)
     flatboxes = _strip_and_check_household_status(flatboxes)

@@ -4,7 +4,7 @@ from unittest.mock import ANY
 from deuxpots.box import Box
 from deuxpots.flatbox import FlatBox
 from deuxpots.pdf_tax_parser import (
-    HOUSEHOLD_STATUS_VALUES, DuplicateFamilyBox, FamilyBoxBadValue, FamilyBoxExtractionWarning, HouseholdStatusWarning, MissingFamilyBox, _parse_line, _parse_tax_pdf, _strip_and_check_household_status, _warn_if_empty_boxes, parse_tax_pdf,
+    HOUSEHOLD_STATUS_VALUES, BadTaxPDF, DuplicateFamilyBox, FamilyBoxBadValue, FamilyBoxExtractionWarning, HouseholdStatusWarning, MissingFamilyBox, _parse_line, _parse_tax_pdf, _strip_and_check_household_status, _warn_if_empty_boxes, parse_tax_pdf,
 )
 from deuxpots.valued_box import UnknownBoxCodeWarning, ValuedBox
 from deuxpots.warning_utils import UserFacingWarning
@@ -144,3 +144,14 @@ def test_parse_tax_pdf_with_problems(warning, match, tax_sheet_pdf_path_with_pro
     assert len(w) == 6
     assert ValuedBox(box=Box(code="0AS", reference=ANY, kind=ANY), raw_value=None, attribution=ANY) in valboxes
     assert ValuedBox(box=Box(code="0CF", reference=ANY, kind=ANY), raw_value=None, attribution=ANY) in valboxes
+
+
+def test_parse_tax_pdf_bad_file(tax_notice_not_sheet, empty_pdf, category_coords, box_mapping):
+    with pytest.raises(BadTaxPDF, match="pas un PDF valide"):
+        parse_tax_pdf(b"", category_coords, box_mapping)
+    with pytest.raises(BadTaxPDF, match="pas le bon"):
+        with open(tax_notice_not_sheet, "rb") as f:
+            parse_tax_pdf(f.read(), category_coords, box_mapping)
+    with pytest.raises(BadTaxPDF, match="pas une déclaration"):
+            with open(empty_pdf, "rb") as f:
+                parse_tax_pdf(f.read(), category_coords, box_mapping)

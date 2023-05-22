@@ -18,6 +18,16 @@ def tax_sheet_pdf_path_with_problems():
 
 
 @pytest.fixture
+def empty_pdf():
+    return ROOT_PATH / "test/resources/empty.pdf"
+
+
+@pytest.fixture
+def tax_notice_not_sheet():
+    return ROOT_PATH / "test/resources/avis_impot.pdf"
+
+
+@pytest.fixture
 def category_coords():
     return load_category_coords(CATEGORY_COORDS_PATH)
 

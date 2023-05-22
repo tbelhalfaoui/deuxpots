@@ -8,7 +8,7 @@ from deuxpots import CERFA_VARIABLES_PATH, CATEGORY_COORDS_PATH
 from deuxpots.box import load_box_mapping
 from deuxpots.flatbox import FlatBox, flatten
 from deuxpots.individualize import simulate_and_individualize
-from deuxpots.pdf_tax_parser import load_category_coords, parse_tax_pdf
+from deuxpots.pdf_tax_parser import BadTaxPDF, load_category_coords, parse_tax_pdf
 from deuxpots.tax_calculator import SimulatorError
 from deuxpots.valued_box import ValuedBox
 from deuxpots.warning_utils import UserFacingWarning, handle_warnings
@@ -22,6 +22,11 @@ CORS(app, CORS_ALLOW_HEADERS="*")
 
 
 @app.errorhandler(SimulatorError)
+def handle_bad_request(e):
+    return e.args[0], 400
+
+
+@app.errorhandler(BadTaxPDF)
 def handle_bad_request(e):
     return e.args[0], 400
 

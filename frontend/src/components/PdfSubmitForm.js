@@ -1,10 +1,10 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleInfo } from "@fortawesome/free-solid-svg-icons";
 import React, { useState } from "react"
-import { ErrorMessage } from "./Alert.js";
+import { ErrorMessage, HelpMessageForParser } from "./Alert.js";
 
 
-export const PdfSubmitForm = ({setBoxes, setStep, isError, setWarnings}) => {
+export const PdfSubmitForm = ({setBoxes, setStep, setWarnings}) => {
     const [errorMsg, setErrorMsg] = useState();
     const [isLoading, setIsLoading] = useState(false);
 
@@ -57,10 +57,13 @@ export const PdfSubmitForm = ({setBoxes, setStep, isError, setWarnings}) => {
     return (
         <form onSubmit={sendTaxSheet}>
           <ErrorMessage error={errorMsg} />
-          <div className="alert alert-primary" role="alert">
-              <FontAwesomeIcon icon={faCircleInfo} /> Aucune donnée issue de votre déclaration d'impôt ne sera collectée.<br/>
-              Seuls les montants, anonymes, seront utilisés temporairement pour faire le calcul de votre impôt.
-          </div>
+          <HelpMessageForParser error={errorMsg} />
+          {!errorMsg && 
+            (<div className="alert alert-primary" role="alert">
+                <FontAwesomeIcon icon={faCircleInfo} /> Aucune donnée issue de votre déclaration d'impôt ne sera collectée.<br/>
+                Seuls les montants, anonymes, seront utilisés temporairement pour faire le calcul de votre impôt.
+            </div>)
+          }
           <div className="container py-4 text-center" id="containerStep1">
             <div className="row justify-content-center">
               <div className="col-md-5 col-xl-4">
