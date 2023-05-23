@@ -1,5 +1,4 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircleInfo } from "@fortawesome/free-solid-svg-icons";
+import { FaInfoCircle } from "react-icons/fa";
 import React, { useState } from "react"
 import { ErrorMessage, HelpMessageForParser } from "./Alert.js";
 
@@ -57,7 +56,7 @@ export const PdfSubmitForm = ({setBoxes, setStep, setWarnings, errorMsg, setErro
           <HelpMessageForParser error={errorMsg} />
           {!errorMsg && 
             (<div className="alert alert-primary" role="alert">
-                <FontAwesomeIcon icon={faCircleInfo} /> Aucune donnée issue de votre déclaration d'impôt ne sera collectée.<br/>
+                <FaInfoCircle /> Aucune donnée issue de votre déclaration d'impôt ne sera collectée.<br/>
                 Seuls les montants, anonymes, seront utilisés temporairement pour faire le calcul de votre impôt.
             </div>)
           }

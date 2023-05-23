@@ -1,7 +1,5 @@
 import { NumericFormat } from "react-number-format";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTrashCan } from "@fortawesome/free-regular-svg-icons";
-import { faLock, faLockOpen } from "@fortawesome/free-solid-svg-icons";
+import { FaRegTrashAlt, FaLock, FaLockOpen } from "react-icons/fa";
 import { OverlayTrigger, Tooltip } from "react-bootstrap";
 // import SelectSearch from 'react-select-search';
 // import Combobox from "react-widgets/Combobox";
@@ -49,7 +47,7 @@ export const TaxBox = ({boxIndex, box, onValueChange, onSliderChange, toggleBoxE
                     </div>
                     {false && <div className="col-1 col-xl-1">
                         <button className="btn" style={{color: 'red'}} type="button" onClick={() => deleteBox(boxIndex)}>
-                            <FontAwesomeIcon icon={faTrashCan} />
+                            <FaRegTrashAlt />
                         </button>
                     </div>}
                     <div className="col-1 col-xl-1">
@@ -61,8 +59,8 @@ export const TaxBox = ({boxIndex, box, onValueChange, onSliderChange, toggleBoxE
                         }>
                             <button className="btn" type="button" onClick={() => toggleTotalLock(boxIndex, !box.totalIsLocked)}>
                                 {box.totalIsLocked ?
-                                (<FontAwesomeIcon style={{color: 'gray'}} icon={faLock} />) :
-                                (<FontAwesomeIcon icon={faLockOpen} />)}
+                                (<FaLock style={{color: 'gray'}} />) :
+                                (<FaLockOpen />)}
                             </button>
                         </OverlayTrigger>
                     </div>

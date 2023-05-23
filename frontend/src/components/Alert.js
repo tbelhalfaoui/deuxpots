@@ -1,11 +1,10 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircleInfo, faCircleXmark, faTriangleExclamation } from "@fortawesome/free-solid-svg-icons";
+import { FaInfoCircle, FaExclamationTriangle, FaTimesCircle } from "react-icons/fa";
 
 
 export const ErrorMessage = ({ error }) =>
     error &&
     (<div className="alert alert-danger" role="alert">
-        <FontAwesomeIcon icon={faCircleXmark} /> {
+        <FaTimesCircle /> {
             (error instanceof TypeError) ?
                 `Impossible de se connecter au serveur.
                  Il s'agit d'un problème temporaire, soit avec le serveur ou avec votre connexion Internet.`
@@ -17,7 +16,7 @@ export const ErrorMessage = ({ error }) =>
 export const HelpMessageForParser = ({ error }) =>
     error &&
     (<div className="alert alert-primary" role="alert">
-        <FontAwesomeIcon icon={faCircleInfo} /> Vous pouvez trouver votre déclaration sur le <a href="https://cfspart.impots.gouv.fr/"><strong>site des impôts</strong></a>,
+        <FaInfoCircle /> Vous pouvez trouver votre déclaration sur le <a href="https://cfspart.impots.gouv.fr/"><strong>site des impôts</strong></a>,
         dans la rubrique <strong>Documents</strong>, en cliquant sur <strong>PDF</strong> à côté de <strong>Déclaration en ligne des revenus 20xx</strong>.<br/>
         Si le problème persiste, n'hésitez pas à écrire à <strong>contact@deuxpots.fr</strong>
     </div>)
@@ -25,5 +24,5 @@ export const HelpMessageForParser = ({ error }) =>
 export const WarningMessage = ({ warning }) => 
     warning && 
     (<div className="alert alert-warning" role="alert">
-        <FontAwesomeIcon icon={faTriangleExclamation} /> {warning}
+        <FaExclamationTriangle /> {warning}
     </div>)

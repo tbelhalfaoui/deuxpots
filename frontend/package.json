@@ -4,10 +4,6 @@
   "private": true,
   "homepage": ".",
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^6.4.0",
-    "@fortawesome/free-regular-svg-icons": "^6.4.0",
-    "@fortawesome/free-solid-svg-icons": "^6.4.0",
-    "@fortawesome/react-fontawesome": "^0.2.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
@@ -16,8 +12,9 @@
     "react-bootstrap": "^2.7.4",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.43.9",
+    "react-icons": "^4.8.0",
     "react-number-format": "^5.1.4",
-    "react-scripts": "5.0.1",
+    "react-scripts": "^5.0.1",
     "react-select-search": "^4.1.6",
     "react-widgets": "^5.8.4",
     "web-vitals": "^2.1.4"
