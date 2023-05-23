@@ -20,7 +20,7 @@ export const PdfSubmitForm = ({setBoxes, setStep, setWarnings, errorMsg, setErro
           formData.append("tax_pdf", evt.target.files[0]);
         }
         
-        await fetch(`${process.env.REACT_APP_API_URL}/parse?${queryParams}`, {
+        await fetch(`${process.env.REACT_APP_API_URL || window.location.origin}/parse?${queryParams}`, {
             method: "POST",
             body: formData,
         }).then(
