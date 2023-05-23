@@ -24,6 +24,7 @@ if DEV_MODE:
 
 @app.errorhandler(UserFacingError)
 def handle_bad_request(e):
+    app.logger.error(f"{type(e).__name__}: {e}")
     return e.args[0], 400
 
 
