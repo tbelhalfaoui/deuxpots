@@ -25,7 +25,6 @@ export const PdfSubmitForm = ({setBoxes, setStep, setWarnings}) => {
         await fetch(`${process.env.REACT_APP_API_URL}/parse?${queryParams}`, {
             method: "POST",
             body: formData,
-            mode: 'cors',
         }).then(
           res => (!res.ok) ? res.text().then(text => {throw new Error(text)}) : res
         ).then(

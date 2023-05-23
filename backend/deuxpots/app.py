@@ -4,31 +4,33 @@ from flask import Flask, request
 from flask_cors import CORS
 from deuxpots.demo import DEMO_FLAT_BOXES
 
-from deuxpots import CERFA_VARIABLES_PATH, CATEGORY_COORDS_PATH
+from deuxpots import CERFA_VARIABLES_PATH, CATEGORY_COORDS_PATH, DEV_MODE
 from deuxpots.box import load_box_mapping
 from deuxpots.flatbox import FlatBox, flatten
 from deuxpots.individualize import simulate_and_individualize
-from deuxpots.pdf_tax_parser import BadTaxPDF, load_category_coords, parse_tax_pdf
-from deuxpots.tax_calculator import SimulatorError
+from deuxpots.pdf_tax_parser import load_category_coords, parse_tax_pdf
 from deuxpots.valued_box import ValuedBox
-from deuxpots.warning_utils import UserFacingWarning, handle_warnings
+from deuxpots.warning_error_utils import DEFAULT_USER_ERROR_MESSAGE, UserFacingError, UserFacingWarning, handle_warnings
 
 BOX_MAPPING = load_box_mapping(CERFA_VARIABLES_PATH)
 FAMILY_BOX_COORDS = load_category_coords(CATEGORY_COORDS_PATH)
 
 
 app = Flask("deuxpots")
-CORS(app, CORS_ALLOW_HEADERS="*")
+app.config['PROPAGATE_EXCEPTIONS'] = False
+if DEV_MODE:
+    CORS(app)
 
 
-@app.errorhandler(SimulatorError)
+@app.errorhandler(UserFacingError)
 def handle_bad_request(e):
     return e.args[0], 400
 
 
-@app.errorhandler(BadTaxPDF)
+@app.errorhandler(Exception)
 def handle_bad_request(e):
-    return e.args[0], 400
+    app.logger.exception("EXCEPTION")
+    return DEFAULT_USER_ERROR_MESSAGE, 500
 
 
 @app.route('/parse', methods=['POST'])

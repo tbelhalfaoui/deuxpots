@@ -7,7 +7,7 @@ from deuxpots.pdf_tax_parser import (
     HOUSEHOLD_STATUS_VALUES, BadTaxPDF, DuplicateFamilyBox, FamilyBoxBadValue, FamilyBoxExtractionWarning, HouseholdStatusWarning, MissingFamilyBox, _parse_line, _parse_tax_pdf, _strip_and_check_household_status, _warn_if_empty_boxes, parse_tax_pdf,
 )
 from deuxpots.valued_box import UnknownBoxCodeWarning, ValuedBox
-from deuxpots.warning_utils import UserFacingWarning
+from deuxpots.warning_error_utils import UserFacingWarning
 
 
 @pytest.mark.parametrize("text,flatbox", [

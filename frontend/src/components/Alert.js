@@ -2,16 +2,17 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleInfo, faCircleXmark, faTriangleExclamation } from "@fortawesome/free-solid-svg-icons";
 
 
-export const ErrorMessage = ({ error }) => {
-    console.log(error);
-    return error &&
+export const ErrorMessage = ({ error }) =>
+    error &&
     (<div className="alert alert-danger" role="alert">
         <FontAwesomeIcon icon={faCircleXmark} /> {
-            (error instanceof TypeError) ? `Une erreur s'est produite. Il peut s'agir d'un problème avec le serveur ou avec votre connexion Internet.`
+            (error instanceof TypeError) ?
+                `Impossible de se connecter au serveur.
+                 Il s'agit d'un problème temporaire, soit avec le serveur ou avec votre connexion Internet.`
             : (error instanceof Error) ? error.message
-            : error
+            : error  // string error from frontend
         }
-    </div>)}
+    </div>)
 
 export const HelpMessageForParser = ({ error }) =>
     error &&

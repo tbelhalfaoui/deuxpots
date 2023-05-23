@@ -3,7 +3,7 @@ from typing import Optional
 from warnings import warn
 from deuxpots.box import ReferenceBox
 from deuxpots.box import Box, BoxKind
-from deuxpots.warning_utils import UserFacingWarning
+from deuxpots.warning_error_utils import UserFacingWarning
 
 
 DEFAUT_ATTRIBUTION_FROM_KIND = {

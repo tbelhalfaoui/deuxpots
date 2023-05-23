@@ -5,6 +5,7 @@ from bs4 import BeautifulSoup
 import requests as rq
 
 from deuxpots import SIMULATOR_URL
+from deuxpots.warning_error_utils import UserFacingError
 
 
 class IncomeSheet(dict):
@@ -24,7 +25,7 @@ class SimulatorResult:
     remains_to_pay: int          # Reste à payer
 
 
-class SimulatorError(Exception):
+class SimulatorError(UserFacingError):
     pass
 
 

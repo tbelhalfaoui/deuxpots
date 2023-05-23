@@ -1,7 +1,14 @@
 from warnings import catch_warnings, warn
 
 
+DEFAULT_USER_ERROR_MESSAGE = "Une erreur imprévue s'est produite sur le serveur."
+
+
 class UserFacingWarning(Warning):
+    pass
+
+
+class UserFacingError(Exception):
     pass
 
 

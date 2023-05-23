@@ -5,7 +5,7 @@ import re
 from warnings import warn
 from typing import Dict, Iterator, List, Optional, Tuple
 import fitz
-from deuxpots.warning_utils import UserFacingWarning
+from deuxpots.warning_error_utils import UserFacingError, UserFacingWarning
 from deuxpots.flatbox import FlatBox
 from deuxpots.valued_box import ValuedBox
 
@@ -37,7 +37,7 @@ class MissingFamilyBox(Warning):
     pass
 
 
-class BadTaxPDF(Exception):
+class BadTaxPDF(UserFacingError):
     pass
 
 

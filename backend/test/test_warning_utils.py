@@ -2,7 +2,7 @@ from warnings import warn
 
 import pytest
 from deuxpots.pdf_tax_parser import FamilyBoxExtractionWarning, HouseholdStatusWarning
-from deuxpots.warning_utils import UserFacingWarning, handle_warnings
+from deuxpots.warning_error_utils import UserFacingWarning, handle_warnings
 
 
 def test_handle_warnings():

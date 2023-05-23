@@ -1,6 +1,6 @@
 import pytest
 from deuxpots.app import app
-from deuxpots.warning_utils import UserFacingWarning
+from deuxpots.warning_error_utils import UserFacingWarning
 
 
 app.config['TESTING'] = True
