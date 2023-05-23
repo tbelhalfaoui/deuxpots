@@ -4,10 +4,8 @@ import React, { useState } from "react"
 import { ErrorMessage, HelpMessageForParser } from "./Alert.js";
 
 
-export const PdfSubmitForm = ({setBoxes, setStep, setWarnings}) => {
-    const [errorMsg, setErrorMsg] = useState();
+export const PdfSubmitForm = ({setBoxes, setStep, setWarnings, errorMsg, setErrorMsg, resetErrorMsgs}) => {
     const [isLoading, setIsLoading] = useState(false);
-
 
     const sendTaxSheet = async (evt) => {
         evt.preventDefault();
@@ -43,7 +41,7 @@ export const PdfSubmitForm = ({setBoxes, setStep, setWarnings}) => {
               }))
             ) || setWarnings(data.warnings)
         ).then(
-          () => setErrorMsg(null) || setStep(2)
+          () => setStep(2) || resetErrorMsgs()
         ).catch(
           e => setErrorMsg(e)
         ).finally(

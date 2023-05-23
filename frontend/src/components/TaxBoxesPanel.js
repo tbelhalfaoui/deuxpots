@@ -6,11 +6,9 @@ import { SubmitButton } from './SubmitButton.js'
 import { ErrorMessage, WarningMessage } from "./Alert.js";
 
 
-export const TaxBoxesPanel = ({ boxes, setBoxes, setStep, setIndividualizedResults, warnings }) => {
-
-    const [ errorMsg, setErrorMsg ] = useState();
+export const TaxBoxesPanel = ({ boxes, setBoxes, setStep, setIndividualizedResults,
+                                warnings, errorMsg, setErrorMsg, resetErrorMsgs }) => {
     const [ isLoading, setIsLoading ] = useState(false);
-
 
     const onSliderChange = async (evt) => {
         var value = evt.target.value;
@@ -97,7 +95,7 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setStep, setIndividualizedResul
             return
         }
 
-        setErrorMsg(null);
+        resetErrorMsgs();
         setIsLoading(true);
 
         await fetch(`${process.env.REACT_APP_API_URL}/individualize`, {
