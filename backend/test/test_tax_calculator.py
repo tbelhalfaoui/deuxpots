@@ -1,11 +1,16 @@
+from hashlib import sha256
+import json
 import pytest
 import requests as rq
+from deuxpots import ROOT_PATH
 from deuxpots.box import Box, BoxKind, ReferenceBox
 from deuxpots.tax_calculator import (
     SIMULATOR_URL, SimulatorError, SimulatorResult,
     _format_simulator_results, _simulator_api, build_income_sheet, compute_tax
 )
+from deuxpots.test_utils import request_fingerprint
 from deuxpots.valued_box import ValuedBox
+import requests_mock
 
 
 @pytest.fixture
@@ -16,6 +21,44 @@ def sheet_single_notax():
         'pre_situation_residence': 'M',
         '1AJ': 8000,
     }
+
+
+# @pytest.fixture
+# def simulator_mock(requests_mock, sheet_single_notax):
+#     mock_path = ROOT_PATH / "test/mocks/temp.html"
+#     with open(mock_path, 'w+') as f:
+#         res = rq.post(SIMULATOR_URL, data=sheet_single_notax)
+#         f.write(res.text)
+#     requests_mock.post(SIMULATOR_URL, data=sheet_single_notax, text=res.text)
+
+
+
+def request_matcher(request):
+    req_fingerprint = request_fingerprint(request._request)
+    mock_path = ROOT_PATH / "test/mocks/" / f"{req_fingerprint}.html"
+    if not mock_path.exists():
+        session = rq.Session()
+        adapter = rq.adapters.HTTPAdapter()
+        session.mount('https://', adapter)
+        session.mount('http://', adapter)
+        res = session.send(request._request)
+        with open(mock_path, 'w+') as f:
+            f.write(res.text)
+    with open(mock_path, 'rb') as f:
+        res_content = f.read()
+    resp = rq.Response()
+    resp.status_code = 200
+    resp._content = res_content
+    return resp
+
+
+def test__simulator_api_temp(sheet_single_notax):
+    with requests_mock.Mocker(real_http=True) as m:
+        m._adapter.add_matcher(request_matcher)        
+        results = _simulator_api(sheet_single_notax)
+        
+    for field in ["RASTXFOYER", "IINETIR", "IINET", "IREST"]:
+        assert field in results
 
 
 def test__simulator_api(sheet_single_notax):
