@@ -1,8 +1,6 @@
 from typing import Tuple
 from dataclasses import dataclass
-from deuxpots.pdf_tax_parser import HOUSEHOLD_STATUS_FIELD, HOUSEHOLD_STATUS_VALUES_TOGETHER
 from deuxpots.tax_calculator import build_income_sheet, compute_tax
-from deuxpots.valued_box import ValuedBox
 
 
 @dataclass

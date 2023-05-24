@@ -4,7 +4,9 @@ from unittest.mock import ANY
 from deuxpots.box import Box
 from deuxpots.flatbox import FlatBox
 from deuxpots.pdf_tax_parser import (
-    HOUSEHOLD_STATUS_VALUES, BadTaxPDF, DuplicateFamilyBox, FamilyBoxBadValue, FamilyBoxExtractionWarning, HouseholdStatusWarning, MissingFamilyBox, _parse_line, _parse_tax_pdf, _strip_and_check_household_status, _warn_if_empty_boxes, parse_tax_pdf,
+    HOUSEHOLD_STATUS_VALUES, BadTaxPDF, DuplicateFamilyBox, FamilyBoxBadValue, FamilyBoxNotExtracted,
+    BadHouseholdStatus, MissingFamilyBox,
+    _parse_line, _parse_tax_pdf, _strip_and_check_household_status, _warn_if_empty_boxes, parse_tax_pdf,
 )
 from deuxpots.valued_box import UnknownBoxCodeWarning, ValuedBox
 from deuxpots.warning_error_utils import UserFacingWarning
@@ -56,7 +58,7 @@ def test__parse_tax_pdf(tax_sheet_pdf_path, expected_flatboxes, category_coords,
 
 
 def test__warn_if_empty_boxes():
-    with pytest.warns(FamilyBoxExtractionWarning):
+    with pytest.warns(FamilyBoxNotExtracted):
         _warn_if_empty_boxes([
             FlatBox(code='0AM', raw_value=None),
         ])
@@ -86,7 +88,7 @@ def test__strip_and_check_household_status_duplicate():
     flatboxes_expected = [
         FlatBox(code='8HV', raw_value=2000)
     ]
-    with pytest.warns(HouseholdStatusWarning):
+    with pytest.warns(BadHouseholdStatus):
         flatboxes_out =  _strip_and_check_household_status(flatboxes_in)
     assert flatboxes_out == flatboxes_expected
 
@@ -98,7 +100,7 @@ def test__strip_and_check_household_status_missing():
     flatboxes_expected = [
         FlatBox(code='8HV', raw_value=2000)
     ]
-    with pytest.warns(HouseholdStatusWarning):
+    with pytest.warns(BadHouseholdStatus):
         flatboxes_out =  _strip_and_check_household_status(flatboxes_in)
     assert flatboxes_out == flatboxes_expected
 
@@ -112,7 +114,7 @@ def test__strip_and_check_household_status_single(household_status):
     flatboxes_expected = [
         FlatBox(code='8HV', raw_value=2000)
     ]
-    with pytest.warns(HouseholdStatusWarning):
+    with pytest.warns(BadHouseholdStatus):
         flatboxes_out =  _strip_and_check_household_status(flatboxes_in)
     assert flatboxes_out == flatboxes_expected
 
@@ -130,9 +132,9 @@ def test_parse_tax_pdf(tax_sheet_pdf_path, expected_flatboxes, category_coords, 
 @pytest.mark.parametrize("warning,match", [
     (DuplicateFamilyBox, '0AS'),
     (MissingFamilyBox, '0AS'),
-    (FamilyBoxBadValue, '0CF: z'),
-    (FamilyBoxExtractionWarning, '0AS, 0CF'),
-    (HouseholdStatusWarning, 'M, D'),
+    (FamilyBoxBadValue, '0CF.*z'),
+    (FamilyBoxNotExtracted, '0AS, 0CF'),
+    (BadHouseholdStatus, 'M, D'),
     (UnknownBoxCodeWarning, '9ZZ'),
 ])
 def test_parse_tax_pdf_with_problems(warning, match, tax_sheet_pdf_path_with_problems,
