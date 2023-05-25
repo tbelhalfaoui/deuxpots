@@ -1,8 +1,6 @@
 import { NumericFormat } from "react-number-format";
-import { FaRegTrashAlt, FaLock, FaLockOpen } from "react-icons/fa";
+import { FaLock, FaLockOpen } from "react-icons/fa";
 import { OverlayTrigger, Tooltip } from "react-bootstrap";
-// import SelectSearch from 'react-select-search';
-// import Combobox from "react-widgets/Combobox";
 
 
 export const NumberBox = ( props ) => (
@@ -18,38 +16,16 @@ export const NumberBox = ( props ) => (
 )
 
 export const TaxBox = ({boxIndex, box, onValueChange, onSliderChange, toggleBoxEdit, deleteBox, toggleTotalLock}) => {
-    // const options = [
-    //     {name: 'Swedish', value: 'sv'},
-    //     {name: 'English', value: 'en'},
-    //     {
-    //         type: 'group',
-    //         name: 'Group name',
-    //         items: [
-    //             {name: 'Spanish', value: 'es'},
-    //         ]
-    //     },
-    // ];
-
     return (
     <div>
         <div className="row">
             <div className="d-flex align-items-center align-items-stretch col-md-6">
                 <div className="d-flex flex-fill align-items-center row">
                     <div className="col-10 col-xl-11">
-                        {(box.isBeingEdited && false) ?
-                            <textarea className="form-control" rows="2" data-bs-toggle="dropdown"
-                            placeholder="Saisissez le code ou le nom de la case à ajouter." value={`${box.code} - ${box.description}`}
-                            onBlur={() => toggleBoxEdit(boxIndex, false)} autoFocus />
-                            : <label htmlFor={`raw_value.${boxIndex}`} className="form-label" onClick={() => toggleBoxEdit(boxIndex, true)}>
-                                {box.code} - {box.description}
-                            </label>
-                        }
+                        <label htmlFor={`raw_value.${boxIndex}`} className="form-label" onClick={() => toggleBoxEdit(boxIndex, true)}>
+                            {box.code} - {box.description}
+                        </label>
                     </div>
-                    {false && <div className="col-1 col-xl-1">
-                        <button className="btn" style={{color: 'red'}} type="button" onClick={() => deleteBox(boxIndex)}>
-                            <FaRegTrashAlt />
-                        </button>
-                    </div>}
                     <div className="col-1 col-xl-1">
                         <OverlayTrigger placement="left" overlay={
                             <Tooltip id="tooltip">
