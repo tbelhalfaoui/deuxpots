@@ -5,10 +5,8 @@ export const Footer = () => {
     return <div className="container text-center pt-4">
         <div className="row">
             <div className="col-xl-5 py-1 py-xl-0">
-                <a className="footerLink" href="https://github.com/tbelhalfaoui/deuxpots">
-                    Le code source de ce site est ouvert <a href="https://github.com/tbelhalfaoui/deuxpots" target="_blank" rel="noreferrer">
-                        <FaGithub style={{color: 'gray'}} />
-                    </a>
+                <a href="https://github.com/tbelhalfaoui/deuxpots" className="footerLink" target="_blank" rel="noreferrer">
+                    Le code source de ce site est ouvert <FaGithub style={{color: 'gray'}} />
                 </a>
             </div>
             <div className="col-xl-2 py-1 py-xl-0">

@@ -1,13 +1,13 @@
 export const LegalNotice = () => 
-    <div class="modal modal-lg fade" id="legalNoticeModal" tabindex="-1" aria-labelledby="legalNoticeModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-            <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title display-6" id="legalNoticeModalLabel">Mentions légales</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    <div className="modal modal-lg fade" id="legalNoticeModal" tabIndex="-1" aria-labelledby="legalNoticeModalLabel" aria-hidden="true">
+        <div className="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div className="modal-content">
+            <div className="modal-header">
+                <h1 className="modal-title display-6" id="legalNoticeModalLabel">Mentions légales</h1>
+                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body text-start">
-                <div class="py-2">
+            <div className="modal-body text-start">
+                <div className="py-2">
                     <h4>Responsable</h4>
                     <p>
                         <em>Deux pots</em> est développé et édité à titre personnel par <mark>Thomas&nbsp;Belhalfaoui</mark>.
@@ -16,14 +16,14 @@ export const LegalNotice = () =>
                         Pour toute demande ou question, merci d'écrire à <mark>contact@deuxpots.fr</mark>.
                     </p>
                 </div>
-                <div class="py-2">
+                <div className="py-2">
                     <h4>Hébergement</h4>
                     <p>
                         Ce site est hébergé par la société <mark>Fly.io, Inc.</mark>, domiciliée 2045 West Grand Avenue Ste B, Chicago, IL 60612,
                         et joignable à ces coordonnées : +13126264490 / ops@fly.io.
                     </p>
                 </div>
-                <div class="py-2">
+                <div className="py-2">
                     <h4>Transparence</h4>
                     <p>
                         Le <mark>code source de ce site est public</mark>. Il est accessible à cette 
@@ -32,7 +32,7 @@ export const LegalNotice = () =>
                         Celles et ceux qui le souhaitent peuvent en prendre connaissance et réaliser un audit. Les conseils sont les bienvenus.
                     </p>
                 </div>
-                <div class="py-2">
+                <div className="py-2">
                     <h4>Données personnelles</h4>
                     <p>
                         <mark>Aucune donnée à caractère personnel</mark> n'est collectée.

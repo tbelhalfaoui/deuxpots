@@ -6,7 +6,7 @@ import { ErrorMessage, WarningMessage } from "./Alert.js";
 
 
 export const TaxBoxesPanel = ({ boxes, setBoxes, setStep, setIndividualizedResults,
-                                warnings, errorMsg, setErrorMsg, resetErrorMsgs }) => {
+                                warnings, errorMsg, setErrorMsg, resetErrorMsgs, isDemo }) => {
     const [ isLoading, setIsLoading ] = useState(false);
 
     const onSliderChange = async (evt) => {
@@ -48,6 +48,9 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setStep, setIndividualizedResul
 
     const onBoxChange = async (values, sourceInfo) => {
         const evt = sourceInfo.event;
+        if (!evt) {
+            return;
+        }
         const fieldName = evt.target.name.split('.')[0];
         const boxIndex = parseInt(evt.target.name.split('.')[1]);
         handleBoxChange(boxIndex, fieldName, values.floatValue)
@@ -97,7 +100,11 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setStep, setIndividualizedResul
         resetErrorMsgs();
         setIsLoading(true);
 
-        await fetch(`${process.env.REACT_APP_API_URL || window.location.origin}/individualize`, {
+        const queryParams = new URLSearchParams();
+        if (isDemo) {
+            queryParams.append("demo", "true");
+        }
+        await fetch(`${process.env.REACT_APP_API_URL || window.location.origin}/individualize?${queryParams}`, {
             method: "POST",
             body: JSON.stringify({'boxes': Object.values(boxes)}),
             mode: 'cors',

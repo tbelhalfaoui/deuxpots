@@ -3,19 +3,21 @@ import React, { useState } from "react"
 import { ErrorMessage, HelpMessageForParser } from "./Alert.js";
 
 
-export const PdfSubmitForm = ({setBoxes, setStep, setWarnings, errorMsg, setErrorMsg, resetErrorMsgs}) => {
+export const PdfSubmitForm = ({setBoxes, setStep, setWarnings, errorMsg, setErrorMsg, resetErrorMsgs, setIsDemo}) => {
     const [isLoading, setIsLoading] = useState(false);
 
     const sendTaxSheet = async (evt) => {
-        evt.preventDefault();
         setIsLoading(true);
 
         const formData = new FormData();
         const queryParams = new URLSearchParams();
-        if (evt.target.tryOnExample) {
+
+        if (evt.target.name === "tryOnExample") {
+          setIsDemo(true);
           queryParams.append("demo", "true");
         }
         else {
+          setIsDemo(false);
           formData.append("tax_pdf", evt.target.files[0]);
         }
         
@@ -51,7 +53,7 @@ export const PdfSubmitForm = ({setBoxes, setStep, setWarnings, errorMsg, setErro
     }
 
     return (
-        <form onSubmit={sendTaxSheet}>
+        <form>
           <ErrorMessage error={errorMsg} />
           <HelpMessageForParser error={errorMsg} />
           {!errorMsg && 
@@ -69,7 +71,7 @@ export const PdfSubmitForm = ({setBoxes, setStep, setWarnings, errorMsg, setErro
                 ou
               </div>
               <div className="col-md-5 col-xl-3">
-                <button type="submit" className="btn btn-primary" name="tryOnExample" disabled={isLoading}>
+                <button type="button" className="btn btn-primary" name="tryOnExample" onClick={sendTaxSheet} disabled={isLoading}>
                   Essayer sur un exemple
                 </button>
               </div>
