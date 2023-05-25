@@ -1,7 +1,11 @@
 from warnings import catch_warnings, warn
 
+from prometheus_client import Counter
+
 
 DEFAULT_USER_ERROR_MESSAGE = "Une erreur imprévue s'est produite sur le serveur."
+
+PROM_WARNING_COUNT = Counter('warning_count', 'Count the warnings returned to the user.', ['warning', 'arg'])
 
 
 class UserFacingWarning(Warning):
@@ -23,12 +27,12 @@ def handle_warnings(category=Warning):
                 response = func(*args, **kwargs)
             warnings = []
             for record in records:
-                warn(record.message)
-                if isinstance(record.message, category):
-                    if record.message.args:
-                        warnings.append(record.message.args[0])
-                    else:
-                        warnings.append(record.category.__name__)
+                warning = record.message
+                warn(warning)
+                if isinstance(warning, category):
+                    warnings.append(str(warning))
+                PROM_WARNING_COUNT.labels(type(warning).__name__, warning.args[0]).inc()
+                print("****** ", type(warning).__name__, warning.args[0])
             return {**response, 'warnings': warnings}
         return func_decorated
     return _decorator

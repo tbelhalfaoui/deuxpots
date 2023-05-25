@@ -17,14 +17,6 @@ MAX_BOX_HEIGHT = 10.25
 BOX_WIDTH_BY_CATEGORY = {'A': 13, 'C': 40, 'D': 25}
 
 
-class FamilyBoxExtractionWarning(UserFacingWarning):
-    pass
-
-
-class HouseholdStatusWarning(UserFacingWarning):
-    pass
-
-
 class DuplicateFamilyBox(Warning):
     pass
 
@@ -37,8 +29,42 @@ class MissingFamilyBox(Warning):
     pass
 
 
+class FamilyBoxNotExtracted(UserFacingWarning):
+    def __init__(self, box_codes):
+        self.box_codes = box_codes
+    
+    def __str__(self):
+        return (f"Certaines cases concernant la situation du foyer fiscal et les personnes à charge "
+                f"n'ont pas bien été détectées ({', '.join(self.box_codes)}). "
+                f"Merci de les renseigner manuellement.")
+
+
+class BadHouseholdStatus(UserFacingWarning):
+    def __init__(self, statuses):
+        self.statuses = statuses
+
+    def __str__(self):
+        if len(self.statuses) == 1:
+            return (f"Il semble que la déclaration que vous avez soumise ne concerne qu'une seule personne "
+                    f"({self.statuses[0]}) : elle est donc déjà individualisée... "
+                    f"Dans ce cas, merci de recommencer avec une déclaration commune (marié·e·s ou pacsé·e·s).")
+        return (f"La case \"situation du foyer fiscal\" n'a pas été correctement détectée ({', '.join(self.statuses)}). "
+               f"Merci de vérifier qu'il s'agit bien une déclaration commune (marié·e·s ou pacsé·e·s).")
+
+
 class BadTaxPDF(UserFacingError):
-    pass
+    MESSAGES = {
+        "not_a_pdf": "Le fichier que vous avez sélectionné n'est pas un PDF valide.",
+        "avis_impot": ("Le fichier que vous avez sélectionné n'est pas le bon : vous devez "
+                       "utiliser votre déclaration de revenus et non pas votre avis d'impôt."),
+        "other_pdf": "Le fichier que vous avez sélectionné n'est pas une déclaration d'impôt."
+    }
+
+    def __init__(self, reason):
+        self.reason = reason
+
+    def __str__(self):
+        return self.MESSAGES[self.reason]
 
 
 def load_category_coords(json_path) -> Dict[str, Tuple[float, float, float, float]]:
@@ -92,7 +118,8 @@ def _strip_duplicate_family_box_coords(family_box_coords
         if len(coords_list) == 1:
             family_box_coords_dedup[box_code] = coords_list[0]
         else:
-            warn(f"{box_code}: {coords_list}", DuplicateFamilyBox)
+            # If duplicate, then unsure: remove from the list and let the user fill it .
+            warn(DuplicateFamilyBox(box_code, coords_list))
     return family_box_coords_dedup
 
 
@@ -108,7 +135,7 @@ def _extract_family_boxes(fitz_doc, family_box_coords, box_mapping
         try:
             box_coords = family_box_coords[box_code]
         except KeyError:
-            warn(box_code, MissingFamilyBox)
+            warn(MissingFamilyBox(box_code))
             # If the box has not been found, return an empty one, so that the user can fill it.
             yield FlatBox(code=box_code, raw_value=None)
             continue
@@ -126,7 +153,7 @@ def _extract_family_boxes(fitz_doc, family_box_coords, box_mapping
             except Exception:
                 # The box value cannot be parsed: return an empty box, so that the user can fill it.
                 logging.exception(box_code)
-                warn(f"{box_code}: {box_text}", FamilyBoxBadValue)
+                warn(FamilyBoxBadValue(box_code, box_text, box_coords))
                 yield FlatBox(code=box_code, raw_value=None)
 
 
@@ -134,24 +161,18 @@ def _strip_and_check_household_status(flatboxes) -> Tuple[List[FlatBox], List[st
     statuses = [box.code[-1] for box in flatboxes if box.code in HOUSEHOLD_STATUS_VALUES and box.raw_value]
     flatboxes_filtered = [box for box in flatboxes if box.code not in HOUSEHOLD_STATUS_VALUES]
     if len(statuses) != 1:
-        warn(f"La case \"situation du foyer fiscal\" n'a pas été correctement détectée "
-             f"({', '.join(statuses)}). "
-             f"bien une déclaration commune (marié·e·s ou pacsé·e·s).", HouseholdStatusWarning)
+        warn(BadHouseholdStatus(statuses))
     elif len(statuses) == 1:
         status = statuses[0]
         if status not in HOUSEHOLD_STATUS_VALUES_TOGETHER:
-            warn(f"Il semble que la déclaration que vous avez soumise ne concerne qu'une seule personne "
-                 f"({status}) : elle est donc déjà individualisée... "
-                 f"Dans ce cas, merci de recommencer avec une déclaration commune (marié·e·s ou pacsé·e·s).", HouseholdStatusWarning)
+            warn(BadHouseholdStatus(statuses))
     return flatboxes_filtered
 
 
 def _warn_if_empty_boxes(flatboxes) -> List[str]:
     empty_boxes = [box for box in flatboxes if box.raw_value is None]
     if empty_boxes:
-        warn(f"Certaines cases concernant la situation du foyer fiscal et les personnes à charge "
-             f"n'ont pas bien été détectées ({', '.join([box.code for box in empty_boxes])}). "
-             f"Merci de les renseigner manuellement.", FamilyBoxExtractionWarning)
+        warn(FamilyBoxNotExtracted([box.code for box in empty_boxes]))
 
 
 def _parse_line(line: str) -> Iterator[FlatBox]:
@@ -190,12 +211,11 @@ def _tax_pdf_safety_check(pdf_content):
         with fitz.open(stream=pdf_content) as fitz_doc:
             text_page0 = re.sub('\s', '', fitz_doc[0].get_text()).lower()
     except fitz.FileDataError:
-        raise BadTaxPDF("Le fichier que vous avez sélectionné n'est pas un PDF valide.")        
+        raise BadTaxPDF("not_a_pdf")
     if "avisdesituationdéclarative" in text_page0 or "avis_ir_rg" in text_page0:
-        raise BadTaxPDF("Le fichier que vous avez sélectionné n'est pas le bon : vous devez "
-                        "utiliser votre déclaration de revenus et non pas votre avis d'impôt.")
+        raise BadTaxPDF("avis_impot")
     if not "10330" in text_page0 or not "2042" in text_page0:
-        raise BadTaxPDF("Le fichier que vous avez sélectionné n'est pas une déclaration d'impôt.")
+        raise BadTaxPDF("other_pdf")
 
 
 def parse_tax_pdf(pdf_content, category_coords, box_mapping) -> List[ValuedBox]:

@@ -13,7 +13,13 @@ DEFAUT_ATTRIBUTION_FROM_KIND = {
 
 
 class UnknownBoxCodeWarning(UserFacingWarning):
-    pass
+    def __init__(self, box_code):
+        self.box_code = box_code
+
+    def __str__(self):
+        return (f"La case \"{self.box_code}\", trouvée dans la déclaration, est inconnue. "
+                f"Si cette case existe effectivement, conservez-la. Sinon, c'est une erreur "
+                f"de détection : merci de la supprimer.")
 
 
 @dataclass
@@ -51,9 +57,7 @@ class ValuedBox:
     def from_flat_box(flat_box, box_mapping):
         box = box_mapping.get(flat_box.code)
         if not box:
-            warn(f"La case \"{flat_box.code}\", trouvée dans la déclaration, est inconnue. "
-                 f"Si cette case existe effectivement, conservez-la. Sinon, c'est une erreur "
-                 f"de détection : merci de la supprimer.", UnknownBoxCodeWarning)
+            warn(UnknownBoxCodeWarning(flat_box.code))
             box = Box(
                 code=flat_box.code,
                 reference=ReferenceBox(
