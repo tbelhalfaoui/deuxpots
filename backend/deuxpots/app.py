@@ -76,5 +76,5 @@ metrics.register_default(
     metrics.histogram('processing_time_seconds', 'Response time of the route.',
                        labels={'status': lambda r: r.status_code,
                                'path': lambda: request.path,
-                               'demo': lambda: request.args.get('demo', 'False')})
+                               'demo': lambda: request.args.get('demo', False)})
 )
