@@ -25,3 +25,7 @@ primary_region = "cdg"
 [[statics]]
   guest_path = "/app/frontend/build"
   url_prefix = "/"
+
+[metrics]
+port = 9091
+path = "/"

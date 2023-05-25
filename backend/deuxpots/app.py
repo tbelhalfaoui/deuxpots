@@ -2,8 +2,8 @@ from dataclasses import asdict
 from flask import Flask
 from flask import Flask, request
 from flask_cors import CORS
-from prometheus_client import Histogram, Counter, make_wsgi_app
-from werkzeug.middleware.dispatcher import DispatcherMiddleware
+from prometheus_client import Histogram, Counter
+from prometheus_flask_exporter.multiprocess import GunicornPrometheusMetrics
 
 from deuxpots.demo import DEMO_FLAT_BOXES
 from deuxpots import CERFA_VARIABLES_PATH, CATEGORY_COORDS_PATH, DEV_MODE
@@ -26,9 +26,7 @@ app.config['PROPAGATE_EXCEPTIONS'] = False
 if DEV_MODE:
     CORS(app)
 
-app.wsgi_app = DispatcherMiddleware(app.wsgi_app, {
-    '/metrics': make_wsgi_app()
-})
+metrics_app = GunicornPrometheusMetrics(app)
 
 
 @app.errorhandler(UserFacingError)
