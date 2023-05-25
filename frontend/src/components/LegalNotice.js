@@ -35,21 +35,26 @@ export const LegalNotice = () =>
                 <div className="py-2">
                     <h4>Données personnelles</h4>
                     <p>
-                        <mark>Aucune donnée à caractère personnel</mark> n'est collectée.
+                        Ce site n'utilise <mark>aucun traceur</mark>: ni cookie ni <em>fingerprinting</em>.
                     </p>
                     <p>
-                        Ce site n'utilise <mark>pas de cookies</mark>.
+                        <mark>Aucune donnée à caractère personnel</mark> n'est collectée.
                     </p>
                     <p>
                         Les fichiers PDF de déclaration d'impôt envoyés sur le site sont utilisés uniquement pour en extraire
                         les nombres nécessaires au calcul de l'impôt (montants des revenus déclarés et situation du foyer fiscal).
-                        Ces nombres, anonymes, sont ceux affichés dans les cases de l'étape 2. Ils sont ensuite envoyés 
+                        <mark>Ces nombres, anonymes,</mark> sont ceux affichés dans les cases de l'étape 2. Ils sont ensuite envoyés 
                         au <a href="https://simulateur-ir-ifi.impots.gouv.fr/calcul_impot/2023/complet/index.htm" target="_blank" rel="noreferrer">
                         simulateur officiel des impôts</a> pour 
                         réaliser le calcul de l'impôt, et sont immédiatement supprimés une fois le calcul terminé.
                     </p>
                     <p>
-                        Aucune information personnelle n'est extraite des fichiers PDF.
+                        Les données à caractère personnel présentes dans la déclaration d'impôt (noms, prénoms, adresses postales et
+                        électroniques, numéros de téléphone, coordonnées bancaires, ...) sont ignorées&nbsp;: elles ne sont pas extraites du document.
+                    </p>
+                    <p>
+                        Le fichier PDF lui-même n'est jamais enregistré sur un support de stockage, et son contenu est supprimé dès l'extraction
+                        effectuée.
                     </p>
                 </div>
             </div>
