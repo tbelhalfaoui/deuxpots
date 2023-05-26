@@ -4,15 +4,17 @@ import { OverlayTrigger, Tooltip } from "react-bootstrap";
 import { BoxSearchSelect } from "./BoxSearchSelect";
 
 
-export const NumberBox = ( props ) => (
+export const NumberBox = ({ max, value, invalidValue, ...props }) => (
     <NumericFormat
         className="form-control box text-center text-lg-end"
         thousandSeparator=" "
         decimalScale={0}
-        isAllowed={(val) => (props.max) ? ((val.floatValue <= props.max) || (val.value === "")) : true}
+        isAllowed={(val) => (max) ? ((val.floatValue <= max) || (val.value === "")) : true}
         defaultValue=""
         min={0}
-        style={((!props.value) && (props.value !== 0)) ? {backgroundColor: 'rgb(255, 204, 203)'} : {}}
+        max={max}
+        value={value}
+        style={(invalidValue(value)) ? {backgroundColor: 'rgb(255, 204, 203)'} : {}}
         {...props} />
 )
 
@@ -53,8 +55,9 @@ export const TaxBox = ({ boxIndex, box, onValueChange, onSliderChange,
                                         Supprimer cette ligne.
                                     </Tooltip>
                                 }>
-                                    <button className="btn btn-link p-0 m-0" type="button" data-bs-toggle="modal" data-bs-target={`#deleteBoxModal${boxIndex}`}>
-                                        <FaRegTrashAlt style={{color: 'dimGray', visibility: (box.code) ? 'visible' : 'hidden'}} />
+                                    <button className="btn btn-link p-0 m-0" type="button" data-bs-toggle="modal" data-bs-target={`#deleteBoxModal${boxIndex}`}
+                                    disabled={!box.code}>
+                                        <FaRegTrashAlt style={{color: 'dimGray'}} />
                                     </button>
                                 </OverlayTrigger>
                                 <DeleteBoxModal boxDescription={`${box.code} - ${box.description}`} doDeleteBox={() => deleteBox(boxIndex)}
@@ -84,14 +87,16 @@ export const TaxBox = ({ boxIndex, box, onValueChange, onSliderChange,
                     <div className="p-1 col-lg-3">
                         <div className="form-floating">
                             <NumberBox name={`raw_value.${boxIndex}`} value={box.raw_value} placeholder="Total"
-                            onValueChange={onValueChange} disabled={true} />
+                            onValueChange={onValueChange} disabled
+                            invalidValue={() => false} />
                             <label htmlFor={`raw_value.${boxIndex}`}>Total</label>
                         </div>
                     </div>
                     <div className="p-1 col-4 col-lg-3">
                         <div className="form-floating">
                             <NumberBox name={`partner_0_value.${boxIndex}`} value={box.partner_0_value} placeholder="Décl. 1"
-                            max={box.totalIsLocked ? box.raw_value : undefined} onValueChange={onValueChange} />
+                            max={box.totalIsLocked ? box.raw_value : undefined} onValueChange={onValueChange}
+                            invalidValue={(val) => !val && val !== 0 && box.code} disabled={!box.code} />
                             <label htmlFor={`partner_0_value.${boxIndex}`}>Décl. 1</label>
                         </div>
                     </div>
@@ -99,14 +104,15 @@ export const TaxBox = ({ boxIndex, box, onValueChange, onSliderChange,
                         <input type="range" className="form-range" name={`slider.${boxIndex}`}
                         min={0} max={box.raw_value}
                         step={(box.raw_value <= 10) ? 1 : parseInt(box.raw_value / 10)}
-                        disabled={box.raw_value === ""}
+                        disabled={(!box.raw_value) || (!box.code)}
                         value={(!box.partner_0_value && !box.partner_1_value) ? "" : box.attribution * box.raw_value}
                         onChange={onSliderChange} />
                     </div>
                     <div className="p-1 col-4 col-lg-3">
                         <div className="form-floating">
                             <NumberBox name={`partner_1_value.${boxIndex}`} value={box.partner_1_value} placeholder="Décl. 2"
-                            max={box.totalIsLocked ? box.raw_value : undefined} onValueChange={onValueChange} />
+                            max={box.totalIsLocked ? box.raw_value : undefined} onValueChange={onValueChange}
+                            invalidValue={(val) => !val && val !== 0 && box.code} disabled={!box.code} />
                             <label htmlFor={`partner_1_value.${boxIndex}`}>Décl. 2</label>
                         </div>
                     </div>
