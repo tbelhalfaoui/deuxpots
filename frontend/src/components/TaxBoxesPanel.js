@@ -90,8 +90,10 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setStep, setIndividualizedResul
 
     const fetchIndividualizedResults = async (evt) => {
         evt.preventDefault();
-        
-        const allBoxesAreFilled = Object.values(boxes).flatMap(
+        const nonEmptyBoxes = boxes.filter(
+            box => box.code
+        );
+        const allBoxesAreFilled = nonEmptyBoxes.flatMap(
             box => [box.raw_value, box.partner_0_value, box.partner_1_value]
         ).every(
             value => value || (value === 0)
@@ -110,7 +112,7 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setStep, setIndividualizedResul
         }
         await fetch(`${process.env.REACT_APP_API_URL || window.location.origin}/individualize?${queryParams}`, {
             method: "POST",
-            body: JSON.stringify({'boxes': Object.values(boxes)}),
+            body: JSON.stringify({'boxes': nonEmptyBoxes}),
             mode: 'cors',
             headers: {
                 'Content-type':'application/json', 
