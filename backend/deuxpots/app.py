@@ -1,5 +1,6 @@
 from dataclasses import asdict
 from flask import Flask
+from werkzeug.exceptions import NotFound
 from flask import Flask, request
 from flask_cors import CORS
 from prometheus_client import Histogram, Counter
@@ -30,17 +31,27 @@ else:
     metrics = GunicornPrometheusMetrics(app)
 
 
+@app.errorhandler(NotFound)
+def handle_bad_request(e):
+    arg = e.args[0] if e.args else ''
+    app.logger.error(f"[{request.path}] {type(e).__name__}: {arg}")
+    PROM_ERROR_COUNT.labels(request.path, 404, type(e).__name__, arg).inc()
+    return str(e), 404
+
+
 @app.errorhandler(UserFacingError)
 def handle_bad_request(e):
-    app.logger.error(f"{type(e).__name__}: {e.args[0] if e.args else ''}")
-    PROM_ERROR_COUNT.labels(request.path, 400, type(e).__name__, e.args[0]).inc()
+    arg = e.args[0] if e.args else ''
+    app.logger.error(f"[{request.path}] {type(e).__name__}: {arg}")
+    PROM_ERROR_COUNT.labels(request.path, 400, type(e).__name__, arg).inc()
     return str(e), 400
 
 
 @app.errorhandler(Exception)
 def handle_bad_request(e):
-    app.logger.exception("EXCEPTION")
-    PROM_ERROR_COUNT.labels(request.path, 500, type(e).__name__, e.args[0] if e.args else '').inc()
+    arg = e.args[0] if e.args else ''
+    app.logger.exception(f"[{request.path}] Exception: {type(e).__name__}")
+    PROM_ERROR_COUNT.labels(request.path, 500, type(e).__name__, arg).inc()
     return DEFAULT_USER_ERROR_MESSAGE, 500
 
 
