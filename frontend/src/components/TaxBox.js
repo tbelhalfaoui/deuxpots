@@ -1,8 +1,7 @@
 import { NumericFormat } from "react-number-format";
 import { FaLock, FaLockOpen, FaRegTrashAlt } from "react-icons/fa";
 import { OverlayTrigger, Tooltip } from "react-bootstrap";
-import SelectSearch from 'react-select-search';
-import Combobox from "react-widgets/Combobox";
+import { BoxSearchSelect } from "./BoxSearchSelect";
 
 
 export const NumberBox = ( props ) => (
@@ -28,42 +27,23 @@ export const DeleteBoxModal = ({ boxDescription, doDeleteBox, modalId }) =>
                 <div className="modal-body text-start">
                     {boxDescription}
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal" onClick={doDeleteBox}>Supprimer</button>
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Conserver</button>
+                <div className="modal-footer">
+                    <button type="button" className="btn btn-danger" data-bs-dismiss="modal" onClick={doDeleteBox}>Supprimer</button>
+                    <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Conserver</button>
                 </div>
             </div>
         </div>
     </div>
 
 
-export const TaxBox = ({boxIndex, box, onValueChange, onSliderChange, toggleBoxEdit, deleteBox, toggleTotalLock}) => {
-    const options = [
-        {name: 'Swedish', value: 'sv'},
-        {name: 'English', value: 'en'},
-        {
-            type: 'group',
-            name: 'Group name',
-            items: [
-                {name: 'Spanish', value: 'es'},
-            ]
-        },
-    ];
-
-    return (
+export const TaxBox = ({ boxIndex, box, onValueChange, onSliderChange,
+                         deleteBox, toggleTotalLock, reassignBox }) => (
     <div>
         <div className="row">
             <div className="d-flex align-items-center align-items-stretch col-md-6 pe-lg-4 pe-xxl-4">
                 <div className="d-flex flex-fill align-items-center row">
                     <div className="col-10 col-xxl-11">
-                        {(box.isBeingEdited) ?
-                            <textarea className="form-control" rows="2"
-                            placeholder="Saisissez le code ou le nom de la case à ajouter." value={`${box.code} - ${box.description}`}
-                            onBlur={() => toggleBoxEdit(boxIndex, false)} autoFocus />
-                            : <label htmlFor={`raw_value.${boxIndex}`} className="form-label" onClick={() => toggleBoxEdit(boxIndex, true)}>
-                                {box.code} - {box.description}
-                            </label>
-                        }
+                        <BoxSearchSelect box={box} boxIndex={boxIndex} reassignBox={reassignBox} />
                     </div>
                     <div className="col-2 col-xxl-1">
                         <div className="d-flex row align-items-center">
@@ -74,7 +54,7 @@ export const TaxBox = ({boxIndex, box, onValueChange, onSliderChange, toggleBoxE
                                     </Tooltip>
                                 }>
                                      <button className="btn p-0 m-0" type="button" data-bs-toggle="modal" data-bs-target={`#deleteBoxModal${boxIndex}`}>
-                                        <FaRegTrashAlt />
+                                        <FaRegTrashAlt style={{color: 'gray'}} />
                                     </button>
                                 </OverlayTrigger>
                                 <DeleteBoxModal boxDescription={`${box.code} - ${box.description}`} doDeleteBox={() => deleteBox(boxIndex)}
@@ -136,4 +116,4 @@ export const TaxBox = ({boxIndex, box, onValueChange, onSliderChange, toggleBoxE
             <hr/>
         </div>
     </div>
-)}
+);

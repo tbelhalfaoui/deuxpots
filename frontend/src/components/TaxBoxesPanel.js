@@ -56,16 +56,6 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setStep, setIndividualizedResul
         handleBoxChange(boxIndex, fieldName, values.floatValue)
     };
 
-    const toggleBoxEdit = (boxIndexChanged, isBeingEdited) => {
-        setBoxes(boxes.map(
-            (box, boxIndex) => 
-                (boxIndex === boxIndexChanged) ? {
-                ...box,
-                isBeingEdited: isBeingEdited
-            } : box
-        ));
-    }
-
     const toggleTotalLock = (boxIndexChanged, totalIsLocked) => {
         setBoxes(boxes.map(
             (box, boxIndex) => 
@@ -74,6 +64,22 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setStep, setIndividualizedResul
                 totalIsLocked: box.raw_value ? totalIsLocked : false
             } : box
         ));
+    }
+
+    const reassignBox = (boxIndexChanged, newCode, newDescription) => {
+        if (newCode !== boxes[boxIndexChanged].code) {
+            setBoxes(boxes.map(
+                (box, boxIndex) => 
+                    (boxIndex === boxIndexChanged) ? {
+                        code: newCode,
+                        raw_value: "",
+                        description: newDescription,
+                        partner_0_value: "",
+                        partner_1_value: "",
+                        totalIsLocked: false
+                    } : box
+            ));
+        }
     }
 
     const deleteBox = (boxIndexChanged) => {
@@ -161,7 +167,7 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setStep, setIndividualizedResul
                         </div>
                         {boxes.map((box, boxIndex) => (
                             <TaxBox key={box.code} boxIndex={boxIndex} box={box} onValueChange={onBoxChange} onSliderChange={onSliderChange}
-                            toggleBoxEdit={toggleBoxEdit} deleteBox={deleteBox} toggleTotalLock={toggleTotalLock} />
+                             deleteBox={deleteBox} toggleTotalLock={toggleTotalLock} reassignBox={reassignBox} />
                         ))}
                     </div>
                 </div>

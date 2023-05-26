@@ -8,6 +8,8 @@
     "@testing-library/react": "^14.0.0",
     "@testing-library/user-event": "^14.4.3",
     "bootstrap": "^5.2.3",
+    "fuse.js": "^6.6.2",
+    "minisearch": "^6.1.0",
     "react": "^18.2.0",
     "react-bootstrap": "^2.7.4",
     "react-dom": "^18.2.0",
