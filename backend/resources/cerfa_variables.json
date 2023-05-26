@@ -8703,16 +8703,16 @@
   },
   {
     "boxes": [
-      "0AF",
-      "0AP"
+      "0AP",
+      "0AF"
     ],
     "type": "bool",
     "description": "Titulaire d'une pension pour une invalidit\u00e9 d'au moins 40 % ou d'une carte d'invalidit\u00e9 d'au moins 80%."
   },
   {
     "boxes": [
-      "0AS",
-      "0AW"
+      "0AW",
+      "0AS"
     ],
     "type": "bool",
     "description": "Vous \u00eates \u00e2g\u00e9\u00b7e de plus de 74 ans, vous \u00eates titulaire de la carte du combattant ou d'une pension militaire d'invalidit\u00e9 ou de victime de guerre."

@@ -45,6 +45,7 @@ export const PdfSubmitForm = ({setBoxes, setStep, setWarnings, errorMsg, setErro
                   description: "",
                   partner_0_value: "",
                   partner_1_value: "",
+                  attribution: null,
                   totalIsLocked: false
               }])
             ) || setWarnings(data.warnings)

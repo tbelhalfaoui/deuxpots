@@ -81,6 +81,7 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setStep, setIndividualizedResul
                 description: "",
                 partner_0_value: "",
                 partner_1_value: "",
+                attribution: null,
                 totalIsLocked: false
             }]));
 
