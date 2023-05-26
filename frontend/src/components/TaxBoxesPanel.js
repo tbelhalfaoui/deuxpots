@@ -61,13 +61,13 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setStep, setIndividualizedResul
             (box, boxIndex) => 
                 (boxIndex === boxIndexChanged) ? {
                 ...box,
-                totalIsLocked: box.raw_value ? totalIsLocked : false
+                totalIsLocked: totalIsLocked
             } : box
         ));
     }
 
-    const reassignBox = (boxIndexChanged, newCode, newDescription) => {
-        if (newCode !== boxes[boxIndexChanged].code) {
+    const reassignBox = (boxIndexChanged, newCode, newDescription) =>
+        (newCode !== boxes[boxIndexChanged].code) &&
             setBoxes(boxes.map(
                 (box, boxIndex) => 
                     (boxIndex === boxIndexChanged) ? {
@@ -75,9 +75,14 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setStep, setIndividualizedResul
                         code: newCode,
                         description: newDescription,
                     } : box
-            ));
-        }
-    }
+            ).concat((boxes[boxIndexChanged].code) ? [] : [{
+                code: "",
+                raw_value: "",
+                description: "",
+                partner_0_value: "",
+                partner_1_value: "",
+                totalIsLocked: false
+            }]));
 
     const deleteBox = (boxIndexChanged) => {
         setBoxes(boxes.filter((box, boxIndex) => boxIndex !== boxIndexChanged));
@@ -159,7 +164,7 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setStep, setIndividualizedResul
                             <hr/>
                         </div>
                         {boxes.map((box, boxIndex) => (
-                            <TaxBox key={box.code} boxIndex={boxIndex} box={box} onValueChange={onBoxChange} onSliderChange={onSliderChange}
+                            <TaxBox key={boxIndex} boxIndex={boxIndex} box={box} onValueChange={onBoxChange} onSliderChange={onSliderChange}
                              deleteBox={deleteBox} toggleTotalLock={toggleTotalLock} reassignBox={reassignBox} />
                         ))}
                     </div>

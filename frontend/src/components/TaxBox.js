@@ -53,8 +53,8 @@ export const TaxBox = ({ boxIndex, box, onValueChange, onSliderChange,
                                         Supprimer cette ligne.
                                     </Tooltip>
                                 }>
-                                     <button className="btn p-0 m-0" type="button" data-bs-toggle="modal" data-bs-target={`#deleteBoxModal${boxIndex}`}>
-                                        <FaRegTrashAlt style={{color: 'gray'}} />
+                                    <button className="btn btn-link p-0 m-0" type="button" data-bs-toggle="modal" data-bs-target={`#deleteBoxModal${boxIndex}`}>
+                                        <FaRegTrashAlt style={{color: 'dimGray', visibility: (box.code) ? 'visible' : 'hidden'}} />
                                     </button>
                                 </OverlayTrigger>
                                 <DeleteBoxModal boxDescription={`${box.code} - ${box.description}`} doDeleteBox={() => deleteBox(boxIndex)}
@@ -67,10 +67,11 @@ export const TaxBox = ({ boxIndex, box, onValueChange, onSliderChange,
                                                             : "Verrouiller le total (ajuster la répartition entre les deux déclarant·e·s)."}
                                     </Tooltip>
                                 }>
-                                    <button className="btn p-0 m-0" type="button" onClick={() => toggleTotalLock(boxIndex, !box.totalIsLocked)}>
+                                    <button className="btn btn-link p-0 m-0" type="button" onClick={() => toggleTotalLock(boxIndex, !box.totalIsLocked)}
+                                     disabled={!box.raw_value}>
                                         {box.totalIsLocked ?
-                                        (<FaLock style={{color: 'gray'}} />) :
-                                        (<FaLockOpen />)}
+                                        (<FaLock style={{color: 'dimGray'}} />) :
+                                        (<FaLockOpen style={{color: 'dimGray'}} />)}
                                     </button>
                                 </OverlayTrigger>
                             </div>

@@ -65,10 +65,12 @@ export const BoxSearchSelect = ({ boxIndex, box, reassignBox }) => {
 
     const onChooseResult = (result) => {
         if (!box.code) {
-            reassignBox(boxIndex, result.code, result.description)
+            // Assigning empty box
+            reassignBox(boxIndex, result.code, result.description);
         }
         else if (box.code !== result.code) {
-            setChosenResult({...result})  // open the modal
+            // Reassigning an existing box: open modal for confirmation
+            setChosenResult({...result})
         }
         setIsBeingEdited(false);
         setSearchResults([]);
@@ -80,7 +82,7 @@ export const BoxSearchSelect = ({ boxIndex, box, reassignBox }) => {
                 <div>
                     <div className="dropdown">
                         <textarea className="form-control" rows="2" placeholder="Saisissez le code ou le nom de la case à ajouter."
-                        autoFocus onChange={onSearchBoxChange} onBlur={() => setIsBeingEdited(false)} />
+                        autoFocus={box.code} onChange={onSearchBoxChange} onBlur={() => setIsBeingEdited(false)} />
                         {!!searchResults.length && 
                             <ul className="dropdown-menu show" style={{width: '100%'}}>
                                 {searchResults.map(result => 
