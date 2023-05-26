@@ -1,22 +1,30 @@
-import { React, useEffect, useState } from 'react';
-import Fuse from "fuse.js";
+import { React, useState } from 'react';
+import MiniSearch from 'minisearch'
 import cerfaVariables from "../resources/cerfa_variables.json"
 
-const fuse = new Fuse(cerfaVariables.flatMap(
+let miniSearch = new MiniSearch({
+    fields: ['code', 'description', 'relatedCodes'],
+    storeFields: ['code', 'description'],
+    searchOptions: {
+        boost: {
+            code: 6,
+            // description: 2,
+            // relatedCodes: 1
+        },
+        fuzzy: 0.2,
+        prefix: true,
+    }
+  })
+miniSearch.addAll(cerfaVariables.flatMap(
     v => v.boxes.map(code => ({
+        id: code,
         code: code,
         description: v.description,
         relatedCodes: v.boxes
     }))
-),
-{
-    includeScore: true,
-    keys: [
-        {name: 'code', weight: 5},
-        {name: 'description', weight: 2},
-        {name: 'relatedCodes', weight: 1}
-    ]
-});
+).filter(
+    box => !['0AM', '0AO', '0AD', '0AC', '0AV'].includes(box.code)
+));
 
 
 export const BoxSearchSelect = ({ boxIndex, box, reassignBox }) => {
@@ -25,8 +33,8 @@ export const BoxSearchSelect = ({ boxIndex, box, reassignBox }) => {
         
     const onSearchBoxChange = async (evt) => {
         const query = evt.target.value;
-        const results = fuse.search(query).map(result => result.item).slice(0, 20);
-        setSearchResults(results);
+        const results = miniSearch.search(query);
+        setSearchResults(results.slice(0, 20));
     };
 
     return (
@@ -38,7 +46,7 @@ export const BoxSearchSelect = ({ boxIndex, box, reassignBox }) => {
                     <ul className="dropdown-menu show" style={{width: '100%'}}>
                         {searchResults.map(result => 
                             <li key={result.code}>
-                                <button type="button" className="btn dropdown-item py-1" style={{'white-space': 'normal'}}
+                                <button type="button" className="btn dropdown-item py-1 text-wrap"
                                 onMouseDown={() => reassignBox(boxIndex, result.code, result.description) || setIsBeingEdited(false)}>
                                     <strong>{result.code}</strong> - {result.description}
                                 </button>

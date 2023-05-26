@@ -6463,35 +6463,35 @@
       "7EK"
     ],
     "type": "int",
-    "description": "Investissements locatifs interm\u00c3\u00a9diaires du 1.1 au 31.8.2014 en m\u00c3\u00a9tropole."
+    "description": "Investissements locatifs interm\u00e9diaires du 1.1 au 31.8.2014 en m\u00e9tropole."
   },
   {
     "boxes": [
       "7EL"
     ],
     "type": "int",
-    "description": "Investissements locatifs interm\u00c3\u00a9diaires du 1.1 au 31.8.2014 en outre-mer."
+    "description": "Investissements locatifs interm\u00e9diaires du 1.1 au 31.8.2014 en outre-mer."
   },
   {
     "boxes": [
       "7FI"
     ],
     "type": "int",
-    "description": "Report concernant les investissements r\u00c3\u00a9alis\u00c3\u00a9s et achev\u00c3\u00a9s en 2013 en m\u00c3\u00a9tropole et outre-mer."
+    "description": "Report concernant les investissements r\u00e9alis\u00e9s et achev\u00e9s en 2013 en m\u00e9tropole et outre-mer."
   },
   {
     "boxes": [
       "7FK"
     ],
     "type": "int",
-    "description": "Report concernant les investissements r\u00c3\u00a9alis\u00c3\u00a9s et achev\u00c3\u00a9s en 2014 en m\u00c3\u00a9tropole et outre-mer."
+    "description": "Report concernant les investissements r\u00e9alis\u00e9s et achev\u00e9s en 2014 en m\u00e9tropole et outre-mer."
   },
   {
     "boxes": [
       "7FR"
     ],
     "type": "int",
-    "description": "Report concernant les investissements r\u00c3\u00a9alis\u00c3\u00a9s et achev\u00c3\u00a9s en 2015 en m\u00c3\u00a9tropole et outre-mer."
+    "description": "Report concernant les investissements r\u00e9alis\u00e9s et achev\u00e9s en 2015 en m\u00e9tropole et outre-mer."
   },
   {
     "boxes": [
@@ -7692,15 +7692,6 @@
   },
   {
     "boxes": [
-      "5TI",
-      "5UI",
-      "5VI"
-    ],
-    "type": "int",
-    "description": "Honoraires de prospection commerciale exon\u00e9r\u00e9s sans CGA (revenus non commerciaux professionnels, r\u00e9gime de la d\u00e9claration contr\u00f4l\u00e9e)."
-  },
-  {
-    "boxes": [
       "5TH",
       "5UH",
       "5VH"
@@ -8400,13 +8391,6 @@
   },
   {
     "boxes": [
-      "3VP"
-    ],
-    "type": "int",
-    "description": "Plus-values exon\u00e9r\u00e9es de cessions de titres de jeunes entreprises innovantes."
-  },
-  {
-    "boxes": [
       "3VQ"
     ],
     "type": "int",
@@ -8505,13 +8489,6 @@
   },
   {
     "boxes": [
-      "3VA"
-    ],
-    "type": "int",
-    "description": "Abattement fixe sp\u00e9cial appliqu\u00e9 sur des plus-values r\u00e9alis\u00e9es par les dirigeants de PME lors de leur d\u00e9part \u00e0 la retraite."
-  },
-  {
-    "boxes": [
       "3VA",
       "3VB",
       "3VO",
@@ -8519,13 +8496,6 @@
     ],
     "type": "int",
     "description": "Abattements nets (abattement pour dur\u00e9e de d\u00e9tention renforc\u00e9 et abattement fixe sp\u00e9cial) appliqu\u00e9s sur des plus-values r\u00e9alis\u00e9es par les dirigeants de PME lors de leur d\u00e9part \u00e0 la retraite."
-  },
-  {
-    "boxes": [
-      "3VB"
-    ],
-    "type": "int",
-    "description": "Abattements nets (abattement pour dur\u00e9e de d\u00e9tention renforc\u00e9 et abattement fixe sp\u00e9cial) appliqu\u00e9s sur des moins-values r\u00e9alis\u00e9es par les dirigeants de PME lors de leur d\u00e9part \u00e0 la retraite."
   },
   {
     "boxes": [

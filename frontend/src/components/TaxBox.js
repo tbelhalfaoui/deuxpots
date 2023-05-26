@@ -21,7 +21,7 @@ export const DeleteBoxModal = ({ boxDescription, doDeleteBox, modalId }) =>
         <div className="modal-dialog modal-dialog-centered modal-dialog-scrollable">
             <div className="modal-content">
                 <div className="modal-header">
-                    <h5 className="modal-title" id={`${modalId}Label`}>Voules-vous supprimer cette ligne ?</h5>
+                    <h5 className="modal-title" id={`${modalId}Label`}>Voulez-vous supprimer cette ligne ?</h5>
                     <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div className="modal-body text-start">
@@ -43,7 +43,13 @@ export const TaxBox = ({ boxIndex, box, onValueChange, onSliderChange,
             <div className="d-flex align-items-center align-items-stretch col-md-6 pe-lg-4 pe-xxl-4">
                 <div className="d-flex flex-fill align-items-center row">
                     <div className="col-10 col-xxl-11">
-                        <BoxSearchSelect box={box} boxIndex={boxIndex} reassignBox={reassignBox} />
+                        <OverlayTrigger placement="top" overlay={
+                            <Tooltip id="tooltipEdit">
+                                Cliquez ici pour modifier l'intitulé de cette ligne.
+                            </Tooltip>
+                        }>
+                                <div><BoxSearchSelect box={box} boxIndex={boxIndex} reassignBox={reassignBox} /></div>
+                        </OverlayTrigger>
                     </div>
                     <div className="col-2 col-xxl-1">
                         <div className="d-flex row align-items-center">
@@ -61,7 +67,7 @@ export const TaxBox = ({ boxIndex, box, onValueChange, onSliderChange,
                                 modalId={`deleteBoxModal${boxIndex}`} />
                             </div>
                             <div className="col-12 col-lg-6">
-                                <OverlayTrigger placement="right" overlay={
+                                <OverlayTrigger placement="left" overlay={
                                     <Tooltip id="tooltipLock">
                                         {box.totalIsLocked ? "Déverrouiller le total (modifier les deux déclarant·e·s séparement)."
                                                             : "Verrouiller le total (ajuster la répartition entre les deux déclarant·e·s)."}

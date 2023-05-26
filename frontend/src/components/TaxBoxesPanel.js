@@ -86,10 +86,6 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setStep, setIndividualizedResul
         setBoxes(boxes.filter((box, boxIndex) => boxIndex !== boxIndexChanged));
     };
 
-    const addNewBox = () => {
-        setBoxes([...boxes, {}]);
-    }
-
     const fetchIndividualizedResults = async (evt) => {
         evt.preventDefault();
         
