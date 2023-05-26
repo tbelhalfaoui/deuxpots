@@ -32,7 +32,7 @@ else:
 
 @app.errorhandler(UserFacingError)
 def handle_bad_request(e):
-    app.logger.error(f"{type(e).__name__}: {e.args[0]}")
+    app.logger.error(f"{type(e).__name__}: {e.args[0] if e.args else ''}")
     PROM_ERROR_COUNT.labels(request.path, 400, type(e).__name__, e.args[0]).inc()
     return str(e), 400
 
@@ -40,7 +40,7 @@ def handle_bad_request(e):
 @app.errorhandler(Exception)
 def handle_bad_request(e):
     app.logger.exception("EXCEPTION")
-    PROM_ERROR_COUNT.labels(request.path, 500, type(e).__name__, e.args[0]).inc()
+    PROM_ERROR_COUNT.labels(request.path, 500, type(e).__name__, e.args[0] if e.args else '').inc()
     return DEFAULT_USER_ERROR_MESSAGE, 500
 
 
