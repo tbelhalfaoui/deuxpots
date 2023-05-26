@@ -1,5 +1,5 @@
 import { NumericFormat } from "react-number-format";
-import { FaLock, FaLockOpen } from "react-icons/fa";
+import { FaLock, FaLockOpen, FaRegTrashAlt } from "react-icons/fa";
 import { OverlayTrigger, Tooltip } from "react-bootstrap";
 import SelectSearch from 'react-select-search';
 import Combobox from "react-widgets/Combobox";
@@ -17,6 +17,26 @@ export const NumberBox = ( props ) => (
         {...props} />
 )
 
+export const DeleteBoxModal = ({ boxDescription, doDeleteBox, modalId }) =>
+    <div className="modal modal-lg fade" id={modalId} tabIndex="-1" aria-labelledby={`${modalId}Label`} aria-hidden="true">
+        <div className="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div className="modal-content">
+                <div className="modal-header">
+                    <h5 className="modal-title" id={`${modalId}Label`}>Voules-vous supprimer cette ligne ?</h5>
+                    <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div className="modal-body text-start">
+                    {boxDescription}
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal" onClick={doDeleteBox}>Supprimer</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Conserver</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 export const TaxBox = ({boxIndex, box, onValueChange, onSliderChange, toggleBoxEdit, deleteBox, toggleTotalLock}) => {
     const options = [
         {name: 'Swedish', value: 'sv'},
@@ -33,11 +53,11 @@ export const TaxBox = ({boxIndex, box, onValueChange, onSliderChange, toggleBoxE
     return (
     <div>
         <div className="row">
-            <div className="d-flex align-items-center align-items-stretch col-md-6">
+            <div className="d-flex align-items-center align-items-stretch col-md-6 pe-lg-4 pe-xxl-4">
                 <div className="d-flex flex-fill align-items-center row">
-                    <div className="col-10 col-xl-11">
+                    <div className="col-10 col-xxl-11">
                         {(box.isBeingEdited) ?
-                            <textarea className="form-control" rows="2" data-bs-toggle="dropdown"
+                            <textarea className="form-control" rows="2"
                             placeholder="Saisissez le code ou le nom de la case à ajouter." value={`${box.code} - ${box.description}`}
                             onBlur={() => toggleBoxEdit(boxIndex, false)} autoFocus />
                             : <label htmlFor={`raw_value.${boxIndex}`} className="form-label" onClick={() => toggleBoxEdit(boxIndex, true)}>
@@ -45,24 +65,36 @@ export const TaxBox = ({boxIndex, box, onValueChange, onSliderChange, toggleBoxE
                             </label>
                         }
                     </div>
-                    <div className="col-1 col-xl-1">
-                        <button className="btn" style={{color: 'red'}} type="button" onClick={() => deleteBox(boxIndex)}>
-                            <FaRegTrashAlt />
-                        </button>
-                    </div>
-                    <div className="col-1 col-xl-1">
-                        <OverlayTrigger placement="left" overlay={
-                            <Tooltip id="tooltip">
-                                {box.totalIsLocked ? "Déverrouiller le total (modifier les deux déclarant·e·s séparement)."
-                                                    : "Verrouiller le total (ajuster la répartition entre les deux déclarant·e·s)."}
-                            </Tooltip>
-                        }>
-                            <button className="btn" type="button" onClick={() => toggleTotalLock(boxIndex, !box.totalIsLocked)}>
-                                {box.totalIsLocked ?
-                                (<FaLock style={{color: 'gray'}} />) :
-                                (<FaLockOpen />)}
-                            </button>
-                        </OverlayTrigger>
+                    <div className="col-2 col-xxl-1">
+                        <div className="d-flex row align-items-center">
+                            <div className="col-12 col-lg-6">
+                                <OverlayTrigger placement="left" overlay={
+                                    <Tooltip id="tooltipTrash">
+                                        Supprimer cette ligne.
+                                    </Tooltip>
+                                }>
+                                     <button className="btn p-0 m-0" type="button" data-bs-toggle="modal" data-bs-target={`#deleteBoxModal${boxIndex}`}>
+                                        <FaRegTrashAlt />
+                                    </button>
+                                </OverlayTrigger>
+                                <DeleteBoxModal boxDescription={`${box.code} - ${box.description}`} doDeleteBox={() => deleteBox(boxIndex)}
+                                modalId={`deleteBoxModal${boxIndex}`} />
+                            </div>
+                            <div className="col-12 col-lg-6">
+                                <OverlayTrigger placement="right" overlay={
+                                    <Tooltip id="tooltipLock">
+                                        {box.totalIsLocked ? "Déverrouiller le total (modifier les deux déclarant·e·s séparement)."
+                                                            : "Verrouiller le total (ajuster la répartition entre les deux déclarant·e·s)."}
+                                    </Tooltip>
+                                }>
+                                    <button className="btn p-0 m-0" type="button" onClick={() => toggleTotalLock(boxIndex, !box.totalIsLocked)}>
+                                        {box.totalIsLocked ?
+                                        (<FaLock style={{color: 'gray'}} />) :
+                                        (<FaLockOpen />)}
+                                    </button>
+                                </OverlayTrigger>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
