@@ -39,7 +39,14 @@ export const PdfSubmitForm = ({setBoxes, setStep, setWarnings, errorMsg, setErro
                 partner_0_value: ((box.attribution || (box.attribution === 0)) && box.raw_value) ? box.raw_value * (1 - box.attribution) : "",
                 partner_1_value: ((box.attribution || (box.attribution === 0)) && box.raw_value) ? box.raw_value * box.attribution : "",
                 totalIsLocked: !!box.raw_value
-              }))
+              })).concat([{
+                  code: "",
+                  raw_value: "",
+                  description: "",
+                  partner_0_value: "",
+                  partner_1_value: "",
+                  totalIsLocked: false
+              }])
             ) || setWarnings(data.warnings)
         ).then(
           () => setStep(2) || resetErrorMsgs()

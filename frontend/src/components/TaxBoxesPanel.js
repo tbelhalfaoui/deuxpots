@@ -71,12 +71,9 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setStep, setIndividualizedResul
             setBoxes(boxes.map(
                 (box, boxIndex) => 
                     (boxIndex === boxIndexChanged) ? {
+                        ...box,
                         code: newCode,
-                        raw_value: "",
                         description: newDescription,
-                        partner_0_value: "",
-                        partner_1_value: "",
-                        totalIsLocked: false
                     } : box
             ));
         }

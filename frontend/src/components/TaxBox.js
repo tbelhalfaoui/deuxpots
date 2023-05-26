@@ -43,13 +43,7 @@ export const TaxBox = ({ boxIndex, box, onValueChange, onSliderChange,
             <div className="d-flex align-items-center align-items-stretch col-md-6 pe-lg-4 pe-xxl-4">
                 <div className="d-flex flex-fill align-items-center row">
                     <div className="col-10 col-xxl-11">
-                        <OverlayTrigger placement="top" overlay={
-                            <Tooltip id="tooltipEdit">
-                                Cliquez ici pour modifier l'intitulé de cette ligne.
-                            </Tooltip>
-                        }>
-                                <div><BoxSearchSelect box={box} boxIndex={boxIndex} reassignBox={reassignBox} /></div>
-                        </OverlayTrigger>
+                        <BoxSearchSelect box={box} boxIndex={boxIndex} reassignBox={reassignBox} />
                     </div>
                     <div className="col-2 col-xxl-1">
                         <div className="d-flex row align-items-center">
