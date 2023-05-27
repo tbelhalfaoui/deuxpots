@@ -55,6 +55,8 @@ export const PdfSubmitForm = ({setBoxes, setStep, setWarnings, errorMsg, setErro
           setBoxes
         ).then(
           () => setStep(2) || resetErrorMsgs()
+        ).catch(
+          e => setErrorMsg(e)
         ).finally(
           () => setIsLoading(false)
         );
