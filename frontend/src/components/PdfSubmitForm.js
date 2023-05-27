@@ -1,10 +1,12 @@
 import { FaInfoCircle } from "react-icons/fa";
-import React, { useState } from "react"
+import React, { useContext, useState } from "react"
 import { ErrorMessage, HelpMessageForParser } from "./Alert.js";
 import { callPaseRoute } from "../adapters/api.js";
+import { NavContext } from "../App.js";
 
-export const PdfSubmitForm = ({setBoxes, setStep, setWarnings, errorMsg, setErrorMsg, resetErrorMsgs, setIsDemo, searchIndex}) => {
+export const PdfSubmitForm = ({setBoxes, setWarnings, errorMsg, setErrorMsg, resetErrorMsgs, setIsDemo, searchIndex}) => {
     const [isLoading, setIsLoading] = useState(false);
+    const { step, setStep } = useContext(NavContext);
 
     const sendTaxSheet = async (evt) => {
         setIsLoading(true);
@@ -35,7 +37,7 @@ export const PdfSubmitForm = ({setBoxes, setStep, setWarnings, errorMsg, setErro
               }])
             boxes.forEach(box => searchIndex.current.disable(box.code))
             setBoxes(boxes)
-            setStep(2)
+            setStep({current: 2, max: 2})
             setWarnings(data.warnings)
             resetErrorMsgs()
           }

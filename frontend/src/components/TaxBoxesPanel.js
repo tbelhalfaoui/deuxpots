@@ -1,14 +1,16 @@
-import { useState } from "react"
+import React, { useState, useContext } from "react"
 import { FaInfoCircle } from "react-icons/fa";
+import { NavContext } from "../App.js";
 import { TaxBox } from './TaxBox.js'
 import { SubmitButton } from './SubmitButton.js'
 import { ErrorMessage, WarningMessage } from "./Alert.js";
 import { callIndividualizeRoute } from "../adapters/api.js"
 
 
-export const TaxBoxesPanel = ({ boxes, setBoxes, setStep, setIndividualizedResults,
+export const TaxBoxesPanel = ({ boxes, setBoxes, setIndividualizedResults,
                                 warnings, errorMsg, setErrorMsg, resetErrorMsgs, isDemo, searchIndex }) => {
     const [ isLoading, setIsLoading ] = useState(false);
+    const { step, setStep } = useContext(NavContext);
 
     const onSliderChange = async (evt) => {
         var value = evt.target.value;
@@ -132,7 +134,7 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setStep, setIndividualizedResul
                     }
                 })
                 setIndividualizedResults(results)
-                setStep(3)
+                setStep({current: 3, max: 3})
             }
         ).catch(
             e => setErrorMsg(e)

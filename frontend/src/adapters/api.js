@@ -1,7 +1,6 @@
 const API_ROOT_URL = `${process.env.REACT_APP_API_URL || window.location.origin}`
 
 export const callPaseRoute = async (fileContent, isDemo) => {
-    console.log(fileContent, isDemo)
     const formData = new FormData();
     const queryParams = new URLSearchParams();
 
