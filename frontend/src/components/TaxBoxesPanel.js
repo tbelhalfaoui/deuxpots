@@ -3,6 +3,7 @@ import { FaInfoCircle } from "react-icons/fa";
 import { TaxBox } from './TaxBox.js'
 import { SubmitButton } from './SubmitButton.js'
 import { ErrorMessage, WarningMessage } from "./Alert.js";
+import { callIndividualizeRoute } from "../adapters/api.js"
 
 
 export const TaxBoxesPanel = ({ boxes, setBoxes, setStep, setIndividualizedResults,
@@ -119,22 +120,8 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setStep, setIndividualizedResul
         resetErrorMsgs();
         setIsLoading(true);
 
-        const queryParams = new URLSearchParams();
-        if (isDemo) {
-            queryParams.append("demo", "true");
-        }
-        await fetch(`${process.env.REACT_APP_API_URL || window.location.origin}/individualize?${queryParams}`, {
-            method: "POST",
-            body: JSON.stringify({'boxes': nonEmptyBoxes}),
-            mode: 'cors',
-            headers: {
-                'Content-type':'application/json', 
-                'Accept':'application/json'
-            }
-        }).then(
-            res => (!res.ok) ? res.text().then(text => {throw new Error(text)}) : res
-        ).then(
-          res => res.json()
+        await callIndividualizeRoute(
+            nonEmptyBoxes, isDemo
         ).then(
             data => {
                 const results = data.individualized;
@@ -145,9 +132,8 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setStep, setIndividualizedResul
                     }
                 })
                 setIndividualizedResults(results)
+                setStep(3)
             }
-        ).then(
-          () => setStep(3)
         ).catch(
             e => setErrorMsg(e)
         ).finally(
