@@ -39,13 +39,13 @@ export const DeleteBoxModal = ({ boxDescription, doDeleteBox, modalId }) =>
 
 
 export const TaxBox = ({ boxIndex, box, onValueChange, onSliderChange,
-                         deleteBox, toggleTotalLock, reassignBox }) => (
+                         deleteBox, toggleTotalLock, reassignBox, searchIndex }) => (
     <div>
         <div className="row">
             <div className="d-flex align-items-center align-items-stretch col-md-6 pe-lg-4 pe-xxl-4">
                 <div className="d-flex flex-fill align-items-center row">
                     <div className="col-10 col-xxl-11">
-                        <BoxSearchSelect box={box} boxIndex={boxIndex} reassignBox={reassignBox} />
+                        <BoxSearchSelect box={box} boxIndex={boxIndex} reassignBox={reassignBox} searchIndex={searchIndex} />
                     </div>
                     <div className="col-2 col-xxl-1">
                         <div className="d-flex row align-items-center">

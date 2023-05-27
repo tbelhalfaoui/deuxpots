@@ -3,7 +3,7 @@ import React, { useState } from "react"
 import { ErrorMessage, HelpMessageForParser } from "./Alert.js";
 
 
-export const PdfSubmitForm = ({setBoxes, setStep, setWarnings, errorMsg, setErrorMsg, resetErrorMsgs, setIsDemo}) => {
+export const PdfSubmitForm = ({setBoxes, setStep, setWarnings, errorMsg, setErrorMsg, resetErrorMsgs, setIsDemo, searchIndex}) => {
     const [isLoading, setIsLoading] = useState(false);
 
     const sendTaxSheet = async (evt) => {
@@ -11,13 +11,13 @@ export const PdfSubmitForm = ({setBoxes, setStep, setWarnings, errorMsg, setErro
 
         const formData = new FormData();
         const queryParams = new URLSearchParams();
+        const isDemo = evt.target.name === "tryOnExample";
+        setIsDemo(isDemo);
 
-        if (evt.target.name === "tryOnExample") {
-          setIsDemo(true);
+        if (isDemo) {
           queryParams.append("demo", "true");
         }
         else {
-          setIsDemo(false);
           formData.append("tax_pdf", evt.target.files[0]);
         }
         
@@ -29,30 +29,32 @@ export const PdfSubmitForm = ({setBoxes, setStep, setWarnings, errorMsg, setErro
         ).then(
           res => res.json(),
         ).then(
-          data => 
-            setBoxes(
-              data.boxes.sort(
-                (box1, box2) => box1.code.localeCompare(box2.code)
-              ).map(box => ({
-                ...box,
-                description: box.description,
-                partner_0_value: ((box.attribution || (box.attribution === 0)) && box.raw_value) ? box.raw_value * (1 - box.attribution) : "",
-                partner_1_value: ((box.attribution || (box.attribution === 0)) && box.raw_value) ? box.raw_value * box.attribution : "",
-                totalIsLocked: !!box.raw_value
-              })).concat([{
-                  code: "",
-                  raw_value: "",
-                  description: "",
-                  partner_0_value: "",
-                  partner_1_value: "",
-                  attribution: null,
-                  totalIsLocked: false
-              }])
-            ) || setWarnings(data.warnings)
+          data => {
+            setWarnings(data.warnings);
+            return data.boxes.sort(
+              (box1, box2) => box1.code.localeCompare(box2.code)
+            ).map(box => ({
+              ...box,
+              description: box.description,
+              partner_0_value: ((box.attribution || (box.attribution === 0)) && box.raw_value) ? box.raw_value * (1 - box.attribution) : "",
+              partner_1_value: ((box.attribution || (box.attribution === 0)) && box.raw_value) ? box.raw_value * box.attribution : "",
+              totalIsLocked: !isDemo && !!box.raw_value
+            })).concat([{
+                code: "",
+                raw_value: "",
+                description: "",
+                partner_0_value: "",
+                partner_1_value: "",
+                attribution: null,
+                totalIsLocked: false
+            }])
+          }
+        ).then(
+          boxes => boxes.forEach(box => searchIndex.current.disable(box.code)) || boxes
+        ).then(
+          setBoxes
         ).then(
           () => setStep(2) || resetErrorMsgs()
-        ).catch(
-          e => setErrorMsg(e)
         ).finally(
           () => setIsLoading(false)
         );
@@ -80,7 +82,7 @@ export const PdfSubmitForm = ({setBoxes, setStep, setWarnings, errorMsg, setErro
               </div>
               <div className="col-md-5 col-xl-3">
                 <button type="button" className="btn btn-primary" name="tryOnExample" onClick={sendTaxSheet} disabled={isLoading}>
-                  Essayer sur un exemple
+                  Remplir à partir d'un exemple
                 </button>
               </div>
               {isLoading && (

@@ -1,31 +1,6 @@
 import { React, useState } from 'react';
 import { Modal, Button, OverlayTrigger, Tooltip } from 'react-bootstrap';
-import MiniSearch from 'minisearch'
-import cerfaVariables from "../resources/cerfa_variables.json"
 
-let miniSearch = new MiniSearch({
-    fields: ['code', 'description', 'relatedCodes'],
-    storeFields: ['code', 'description'],
-    searchOptions: {
-        boost: {
-            code: 6,
-            description: 2,
-            relatedCodes: 1
-        },
-        fuzzy: 0.25,
-        prefix: true,
-    }
-  })
-miniSearch.addAll(cerfaVariables.flatMap(
-    v => v.boxes.map(code => ({
-        id: code,
-        code: code,
-        description: v.description,
-        relatedCodes: v.boxes
-    }))
-).filter(
-    box => !['0AM', '0AO', '0AD', '0AC', '0AV'].includes(box.code)
-));
 
 export const ReassignBoxModal = ({ box, chosenResult, show, closeModal, onConfirm }) =>
     (chosenResult &&
@@ -52,15 +27,15 @@ export const ReassignBoxModal = ({ box, chosenResult, show, closeModal, onConfir
     </Modal>);
 
 
-export const BoxSearchSelect = ({ boxIndex, box, reassignBox }) => {
+export const BoxSearchSelect = ({ boxIndex, box, reassignBox, searchIndex }) => {
     const [ isBeingEdited, setIsBeingEdited ] = useState(false);
     const [ searchResults, setSearchResults ] = useState([]);
     const [ chosenResult, setChosenResult ] = useState();
 
     const onSearchBoxChange = async (evt) => {
         const query = evt.target.value;
-        const results = miniSearch.search(query);
-        setSearchResults(results.slice(0, 20));
+        const results = searchIndex.current.search(query, 20);
+        setSearchResults(results);
     };
 
     const onChooseResult = (result) => {
@@ -68,8 +43,9 @@ export const BoxSearchSelect = ({ boxIndex, box, reassignBox }) => {
             // Assigning empty box
             reassignBox(boxIndex, result.code, result.description);
         }
-        else if (box.code !== result.code) {
+        else {
             // Reassigning an existing box: open modal for confirmation
+            // NB: A box cannot be reassigned to itself, because it is excluded from search results.
             setChosenResult({...result})
         }
         setIsBeingEdited(false);

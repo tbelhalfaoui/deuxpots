@@ -6,7 +6,7 @@ import { ErrorMessage, WarningMessage } from "./Alert.js";
 
 
 export const TaxBoxesPanel = ({ boxes, setBoxes, setStep, setIndividualizedResults,
-                                warnings, errorMsg, setErrorMsg, resetErrorMsgs, isDemo }) => {
+                                warnings, errorMsg, setErrorMsg, resetErrorMsgs, isDemo, searchIndex }) => {
     const [ isLoading, setIsLoading ] = useState(false);
 
     const onSliderChange = async (evt) => {
@@ -66,8 +66,9 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setStep, setIndividualizedResul
         ));
     }
 
-    const reassignBox = (boxIndexChanged, newCode, newDescription) =>
-        (newCode !== boxes[boxIndexChanged].code) &&
+    const reassignBox = (boxIndexChanged, newCode, newDescription) => {
+        const oldCode = boxes[boxIndexChanged].code;
+        if (newCode !== oldCode) {
             setBoxes(boxes.map(
                 (box, boxIndex) => 
                     (boxIndex === boxIndexChanged) ? {
@@ -75,7 +76,7 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setStep, setIndividualizedResul
                         code: newCode,
                         description: newDescription,
                     } : box
-            ).concat((boxes[boxIndexChanged].code) ? [] : [{
+            ).concat((oldCode) ? [] : [{
                 code: "",
                 raw_value: "",
                 description: "",
@@ -84,10 +85,21 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setStep, setIndividualizedResul
                 attribution: null,
                 totalIsLocked: false
             }]));
+        }
+        searchIndex.current.disable(newCode)
+        if (oldCode) {
+            searchIndex.current.reEnable(oldCode)
+        }
+    }
 
-    const deleteBox = (boxIndexChanged) => {
-        setBoxes(boxes.filter((box, boxIndex) => boxIndex !== boxIndexChanged));
-    };
+    const deleteBox = (boxIndexChanged) =>
+        setBoxes(boxes.filter((box, boxIndex) => {
+            const hasBeenDeleted = boxIndex === boxIndexChanged
+            if (hasBeenDeleted) {
+                searchIndex.current.reEnable(box.code)
+            }
+            return !hasBeenDeleted
+        }))
 
     const fetchIndividualizedResults = async (evt) => {
         evt.preventDefault();
@@ -156,11 +168,18 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setStep, setIndividualizedResul
                         <span className="sr-only"></span>
                     </div>
                 </div>)}
-                <div className="alert alert-primary" role="alert">
-                    <FaInfoCircle /> Les données suivantes ont été extraites de votre déclaration
-                    de revenus. Merci de vérifier qu'elles sont correctes.<br/>
-                    Les cases en rouge sont à compléter en indiquant la répartition entre les déclarant·e·s.
-                </div>
+                {isDemo ?
+                    <div className="alert alert-primary" role="alert">
+                        <FaInfoCircle /> Les données ci-dessous sont un exemple.<br/>
+                        Vous pouvez cliquer sur chaque intitulé pour le modifier,
+                        ajouter une nouvelle ligne en bas de la liste et modifier les différents montants.
+                    </div>
+                :   <div className="alert alert-primary" role="alert">
+                        <FaInfoCircle /> Les données suivantes ont été extraites de votre déclaration
+                        de revenus. Merci de vérifier qu'elles sont correctes.<br/>
+                        Les cases en rouge sont à compléter en indiquant la répartition entre les déclarant·e·s.
+                    </div>
+                }
                 <div>
                     <div>
                         <div className="py-0">
@@ -168,7 +187,7 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setStep, setIndividualizedResul
                         </div>
                         {boxes.map((box, boxIndex) => (
                             <TaxBox key={boxIndex} boxIndex={boxIndex} box={box} onValueChange={onBoxChange} onSliderChange={onSliderChange}
-                             deleteBox={deleteBox} toggleTotalLock={toggleTotalLock} reassignBox={reassignBox} />
+                             deleteBox={deleteBox} toggleTotalLock={toggleTotalLock} reassignBox={reassignBox} searchIndex={searchIndex} />
                         ))}
                     </div>
                 </div>
