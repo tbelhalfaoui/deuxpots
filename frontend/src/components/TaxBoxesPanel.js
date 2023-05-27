@@ -6,7 +6,7 @@ import { ErrorMessage, WarningMessage } from "./Alert.js";
 
 
 export const TaxBoxesPanel = ({ boxes, setBoxes, setStep, setIndividualizedResults,
-                                warnings, errorMsg, setErrorMsg, resetErrorMsgs, isDemo }) => {
+                                warnings, errorMsg, setErrorMsg, resetErrorMsgs, isDemo, searchIndex }) => {
     const [ isLoading, setIsLoading ] = useState(false);
 
     const onSliderChange = async (evt) => {
@@ -56,34 +56,57 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setStep, setIndividualizedResul
         handleBoxChange(boxIndex, fieldName, values.floatValue)
     };
 
-    const toggleBoxEdit = (boxIndexChanged, isBeingEdited) => {
-        setBoxes(boxes.map(
-            (box, boxIndex) => 
-                (boxIndex === boxIndexChanged) ? {
-                ...box,
-                isBeingEdited: isBeingEdited
-            } : box
-        ));
-    }
-
     const toggleTotalLock = (boxIndexChanged, totalIsLocked) => {
         setBoxes(boxes.map(
             (box, boxIndex) => 
                 (boxIndex === boxIndexChanged) ? {
                 ...box,
-                totalIsLocked: box.raw_value ? totalIsLocked : false
+                totalIsLocked: totalIsLocked
             } : box
         ));
     }
 
-    const deleteBox = (boxIndexChanged) => {
-        setBoxes(boxes.filter((box, boxIndex) => boxIndex !== boxIndexChanged));
-    };
+    const reassignBox = (boxIndexChanged, newCode, newDescription) => {
+        const oldCode = boxes[boxIndexChanged].code;
+        if (newCode !== oldCode) {
+            setBoxes(boxes.map(
+                (box, boxIndex) => 
+                    (boxIndex === boxIndexChanged) ? {
+                        ...box,
+                        code: newCode,
+                        description: newDescription,
+                    } : box
+            ).concat((oldCode) ? [] : [{
+                code: "",
+                raw_value: "",
+                description: "",
+                partner_0_value: "",
+                partner_1_value: "",
+                attribution: null,
+                totalIsLocked: false
+            }]));
+        }
+        searchIndex.current.disable(newCode)
+        if (oldCode) {
+            searchIndex.current.reEnable(oldCode)
+        }
+    }
+
+    const deleteBox = (boxIndexChanged) =>
+        setBoxes(boxes.filter((box, boxIndex) => {
+            const hasBeenDeleted = boxIndex === boxIndexChanged
+            if (hasBeenDeleted) {
+                searchIndex.current.reEnable(box.code)
+            }
+            return !hasBeenDeleted
+        }))
 
     const fetchIndividualizedResults = async (evt) => {
         evt.preventDefault();
-        
-        const allBoxesAreFilled = Object.values(boxes).flatMap(
+        const nonEmptyBoxes = boxes.filter(
+            box => box.code
+        );
+        const allBoxesAreFilled = nonEmptyBoxes.flatMap(
             box => [box.raw_value, box.partner_0_value, box.partner_1_value]
         ).every(
             value => value || (value === 0)
@@ -102,7 +125,7 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setStep, setIndividualizedResul
         }
         await fetch(`${process.env.REACT_APP_API_URL || window.location.origin}/individualize?${queryParams}`, {
             method: "POST",
-            body: JSON.stringify({'boxes': Object.values(boxes)}),
+            body: JSON.stringify({'boxes': nonEmptyBoxes}),
             mode: 'cors',
             headers: {
                 'Content-type':'application/json', 
@@ -145,19 +168,26 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setStep, setIndividualizedResul
                         <span className="sr-only"></span>
                     </div>
                 </div>)}
-                <div className="alert alert-primary" role="alert">
-                    <FaInfoCircle /> Les données suivantes ont été extraites de votre déclaration
-                    de revenus. Merci de vérifier qu'elles sont correctes.<br/>
-                    Les cases en rouge sont à compléter en indiquant la répartition entre les déclarant·e·s.
-                </div>
+                {isDemo ?
+                    <div className="alert alert-primary" role="alert">
+                        <FaInfoCircle /> Les données ci-dessous sont un exemple.<br/>
+                        Vous pouvez cliquer sur chaque intitulé pour le modifier,
+                        ajouter une nouvelle ligne en bas de la liste et modifier les différents montants.
+                    </div>
+                :   <div className="alert alert-primary" role="alert">
+                        <FaInfoCircle /> Les données suivantes ont été extraites de votre déclaration
+                        de revenus. Merci de vérifier qu'elles sont correctes.<br/>
+                        Les cases en rouge sont à compléter en indiquant la répartition entre les déclarant·e·s.
+                    </div>
+                }
                 <div>
                     <div>
                         <div className="py-0">
                             <hr/>
                         </div>
                         {boxes.map((box, boxIndex) => (
-                            <TaxBox key={box.code} boxIndex={boxIndex} box={box} onValueChange={onBoxChange} onSliderChange={onSliderChange}
-                            toggleBoxEdit={toggleBoxEdit} deleteBox={deleteBox} toggleTotalLock={toggleTotalLock} />
+                            <TaxBox key={boxIndex} boxIndex={boxIndex} box={box} onValueChange={onBoxChange} onSliderChange={onSliderChange}
+                             deleteBox={deleteBox} toggleTotalLock={toggleTotalLock} reassignBox={reassignBox} searchIndex={searchIndex} />
                         ))}
                     </div>
                 </div>

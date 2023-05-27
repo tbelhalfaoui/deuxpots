@@ -1,44 +1,84 @@
 import { NumericFormat } from "react-number-format";
-import { FaLock, FaLockOpen } from "react-icons/fa";
+import { FaLock, FaLockOpen, FaRegTrashAlt } from "react-icons/fa";
 import { OverlayTrigger, Tooltip } from "react-bootstrap";
+import { BoxSearchSelect } from "./BoxSearchSelect";
 
 
-export const NumberBox = ( props ) => (
+export const NumberBox = ({ max, value, invalidValue, ...props }) => (
     <NumericFormat
         className="form-control box text-center text-lg-end"
         thousandSeparator=" "
         decimalScale={0}
-        isAllowed={(val) => (props.max) ? ((val.floatValue <= props.max) || (val.value === "")) : true}
+        isAllowed={(val) => (max) ? ((val.floatValue <= max) || (val.value === "")) : true}
         defaultValue=""
         min={0}
-        style={((!props.value) && (props.value !== 0)) ? {backgroundColor: 'rgb(255, 204, 203)'} : {}}
+        max={max}
+        value={value}
+        style={(invalidValue(value)) ? {backgroundColor: 'rgb(255, 204, 203)'} : {}}
         {...props} />
 )
 
-export const TaxBox = ({boxIndex, box, onValueChange, onSliderChange, toggleBoxEdit, deleteBox, toggleTotalLock}) => {
-    return (
+export const DeleteBoxModal = ({ boxDescription, doDeleteBox, modalId }) =>
+    <div className="modal modal-lg fade" id={modalId} tabIndex="-1" aria-labelledby={`${modalId}Label`} aria-hidden="true">
+        <div className="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div className="modal-content">
+                <div className="modal-header">
+                    <h5 className="modal-title" id={`${modalId}Label`}>Voulez-vous supprimer cette ligne ?</h5>
+                    <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div className="modal-body text-start">
+                    {boxDescription}
+                </div>
+                <div className="modal-footer">
+                    <button type="button" className="btn btn-danger" data-bs-dismiss="modal" onClick={doDeleteBox}>Supprimer</button>
+                    <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Conserver</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+export const TaxBox = ({ boxIndex, box, onValueChange, onSliderChange,
+                         deleteBox, toggleTotalLock, reassignBox, searchIndex }) => (
     <div>
         <div className="row">
-            <div className="d-flex align-items-center align-items-stretch col-md-6">
+            <div className="d-flex align-items-center align-items-stretch col-md-6 pe-lg-4 pe-xxl-4">
                 <div className="d-flex flex-fill align-items-center row">
-                    <div className="col-10 col-xl-11">
-                        <label htmlFor={`raw_value.${boxIndex}`} className="form-label" onClick={() => toggleBoxEdit(boxIndex, true)}>
-                            {box.code} - {box.description}
-                        </label>
+                    <div className="col-10 col-xxl-11">
+                        <BoxSearchSelect box={box} boxIndex={boxIndex} reassignBox={reassignBox} searchIndex={searchIndex} />
                     </div>
-                    <div className="col-1 col-xl-1">
-                        <OverlayTrigger placement="left" overlay={
-                            <Tooltip id="tooltip">
-                                {box.totalIsLocked ? "Déverrouiller le total (modifier les deux déclarant·e·s séparement)."
-                                                    : "Verrouiller le total (ajuster la répartition entre les deux déclarant·e·s)."}
-                            </Tooltip>
-                        }>
-                            <button className="btn" type="button" onClick={() => toggleTotalLock(boxIndex, !box.totalIsLocked)}>
-                                {box.totalIsLocked ?
-                                (<FaLock style={{color: 'gray'}} />) :
-                                (<FaLockOpen />)}
-                            </button>
-                        </OverlayTrigger>
+                    <div className="col-2 col-xxl-1">
+                        <div className="d-flex row align-items-center">
+                            <div className="col-12 col-lg-6">
+                                <OverlayTrigger placement="left" overlay={
+                                    <Tooltip id="tooltipTrash">
+                                        Supprimer cette ligne.
+                                    </Tooltip>
+                                }>
+                                    <button className="btn btn-link p-0 m-0" type="button" data-bs-toggle="modal" data-bs-target={`#deleteBoxModal${boxIndex}`}
+                                    disabled={!box.code}>
+                                        <FaRegTrashAlt style={{color: 'dimGray'}} />
+                                    </button>
+                                </OverlayTrigger>
+                                <DeleteBoxModal boxDescription={`${box.code} - ${box.description}`} doDeleteBox={() => deleteBox(boxIndex)}
+                                modalId={`deleteBoxModal${boxIndex}`} />
+                            </div>
+                            <div className="col-12 col-lg-6">
+                                <OverlayTrigger placement="left" overlay={
+                                    <Tooltip id="tooltipLock">
+                                        {box.totalIsLocked ? "Déverrouiller le total (modifier les deux déclarant·e·s séparement)."
+                                                            : "Verrouiller le total (ajuster la répartition entre les deux déclarant·e·s)."}
+                                    </Tooltip>
+                                }>
+                                    <button className="btn btn-link p-0 m-0" type="button" onClick={() => toggleTotalLock(boxIndex, !box.totalIsLocked)}
+                                     disabled={!box.raw_value}>
+                                        {box.totalIsLocked ?
+                                        (<FaLock style={{color: 'dimGray'}} />) :
+                                        (<FaLockOpen style={{color: 'dimGray'}} />)}
+                                    </button>
+                                </OverlayTrigger>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -47,14 +87,16 @@ export const TaxBox = ({boxIndex, box, onValueChange, onSliderChange, toggleBoxE
                     <div className="p-1 col-lg-3">
                         <div className="form-floating">
                             <NumberBox name={`raw_value.${boxIndex}`} value={box.raw_value} placeholder="Total"
-                            onValueChange={onValueChange} disabled={true} />
+                            onValueChange={onValueChange} disabled
+                            invalidValue={() => false} />
                             <label htmlFor={`raw_value.${boxIndex}`}>Total</label>
                         </div>
                     </div>
                     <div className="p-1 col-4 col-lg-3">
                         <div className="form-floating">
                             <NumberBox name={`partner_0_value.${boxIndex}`} value={box.partner_0_value} placeholder="Décl. 1"
-                            max={box.totalIsLocked ? box.raw_value : undefined} onValueChange={onValueChange} />
+                            max={box.totalIsLocked ? box.raw_value : undefined} onValueChange={onValueChange}
+                            invalidValue={(val) => !val && val !== 0 && box.code} disabled={!box.code} />
                             <label htmlFor={`partner_0_value.${boxIndex}`}>Décl. 1</label>
                         </div>
                     </div>
@@ -62,14 +104,15 @@ export const TaxBox = ({boxIndex, box, onValueChange, onSliderChange, toggleBoxE
                         <input type="range" className="form-range" name={`slider.${boxIndex}`}
                         min={0} max={box.raw_value}
                         step={(box.raw_value <= 10) ? 1 : parseInt(box.raw_value / 10)}
-                        disabled={box.raw_value === ""}
+                        disabled={(!box.raw_value) || (!box.code)}
                         value={(!box.partner_0_value && !box.partner_1_value) ? "" : box.attribution * box.raw_value}
                         onChange={onSliderChange} />
                     </div>
                     <div className="p-1 col-4 col-lg-3">
                         <div className="form-floating">
                             <NumberBox name={`partner_1_value.${boxIndex}`} value={box.partner_1_value} placeholder="Décl. 2"
-                            max={box.totalIsLocked ? box.raw_value : undefined} onValueChange={onValueChange} />
+                            max={box.totalIsLocked ? box.raw_value : undefined} onValueChange={onValueChange}
+                            invalidValue={(val) => !val && val !== 0 && box.code} disabled={!box.code} />
                             <label htmlFor={`partner_1_value.${boxIndex}`}>Décl. 2</label>
                         </div>
                     </div>
@@ -80,4 +123,4 @@ export const TaxBox = ({boxIndex, box, onValueChange, onSliderChange, toggleBoxE
             <hr/>
         </div>
     </div>
-)}
+);

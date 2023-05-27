@@ -436,21 +436,7 @@
       "7UH"
     ],
     "type": "int",
-    "description": "Int\u00e9r\u00eats pay\u00e9s la premi\u00e8re ann\u00e9e de remboursement du pr\u00eat pour l'habitation principale."
-  },
-  {
-    "boxes": [
-      "7UH"
-    ],
-    "type": "int",
-    "description": "Int\u00e9r\u00eats pr\u00eats consommation."
-  },
-  {
-    "boxes": [
-      "7UH"
-    ],
-    "type": "int",
-    "description": "codev."
+    "description": "Dons et cotisations vers\u00e9s aux partis politiques."
   },
   {
     "boxes": [
@@ -660,28 +646,7 @@
       "7WE"
     ],
     "type": "bool",
-    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale de l'habitation principale: \u00e9co-pr\u00eat \u00e0 taux z\u00e9ro avec offre de pr\u00eat \u00e9mise l'ann\u00e9e de perception des revenus d\u00e9clar\u00e9s."
-  },
-  {
-    "boxes": [
-      "7WE"
-    ],
-    "type": "bool",
     "description": "Scellier."
-  },
-  {
-    "boxes": [
-      "7WG"
-    ],
-    "type": "int",
-    "description": "IntEmp."
-  },
-  {
-    "boxes": [
-      "7WG"
-    ],
-    "type": "int",
-    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale de l'habitation principale: \u00e9co-pr\u00eat \u00e0 taux z\u00e9ro avec offre de pr\u00eat \u00e9mise l'ann\u00e9e de perception des revenus d\u00e9clar\u00e9s -1."
   },
   {
     "boxes": [
@@ -695,13 +660,6 @@
       "7WA"
     ],
     "type": "int",
-    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale de l'habitation principale: travaux d'isolation thermique des murs avant le 03/04/2012."
-  },
-  {
-    "boxes": [
-      "7WA"
-    ],
-    "type": "int",
     "description": "Scellier."
   },
   {
@@ -709,21 +667,7 @@
       "7WB"
     ],
     "type": "int",
-    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale de l'habitation principale: travaux d'isolation thermique des murs \u00e0 compter du 04/04/2012."
-  },
-  {
-    "boxes": [
-      "7WB"
-    ],
-    "type": "int",
     "description": "Scellier."
-  },
-  {
-    "boxes": [
-      "7WC"
-    ],
-    "type": "int",
-    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale de l'habitation principale: travaux d'isolation thermique sur plus de la moiti\u00e9 de la surface des murs ext\u00e9rieurs."
   },
   {
     "boxes": [
@@ -758,13 +702,6 @@
       "7VH"
     ],
     "type": "int",
-    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale de l'habitation principale: travaux d'isolation thermique de toute la toiture du 1.9 au 31.12.2014."
-  },
-  {
-    "boxes": [
-      "7VH"
-    ],
-    "type": "int",
     "description": "Inv. for."
   },
   {
@@ -772,21 +709,7 @@
       "7SG"
     ],
     "type": "int",
-    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale de l'habitation principale: Mat\u00e9riaux d'isolation thermique des murs (acquisitionn et pose)."
-  },
-  {
-    "boxes": [
-      "7SG"
-    ],
-    "type": "int",
     "description": "Scellier."
-  },
-  {
-    "boxes": [
-      "7SJ"
-    ],
-    "type": "int",
-    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale de l'habitation principale: Mat\u00e9riaux d'isolation thermique des parois vitr\u00e9es."
   },
   {
     "boxes": [
@@ -800,21 +723,7 @@
       "7SK"
     ],
     "type": "int",
-    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale de l'habitation principale: Volets isolants."
-  },
-  {
-    "boxes": [
-      "7SK"
-    ],
-    "type": "int",
     "description": "Scellier."
-  },
-  {
-    "boxes": [
-      "7SL"
-    ],
-    "type": "int",
-    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale de l'habitation principale: Portes d'entr\u00e9es donnant sur l'ext\u00e9rieur."
   },
   {
     "boxes": [
@@ -870,13 +779,6 @@
       "7VK"
     ],
     "type": "int",
-    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale de l'habitation principale: Volets isolants 2015."
-  },
-  {
-    "boxes": [
-      "7VK"
-    ],
-    "type": "int",
     "description": "Inv. for."
   },
   {
@@ -884,28 +786,7 @@
       "7VL"
     ],
     "type": "int",
-    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale de l'habitation principale: Portes d'entr\u00e9es donnant sur l'ext\u00e9rieur 2015."
-  },
-  {
-    "boxes": [
-      "7VL"
-    ],
-    "type": "int",
     "description": "Inv. for."
-  },
-  {
-    "boxes": [
-      "7SM"
-    ],
-    "type": "int",
-    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale de l'habitation principale: \u00c9quipements de production d'\u00e9lectricit\u00e9 utilisant l'\u00e9nergie radiative du soleil."
-  },
-  {
-    "boxes": [
-      "7SM"
-    ],
-    "type": "int",
-    "description": "Scellier."
   },
   {
     "boxes": [
@@ -919,14 +800,14 @@
       "7SN"
     ],
     "type": "int",
-    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale de l'habitation principale: Appareils de chauffage au bois ou autres biomasses rempla\u00e7ant un appareil \u00e9quivalent."
+    "description": "Investissements destin\u00e9s \u00e0 la location meubl\u00e9e non professionnelle : Report de 1/9 de la r\u00e9duction d'imp\u00f4t. Investissements achev\u00e9s en 2018 et r\u00e9alis\u00e9s en 2012."
   },
   {
     "boxes": [
       "7SO"
     ],
     "type": "int",
-    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale de l'habitation principale: Appareils de chauffage au bois ou autres biomasses ne rempla\u00e7ant pas un appareil \u00e9quivalent."
+    "description": "Investissements destin\u00e9s \u00e0 la location meubl\u00e9e non professionnelle : Report de 1/9 de la r\u00e9duction d'imp\u00f4t. Investissements achev\u00e9s en 2018 et r\u00e9alis\u00e9s entre 2013 et 2018."
   },
   {
     "boxes": [
@@ -940,21 +821,7 @@
       "7SQ"
     ],
     "type": "int",
-    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale de l'habitation principale: Pompes \u00e0 chaleur g\u00e9othermiques dont la finalit\u00e9 essentielle est la production de chaleur."
-  },
-  {
-    "boxes": [
-      "7SQ"
-    ],
-    "type": "int",
     "description": "Scellier."
-  },
-  {
-    "boxes": [
-      "7SR"
-    ],
-    "type": "int",
-    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale de l'habitation principale: Pompes \u00e0 chaleur (autres que air/air) d\u00e9di\u00e9es \u00e0 la production d'eau chaude sanitaire (chauffe-eaux thermodynamiques)."
   },
   {
     "boxes": [
@@ -982,21 +849,7 @@
       "7TP"
     ],
     "type": "int",
-    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale de l'habitation principale 2015: Pompes \u00e0 chaleur autres que air/air et autres que g\u00e9othermiques dont la finalit\u00e9 essentielle est la production de chaleur."
-  },
-  {
-    "boxes": [
-      "7TP"
-    ],
-    "type": "int",
     "description": "Inv. forestiers: Report des d\u00e9penses de travaux des ann\u00e9es ant\u00e9rieures 2016."
-  },
-  {
-    "boxes": [
-      "7TQ"
-    ],
-    "type": "int",
-    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale de l'habitation principale 2015: Pompes \u00e0 chaleur g\u00e9othermiques dont la finalit\u00e9 essentielle est la production de chaleur."
   },
   {
     "boxes": [
@@ -1010,21 +863,7 @@
       "7TR"
     ],
     "type": "int",
-    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale de l'habitation principale 2015: Pompes \u00e0 chaleur (autres que air/air) d\u00e9di\u00e9es \u00e0 la production d'eau chaude sanitaire (chauffe-eaux thermodynamiques)."
-  },
-  {
-    "boxes": [
-      "7TR"
-    ],
-    "type": "int",
     "description": "Inv. forestiers: Report des d\u00e9penses de travaux des ann\u00e9es ant\u00e9rieures 2017."
-  },
-  {
-    "boxes": [
-      "7TS"
-    ],
-    "type": "int",
-    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale de l'habitation principale 2015: \u00c9quipements de fourniture d'eau chaude sanitaire fonctionnant \u00e0 l'\u00e9nergie solaire et dot\u00e9s de capteurs solaires."
   },
   {
     "boxes": [
@@ -1080,7 +919,7 @@
       "7BM"
     ],
     "type": "int",
-    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale de l'habitation principale : Syst\u00e8mes de production d'\u00e9lectricit\u00e9 utilisant une source d'\u00e9nergie renouvelable (\u00e9olien, hydraulique) avec signature d'un devis et versement d'un acompte avant le 1.1.2016."
+    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale des logements donn\u00e9s en location : Audit \u00e9nerg\u00e9tique."
   },
   {
     "boxes": [
@@ -1191,50 +1030,36 @@
     "boxes": [
       "7WT"
     ],
-    "type": "bool",
-    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale de l'habitation principale: d\u00e9penses d'isolation thermique des parois vitr\u00e9es r\u00e9alis\u00e9es sur au moins la moiti\u00e9 des fen\u00eatres du logement ."
+    "type": "int",
+    "description": "Scellier: report de 1/9 de la r\u00e9duction d'imp\u00f4t des investissements r\u00e9alis\u00e9s en 2012 ou r\u00e9alis\u00e9s du 1.1.2013 au 31.3.2013 avec promesse d'achat en 2012 et achev\u00e9s en 2016 en m\u00e9tropole et dans les DOM-COM."
   },
   {
     "boxes": [
       "7WU"
     ],
-    "type": "bool",
-    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale de l'habitation principale: achat de volets avant 2012."
+    "type": "int",
+    "description": "Scellier: report de 1/9 de la r\u00e9duction d'imp\u00f4t des investissements r\u00e9alis\u00e9s en 2011 ou r\u00e9alis\u00e9s en 2012 avec promesse d'achat en 2011 et achev\u00e9s en 2016 en m\u00e9tropole et dans les DOM-COM."
   },
   {
     "boxes": [
       "7WV"
     ],
-    "type": "bool",
-    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale de l'habitation principale: achat de volets en 2012."
-  },
-  {
-    "boxes": [
-      "7WV"
-    ],
-    "type": "bool",
-    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale de l'habitation principale: achat en 2015 de mat\u00e9riaux d'isolation thermique des parois vitr\u00e9es concernant au moins la moiti\u00e9 des fen\u00eatres."
+    "type": "int",
+    "description": "Scellier: report de 1/9 de la r\u00e9duction d'imp\u00f4t des investissements r\u00e9alis\u00e9s en 2010 ou r\u00e9alis\u00e9s en 2011 avec promesse d'achat en 2010 et achev\u00e9s en 2016 en m\u00e9tropole et dans les DOM-COM."
   },
   {
     "boxes": [
       "7WW"
     ],
-    "type": "bool",
-    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale de l'habitation principale: vous avez r\u00e9alis\u00e9 des d\u00e9penses d'acquisitions de portes d'entr\u00e9es donnant sur l'ext\u00e9rieur, avant le 1.1.2012."
-  },
-  {
-    "boxes": [
-      "7WW"
-    ],
-    "type": "bool",
-    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale de l'habitation principale: achat en 2015 de mat\u00e9riaux d'isolation thermique des parois vitr\u00e9es concernant moins de la moiti\u00e9 des fen\u00eatres."
+    "type": "int",
+    "description": "Scellier: report de 1/9 de la r\u00e9duction d'imp\u00f4t des investissements r\u00e9alis\u00e9s en 2009 ou r\u00e9alis\u00e9s en 2010 avec promesse d'achat en 2010 et achev\u00e9s en 2016 en m\u00e9tropole et dans les DOM-COM."
   },
   {
     "boxes": [
       "7WX"
     ],
-    "type": "bool",
-    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale de l'habitation principale: achat de portes en 2012."
+    "type": "int",
+    "description": "Scellier: report de 1/5 de la r\u00e9duction d'imp\u00f4t des investissements r\u00e9alis\u00e9s en 2012 ou r\u00e9alis\u00e9s du 1.1.2013 au 31.3.2013 avec promesse d'achat en 2012 et achev\u00e9s en 2016 en Polyn\u00e9sie, en Nouvelle Cal\u00e9donie et \u00e0 Wallis et Futuna ."
   },
   {
     "boxes": [
@@ -1255,28 +1080,7 @@
       "7WF"
     ],
     "type": "bool",
-    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale de l'habitation principale: d\u00e9penses d'isolation thermique des parois vitr\u00e9es avant le 01/01/n-1."
-  },
-  {
-    "boxes": [
-      "7WF"
-    ],
-    "type": "bool",
     "description": "Scellier."
-  },
-  {
-    "boxes": [
-      "7WI"
-    ],
-    "type": "int",
-    "description": "D\u00e9penses en faveur de l'aide aux personnes r\u00e9alis\u00e9es dans l'habitation principale: Ascenseurs \u00e9lectriques \u00e0 traction."
-  },
-  {
-    "boxes": [
-      "7WI"
-    ],
-    "type": "int",
-    "description": "D\u00e9penses en faveur de l'aide aux personnes r\u00e9alis\u00e9es dans l'habitation principale: d\u00e9penses pay\u00e9es en 2015 de mat\u00e9riaux d'isolation des toitures, pos\u00e9s sur une partie de la toiture."
   },
   {
     "boxes": [
@@ -1318,13 +1122,6 @@
       "7OZ"
     ],
     "type": "int",
-    "description": "Investissements outre-mer: report de r\u00e9duction d'imp\u00f4t non imput\u00e9e les ann\u00e9es ant\u00e9rieures ann\u00e9e n-6."
-  },
-  {
-    "boxes": [
-      "7OZ"
-    ],
-    "type": "int",
     "description": "Location Meubl\u00e9e Censi B."
   },
   {
@@ -1332,14 +1129,14 @@
       "7PZ"
     ],
     "type": "int",
-    "description": "Investissements outre-mer r\u00e9alis\u00e9s en 2007 dans le cadre d'une entreprise: report de r\u00e9duction d'imp\u00f4t non imput\u00e9e les ann\u00e9es ant\u00e9rieures."
+    "description": "Investissements destin\u00e9s \u00e0 la location meubl\u00e9e non professionnelle : Investissements r\u00e9alis\u00e9s en 2019."
   },
   {
     "boxes": [
       "7QZ"
     ],
     "type": "int",
-    "description": "Investissements outre-mer r\u00e9alis\u00e9s en 2008 dans le casdre d'une entreprise: report de r\u00e9duction d'imp\u00f4t non imput\u00e9e les ann\u00e9es ant\u00e9rieures."
+    "description": "Report concernant les investissements locatifs interm\u00e9diaires en m\u00e9tropole en 2016 avec engagement de location 6 ans."
   },
   {
     "boxes": [
@@ -1353,14 +1150,7 @@
       "7RZ"
     ],
     "type": "int",
-    "description": "Investissements outre-mer: report de r\u00e9duction d'imp\u00f4t non imput\u00e9e les ann\u00e9es ant\u00e9rieures ann\u00e9e n-3."
-  },
-  {
-    "boxes": [
-      "7RZ"
-    ],
-    "type": "int",
-    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale des logements donn\u00e9s en location : Dans les logements situ\u00e9s dans les d\u00e9partements d\u2019outre-mer : \u00e9quipements de raccordement \u00e0 un r\u00e9seau de froid ;  \u00e9quipements ou mat\u00e9riaux de protection des parois vitr\u00e9es ou opaques contre les rayonnements solaires ;  \u00e9quipements visant \u00e0 l\u2019optimisation de la ventilation naturelle ."
+    "description": "Report concernant les investissements locatifs interm\u00e9diaires en m\u00e9tropole en 2016 avec engagement de location 9 ans."
   },
   {
     "boxes": [
@@ -1381,14 +1171,14 @@
       "7QO"
     ],
     "type": "int",
-    "description": "Investissements outre-mer dans le cadre de l'entreprise : Investissements immobliliers engag\u00e9s avant le 1.1.2011 et investissements ayant re\u00e7u un agr\u00e9ment avant le 5.12.2010 \u00e0 hauteur de 50%."
+    "description": "Investissements locatifs interm\u00e9diaires en outre-mer r\u00e9alis\u00e9s en 2017 avec engagement de location 6 ans."
   },
   {
     "boxes": [
       "7QP"
     ],
     "type": "int",
-    "description": "Investissements outre-mer dans le cadre de l'entreprise : Investissements immobliliers engag\u00e9s avant le 1.1.2011 et investissements ayant re\u00e7u un agr\u00e9ment avant le 5.12.2010 \u00e0 hauteur de 60%."
+    "description": "Investissements locatifs interm\u00e9diaires en outre-mer r\u00e9alis\u00e9s en 2017 avec engagement de location 9 ans."
   },
   {
     "boxes": [
@@ -1409,13 +1199,6 @@
       "7PA"
     ],
     "type": "int",
-    "description": "Investissements outre-mer dans le cadre de l'entreprise : Autres investissements ayant fait l'objet en 2009 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un accompte d'au moins 50%, Investissements donn\u00e9s en location \u00e0 une entreprise exploitante \u00e0 laquelle vous r\u00e9troc\u00e9dez la r\u00e9duction d'imp\u00f4t \u00e0 hauteur de 52,63%."
-  },
-  {
-    "boxes": [
-      "7PA"
-    ],
-    "type": "int",
     "description": "Investissements destin\u00e9s \u00e0 la location meubl\u00e9e non professionnelle : Report du solde de r\u00e9duction d'imp\u00f4t non encore imput\u00e9 2013."
   },
   {
@@ -1430,7 +1213,7 @@
       "7PB"
     ],
     "type": "int",
-    "description": "Investissements outre-mer dans le cadre de l'entreprise : Autres investissements ayant fait l'objet en 2009 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un accompte d'au moins 50%, Investissements donn\u00e9s en location \u00e0 une entreprise exploitante \u00e0 laquelle vous r\u00e9troc\u00e9dez la r\u00e9duction d'imp\u00f4t \u00e0 hauteur de 62,5%."
+    "description": "Investissements destin\u00e9s \u00e0 la location meubl\u00e9e non professionnelle : Report du solde de r\u00e9duction d'imp\u00f4t non encore imput\u00e9 2013."
   },
   {
     "boxes": [
@@ -1441,45 +1224,10 @@
   },
   {
     "boxes": [
-      "7PB"
-    ],
-    "type": "int",
-    "description": "Investissements destin\u00e9s \u00e0 la location meubl\u00e9e non professionnelle : Report du solde de r\u00e9duction d'imp\u00f4t non encore imput\u00e9 2013."
-  },
-  {
-    "boxes": [
-      "7PC"
-    ],
-    "type": "int",
-    "description": "Investissements outre-mer dans le cadre de l'entreprise : Autres investissements ayant fait l'objet en 2009 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un accompte d'au moins 50%, Investissements dans votre entreprise, montant de la r\u00e9duction d' imp\u00f4t calcul\u00e9e."
-  },
-  {
-    "boxes": [
-      "7PC"
-    ],
-    "type": "int",
-    "description": "Investissements destin\u00e9s \u00e0 la location meubl\u00e9e non professionnelle : Report du solde de r\u00e9duction d'imp\u00f4t non encore imput\u00e9 2013."
-  },
-  {
-    "boxes": [
       "7PC"
     ],
     "type": "int",
     "description": "Scellier."
-  },
-  {
-    "boxes": [
-      "7PD"
-    ],
-    "type": "int",
-    "description": "Investissements outre-mer dans le cadre de l'entreprise : Autres investissements ayant fait l'objet en 2009 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un accompte d'au moins 50%, Investissements dans votre entreprise, montant de la r\u00e9duction d' imp\u00f4t dont vous demandez l'imputation en 2011."
-  },
-  {
-    "boxes": [
-      "7PD"
-    ],
-    "type": "int",
-    "description": "Investissements destin\u00e9s \u00e0 la location meubl\u00e9e non professionnelle : Report du solde de r\u00e9duction d'imp\u00f4t non encore imput\u00e9 2013."
   },
   {
     "boxes": [
@@ -1500,13 +1248,6 @@
       "7QE"
     ],
     "type": "int",
-    "description": "Investissements outre-mer dans le cadre de l'entreprise : Autres investissements ayant fait l'objet avant 1.1.2009 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un accompte d'au moins 50%."
-  },
-  {
-    "boxes": [
-      "7QE"
-    ],
-    "type": "int",
     "description": "Pinel."
   },
   {
@@ -1521,28 +1262,7 @@
       "7PE"
     ],
     "type": "int",
-    "description": "Investissements outre-mer dans le cadre de l'entreprise : Autres investissements ayant fait l'objet en 2010 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un accompte d'au moins 50%, Investissements donn\u00e9s en location \u00e0 une entreprise exploitante \u00e0 laquelle vous r\u00e9troc\u00e9dez la r\u00e9duction d'imp\u00f4t \u00e0 hauteur de 52,63%."
-  },
-  {
-    "boxes": [
-      "7PE"
-    ],
-    "type": "int",
-    "description": "Investissements destin\u00e9s \u00e0 la location meubl\u00e9e non professionnelle : Report du solde de r\u00e9duction d'imp\u00f4t non encore imput\u00e9 2013 (investissements r\u00e9alis\u00e9s et achev\u00e9s en 2013)."
-  },
-  {
-    "boxes": [
-      "7PE"
-    ],
-    "type": "int",
     "description": "Scellier."
-  },
-  {
-    "boxes": [
-      "7PF"
-    ],
-    "type": "int",
-    "description": "Investissements outre-mer dans le cadre de l'entreprise : Autres investissements ayant fait l'objet en 2010 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un accompte d'au moins 50%, Investissements donn\u00e9s en location \u00e0 une entreprise exploitante \u00e0 laquelle vous r\u00e9troc\u00e9dez la r\u00e9duction d'imp\u00f4t \u00e0 hauteur de 62,5%."
   },
   {
     "boxes": [
@@ -1581,24 +1301,10 @@
   },
   {
     "boxes": [
-      "7PH"
-    ],
-    "type": "int",
-    "description": "Investissements outre-mer dans le cadre de l'entreprise : Autres investissements ayant fait l'objet en 2010 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un accompte d'au moins 50%, Investissements dans votre entreprise, montant de la r\u00e9duction d' imp\u00f4t dont vous demandez l'imputation en 2011."
-  },
-  {
-    "boxes": [
       "HPH"
     ],
     "type": "int",
     "description": "Investissements outre-mer dans le cadre de l'entreprise : Autres investissements ayant fait l'objet en 2010 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un accompte d'au moins 50%, Investissements dans votre entreprise, montant de la r\u00e9duction d' imp\u00f4t dont vous demandez l'imputation en 2011."
-  },
-  {
-    "boxes": [
-      "7PI"
-    ],
-    "type": "int",
-    "description": "Investissements outre-mer dans le cadre de l'entreprise : Investissements autres que ceux des lignes pr\u00e9c\u00e9dentes, Investissements donn\u00e9s en location \u00e0 une entreprise exploitante \u00e0 laquelle vous r\u00e9troc\u00e9dez la r\u00e9duction d'imp\u00f4t \u00e0 hauteur de 52,63%."
   },
   {
     "boxes": [
@@ -1613,13 +1319,6 @@
     ],
     "type": "int",
     "description": "Investissements outre-mer dans le cadre de l'entreprise : Investissements autres que ceux des lignes pr\u00e9c\u00e9dentes, Investissements donn\u00e9s en location \u00e0 une entreprise exploitante \u00e0 laquelle vous r\u00e9troc\u00e9dez la r\u00e9duction d'imp\u00f4t \u00e0 hauteur de 52,63%."
-  },
-  {
-    "boxes": [
-      "7PJ"
-    ],
-    "type": "int",
-    "description": "Investissements outre-mer dans le cadre de l'entreprise : Investissements autres que ceux des lignes pr\u00e9c\u00e9dentes, Investissements donn\u00e9s en location \u00e0 une entreprise exploitante \u00e0 laquelle vous r\u00e9troc\u00e9dez la r\u00e9duction d'imp\u00f4t \u00e0 hauteur de 62,5%."
   },
   {
     "boxes": [
@@ -1647,13 +1346,6 @@
       "7PL"
     ],
     "type": "int",
-    "description": "Investissements outre-mer dans le cadre de l'entreprise : Investissements autres que ceux des lignes pr\u00e9c\u00e9dentes, Investissements dans votre entreprise, montant de la r\u00e9duction d' imp\u00f4t dont vous demandez l'imputation en 2011."
-  },
-  {
-    "boxes": [
-      "7PL"
-    ],
-    "type": "int",
     "description": "Location Meubl\u00e9e Censi B."
   },
   {
@@ -1661,21 +1353,7 @@
       "7PM"
     ],
     "type": "int",
-    "description": "Investissements outre-mer dans le cadre de l'entreprise : Investissements r\u00e9alis\u00e9s en 2012, Investissements ayant fait l'objet avant 2009 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un acompte d'au moins 50%."
-  },
-  {
-    "boxes": [
-      "7PM"
-    ],
-    "type": "int",
     "description": "Location Meubl\u00e9e Censi B."
-  },
-  {
-    "boxes": [
-      "7PN"
-    ],
-    "type": "int",
-    "description": "Investissements outre-mer dans le cadre de l'entreprise : Investissements r\u00e9alis\u00e9s en 2012, Investissements ayant fait l'objet en 2009 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un acompte d'au moins 50%, investissements donn\u00e9s en location \u00e0 une entreprise exploitante \u00e0 laquelle vous r\u00e9troc\u00e9dez la r\u00e9duction d'imp\u00f4t \u00e0 hauteur de 50 %."
   },
   {
     "boxes": [
@@ -1710,13 +1388,6 @@
       "7PO"
     ],
     "type": "int",
-    "description": "Investissements outre-mer dans le cadre de l'entreprise : Investissements r\u00e9alis\u00e9s en 2012, Investissements ayant fait l'objet en 2009 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un acompte d'au moins 50%, investissements donn\u00e9s en location \u00e0 une entreprise exploitante \u00e0 laquelle vous r\u00e9troc\u00e9dez la r\u00e9duction d'imp\u00f4t \u00e0 hauteur de 60 %."
-  },
-  {
-    "boxes": [
-      "7PO"
-    ],
-    "type": "int",
     "description": "Location Meubl\u00e9e Censi B."
   },
   {
@@ -1731,70 +1402,70 @@
       "7PP"
     ],
     "type": "int",
-    "description": "Investissements outre-mer dans le cadre de l'entreprise : Investissements r\u00e9alis\u00e9s en 2012, Investissements ayant fait l'objet en 2009 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un acompte d'au moins 50%, investissements dans votre entreprise."
+    "description": "Investissements destin\u00e9s \u00e0 la location meubl\u00e9e non professionnelle : Report du solde de r\u00e9duction d\u2019imp\u00f4t non imput\u00e9 de 2016."
   },
   {
     "boxes": [
       "7PQ"
     ],
     "type": "int",
-    "description": "Investissements outre-mer dans le cadre de l'entreprise : Investissements r\u00e9alis\u00e9s en 2012, Investissements ayant fait l'objet en 2009 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un acompte d'au moins 50%, investissements dans votre entreprise avec exploitation directe, montant de la r\u00e9duction d'imp\u00f4t calcul\u00e9e."
+    "description": "Investissements destin\u00e9s \u00e0 la location meubl\u00e9e non professionnelle : Report du solde de r\u00e9duction d\u2019imp\u00f4t non imput\u00e9 de 2016."
   },
   {
     "boxes": [
       "7PR"
     ],
     "type": "int",
-    "description": "Investissements outre-mer dans le cadre de l'entreprise : Investissements r\u00e9alis\u00e9s en 2012, Investissements ayant fait l'objet en 2009 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un acompte d'au moins 50%, investissements dans votre entreprise avec exploitation directe, montant de la r\u00e9duction d'imp\u00f4t dont vous demandez l'imputation en 2012."
+    "description": "Investissements destin\u00e9s \u00e0 la location meubl\u00e9e non professionnelle : Report du solde de r\u00e9duction d\u2019imp\u00f4t non imput\u00e9 de 2016."
   },
   {
     "boxes": [
       "7PS"
     ],
     "type": "int",
-    "description": "Investissements outre-mer dans le cadre de l'entreprise : Investissements r\u00e9alis\u00e9s en 2012, Investissements ayant fait l'objet en 2010 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un acompte d'au moins 50%, investissements donn\u00e9s en location \u00e0 une entreprise exploitante \u00e0 laquelle vous r\u00e9troc\u00e9dez la r\u00e9duction d'imp\u00f4t \u00e0 hauteur de 50 %."
+    "description": "Investissements destin\u00e9s \u00e0 la location meubl\u00e9e non professionnelle : Report du solde de r\u00e9duction d\u2019imp\u00f4t non imput\u00e9 de 2016."
   },
   {
     "boxes": [
       "7PT"
     ],
     "type": "int",
-    "description": "Investissements outre-mer dans le cadre de l'entreprise : Investissements r\u00e9alis\u00e9s en 2012, Investissements ayant fait l'objet en 2010 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un acompte d'au moins 50%, investissements donn\u00e9s en location \u00e0 une entreprise exploitante \u00e0 laquelle vous r\u00e9troc\u00e9dez la r\u00e9duction d'imp\u00f4t \u00e0 hauteur de 60 %."
+    "description": "Investissements destin\u00e9s \u00e0 la location meubl\u00e9e non professionnelle : Report du solde de r\u00e9duction d\u2019imp\u00f4t non imput\u00e9 de 2016."
   },
   {
     "boxes": [
       "7PU"
     ],
     "type": "int",
-    "description": "Investissements outre-mer dans le cadre de l'entreprise : Investissements r\u00e9alis\u00e9s en 2012, Investissements ayant fait l'objet en 2010 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un acompte d'au moins 50%, investissements dans votre entreprise."
+    "description": "Investissements destin\u00e9s \u00e0 la location meubl\u00e9e non professionnelle : Report du solde de r\u00e9duction d\u2019imp\u00f4t non imput\u00e9 de 2017."
   },
   {
     "boxes": [
       "7PV"
     ],
     "type": "int",
-    "description": "Investissements outre-mer dans le cadre de l'entreprise : Investissements r\u00e9alis\u00e9s en 2012, Investissements ayant fait l'objet en 2010 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un acompte d'au moins 50%, investissements dans votre entreprise avec exploitation directe, montant de la r\u00e9duction d'imp\u00f4t calcul\u00e9e."
+    "description": "Investissements destin\u00e9s \u00e0 la location meubl\u00e9e non professionnelle : Report du solde de r\u00e9duction d\u2019imp\u00f4t non imput\u00e9 de 2017."
   },
   {
     "boxes": [
       "7PW"
     ],
     "type": "int",
-    "description": "Investissements outre-mer dans le cadre de l'entreprise : Investissements r\u00e9alis\u00e9s en 2012, Investissements ayant fait l'objet en 2010 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un acompte d'au moins 50%, investissements dans votre entreprise avec exploitation directe, montant de la r\u00e9duction d'imp\u00f4t dont vous demandez l'imputation en 2012."
+    "description": "Investissements destin\u00e9s \u00e0 la location meubl\u00e9e non professionnelle : Report du solde de r\u00e9duction d\u2019imp\u00f4t non imput\u00e9 de 2017."
   },
   {
     "boxes": [
       "7PX"
     ],
     "type": "int",
-    "description": "Investissements outre-mer dans le cadre de l'entreprise : Investissements r\u00e9alis\u00e9s en 2012, Investissements ayant fait l'objet en 2011 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un acompte d'au moins 50%, investissements donn\u00e9s en location \u00e0 une entreprise exploitante \u00e0 laquelle vous r\u00e9troc\u00e9dez la r\u00e9duction d'imp\u00f4t  \u00e0 hauteur de 52,63 %."
+    "description": "Investissements destin\u00e9s \u00e0 la location meubl\u00e9e non professionnelle : Report du solde de r\u00e9duction d\u2019imp\u00f4t non imput\u00e9 de 2017."
   },
   {
     "boxes": [
       "7PY"
     ],
     "type": "int",
-    "description": "Investissements outre-mer dans le cadre de l'entreprise : Investissements r\u00e9alis\u00e9s en 2012, Investissements ayant fait l'objet en 2011 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un acompte d'au moins 50%, investissements donn\u00e9s en location \u00e0 une entreprise exploitante \u00e0 laquelle vous r\u00e9troc\u00e9dez la r\u00e9duction d'imp\u00f4t \u00e0 hauteur de 62,5 %."
+    "description": "Investissements destin\u00e9s \u00e0 la location meubl\u00e9e non professionnelle : Report du solde de r\u00e9duction d\u2019imp\u00f4t non imput\u00e9 de 2017."
   },
   {
     "boxes": [
@@ -1871,35 +1542,14 @@
       "7RG"
     ],
     "type": "int",
-    "description": "Investissements outre-mer dans le cadre de l'entreprise : Investissements r\u00e9alis\u00e9s en 2012, Investissements ayant fait l'objet en 2011 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un acompte d'au moins 50%, investissements dans votre entreprise."
-  },
-  {
-    "boxes": [
-      "7RG"
-    ],
-    "type": "int",
-    "description": "QuaEnv."
+    "description": "Report concernant les investissements locatifs interm\u00e9diaires en outre-mer en 2018 avec engagement de location 6 ans."
   },
   {
     "boxes": [
       "7RH"
     ],
     "type": "int",
-    "description": "Investissements outre-mer dans le cadre de l'entreprise : Investissements r\u00e9alis\u00e9s en 2012, Investissements ayant fait l'objet en 2011 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un acompte d'au moins 50%, investissements dans votre entreprise avec exploitation directe, montant de la r\u00e9duction d'imp\u00f4t calcul\u00e9e."
-  },
-  {
-    "boxes": [
-      "7RI"
-    ],
-    "type": "int",
-    "description": "Investissements outre-mer dans le cadre de l'entreprise : Investissements r\u00e9alis\u00e9s en 2012, Investissements ayant fait l'objet en 2011 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un acompte d'au moins 50%, investissements dans votre entreprise avec exploitation directe, montant de la r\u00e9duction d'imp\u00f4t dont vous demandez l'imputation en 2012."
-  },
-  {
-    "boxes": [
-      "7RI"
-    ],
-    "type": "int",
-    "description": "QuaEnv."
+    "description": "Report concernant les investissements locatifs interm\u00e9diaires en outre-mer en 2018 avec engagement de location 9 ans."
   },
   {
     "boxes": [
@@ -1907,20 +1557,6 @@
     ],
     "type": "int",
     "description": "Scellier."
-  },
-  {
-    "boxes": [
-      "7RJ"
-    ],
-    "type": "int",
-    "description": "Investissements outre-mer dans le cadre de l'entreprise : Investissements ayant fait l'objet avant 2009 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un acompte d'au moins 50 %."
-  },
-  {
-    "boxes": [
-      "7RJ"
-    ],
-    "type": "int",
-    "description": "QuaEnv."
   },
   {
     "boxes": [
@@ -1962,35 +1598,7 @@
       "7RK"
     ],
     "type": "int",
-    "description": "Investissements outre-mer dans le cadre de l'entreprise : Investissements ayant fait l'objet en 2009 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un acompte d'au moins 50 %, investissements donn\u00e9s en location \u00e0 une entreprise exploitante \u00e0 laquelle vous r\u00e9troc\u00e9dez la r\u00e9duction d'imp\u00f4t \u00e0 hauteur de 52,63 %."
-  },
-  {
-    "boxes": [
-      "7RK"
-    ],
-    "type": "int",
-    "description": "QuaEnv."
-  },
-  {
-    "boxes": [
-      "7RK"
-    ],
-    "type": "int",
     "description": "Scellier."
-  },
-  {
-    "boxes": [
-      "7RL"
-    ],
-    "type": "int",
-    "description": "Investissements outre-mer dans le cadre de l'entreprise : Investissements ayant fait l'objet en 2009 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un acompte d'au moins 50 %, investissements donn\u00e9s en location \u00e0 une entreprise exploitante \u00e0 laquelle vous r\u00e9troc\u00e9dez la r\u00e9duction d'imp\u00f4t \u00e0 hauteur de 62,5 %."
-  },
-  {
-    "boxes": [
-      "7RL"
-    ],
-    "type": "int",
-    "description": "QuaEnv."
   },
   {
     "boxes": [
@@ -2004,21 +1612,7 @@
       "7RM"
     ],
     "type": "int",
-    "description": "Investissements outre-mer dans le cadre de l'entreprise : Investissements ayant fait l'objet en 2009 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un acompte d'au moins 50 %, investissements dans votre entreprise."
-  },
-  {
-    "boxes": [
-      "7RM"
-    ],
-    "type": "int",
     "description": "Scellier."
-  },
-  {
-    "boxes": [
-      "7RN"
-    ],
-    "type": "int",
-    "description": "QuaEnv."
   },
   {
     "boxes": [
@@ -2032,28 +1626,7 @@
       "7RO"
     ],
     "type": "int",
-    "description": "Investissements outre-mer dans le cadre de l'entreprise : Investissements ayant fait l'objet en 2009 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un acompte d'au moins 50 %, investissements dans votre entreprise avec exploitation directe, montant de la r\u00e9duction d'imp\u00f4t dont vous demandez l'imputation en 2012."
-  },
-  {
-    "boxes": [
-      "7RO"
-    ],
-    "type": "int",
     "description": "Scellier."
-  },
-  {
-    "boxes": [
-      "7RP"
-    ],
-    "type": "int",
-    "description": "Investissements outre-mer dans le cadre de l'entreprise : Investissements ayant fait l'objet en 2010 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un acompte d'au moins 50 %, investissements donn\u00e9s en location \u00e0 une entreprise exploitante \u00e0 laquelle vous r\u00e9troc\u00e9dez la r\u00e9duction d'imp\u00f4t \u00e0 hauteur de 52,63 %."
-  },
-  {
-    "boxes": [
-      "7RP"
-    ],
-    "type": "int",
-    "description": "QuaEnv."
   },
   {
     "boxes": [
@@ -2067,35 +1640,7 @@
       "7RQ"
     ],
     "type": "int",
-    "description": "Investissements outre-mer dans le cadre de l'entreprise : Investissements ayant fait l'objet en 2010 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un acompte d'au moins 50 %, investissements donn\u00e9s en location \u00e0 une entreprise exploitante \u00e0 laquelle vous r\u00e9troc\u00e9dez la r\u00e9duction d'imp\u00f4t \u00e0 hauteur de 62,5 %."
-  },
-  {
-    "boxes": [
-      "7RQ"
-    ],
-    "type": "int",
-    "description": "QuaEnv."
-  },
-  {
-    "boxes": [
-      "7RQ"
-    ],
-    "type": "int",
     "description": "Scellier."
-  },
-  {
-    "boxes": [
-      "7RR"
-    ],
-    "type": "int",
-    "description": "Investissements outre-mer dans le cadre de l'entreprise : Investissements ayant fait l'objet en 2010 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un acompte d'au moins 50 %, investissements dans votre entreprise."
-  },
-  {
-    "boxes": [
-      "7RR"
-    ],
-    "type": "int",
-    "description": "QuaEnv."
   },
   {
     "boxes": [
@@ -2103,20 +1648,6 @@
     ],
     "type": "int",
     "description": "Pinel."
-  },
-  {
-    "boxes": [
-      "7RS"
-    ],
-    "type": "int",
-    "description": "Investissements outre-mer dans le cadre de l'entreprise : Investissements ayant fait l'objet en 2010 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un acompte d'au moins 50 %, investissements dans votre entreprise avec exploitation directe, montant de la r\u00e9duction d'imp\u00f4t calcul\u00e9e."
-  },
-  {
-    "boxes": [
-      "7RS"
-    ],
-    "type": "int",
-    "description": "QuaEnv."
   },
   {
     "boxes": [
@@ -2137,20 +1668,6 @@
       "7RT"
     ],
     "type": "int",
-    "description": "Investissements outre-mer dans le cadre de l'entreprise : Investissements ayant fait l'objet en 2010 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un acompte d'au moins 50 %, investissements dans votre entreprise avec exploitation directe, montant de la r\u00e9duction d'imp\u00f4t dont vous demandez l'imputation en 2012."
-  },
-  {
-    "boxes": [
-      "7RT"
-    ],
-    "type": "int",
-    "description": "QuaEnv."
-  },
-  {
-    "boxes": [
-      "7RT"
-    ],
-    "type": "int",
     "description": "Scellier."
   },
   {
@@ -2165,35 +1682,7 @@
       "7RU"
     ],
     "type": "int",
-    "description": "Investissements outre-mer dans le cadre de l'entreprise : Investissements ayant fait l'objet en 2011 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un acompte d'au moins 50 %, investissements donn\u00e9s en location \u00e0 une entreprise exploitante \u00e0 laquelle vous r\u00e9troc\u00e9dez la r\u00e9duction d'imp\u00f4t \u00e0 hauteur de 52,63 %."
-  },
-  {
-    "boxes": [
-      "7RU"
-    ],
-    "type": "int",
-    "description": "QuaEnv."
-  },
-  {
-    "boxes": [
-      "7RU"
-    ],
-    "type": "int",
     "description": "Scellier."
-  },
-  {
-    "boxes": [
-      "7RV"
-    ],
-    "type": "int",
-    "description": "Investissements outre-mer dans le cadre de l'entreprise : Investissements ayant fait l'objet en 2011 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un acompte d'au moins 50 %, investissements donn\u00e9s en location \u00e0 une entreprise exploitante \u00e0 laquelle vous r\u00e9troc\u00e9dez la r\u00e9duction d'imp\u00f4t \u00e0 hauteur de 62,5 %."
-  },
-  {
-    "boxes": [
-      "7RV"
-    ],
-    "type": "int",
-    "description": "QuaEnv."
   },
   {
     "boxes": [
@@ -2214,20 +1703,6 @@
       "7RW"
     ],
     "type": "int",
-    "description": "Investissements outre-mer dans le cadre de l'entreprise : Investissements ayant fait l'objet en 2011 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un acompte d'au moins 50 %, investissements dans votre entreprise."
-  },
-  {
-    "boxes": [
-      "7RW"
-    ],
-    "type": "int",
-    "description": "QuaEnv."
-  },
-  {
-    "boxes": [
-      "7RW"
-    ],
-    "type": "int",
     "description": "Scellier."
   },
   {
@@ -2236,13 +1711,6 @@
     ],
     "type": "int",
     "description": "Investissements outre-mer dans le cadre de l'entreprise : Investissements ayant fait l'objet en 2011 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un acompte d'au moins 50 %, investissements dans votre entreprise avec exploitation directe, montant de la r\u00e9duction d'imp\u00f4t calcul\u00e9e."
-  },
-  {
-    "boxes": [
-      "7RY"
-    ],
-    "type": "int",
-    "description": "Investissements outre-mer dans le cadre de l'entreprise : Investissements ayant fait l'objet en 2011 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un acompte d'au moins 50 %, investissements dans votre entreprise avec exploitation directe, montant de la r\u00e9duction d'imp\u00f4t dont vous demandez l'imputation en 2012."
   },
   {
     "boxes": [
@@ -2361,13 +1829,6 @@
       "7NU"
     ],
     "type": "int",
-    "description": "Investissements outre-mer dans le cadre de l'entreprise : Investissements autres que ceux des lignes pr\u00e9c\u00e9dentes, investissements donn\u00e9s en location \u00e0 une entreprise exploitante \u00e0 laquelle vous r\u00e9troc\u00e9dez la r\u00e9duction d'imp\u00f4t \u00e0 hauteur de 52,63 %."
-  },
-  {
-    "boxes": [
-      "7NU"
-    ],
-    "type": "int",
     "description": "Scellier."
   },
   {
@@ -2382,21 +1843,7 @@
       "7NV"
     ],
     "type": "int",
-    "description": "Investissements outre-mer dans le cadre de l'entreprise : Investissements autres que ceux des lignes pr\u00e9c\u00e9dentes, investissements donn\u00e9s en location \u00e0 une entreprise exploitante \u00e0 laquelle vous r\u00e9troc\u00e9dez la r\u00e9duction d'imp\u00f4t \u00e0 hauteur de 62,5 %."
-  },
-  {
-    "boxes": [
-      "7NV"
-    ],
-    "type": "int",
     "description": "Scellier."
-  },
-  {
-    "boxes": [
-      "7NW"
-    ],
-    "type": "int",
-    "description": "Investissements outre-mer dans le cadre de l'entreprise : Investissements autres que ceux des lignes pr\u00e9c\u00e9dentes, investissements dans votre entreprise."
   },
   {
     "boxes": [
@@ -2431,13 +1878,6 @@
       "7NY"
     ],
     "type": "int",
-    "description": "Investissements outre-mer dans le cadre de l'entreprise : Investissements autres que ceux des lignes pr\u00e9c\u00e9dentes, investissements dans votre entreprise avec exploitation directe, montant de la r\u00e9duction d'imp\u00f4t dont vous demandez l'imputation en 2012."
-  },
-  {
-    "boxes": [
-      "7NY"
-    ],
-    "type": "int",
     "description": "Malraux."
   },
   {
@@ -2466,13 +1906,6 @@
       "7LH"
     ],
     "type": "int",
-    "description": "Investissements outre-mer dans le cadre de l'entreprise REPORT : Investissements r\u00e9alis\u00e9s en 2010, Investissements ayant fait l'objet en 2009 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un accompte d'au moins 50%, Investissements donn\u00e9s en location \u00e0 une entreprise exploitante \u00e0 laquelle vous r\u00e9troc\u00e9dez la r\u00e9duction d'imp\u00f4t \u00e0 hauteur de 50%."
-  },
-  {
-    "boxes": [
-      "7LH"
-    ],
-    "type": "int",
     "description": "Investissements locatifs neufs dispositif Scellier: Report du solde des r\u00e9ductions d'imp\u00f4ts non encore imput\u00e9, Investissements r\u00e9alis\u00e9s et achev\u00e9s en 2010 ; r\u00e9alis\u00e9s en 2010 et achev\u00e9s en 2011 ; r\u00e9alis\u00e9s et achev\u00e9s en 2011 avec engagement en 2010, Report de l'ann\u00e9e 2014."
   },
   {
@@ -2487,28 +1920,7 @@
       "7MB"
     ],
     "type": "int",
-    "description": "Investissements outre-mer dans le cadre de l'entreprise REPORT : Investissements r\u00e9alis\u00e9s en 2010, Investissements ayant fait l'objet en 2009 d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un accompte d'au moins 50%, Investissements donn\u00e9s en location \u00e0 une entreprise exploitante \u00e0 laquelle vous r\u00e9troc\u00e9dez la r\u00e9duction d'imp\u00f4t \u00e0 hauteur de 60%."
-  },
-  {
-    "boxes": [
-      "7MB"
-    ],
-    "type": "int",
     "description": "Scellier."
-  },
-  {
-    "boxes": [
-      "7KT"
-    ],
-    "type": "int",
-    "description": "Investissements outre-mer dans le cadre de l'entreprise REPORT : Investissements r\u00e9alis\u00e9s en 2010, Investissements donn\u00e9s en location \u00e0 une entreprise exploitante \u00e0 laquelle vous r\u00e9troc\u00e9dez la r\u00e9duction d'imp\u00f4t, Investissements dans votre entreprise."
-  },
-  {
-    "boxes": [
-      "7LI"
-    ],
-    "type": "int",
-    "description": "Investissements outre-mer dans le cadre de l'entreprise REPORT : Investissements r\u00e9alis\u00e9s en 2010, Autres investissements r\u00e9alis\u00e9s en 2010, Investissements donn\u00e9s en location \u00e0 une entreprise exploitante \u00e0 laquelle vous r\u00e9troc\u00e9dez la r\u00e9duction d'imp\u00f4t \u00e0 hauteur de 50%."
   },
   {
     "boxes": [
@@ -2523,13 +1935,6 @@
     ],
     "type": "int",
     "description": "Investissements outre-mer dans le cadre de l'entreprise REPORT : Investissements r\u00e9alis\u00e9s en 2010, Autres investissements r\u00e9alis\u00e9s en 2010, Investissements donn\u00e9s en location \u00e0 une entreprise exploitante \u00e0 laquelle vous r\u00e9troc\u00e9dez la r\u00e9duction d'imp\u00f4t \u00e0 hauteur de 50%."
-  },
-  {
-    "boxes": [
-      "7MC"
-    ],
-    "type": "int",
-    "description": "Investissements outre-mer dans le cadre de l'entreprise REPORT : Investissements r\u00e9alis\u00e9s en 2010, Autres investissements r\u00e9alis\u00e9s en 2010, Investissements donn\u00e9s en location \u00e0 une entreprise exploitante \u00e0 laquelle vous r\u00e9troc\u00e9dez la r\u00e9duction d'imp\u00f4t \u00e0 hauteur de 60%."
   },
   {
     "boxes": [
@@ -2557,14 +1962,7 @@
       "7SZ"
     ],
     "type": "int",
-    "description": "Investissements Outre-Mer; Report de la r\u00e9duction N-1."
-  },
-  {
-    "boxes": [
-      "7SZ"
-    ],
-    "type": "int",
-    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale des logements donn\u00e9s en location."
+    "description": "Report concernant les investissements locatifs interm\u00e9diaires en outre-mer en 2016 avec engagement de location 6 ans."
   },
   {
     "boxes": [
@@ -3656,21 +3054,7 @@
       "7FY"
     ],
     "type": "int",
-    "description": "Aide aux cr\u00e9ateurs et repreneurs d'entreprises, nombre de cr\u00e9ateurs aid\u00e9s: conventions sign\u00e9es avant l'ann\u00e9e n-1 et ayant pris fin en ann\u00e9e n-1."
-  },
-  {
-    "boxes": [
-      "7GY"
-    ],
-    "type": "int",
-    "description": "Aide aux cr\u00e9ateurs et repreneurs d'entreprises, nombre de cr\u00e9ateurs aid\u00e9s dont handicap\u00e9\u00b7e\u00b7s: conventions sign\u00e9es avant l'ann\u00e9e n-1 et ayant pris fin en ann\u00e9e n-1."
-  },
-  {
-    "boxes": [
-      "7GY"
-    ],
-    "type": "int",
-    "description": "Ass Vie."
+    "description": "Souscriptions au capital des PME non cot\u00e9es, report de r\u00e9duction d'imp\u00f4t au titre du plafonnement global de l'ann\u00e9e 2016."
   },
   {
     "boxes": [
@@ -3684,21 +3068,7 @@
       "7HY"
     ],
     "type": "int",
-    "description": "Aide aux cr\u00e9ateurs et repreneurs d'entreprises, nombre de cr\u00e9ateurs aid\u00e9s: conventions sign\u00e9es en n-1 et n'ayant pas pris fin en n-1."
-  },
-  {
-    "boxes": [
-      "7HY"
-    ],
-    "type": "int",
     "description": "Scellier."
-  },
-  {
-    "boxes": [
-      "7KY"
-    ],
-    "type": "int",
-    "description": "Aide aux cr\u00e9ateurs et repreneurs d'entreprises, nombre de cr\u00e9ateurs aid\u00e9s dont handicap\u00e9\u00b7e\u00b7s: conventions sign\u00e9es en n-1 et ayant pris fin en n-1."
   },
   {
     "boxes": [
@@ -3733,20 +3103,6 @@
       "7IY"
     ],
     "type": "int",
-    "description": "Cr\u00e9a En."
-  },
-  {
-    "boxes": [
-      "7IY"
-    ],
-    "type": "int",
-    "description": "Location Meubl\u00e9e Censi B."
-  },
-  {
-    "boxes": [
-      "7IY"
-    ],
-    "type": "int",
     "description": "Scellier."
   },
   {
@@ -3754,14 +3110,7 @@
       "7LY"
     ],
     "type": "int",
-    "description": "Aide aux cr\u00e9ateurs et repreneurs d'entreprises, nombre de cr\u00e9ateurs aid\u00e9s: conventions ayant pas pris fin l'ann\u00e9e de perception des revenus d\u00e9clar\u00e9s."
-  },
-  {
-    "boxes": [
-      "7MY"
-    ],
-    "type": "int",
-    "description": "Aide aux cr\u00e9ateurs et repreneurs d'entreprises, nombre de cr\u00e9ateurs aid\u00e9s dont handicap\u00e9\u00b7e\u00b7s: conventions ayant pas pris fin l'ann\u00e9e de perception des revenus d\u00e9clar\u00e9s."
+    "description": "Investissements locatifs neufs dispositif Scellier: Report du solde des r\u00e9ductions d'imp\u00f4ts non encore imput\u00e9, Investissements r\u00e9alis\u00e9s et achev\u00e9s en 2012 : report du solde de r\u00e9duction d'imp\u00f4t de l'ann\u00e9e 2017."
   },
   {
     "boxes": [
@@ -3775,49 +3124,42 @@
       "7RA"
     ],
     "type": "int",
-    "description": "Travaux de restauration immobili\u00e8re dans une zone de protection du patrimoine architectural, urbain et paysager."
+    "description": "Report concernant les investissements locatifs interm\u00e9diaires en m\u00e9tropole en 2017 avec engagement de location 6 ans."
   },
   {
     "boxes": [
       "7RB"
     ],
     "type": "int",
-    "description": "Travaux de restauration immobili\u00e8re dans un secteur sauvegard\u00e9 ou assimil\u00e9 : d\u00e9penses pay\u00e9es en 2014 sur op\u00e9rations engag\u00e9es en 2011."
+    "description": "Report concernant les investissements locatifs interm\u00e9diaires en m\u00e9tropole en 2017 avec engagement de location 9 ans."
   },
   {
     "boxes": [
       "7RC"
     ],
     "type": "int",
-    "description": "Travaux de restauration immobili\u00e8re dans un secteur sauvegard\u00e9 ou assimil\u00e9."
+    "description": "Report concernant les investissements locatifs interm\u00e9diaires en outre-mer en 2017 avec engagement de location 6 ans."
   },
   {
     "boxes": [
       "7RD"
     ],
     "type": "int",
-    "description": "Travaux de restauration immobili\u00e8re dans un secteur sauvegard\u00e9 ou assimil\u00e9."
+    "description": "Report concernant les investissements locatifs interm\u00e9diaires en outre-mer en 2017 avec engagement de location 9 ans."
   },
   {
     "boxes": [
       "7RE"
     ],
     "type": "int",
-    "description": "Travaux de restauration immobili\u00e8re dans un secteur sauvegard\u00e9 ou assimil\u00e9."
+    "description": "Report concernant les investissements locatifs interm\u00e9diaires en m\u00e9tropole en 2018 avec engagement de location 6 ans."
   },
   {
     "boxes": [
       "7RF"
     ],
     "type": "int",
-    "description": "Travaux de restauration immobili\u00e8re dans un secteur sauvegard\u00e9 ou assimil\u00e9."
-  },
-  {
-    "boxes": [
-      "7SX"
-    ],
-    "type": "int",
-    "description": "Travaux de restauration immobili\u00e8re dans un secteur sauvegard\u00e9 ou assimil\u00e9."
+    "description": "Report concernant les investissements locatifs interm\u00e9diaires en m\u00e9tropole en 2018 avec engagement de location 9 ans."
   },
   {
     "boxes": [
@@ -3825,13 +3167,6 @@
     ],
     "type": "int",
     "description": "Pinel."
-  },
-  {
-    "boxes": [
-      "7SY"
-    ],
-    "type": "int",
-    "description": "Travaux de restauration immobili\u00e8re dans un secteur sauvegard\u00e9 ou assimil\u00e9."
   },
   {
     "boxes": [
@@ -3845,35 +3180,21 @@
       "7TX"
     ],
     "type": "int",
-    "description": "Travaux de restauration immobili\u00e8re dans un secteur sauvegard\u00e9 ou assimil\u00e9; Op\u00e9rations engag\u00e9es en 2017 dans un site patrimonial remarquable couvert par un PSMV."
+    "description": "D\u00e9penses de travaux dans l'habitation principale : d\u00e9penses de diagnostic de performance \u00e9nerg\u00e9tique effectu\u00e9es en 2015."
   },
   {
     "boxes": [
       "7TY"
     ],
     "type": "int",
-    "description": "Travaux de restauration immobili\u00e8re dans un secteur sauvegard\u00e9 ou assimil\u00e9; Op\u00e9rations engag\u00e9es en 2017 dans un site patrimonial remarquable non couvert par un PSMV."
+    "description": "D\u00e9penses de travaux dans l'habitation principale : d\u00e9penses d'\u00e9quipements de raccordement \u00e0 un r\u00e9seau de chaleur effectu\u00e9es en 2015."
   },
   {
     "boxes": [
       "7GW"
     ],
     "type": "int",
-    "description": "Ass Vie."
-  },
-  {
-    "boxes": [
-      "7GW"
-    ],
-    "type": "int",
-    "description": "Investissements achev\u00e9s en n-2 en Polyn\u00e9sie fran\u00e7aise, Nouvelle Cal\u00e9donie, dans les \u00eeles Walllis et Futuna : report de 1/5 de la r\u00e9duction d'imp\u00f4t."
-  },
-  {
-    "boxes": [
-      "7GX"
-    ],
-    "type": "int",
-    "description": "Ass Vie."
+    "description": "Versements SFS effectu\u00e9s en 2020 / 2021 (25 %)."
   },
   {
     "boxes": [
@@ -3887,13 +3208,6 @@
       "7XA"
     ],
     "type": "int",
-    "description": "Investissements locatifs dans le secteur de touristique: travaux engag\u00e9s avant 2011 dans un village r\u00e9sidentiel de tourisme."
-  },
-  {
-    "boxes": [
-      "7XA"
-    ],
-    "type": "int",
     "description": "Scellier."
   },
   {
@@ -3901,28 +3215,7 @@
       "7XB"
     ],
     "type": "int",
-    "description": "Investissements locatifs dans le secteur de touristique: travaux engag\u00e9s avant 2011 dans une r\u00e9sidence de tourisme class\u00e9e ou meubl\u00e9e."
-  },
-  {
-    "boxes": [
-      "7XB"
-    ],
-    "type": "int",
     "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale de l'habitation principale: achat en 2015 de mat\u00e9riaux d'isolation des murs concernant au moins la moiti\u00e9 de la surface des murs."
-  },
-  {
-    "boxes": [
-      "7XC"
-    ],
-    "type": "int",
-    "description": "Investissements locatifs dans le secteur de touristique: prix d'acquisition ou de revient d'un logement neuf acquis ou achev\u00e9 en n-1."
-  },
-  {
-    "boxes": [
-      "7XC"
-    ],
-    "type": "int",
-    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale de l'habitation principale: achat en 2015 de mat\u00e9riaux d'isolation des murs concernant moins de la moiti\u00e9 de la surface des murs."
   },
   {
     "boxes": [
@@ -3957,21 +3250,7 @@
       "7XH"
     ],
     "type": "int",
-    "description": "Investissements locatifs dans le secteur de touristique: travaux de reconstruction, agrandissement, r\u00e9paration dans une r\u00e9sidence de tourisme class\u00e9e ou un meubl\u00e9 de tourisme."
-  },
-  {
-    "boxes": [
-      "7XH"
-    ],
-    "type": "int",
     "description": "Scellier."
-  },
-  {
-    "boxes": [
-      "7XI"
-    ],
-    "type": "int",
-    "description": "Investissements locatifs dans le secteur de touristique, logement neuf: report des d\u00e9penses d'investissement des ann\u00e9es ant\u00e9rieures."
   },
   {
     "boxes": [
@@ -3985,21 +3264,7 @@
       "7XJ"
     ],
     "type": "int",
-    "description": "Investissements locatifs dans le secteur de touristique: r\u00e9habilitation d'un logement, report des d\u00e9penses d'investissement des ann\u00e9es ant\u00e9rieures."
-  },
-  {
-    "boxes": [
-      "7XJ"
-    ],
-    "type": "int",
     "description": "Scellier."
-  },
-  {
-    "boxes": [
-      "7XK"
-    ],
-    "type": "int",
-    "description": "Investissements locatifs dans une r\u00e9sidence h\u00f4teli\u00e8re \u00e0 vocation sociale: report des d\u00e9penses d'investissement des ann\u00e9es ant\u00e9rieures."
   },
   {
     "boxes": [
@@ -4013,21 +3278,7 @@
       "7XL"
     ],
     "type": "int",
-    "description": "Investissements locatifs dans le secteur de touristique: r\u00e9habilitation d'un logement, prix de revient d'un logement r\u00e9habilit\u00e9 en n-1 et achev\u00e9 depuis moins de 15 ans."
-  },
-  {
-    "boxes": [
-      "7XL"
-    ],
-    "type": "int",
     "description": "Scellier."
-  },
-  {
-    "boxes": [
-      "7XM"
-    ],
-    "type": "int",
-    "description": "Investissements locatifs dans le secteur de touristique: r\u00e9habilitation d'un logement, report de d\u00e9penses des travaux de r\u00e9habilitation achev\u00e9s les ann\u00e9es ant\u00e9rieures."
   },
   {
     "boxes": [
@@ -4041,21 +3292,7 @@
       "7XN"
     ],
     "type": "int",
-    "description": "Investissements locatifs dans le secteur de touristique, logement neuf: report des d\u00e9penses d'investissement des ann\u00e9es ant\u00e9rieures."
-  },
-  {
-    "boxes": [
-      "7XN"
-    ],
-    "type": "int",
     "description": "Scellier."
-  },
-  {
-    "boxes": [
-      "7XO"
-    ],
-    "type": "int",
-    "description": "Investissements locatifs dans une r\u00e9sidence h\u00f4teli\u00e8re \u00e0 vocation sociale: report des d\u00e9penses d'investissement des ann\u00e9es ant\u00e9rieures."
   },
   {
     "boxes": [
@@ -4069,21 +3306,7 @@
       "7XP"
     ],
     "type": "int",
-    "description": "Investissements locatifs dans une r\u00e9sidence h\u00f4teli\u00e8re \u00e0 vocation sociale: report des d\u00e9penses d'investissement des ann\u00e9es ant\u00e9rieures."
-  },
-  {
-    "boxes": [
-      "7XP"
-    ],
-    "type": "int",
     "description": "Scellier."
-  },
-  {
-    "boxes": [
-      "7XQ"
-    ],
-    "type": "int",
-    "description": "Investissements locatifs dans une r\u00e9sidence h\u00f4teli\u00e8re \u00e0 vocation sociale: report des d\u00e9penses d'investissement des ann\u00e9es ant\u00e9rieures."
   },
   {
     "boxes": [
@@ -4105,13 +3328,6 @@
     ],
     "type": "int",
     "description": "Investissements locatifs dans le secteur de touristique: Report des d\u00e9penses d'investissement des ann\u00e9es ant\u00e9rieures."
-  },
-  {
-    "boxes": [
-      "7XX"
-    ],
-    "type": "int",
-    "description": "Investissements locatifs dans le secteur de touristique: travaux engag\u00e9s apr\u00e8s 2012 dans un village r\u00e9sidentiel de tourisme."
   },
   {
     "boxes": [
@@ -4153,7 +3369,7 @@
       "7CI"
     ],
     "type": "int",
-    "description": "Versements ESUS effectu\u00e9s du 9.5 au 31.12.2021."
+    "description": "Report concernant les investissements locatifs interm\u00e9diaires en outre-mer 2014 avec engagement de location 6 ans."
   },
   {
     "boxes": [
@@ -4161,13 +3377,6 @@
     ],
     "type": "int",
     "description": "Versements PME effectu\u00e9s du 10.8. au 31.12.2020 / du 9.5. au 31.12.2021 (25 %)."
-  },
-  {
-    "boxes": [
-      "7GW"
-    ],
-    "type": "int",
-    "description": "Versements SFS effectu\u00e9s en 2020 / 2021 (25 %)."
   },
   {
     "boxes": [
@@ -4216,14 +3425,7 @@
       "7GS"
     ],
     "type": "int",
-    "description": "Reports concernant les investissements achev\u00e9s ou acquis au cours des ann\u00e9es ant\u00e9rieures: Investissements r\u00e9alis\u00e9s en n-3 en m\u00e9tropole, dans les DOM, \u00e0 Saint-Barth\u00e9lemy, Saint-Martin, Saint-Pierre-et-Miquelon."
-  },
-  {
-    "boxes": [
-      "7UA"
-    ],
-    "type": "int",
-    "description": "Investissements outre-mer dans le secteur du logement et autres secteurs d'activit\u00e9 : dans le secteur du logement du 01-01-2002 au 20-07-2003."
+    "description": "Scellier."
   },
   {
     "boxes": [
@@ -4237,21 +3439,7 @@
       "7UB"
     ],
     "type": "int",
-    "description": "Investissements outre-mer dans le secteur du logement et autres secteurs d'activit\u00e9 : dans les autres secteurs d'activit\u00e9 du 01-01-2002 au 20-07-2003."
-  },
-  {
-    "boxes": [
-      "7UB"
-    ],
-    "type": "int",
     "description": "Investissements forestiers : travaux cons\u00e9cutifs \u00e0 un sinistre, avec adh\u00e9sion \u00e0 une organisation de producteurs."
-  },
-  {
-    "boxes": [
-      "7UC"
-    ],
-    "type": "int",
-    "description": "DomLog."
   },
   {
     "boxes": [
@@ -4265,13 +3453,6 @@
       "7UI"
     ],
     "type": "int",
-    "description": null
-  },
-  {
-    "boxes": [
-      "7UI"
-    ],
-    "type": "int",
     "description": "Investissements forestiers : contrat de gestion avec adh\u00e9sion \u00e0 une organisation de producteurs ."
   },
   {
@@ -4279,28 +3460,7 @@
       "7UJ"
     ],
     "type": "int",
-    "description": null
-  },
-  {
-    "boxes": [
-      "7UJ"
-    ],
-    "type": "int",
     "description": "Dons vers\u00e9s du 2.6 au 31.12.2021 \u00e0 des associations cultuelles."
-  },
-  {
-    "boxes": [
-      "7QB"
-    ],
-    "type": "int",
-    "description": "cappme."
-  },
-  {
-    "boxes": [
-      "7QB"
-    ],
-    "type": "int",
-    "description": "Investissements locatifs interm\u00e9diaires en m\u00e9tropole r\u00e9alis\u00e9s du 1.9.2014 au 31.12.2014 avec engagement de location 9 ans."
   },
   {
     "boxes": [
@@ -4321,20 +3481,6 @@
       "7QC"
     ],
     "type": "int",
-    "description": "cappme."
-  },
-  {
-    "boxes": [
-      "7QC"
-    ],
-    "type": "int",
-    "description": "Investissements locatifs interm\u00e9diaires en outremer r\u00e9alis\u00e9s du 1.9.2014 au 31.12.2014 avec engagement de location 6 ans."
-  },
-  {
-    "boxes": [
-      "7QC"
-    ],
-    "type": "int",
     "description": "Investissements locatifs Pinel en outremer r\u00e9alis\u00e9s 2020 avec engagement de location 6 ans."
   },
   {
@@ -4349,28 +3495,7 @@
       "7QD"
     ],
     "type": "int",
-    "description": "cappme."
-  },
-  {
-    "boxes": [
-      "7QD"
-    ],
-    "type": "int",
-    "description": "Investissements locatifs interm\u00e9diaires en outremer r\u00e9alis\u00e9s du 1.9.2014 au 31.12.2014 avec engagement de location 9 ans."
-  },
-  {
-    "boxes": [
-      "7QD"
-    ],
-    "type": "int",
     "description": "Investissements locatifs interm\u00e9diaires en outremer r\u00e9alis\u00e9s en 2020 avec engagement de location 9 ans."
-  },
-  {
-    "boxes": [
-      "HQD"
-    ],
-    "type": "int",
-    "description": null
   },
   {
     "boxes": [
@@ -4384,27 +3509,6 @@
       "7QK"
     ],
     "type": "int",
-    "description": "DomLog."
-  },
-  {
-    "boxes": [
-      "7QK"
-    ],
-    "type": "int",
-    "description": "DomSoc."
-  },
-  {
-    "boxes": [
-      "7QK"
-    ],
-    "type": "int",
-    "description": "Investissements locatifs Pinel en outremer r\u00e9alis\u00e9s en 2016 avec engagement de location 6 ans."
-  },
-  {
-    "boxes": [
-      "7QK"
-    ],
-    "type": "int",
     "description": "Investissements locatifs Pinel en outremer r\u00e9alis\u00e9s en 2021 avec engagement de location 6 ans."
   },
   {
@@ -4412,7 +3516,7 @@
       "7QN"
     ],
     "type": "int",
-    "description": null
+    "description": "Investissements locatifs interm\u00e9diaires en m\u00e9tropole r\u00e9alis\u00e9s en 2017 avec engagement de location 9 ans."
   },
   {
     "boxes": [
@@ -4433,20 +3537,6 @@
       "7QL"
     ],
     "type": "int",
-    "description": "DomLog."
-  },
-  {
-    "boxes": [
-      "7QL"
-    ],
-    "type": "int",
-    "description": "Investissements locatifs Pinel en outremer r\u00e9alis\u00e9s en 2016 avec engagement de location 9 ans."
-  },
-  {
-    "boxes": [
-      "7QL"
-    ],
-    "type": "int",
     "description": "Investissements locatifs Pinel en outremer r\u00e9alis\u00e9s en 2021 avec engagement de location 9 ans."
   },
   {
@@ -4454,14 +3544,14 @@
       "7QT"
     ],
     "type": "int",
-    "description": null
+    "description": "Investissements locatifs interm\u00e9diaires en outre-mer r\u00e9alis\u00e9s en 2018 avec engagement de location 6 ans."
   },
   {
     "boxes": [
       "7QM"
     ],
     "type": "int",
-    "description": null
+    "description": "Investissements locatifs interm\u00e9diaires en m\u00e9tropole r\u00e9alis\u00e9s en 2017 avec engagement de location 6 ans."
   },
   {
     "boxes": [
@@ -4482,7 +3572,7 @@
       "7QU"
     ],
     "type": "int",
-    "description": null
+    "description": "Investissements locatifs interm\u00e9diaires en outre-mer r\u00e9alis\u00e9s en 2018 avec engagement de location 9 ans."
   },
   {
     "boxes": [
@@ -4496,27 +3586,6 @@
       "7QJ"
     ],
     "type": "int",
-    "description": "DomEnt."
-  },
-  {
-    "boxes": [
-      "7QJ"
-    ],
-    "type": "int",
-    "description": "DomSoc."
-  },
-  {
-    "boxes": [
-      "7QJ"
-    ],
-    "type": "int",
-    "description": "Investissements locatifs Pinel en m\u00e9tropole r\u00e9alis\u00e9s en 2016 avec engagement de location 9 ans."
-  },
-  {
-    "boxes": [
-      "7QJ"
-    ],
-    "type": "int",
     "description": "Investissements locatifs Pinel en m\u00e9tropole r\u00e9alis\u00e9s en 2021 avec engagement de location 9 ans."
   },
   {
@@ -4524,21 +3593,14 @@
       "7QW"
     ],
     "type": "int",
-    "description": null
+    "description": "Investissement locatifs interm\u00e9diaires en m\u00e9tropole r\u00e9alis\u00e9s en 2019 avec engagement de location 6 ans."
   },
   {
     "boxes": [
       "7QX"
     ],
     "type": "int",
-    "description": null
-  },
-  {
-    "boxes": [
-      "7QF"
-    ],
-    "type": "int",
-    "description": null
+    "description": "Investissement locatifs interm\u00e9diaires en m\u00e9tropole r\u00e9alis\u00e9s en 2019 avec engagement de location 9 ans."
   },
   {
     "boxes": [
@@ -4550,13 +3612,6 @@
   {
     "boxes": [
       "HQF"
-    ],
-    "type": "int",
-    "description": null
-  },
-  {
-    "boxes": [
-      "7QG"
     ],
     "type": "int",
     "description": null
@@ -4580,28 +3635,7 @@
       "7QH"
     ],
     "type": "int",
-    "description": null
-  },
-  {
-    "boxes": [
-      "7QH"
-    ],
-    "type": "int",
     "description": "Pinel."
-  },
-  {
-    "boxes": [
-      "7QI"
-    ],
-    "type": "int",
-    "description": "DomEnt."
-  },
-  {
-    "boxes": [
-      "7QI"
-    ],
-    "type": "int",
-    "description": "Investissements locatifs Pinel en m\u00e9tropole r\u00e9alis\u00e9s en 2016 avec engagement de location 6 ans."
   },
   {
     "boxes": [
@@ -4622,14 +3656,14 @@
       "7QQ"
     ],
     "type": "int",
-    "description": null
+    "description": "Investissement locatifs interm\u00e9diaires en outre-mer r\u00e9alis\u00e9s en 2019 avec engagement de location 9 ans."
   },
   {
     "boxes": [
       "7QR"
     ],
     "type": "int",
-    "description": null
+    "description": "Investissements locatifs interm\u00e9diaires en m\u00e9tropole r\u00e9alis\u00e9s en 2018 avec engagement de location 6 ans."
   },
   {
     "boxes": [
@@ -4643,14 +3677,7 @@
       "7QS"
     ],
     "type": "int",
-    "description": null
-  },
-  {
-    "boxes": [
-      "7MM"
-    ],
-    "type": "int",
-    "description": "DomEnt."
+    "description": "Investissements locatifs interm\u00e9diaires en m\u00e9tropole r\u00e9alis\u00e9s en 2018 avec engagement de location 9 ans."
   },
   {
     "boxes": [
@@ -4665,13 +3692,6 @@
     ],
     "type": "int",
     "description": null
-  },
-  {
-    "boxes": [
-      "7LG"
-    ],
-    "type": "int",
-    "description": "DomEnt."
   },
   {
     "boxes": [
@@ -4713,13 +3733,6 @@
       "7MA"
     ],
     "type": "int",
-    "description": "DomEnt."
-  },
-  {
-    "boxes": [
-      "7MA"
-    ],
-    "type": "int",
     "description": "Scellier."
   },
   {
@@ -4755,49 +3768,49 @@
       "7OA"
     ],
     "type": "int",
-    "description": "Investissements outre-mer dans le logement : Investissements r\u00e9alis\u00e9s en 2011, Investissements immobiliers engag\u00e9s avant le 1.1.2011, ayant fait l'objet d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un acompte d'au moins 50% avant 2009."
+    "description": "Investissements destin\u00e9s \u00e0 la location meubl\u00e9e non professionnelle : Report de 1/9 de la r\u00e9duction d'imp\u00f4t. Investissements r\u00e9alis\u00e9s et achev\u00e9s en 2013."
   },
   {
     "boxes": [
       "7OB"
     ],
     "type": "int",
-    "description": "Investissements outre-mer dans le logement : Investissements r\u00e9alis\u00e9s en 2011, Investissements immobiliers engag\u00e9s avant le 1.1.2011, ayant fait l'objet d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un acompte d'au moins 50% en 2009."
+    "description": "Investissements destin\u00e9s \u00e0 la location meubl\u00e9e non professionnelle : Report de 1/9 de la r\u00e9duction d'imp\u00f4t. Investissements achev\u00e9s en 2013 et r\u00e9alis\u00e9s en 2012 ou r\u00e9alis\u00e9s en 2013 avec promesse d'achat en 2012."
   },
   {
     "boxes": [
       "7OC"
     ],
     "type": "int",
-    "description": "Investissements outre-mer dans le logement : Investissements r\u00e9alis\u00e9s en 2011, Investissements immobiliers engag\u00e9s avant le 1.1.2011, ayant fait l'objet d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un acompte d'au moins 50% en 2010."
+    "description": "Investissements destin\u00e9s \u00e0 la location meubl\u00e9e non professionnelle : Report de 1/9 de la r\u00e9duction d'imp\u00f4t. Investissements achev\u00e9s en 2013 et r\u00e9alis\u00e9s en 2011 ou r\u00e9alis\u00e9s en 2012 avec promesse d'achat en 2011."
   },
   {
     "boxes": [
       "7OH"
     ],
     "type": "int",
-    "description": "Investissements outre-mer dans le logement : Investissements r\u00e9alis\u00e9s en 2011, Investissements immobiliers engag\u00e9s en 2011, ayant fait l'objet d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un acompte d'au moins 50% avant 2009."
+    "description": "Investissements destin\u00e9s \u00e0 la location meubl\u00e9e non professionnelle : Report de 1/9 de la r\u00e9duction d'imp\u00f4t. Investissements achev\u00e9s en 2014 et r\u00e9alis\u00e9s en 2011 ou r\u00e9alis\u00e9s en 2012 avec promesse d'achat en 2011."
   },
   {
     "boxes": [
       "7OI"
     ],
     "type": "int",
-    "description": "Investissements outre-mer dans le logement : Investissements r\u00e9alis\u00e9s en 2011, Investissements immobiliers engag\u00e9s en 2011, ayant fait l'objet d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un acompte d'au moins 50% en 2009."
+    "description": "Investissements destin\u00e9s \u00e0 la location meubl\u00e9e non professionnelle : Report de 1/9 de la r\u00e9duction d'imp\u00f4t. Investissements achev\u00e9s en 2014 et r\u00e9alis\u00e9s en 2010 ou r\u00e9alis\u00e9s en 2011 avec promesse d'achat en 2010."
   },
   {
     "boxes": [
       "7OJ"
     ],
     "type": "int",
-    "description": "Investissements outre-mer dans le logement : Investissements r\u00e9alis\u00e9s en 2011, Investissements immobiliers engag\u00e9s en 2011, ayant fait l'objet d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un acompte d'au moins 50% en 2010."
+    "description": "Investissements destin\u00e9s \u00e0 la location meubl\u00e9e non professionnelle : Report de 1/9 de la r\u00e9duction d'imp\u00f4t. Investissements achev\u00e9s en 2014 et r\u00e9alis\u00e9s en 2009 ou r\u00e9alis\u00e9s en 2010 avec promesse d'achat en 2009."
   },
   {
     "boxes": [
       "7OK"
     ],
     "type": "int",
-    "description": "Investissements outre-mer dans le logement."
+    "description": "Investissements outre-mer dans le logement : Investissements r\u00e9alis\u00e9s en 2011, Autres investissements."
   },
   {
     "boxes": [
@@ -4857,62 +3870,6 @@
   },
   {
     "boxes": [
-      "7FY"
-    ],
-    "type": "int",
-    "description": "Souscriptions au capital des PME non cot\u00e9es, report de r\u00e9duction d'imp\u00f4t au titre du plafonnement global de l'ann\u00e9e 2016."
-  },
-  {
-    "boxes": [
-      "7GS"
-    ],
-    "type": "int",
-    "description": "Souscriptions au capital des PME non cot\u00e9es, report de versement de l'ann\u00e9e de perception des revenus -1 pour les start-up."
-  },
-  {
-    "boxes": [
-      "7GS"
-    ],
-    "type": "int",
-    "description": "Scellier."
-  },
-  {
-    "boxes": [
-      "7OK"
-    ],
-    "type": "int",
-    "description": "Investissements outre-mer dans le logement : Investissements r\u00e9alis\u00e9s en 2011, Autres investissements."
-  },
-  {
-    "boxes": [
-      "7OL"
-    ],
-    "type": "int",
-    "description": "Investissements outre-mer dans le logement : Investissements r\u00e9alis\u00e9s en 2012, Investissements immobiliers  que vous avez engag\u00e9 avant le 1.1.2011, ayant fait l'objet d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un acompte d'au moins 50 % avant 2009."
-  },
-  {
-    "boxes": [
-      "7OM"
-    ],
-    "type": "int",
-    "description": "Investissements outre-mer dans le logement : Investissements r\u00e9alis\u00e9s en 2012, Investissements immobiliers  que vous avez engag\u00e9 avant le 1.1.2011, ayant fait l'objet d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un acompte d'au moins 50 % en 2009."
-  },
-  {
-    "boxes": [
-      "7ON"
-    ],
-    "type": "int",
-    "description": "Investissements outre-mer dans le logement : Investissements r\u00e9alis\u00e9s en 2012, Investissements immobiliers  que vous avez engag\u00e9 avant le 1.1.2011, ayant fait l'objet d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un acompte d'au moins 50 % en 2010."
-  },
-  {
-    "boxes": [
-      "7OO"
-    ],
-    "type": "int",
-    "description": "Investissements outre-mer dans le logement : Investissements r\u00e9alis\u00e9s en 2012, Investissements immobiliers  que vous avez engag\u00e9 en 2011, ayant fait l'objet d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un acompte d'au moins 50 % avant 2009."
-  },
-  {
-    "boxes": [
       "7OL"
     ],
     "type": "int",
@@ -4944,49 +3901,42 @@
       "7OP"
     ],
     "type": "int",
-    "description": "Investissements outre-mer dans le logement : Investissements r\u00e9alis\u00e9s en 2012, Investissements immobiliers  que vous avez engag\u00e9 en 2011, ayant fait l'objet d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un acompte d'au moins 50 % en 2009."
+    "description": "Investissements destin\u00e9s \u00e0 la location meubl\u00e9e non professionnelle : Report de 1/9 de la r\u00e9duction d'imp\u00f4t. Investissements r\u00e9alis\u00e9s en 2013 ou 2014 et achev\u00e9s en 2016."
   },
   {
     "boxes": [
       "7OQ"
     ],
     "type": "int",
-    "description": "Investissements outre-mer dans le logement : Investissements r\u00e9alis\u00e9s en 2012, Investissements immobiliers  que vous avez engag\u00e9 en 2011, ayant fait l'objet d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un acompte d'au moins 50 % en 2010."
+    "description": "Investissements destin\u00e9s \u00e0 la location meubl\u00e9e non professionnelle : Report de 1/9 de la r\u00e9duction d'imp\u00f4t. Investissements achev\u00e9s en 2016 et r\u00e9alis\u00e9s en 2012 ou r\u00e9alis\u00e9s en 2013 avec promesse d'achat en 2012."
   },
   {
     "boxes": [
       "7OR"
     ],
     "type": "int",
-    "description": "Investissements outre-mer dans le logement : Investissements r\u00e9alis\u00e9s en 2012, Investissements immobiliers  que vous avez engag\u00e9 en 2011, ayant fait l'objet d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un acompte d'au moins 50 % en 2011."
+    "description": "Investissements destin\u00e9s \u00e0 la location meubl\u00e9e non professionnelle : Report de 1/9 de la r\u00e9duction d'imp\u00f4t. Investissements achev\u00e9s en 2016 et r\u00e9alis\u00e9s en 2011 ou r\u00e9alis\u00e9s en 2012 avec promesse d'achat en 2011."
   },
   {
     "boxes": [
       "7OS"
     ],
     "type": "int",
-    "description": "Investissements outre-mer dans le logement : Investissements r\u00e9alis\u00e9s en 2012, Investissements immobiliers  que vous avez engag\u00e9 en 2012, ayant fait l'objet d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un acompte d'au moins 50 % avant 2009."
+    "description": "Investissements destin\u00e9s \u00e0 la location meubl\u00e9e non professionnelle : Report de 1/9 de la r\u00e9duction d'imp\u00f4t. Investissements achev\u00e9s en 2016 et r\u00e9alis\u00e9s en 2010 ou r\u00e9alis\u00e9s en 2011 avec promesse d'achat en 2010."
   },
   {
     "boxes": [
       "7OT"
     ],
     "type": "int",
-    "description": "Investissements outre-mer dans le logement : Investissements r\u00e9alis\u00e9s en 2012, Investissements immobiliers  que vous avez engag\u00e9 en 2012, ayant fait l'objet d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un acompte d'au moins 50 % en 2009."
+    "description": "Investissements destin\u00e9s \u00e0 la location meubl\u00e9e non professionnelle : Report de 1/9 de la r\u00e9duction d'imp\u00f4t. Investissements achev\u00e9s en 2016 et r\u00e9alis\u00e9s en 2009 ou r\u00e9alis\u00e9s en 2010 avec promesse d'achat en 2009."
   },
   {
     "boxes": [
       "7OU"
     ],
     "type": "int",
-    "description": "Investissements outre-mer dans le logement : Investissements r\u00e9alis\u00e9s en 2012, Investissements immobiliers  que vous avez engag\u00e9 en 2012, ayant fait l'objet d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un acompte d'au moins 50 % en 2010."
-  },
-  {
-    "boxes": [
-      "7OV"
-    ],
-    "type": "int",
-    "description": "Investissements outre-mer dans le logement : Investissements r\u00e9alis\u00e9s en 2012, Investissements immobiliers  que vous avez engag\u00e9 en 2012, ayant fait l'objet d'une demande d'agr\u00e9ment, d'une d\u00e9claration d'ouverture de chantier ou d'un acompte d'au moins 50 % en 2011."
+    "description": "Investissements destin\u00e9s \u00e0 la location meubl\u00e9e non professionnelle : Investissements r\u00e9alis\u00e9s en 2014."
   },
   {
     "boxes": [
@@ -4994,13 +3944,6 @@
     ],
     "type": "int",
     "description": "Location Meubl\u00e9e Censi B."
-  },
-  {
-    "boxes": [
-      "7OW"
-    ],
-    "type": "int",
-    "description": "Investissements outre-mer dans le logement : Investissements r\u00e9alis\u00e9s en 2012, ."
   },
   {
     "boxes": [
@@ -5022,13 +3965,6 @@
     ],
     "type": "int",
     "description": "Investissements destin\u00e9s \u00e0 la location meubl\u00e9e non professionnelle : Investissements r\u00e9alis\u00e9s en 2018."
-  },
-  {
-    "boxes": [
-      "7PZ"
-    ],
-    "type": "int",
-    "description": "Investissements destin\u00e9s \u00e0 la location meubl\u00e9e non professionnelle : Investissements r\u00e9alis\u00e9s en 2019."
   },
   {
     "boxes": [
@@ -5700,7 +4636,7 @@
       "7HL"
     ],
     "type": "int",
-    "description": "Souscription de parts de fonds d'investissement de proximit\u00e9 investis outre-mer par des personnes domicili\u00e9es outre-mer."
+    "description": "Investissements locatifs neufs dispositif Scellier: investissements r\u00e9alis\u00e9s en 2009 (m\u00e9tropole et DOM ne respectant pas les plafonds)."
   },
   {
     "boxes": [
@@ -5756,21 +4692,7 @@
       "7KA"
     ],
     "type": "int",
-    "description": "D\u00e9penses de protection du patrimoine naturel."
-  },
-  {
-    "boxes": [
-      "7KA"
-    ],
-    "type": "int",
     "description": "Scellier."
-  },
-  {
-    "boxes": [
-      "7KB"
-    ],
-    "type": "int",
-    "description": "D\u00e9penses de protection du patrimoine naturel (exc\u00e9dent de r\u00e9duction d\u2019imp\u00f4t d\u2019ann\u00e9es ant\u00e9rieures qui n\u2019a pu \u00eatre imput\u00e9)."
   },
   {
     "boxes": [
@@ -5784,21 +4706,7 @@
       "7KC"
     ],
     "type": "int",
-    "description": "D\u00e9penses de protection du patrimoine naturel (exc\u00e9dent de r\u00e9duction d\u2019imp\u00f4t d\u2019ann\u00e9es ant\u00e9rieures qui n\u2019a pu \u00eatre imput\u00e9)."
-  },
-  {
-    "boxes": [
-      "7KC"
-    ],
-    "type": "int",
     "description": "Scellier."
-  },
-  {
-    "boxes": [
-      "7KD"
-    ],
-    "type": "int",
-    "description": "D\u00e9penses de protection du patrimoine naturel (exc\u00e9dent de r\u00e9duction d\u2019imp\u00f4t d\u2019ann\u00e9es ant\u00e9rieures qui n\u2019a pu \u00eatre imput\u00e9)."
   },
   {
     "boxes": [
@@ -5813,13 +4721,6 @@
     ],
     "type": "int",
     "description": "D\u00e9penses de protection du patrimoine naturel (exc\u00e9dent de r\u00e9duction d\u2019imp\u00f4t d\u2019ann\u00e9es ant\u00e9rieures qui n\u2019a pu \u00eatre imput\u00e9)."
-  },
-  {
-    "boxes": [
-      "7UH"
-    ],
-    "type": "int",
-    "description": "Dons et cotisations vers\u00e9s aux partis politiques."
   },
   {
     "boxes": [
@@ -5840,13 +4741,6 @@
       "7UU"
     ],
     "type": "int",
-    "description": "Investissements forestiers : report N-4, hors sinistre."
-  },
-  {
-    "boxes": [
-      "7UU"
-    ],
-    "type": "int",
     "description": "Scellier."
   },
   {
@@ -5854,21 +4748,7 @@
       "7UV"
     ],
     "type": "int",
-    "description": "Investissements forestiers : report N-3, hors sinistre."
-  },
-  {
-    "boxes": [
-      "7UV"
-    ],
-    "type": "int",
     "description": "Scellier."
-  },
-  {
-    "boxes": [
-      "7UW"
-    ],
-    "type": "int",
-    "description": "Investissements forestiers : report N-2, hors sinistre."
   },
   {
     "boxes": [
@@ -5918,13 +4798,6 @@
     ],
     "type": "int",
     "description": "Investissements forestiers : report 2015, apr\u00e8s sinistre, avec adh\u00e9sion \u00e0 une association de producteurs."
-  },
-  {
-    "boxes": [
-      "7UX"
-    ],
-    "type": "int",
-    "description": "Investissements forestiers : report N-1, hors sinistre."
   },
   {
     "boxes": [
@@ -6022,21 +4895,7 @@
       "7HO"
     ],
     "type": "int",
-    "description": "Investissements locatifs neufs dispositif Scellier: investissements r\u00e9alis\u00e9s en 2010 dans les DOM-COM avec promesse d'achat avant le 1er janvier 2010."
-  },
-  {
-    "boxes": [
-      "7HL"
-    ],
-    "type": "int",
-    "description": "Investissements locatifs neufs dispositif Scellier: investissements r\u00e9alis\u00e9s en 2009 (m\u00e9tropole et DOM ne respectant pas les plafonds)."
-  },
-  {
-    "boxes": [
-      "7HM"
-    ],
-    "type": "int",
-    "description": "Investissements locatifs neufs dispositif Scellier: investissements r\u00e9alis\u00e9s en 2009 dans les DOM et respectant les plafonds."
+    "description": "Investissements destin\u00e9s \u00e0 la location meubl\u00e9e non professionnelle : Report du solde de r\u00e9duction d\u2019imp\u00f4t non imput\u00e9 de 2018."
   },
   {
     "boxes": [
@@ -6050,21 +4909,14 @@
       "7HR"
     ],
     "type": "int",
-    "description": "Investissements locatifs neufs dispositif Scellier: investissements r\u00e9alis\u00e9s et achev\u00e9s en 2009, en m\u00e9tropole en 2009; dans les DOM du 1.1.2009 au 26.5.2009 ; dans les DOM du 27.5.2009 au 30.12.2009 lorsqu'ils ne respectent pas les plafonds sp\u00e9cifiques."
+    "description": "Investissements destin\u00e9s \u00e0 la location meubl\u00e9e non professionnelle : Report du solde de r\u00e9duction d\u2019imp\u00f4t non imput\u00e9 de 2018."
   },
   {
     "boxes": [
       "7HS"
     ],
     "type": "int",
-    "description": "Investissements locatifs neufs dispositif Scellier: investissements r\u00e9alis\u00e9s et achev\u00e9s en 2009 dans les DOM COM du 27.5.2009 au 31.12.2009 respectant les plafonds sp\u00e9cifiques."
-  },
-  {
-    "boxes": [
-      "7LA"
-    ],
-    "type": "int",
-    "description": "Investissements locatifs neufs dispositif Scellier: Report du solde des r\u00e9ductions d'imp\u00f4ts non encore imput\u00e9, Investissements r\u00e9alis\u00e9s et achev\u00e9s en 2009 ou 2010 ou r\u00e9alis\u00e9s et achev\u00e9s en 2010 avec engagement avant le 1.1.2010, Report de l'ann\u00e9e 2009."
+    "description": "Investissements destin\u00e9s \u00e0 la location meubl\u00e9e non professionnelle : Report du solde de r\u00e9duction d\u2019imp\u00f4t non imput\u00e9 de 2018."
   },
   {
     "boxes": [
@@ -6078,21 +4930,7 @@
       "7LB"
     ],
     "type": "int",
-    "description": "Investissements locatifs neufs dispositif Scellier: Report du solde des r\u00e9ductions d'imp\u00f4ts non encore imput\u00e9, Investissements r\u00e9alis\u00e9s et achev\u00e9s en 2009 ou 2010 ou r\u00e9alis\u00e9s et achev\u00e9s en 2010 avec engagement avant le 1.1.2010, Report de l'ann\u00e9e 2010."
-  },
-  {
-    "boxes": [
-      "7LB"
-    ],
-    "type": "int",
     "description": "Investissements locatifs neufs dispositif Scellier: Report du solde des r\u00e9ductions d'imp\u00f4ts non encore imput\u00e9, Investissements r\u00e9alis\u00e9s et achev\u00e9s en 2010 ; r\u00e9alis\u00e9s en 2010 et achev\u00e9s en 2011 ; r\u00e9alis\u00e9s et achev\u00e9s en 2011 avec engagement en 2010, Report de l'ann\u00e9e 2017."
-  },
-  {
-    "boxes": [
-      "7LC"
-    ],
-    "type": "int",
-    "description": "Investissements locatifs neufs dispositif Scellier: Report du solde des r\u00e9ductions d'imp\u00f4ts non encore imput\u00e9, Investissements r\u00e9alis\u00e9s et achev\u00e9s en 2010 ; r\u00e9alis\u00e9s en 2010 et achev\u00e9s en 2011 ; r\u00e9alis\u00e9s et achev\u00e9s en 2011 avec engagement en 2010, Report de l'ann\u00e9e 2010."
   },
   {
     "boxes": [
@@ -6127,13 +4965,6 @@
       "7LS"
     ],
     "type": "int",
-    "description": "DomEnt."
-  },
-  {
-    "boxes": [
-      "7LS"
-    ],
-    "type": "int",
     "description": "Investissements locatifs neufs dispositif Scellier: Report du solde des r\u00e9ductions d'imp\u00f4ts non encore imput\u00e9, Investissements r\u00e9alis\u00e9s et achev\u00e9s en 2010 ; r\u00e9alis\u00e9s en 2010 et achev\u00e9s en 2011 ; r\u00e9alis\u00e9s et achev\u00e9s en 2011 avec engagement en 2010."
   },
   {
@@ -6142,13 +4973,6 @@
     ],
     "type": "int",
     "description": "Investissements locatifs neufs dispositif Scellier: Report du solde des r\u00e9ductions d'imp\u00f4ts non encore imput\u00e9, Investissements r\u00e9alis\u00e9s et achev\u00e9s en 2010 ; r\u00e9alis\u00e9s en 2010 et achev\u00e9s en 2011 ; r\u00e9alis\u00e9s et achev\u00e9s en 2011 avec engagement en 2010, Report de l'ann\u00e9e 2013."
-  },
-  {
-    "boxes": [
-      "7LM"
-    ],
-    "type": "int",
-    "description": "Investissements locatifs neufs dispositif Scellier: Report du solde des r\u00e9ductions d'imp\u00f4ts non encore imput\u00e9, Investissements r\u00e9alis\u00e9s et achev\u00e9s en 2009 ou 2010 ou r\u00e9alis\u00e9s et achev\u00e9s en 2010 avec engagement avant le 1.1.2010."
   },
   {
     "boxes": [
@@ -6191,13 +5015,6 @@
     ],
     "type": "int",
     "description": "Investissements locatifs neufs dispositif Scellier: Report du solde des r\u00e9ductions d'imp\u00f4ts non encore imput\u00e9, Investissements r\u00e9alis\u00e9s et achev\u00e9s en 2012 : report du solde de r\u00e9duction d'imp\u00f4t de l'ann\u00e9e 2016."
-  },
-  {
-    "boxes": [
-      "7LY"
-    ],
-    "type": "int",
-    "description": "Investissements locatifs neufs dispositif Scellier: Report du solde des r\u00e9ductions d'imp\u00f4ts non encore imput\u00e9, Investissements r\u00e9alis\u00e9s et achev\u00e9s en 2012 : report du solde de r\u00e9duction d'imp\u00f4t de l'ann\u00e9e 2017."
   },
   {
     "boxes": [
@@ -6274,35 +5091,28 @@
       "7NA"
     ],
     "type": "int",
-    "description": "Investissements locatifs neufs dispositif Scellier : investissements r\u00e9alis\u00e9s et engag\u00e9s en 2011, m\u00e9tropole, BBC."
+    "description": "Denormandie: Investissements r\u00e9alis\u00e9s en 2019 en m\u00e9tropole avec engagement de location de 6 ans."
   },
   {
     "boxes": [
       "7NB"
     ],
     "type": "int",
-    "description": "Investissements locatifs neufs dispositif Scellier : investissements engag\u00e9s en 2010, r\u00e9alis\u00e9s en 2011, ."
+    "description": "Denormandie: Investissements r\u00e9alis\u00e9s en 2019 en m\u00e9tropole avec engagement de location de 9 ans."
   },
   {
     "boxes": [
       "7NC"
     ],
     "type": "int",
-    "description": "Investissements locatifs neufs dispositif Scellier : Logement acquis en l'\u00e9tat futur d'ach\u00e8vement avec contrat de r\u00e9servation enregistr\u00e9 au plus tard le 31.12.2010, Investissement r\u00e9alis\u00e9 du 1.1.2011 au 31.1.2011, m\u00e9tropole, BBC."
+    "description": "Denormandie: Investissements r\u00e9alis\u00e9s en 2019 en outre-mer avec engagement de location de 6 ans."
   },
   {
     "boxes": [
       "7ND"
     ],
     "type": "int",
-    "description": "Investissements locatifs neufs dispositif Scellier : Logement acquis en l'\u00e9tat futur d'ach\u00e8vement avec contrat de r\u00e9servation enregistr\u00e9 au plus tard le 31.12.2010, Investissement r\u00e9alis\u00e9 du 1.2.2011 au 31.3.2011, m\u00e9tropole, BBC."
-  },
-  {
-    "boxes": [
-      "7NE"
-    ],
-    "type": "int",
-    "description": "Investissements locatifs neufs dispositif Scellier : Logement acquis en l'\u00e9tat futur d'ach\u00e8vement avec contrat de r\u00e9servation enregistr\u00e9 au plus tard le 31.12.2010, Investissement r\u00e9alis\u00e9 du 1.4.2011 au 31.12.2011, m\u00e9tropole, BBC."
+    "description": "Denormandie: Investissements r\u00e9alis\u00e9s en 2019 en outre-mer avec engagement de location de 9 ans."
   },
   {
     "boxes": [
@@ -6316,21 +5126,7 @@
       "7NF"
     ],
     "type": "int",
-    "description": "Investissements locatifs neufs dispositif Scellier : investissements r\u00e9alis\u00e9s et engag\u00e9s en 2011, ."
-  },
-  {
-    "boxes": [
-      "7NF"
-    ],
-    "type": "int",
     "description": "Denormandie."
-  },
-  {
-    "boxes": [
-      "7NG"
-    ],
-    "type": "int",
-    "description": "Investissements locatifs neufs dispositif Scellier : investissements engag\u00e9s en 2010, r\u00e9alis\u00e9s en 2011, ."
   },
   {
     "boxes": [
@@ -6344,21 +5140,7 @@
       "7NH"
     ],
     "type": "int",
-    "description": "Investissements locatifs neufs dispositif Scellier : Logement acquis en l'\u00e9tat futur d'ach\u00e8vement avec contrat de r\u00e9servation enregistr\u00e9 au plus tard le 31.12.2010, Investissement r\u00e9alis\u00e9 du 1.1.2011 au 31.1.2011, Investissement r\u00e9alis\u00e9 du 1.1.2011 au 31.1.2011, m\u00e9tropole, non-BBC."
-  },
-  {
-    "boxes": [
-      "7NH"
-    ],
-    "type": "int",
     "description": "Denormandie."
-  },
-  {
-    "boxes": [
-      "7NI"
-    ],
-    "type": "int",
-    "description": "Investissements locatifs neufs dispositif Scellier : Logement acquis en l'\u00e9tat futur d'ach\u00e8vement avec contrat de r\u00e9servation enregistr\u00e9 au plus tard le 31.12.2010, Investissement r\u00e9alis\u00e9 du 1.2.2011 au 31.3.2011, m\u00e9tropole, non-BBC."
   },
   {
     "boxes": [
@@ -6372,28 +5154,7 @@
       "7NJ"
     ],
     "type": "int",
-    "description": "Investissements locatifs neufs dispositif Scellier : Logement acquis en l'\u00e9tat futur d'ach\u00e8vement avec contrat de r\u00e9servation enregistr\u00e9 au plus tard le 31.12.2010, Investissement r\u00e9alis\u00e9 du 1.4.2011 au 31.12.2011, m\u00e9tropole, non-BBC."
-  },
-  {
-    "boxes": [
-      "7NJ"
-    ],
-    "type": "int",
     "description": "Denormandie."
-  },
-  {
-    "boxes": [
-      "7NK"
-    ],
-    "type": "int",
-    "description": "Investissements locatifs neufs dispositif Scellier : investissements r\u00e9alis\u00e9s et engag\u00e9s en 2011, DOM, Saint-Barth\u00e9l\u00e9my, Saint-Martin, Saint-Pierre-et-Miquelon."
-  },
-  {
-    "boxes": [
-      "7NL"
-    ],
-    "type": "int",
-    "description": "Investissements locatifs neufs dispositif Scellier : investissements engag\u00e9s en 2010, r\u00e9alis\u00e9s en 2011, DOM, Saint-Barth\u00e9l\u00e9my, Saint-Martin, Saint-Pierre-et-Miquelon."
   },
   {
     "boxes": [
@@ -6470,13 +5231,6 @@
       "7HV"
     ],
     "type": "int",
-    "description": "Investissements locatifs neufs dispositif Scellier: r\u00e9ductions investissements r\u00e9alis\u00e9s et achev\u00e9s en 2010 en m\u00e9tropole."
-  },
-  {
-    "boxes": [
-      "7HV"
-    ],
-    "type": "int",
     "description": "Location Meubl\u00e9e Censi B."
   },
   {
@@ -6484,21 +5238,7 @@
       "7HW"
     ],
     "type": "int",
-    "description": "Investissements locatifs neufs dispositif Scellier: r\u00e9ductions investissements r\u00e9alis\u00e9s et achev\u00e9s en 2010 dans les DOM COM."
-  },
-  {
-    "boxes": [
-      "7HW"
-    ],
-    "type": "int",
     "description": "Location Meubl\u00e9e Censi B."
-  },
-  {
-    "boxes": [
-      "7HX"
-    ],
-    "type": "int",
-    "description": "Investissements locatifs neufs dispositif Scellier: r\u00e9ductions investissements r\u00e9alis\u00e9s et achev\u00e9s en 2010 en m\u00e9tropole avec promesse d'achat avant le 1.1.2010."
   },
   {
     "boxes": [
@@ -6519,21 +5259,7 @@
       "7HT"
     ],
     "type": "int",
-    "description": "Investissements locatifs neufs dispositif Scellier: r\u00e9ductions investissements r\u00e9alis\u00e9s et achev\u00e9s en 2009, Investissements r\u00e9alis\u00e9s en 2009 et achev\u00e9s en 2010, en m\u00e9tropole en 2009; dans les DOM du 1.1.2009 au 26.5.2009 ; dans les DOM du 27.5.2009 au 30.12.2009 lorsqu'ils ne respectent pas les plafonds sp\u00e9cifiques."
-  },
-  {
-    "boxes": [
-      "7HT"
-    ],
-    "type": "int",
     "description": "Scellier."
-  },
-  {
-    "boxes": [
-      "7HU"
-    ],
-    "type": "int",
-    "description": "Investissements locatifs neufs dispositif Scellier: r\u00e9ductions investissements r\u00e9alis\u00e9s et achev\u00e9s en 2009, Investissements r\u00e9alis\u00e9s en 2009 et achev\u00e9s en 2010, dans les DOM COM du 27.5.2009 au 31.12.2009 respectant les plafonds sp\u00e9cifiques."
   },
   {
     "boxes": [
@@ -6596,13 +5322,6 @@
       "7JA"
     ],
     "type": "int",
-    "description": "Investissements locatifs neufs dispositif Scellier : investissements r\u00e9alis\u00e9s et engag\u00e9s en 2012, m\u00e9tropole, BBC."
-  },
-  {
-    "boxes": [
-      "7JA"
-    ],
-    "type": "int",
     "description": "Denormandie."
   },
   {
@@ -6610,21 +5329,7 @@
       "7JB"
     ],
     "type": "int",
-    "description": "Investissements locatifs neufs dispositif Scellier : investissements engag\u00e9s en 2011, r\u00e9alis\u00e9s en 2012, m\u00e9tropole, BBC."
-  },
-  {
-    "boxes": [
-      "7JB"
-    ],
-    "type": "int",
     "description": "Denormandie."
-  },
-  {
-    "boxes": [
-      "7JD"
-    ],
-    "type": "int",
-    "description": "Investissements locatifs neufs dispositif Scellier : Logement acquis en l'\u00e9tat futur d'ach\u00e8vement avec contrat de r\u00e9servation enregistr\u00e9 au plus tard le 31.12.2011, Investissement r\u00e9alis\u00e9 du 1.1.2012 au 31.3.2012, m\u00e9tropole, BBC."
   },
   {
     "boxes": [
@@ -6883,13 +5588,6 @@
       "7JM"
     ],
     "type": "int",
-    "description": "Investissements locatifs neufs dispositif Scellier : Logement acquis en l'\u00e9tat futur d'ach\u00e8vement avec contrat de r\u00e9servation enregistr\u00e9 au plus tard le 31.12.2011, Investissement r\u00e9alis\u00e9 du 1.1.2012 au 31.3.2012, DOM, Saint-Barth\u00e9l\u00e9my, Saint-Martin, Saint-Pierre-et-Miquelon."
-  },
-  {
-    "boxes": [
-      "7JM"
-    ],
-    "type": "int",
     "description": "Pinel : investissements achev\u00e9s en 2019 avec engagement de location de 6 ans : report de 1/6 de la r\u00e9duction d\u2019imp\u00f4t."
   },
   {
@@ -6904,21 +5602,7 @@
       "7JN"
     ],
     "type": "int",
-    "description": "Investissements locatifs neufs dispositif Scellier : Logement acquis en l'\u00e9tat futur d'ach\u00e8vement avec contrat de r\u00e9servation enregistr\u00e9 au plus tard le 31.12.2011, Investissement r\u00e9alis\u00e9 du 1.4.2012 au 31.12.2012, DOM, Saint-Barth\u00e9l\u00e9my, Saint-Martin, Saint-Pierre-et-Miquelon."
-  },
-  {
-    "boxes": [
-      "7JN"
-    ],
-    "type": "int",
     "description": "Pinel."
-  },
-  {
-    "boxes": [
-      "7JO"
-    ],
-    "type": "int",
-    "description": "Investissements locatifs neufs dispositif Scellier : investissements engag\u00e9s en 2011, r\u00e9alis\u00e9s en 2012, Polyn\u00e9sie Fran\u00e7aise, Nouvelle Cal\u00e9donie, Wallis et Futuna."
   },
   {
     "boxes": [
@@ -6932,13 +5616,6 @@
       "7JP"
     ],
     "type": "int",
-    "description": "Investissements locatifs neufs dispositif Scellier : investissements engag\u00e9s en 2011, r\u00e9alis\u00e9s en 2012, Polyn\u00e9sie Fran\u00e7aise, Nouvelle Cal\u00e9donie, Wallis et Futuna."
-  },
-  {
-    "boxes": [
-      "7JP"
-    ],
-    "type": "int",
     "description": "Pinel."
   },
   {
@@ -6946,21 +5623,7 @@
       "7JQ"
     ],
     "type": "int",
-    "description": "Investissements locatifs neufs dispositif Scellier : Logement acquis en l'\u00e9tat futur d'ach\u00e8vement avec contrat de r\u00e9servation enregistr\u00e9 au plus tard le 31.12.2011, Investissement r\u00e9alis\u00e9 du 1.1.2012 au 31.3.2012, Polyn\u00e9sie Fran\u00e7aise, Nouvelle Cal\u00e9donie, Wallis et Futuna."
-  },
-  {
-    "boxes": [
-      "7JQ"
-    ],
-    "type": "int",
     "description": "Pinel."
-  },
-  {
-    "boxes": [
-      "7JR"
-    ],
-    "type": "int",
-    "description": "Investissements locatifs neufs dispositif Scellier : Logement acquis en l'\u00e9tat futur d'ach\u00e8vement avec contrat de r\u00e9servation enregistr\u00e9 au plus tard le 31.12.2011, Investissement r\u00e9alis\u00e9 du 1.4.2012 au 31.12.2012, Polyn\u00e9sie Fran\u00e7aise, Nouvelle Cal\u00e9donie, Wallis et Futuna."
   },
   {
     "boxes": [
@@ -7125,13 +5788,6 @@
   },
   {
     "boxes": [
-      "7WT"
-    ],
-    "type": "int",
-    "description": "Scellier: report de 1/9 de la r\u00e9duction d'imp\u00f4t des investissements r\u00e9alis\u00e9s en 2012 ou r\u00e9alis\u00e9s du 1.1.2013 au 31.3.2013 avec promesse d'achat en 2012 et achev\u00e9s en 2016 en m\u00e9tropole et dans les DOM-COM."
-  },
-  {
-    "boxes": [
       "7YN"
     ],
     "type": "int",
@@ -7143,13 +5799,6 @@
     ],
     "type": "int",
     "description": "Scellier: report de 1/9 de la r\u00e9duction d'imp\u00f4t des investissements r\u00e9alis\u00e9s en 2011 ou r\u00e9alis\u00e9s en 2012 avec promesse d'achat en 2011 et achev\u00e9s en 2015 en m\u00e9tropole et dans les DOM-COM."
-  },
-  {
-    "boxes": [
-      "7WU"
-    ],
-    "type": "int",
-    "description": "Scellier: report de 1/9 de la r\u00e9duction d'imp\u00f4t des investissements r\u00e9alis\u00e9s en 2011 ou r\u00e9alis\u00e9s en 2012 avec promesse d'achat en 2011 et achev\u00e9s en 2016 en m\u00e9tropole et dans les DOM-COM."
   },
   {
     "boxes": [
@@ -7167,13 +5816,6 @@
   },
   {
     "boxes": [
-      "7WV"
-    ],
-    "type": "int",
-    "description": "Scellier: report de 1/9 de la r\u00e9duction d'imp\u00f4t des investissements r\u00e9alis\u00e9s en 2010 ou r\u00e9alis\u00e9s en 2011 avec promesse d'achat en 2010 et achev\u00e9s en 2016 en m\u00e9tropole et dans les DOM-COM."
-  },
-  {
-    "boxes": [
       "7YP"
     ],
     "type": "int",
@@ -7188,13 +5830,6 @@
   },
   {
     "boxes": [
-      "7WW"
-    ],
-    "type": "int",
-    "description": "Scellier: report de 1/9 de la r\u00e9duction d'imp\u00f4t des investissements r\u00e9alis\u00e9s en 2009 ou r\u00e9alis\u00e9s en 2010 avec promesse d'achat en 2010 et achev\u00e9s en 2016 en m\u00e9tropole et dans les DOM-COM."
-  },
-  {
-    "boxes": [
       "7YQ"
     ],
     "type": "int",
@@ -7206,13 +5841,6 @@
     ],
     "type": "int",
     "description": "Scellier: report de 1/5 de la r\u00e9duction d'imp\u00f4t des investissements r\u00e9alis\u00e9s en 2012 ou r\u00e9alis\u00e9s du 1.1.2013 au 31.3.2013 avec promesse d'achat en 2012 et achev\u00e9s en 2015 en Polyn\u00e9sie, en Nouvelle Cal\u00e9donie et \u00e0 Wallis et Futuna ."
-  },
-  {
-    "boxes": [
-      "7WX"
-    ],
-    "type": "int",
-    "description": "Scellier: report de 1/5 de la r\u00e9duction d'imp\u00f4t des investissements r\u00e9alis\u00e9s en 2012 ou r\u00e9alis\u00e9s du 1.1.2013 au 31.3.2013 avec promesse d'achat en 2012 et achev\u00e9s en 2016 en Polyn\u00e9sie, en Nouvelle Cal\u00e9donie et \u00e0 Wallis et Futuna ."
   },
   {
     "boxes": [
@@ -7258,34 +5886,6 @@
   },
   {
     "boxes": [
-      "7NA"
-    ],
-    "type": "int",
-    "description": "Denormandie: Investissements r\u00e9alis\u00e9s en 2019 en m\u00e9tropole avec engagement de location de 6 ans."
-  },
-  {
-    "boxes": [
-      "7NB"
-    ],
-    "type": "int",
-    "description": "Denormandie: Investissements r\u00e9alis\u00e9s en 2019 en m\u00e9tropole avec engagement de location de 9 ans."
-  },
-  {
-    "boxes": [
-      "7NC"
-    ],
-    "type": "int",
-    "description": "Denormandie: Investissements r\u00e9alis\u00e9s en 2019 en outre-mer avec engagement de location de 6 ans."
-  },
-  {
-    "boxes": [
-      "7ND"
-    ],
-    "type": "int",
-    "description": "Denormandie: Investissements r\u00e9alis\u00e9s en 2019 en outre-mer avec engagement de location de 9 ans."
-  },
-  {
-    "boxes": [
       "7IJ"
     ],
     "type": "int",
@@ -7324,21 +5924,7 @@
       "7IV"
     ],
     "type": "int",
-    "description": "Investissements destin\u00e9s \u00e0 la location meubl\u00e9e non professionnelle : Logement acquis en l'\u00e9tat futur d'ach\u00e8vement avec contrat de r\u00e9servation enregistr\u00e9 au plus tard le 31.12.2010, investissement r\u00e9alis\u00e9 du 1.4.2011 au 31.12.2011."
-  },
-  {
-    "boxes": [
-      "7IV"
-    ],
-    "type": "int",
     "description": "Scellier."
-  },
-  {
-    "boxes": [
-      "7IW"
-    ],
-    "type": "int",
-    "description": "Investissements destin\u00e9s \u00e0 la location meubl\u00e9e non professionnelle : Investissements r\u00e9alis\u00e9s en 2010 avec promesse d'achat en 2009."
   },
   {
     "boxes": [
@@ -7352,21 +5938,7 @@
       "7IO"
     ],
     "type": "int",
-    "description": "Investissements destin\u00e9s \u00e0 la location meubl\u00e9e non professionnelle : ."
-  },
-  {
-    "boxes": [
-      "7IO"
-    ],
-    "type": "int",
     "description": "Scellier."
-  },
-  {
-    "boxes": [
-      "7IP"
-    ],
-    "type": "int",
-    "description": "Investissements destin\u00e9s \u00e0 la location meubl\u00e9e non professionnelle : ."
   },
   {
     "boxes": [
@@ -7380,21 +5952,7 @@
       "7IR"
     ],
     "type": "int",
-    "description": "Investissements destin\u00e9s \u00e0 la location meubl\u00e9e non professionnelle : ."
-  },
-  {
-    "boxes": [
-      "7IR"
-    ],
-    "type": "int",
     "description": "Scellier."
-  },
-  {
-    "boxes": [
-      "7IQ"
-    ],
-    "type": "int",
-    "description": "Investissements destin\u00e9s \u00e0 la location meubl\u00e9e non professionnelle : ."
   },
   {
     "boxes": [
@@ -7408,13 +5966,6 @@
       "7IU"
     ],
     "type": "int",
-    "description": "Investissements destin\u00e9s \u00e0 la location meubl\u00e9e non professionnelle : Report du solde de r\u00e9duction d\u2019imp\u00f4t non encore imput\u00e9."
-  },
-  {
-    "boxes": [
-      "7IU"
-    ],
-    "type": "int",
     "description": "Scellier."
   },
   {
@@ -7422,21 +5973,7 @@
       "7IT"
     ],
     "type": "int",
-    "description": "Investissements destin\u00e9s \u00e0 la location meubl\u00e9e non professionnelle : Report du solde de r\u00e9duction d\u2019imp\u00f4t non encore imput\u00e9."
-  },
-  {
-    "boxes": [
-      "7IT"
-    ],
-    "type": "int",
     "description": "Scellier."
-  },
-  {
-    "boxes": [
-      "7IS"
-    ],
-    "type": "int",
-    "description": "Investissements destin\u00e9s \u00e0 la location meubl\u00e9e non professionnelle : Report du solde de r\u00e9duction d'imp\u00f4t non encore imput\u00e9: ann\u00e9e  n-4."
   },
   {
     "boxes": [
@@ -7454,31 +5991,10 @@
   },
   {
     "boxes": [
-      "7IA"
-    ],
-    "type": "int",
-    "description": "Investissements destin\u00e9s \u00e0 la location meubl\u00e9e non professionnelle : Investissements r\u00e9alis\u00e9s et achev\u00e9s en 2011."
-  },
-  {
-    "boxes": [
-      "7IB"
-    ],
-    "type": "int",
-    "description": "Investissements destin\u00e9s \u00e0 la location meubl\u00e9e non professionnelle : Investissements r\u00e9alis\u00e9s et achev\u00e9s en 2011 avec promesse d'achat en 2010 ou r\u00e9alis\u00e9s en 2010."
-  },
-  {
-    "boxes": [
       "7IB"
     ],
     "type": "int",
     "description": "Scellier."
-  },
-  {
-    "boxes": [
-      "7IC"
-    ],
-    "type": "int",
-    "description": "Investissements destin\u00e9s \u00e0 la location meubl\u00e9e non professionnelle : Investissements r\u00e9alis\u00e9s en 2010 et achev\u00e9s en 2011 avec promesse d'achat en 2009 ou r\u00e9alis\u00e9s en 2009."
   },
   {
     "boxes": [
@@ -7499,21 +6015,7 @@
       "7IE"
     ],
     "type": "int",
-    "description": "Investissements destin\u00e9s \u00e0 la location meubl\u00e9e non professionnelle : Investissements r\u00e9alis\u00e9s en 2012 avec promesse d'achat en 2011."
-  },
-  {
-    "boxes": [
-      "7IE"
-    ],
-    "type": "int",
     "description": "Scellier."
-  },
-  {
-    "boxes": [
-      "7IF"
-    ],
-    "type": "int",
-    "description": "Investissements destin\u00e9s \u00e0 la location meubl\u00e9e non professionnelle : Investissements r\u00e9alis\u00e9s en 2012, Logement acquis en l'\u00e9tat futur d'ach\u00e8vement avec contrat de r\u00e9servation enregistr\u00e9 au plus tard le 31.12.2011, investissement r\u00e9alis\u00e9 du 1.1.2012 au 31.3.2012."
   },
   {
     "boxes": [
@@ -7527,21 +6029,7 @@
       "7IG"
     ],
     "type": "int",
-    "description": "Investissements destin\u00e9s \u00e0 la location meubl\u00e9e non professionnelle : Investissements r\u00e9alis\u00e9s en 2012, Logement acquis en l'\u00e9tat futur d'ach\u00e8vement avec contrat de r\u00e9servation enregistr\u00e9 au plus tard le 31.12.2011, investissement r\u00e9alis\u00e9 du 1.4.2012 au 31.12.2012."
-  },
-  {
-    "boxes": [
-      "7IG"
-    ],
-    "type": "int",
     "description": "Scellier."
-  },
-  {
-    "boxes": [
-      "7IX"
-    ],
-    "type": "int",
-    "description": "Investissements destin\u00e9s \u00e0 la location meubl\u00e9e non professionnelle : Investissements r\u00e9alis\u00e9s et achev\u00e9s en 2009; r\u00e9alis\u00e9s en 2009 et achev\u00e9s en 2010; r\u00e9alis\u00e9s et achev\u00e9s en 2010 avec engagement avant le 1.1.2010, Report du solde de r\u00e9duction d'imp\u00f4t de l'ann\u00e9e 2011."
   },
   {
     "boxes": [
@@ -7555,21 +6043,7 @@
       "7IH"
     ],
     "type": "int",
-    "description": "Investissements destin\u00e9s \u00e0 la location meubl\u00e9e non professionnelle : Investissements r\u00e9alis\u00e9s et achev\u00e9s en 2010 ; r\u00e9alis\u00e9s en 2010 et achev\u00e9s en 2011 ; r\u00e9alis\u00e9s et achev\u00e9s en 2011 avec engagement en 2010, Report du solde de r\u00e9duction d'imp\u00f4t de l'ann\u00e9e 2011."
-  },
-  {
-    "boxes": [
-      "7IH"
-    ],
-    "type": "int",
     "description": "Scellier."
-  },
-  {
-    "boxes": [
-      "7IZ"
-    ],
-    "type": "int",
-    "description": "Investissements destin\u00e9s \u00e0 la location meubl\u00e9e non professionnelle : Investissements r\u00e9alis\u00e9s et achev\u00e9s en 2011 : report du solde de r\u00e9duction d'imp\u00f4t de l'ann\u00e9e 2011."
   },
   {
     "boxes": [
@@ -7583,13 +6057,6 @@
       "7JT"
     ],
     "type": "int",
-    "description": "Investissements destin\u00e9s \u00e0 la location meubl\u00e9e non professionnelle : Investissements r\u00e9alis\u00e9s en 2013, Engagement de r\u00e9alisation de l'investissement en 2013."
-  },
-  {
-    "boxes": [
-      "7JT"
-    ],
-    "type": "int",
     "description": "Denormandie."
   },
   {
@@ -7597,21 +6064,7 @@
       "7JU"
     ],
     "type": "int",
-    "description": "Investissements destin\u00e9s \u00e0 la location meubl\u00e9e non professionnelle : Investissements r\u00e9alis\u00e9s en 2013 avec promesse d'achat en 2012."
-  },
-  {
-    "boxes": [
-      "7JU"
-    ],
-    "type": "int",
     "description": "Denormandie."
-  },
-  {
-    "boxes": [
-      "7OU"
-    ],
-    "type": "int",
-    "description": "Investissements destin\u00e9s \u00e0 la location meubl\u00e9e non professionnelle : Investissements r\u00e9alis\u00e9s en 2014."
   },
   {
     "boxes": [
@@ -7639,35 +6092,7 @@
       "7JY"
     ],
     "type": "int",
-    "description": "Cr\u00e9a En."
-  },
-  {
-    "boxes": [
-      "7JY"
-    ],
-    "type": "int",
     "description": "Investissements destin\u00e9s \u00e0 la location meubl\u00e9e non professionnelle : Investissements r\u00e9alis\u00e9s et achev\u00e9s en 2012, r\u00e9alis\u00e9s en 2010 avec promesse d'achat en 2009 ou r\u00e9alis\u00e9s en 2009."
-  },
-  {
-    "boxes": [
-      "7OA"
-    ],
-    "type": "int",
-    "description": "Investissements destin\u00e9s \u00e0 la location meubl\u00e9e non professionnelle : Report de 1/9 de la r\u00e9duction d'imp\u00f4t. Investissements r\u00e9alis\u00e9s et achev\u00e9s en 2013."
-  },
-  {
-    "boxes": [
-      "7OB"
-    ],
-    "type": "int",
-    "description": "Investissements destin\u00e9s \u00e0 la location meubl\u00e9e non professionnelle : Report de 1/9 de la r\u00e9duction d'imp\u00f4t. Investissements achev\u00e9s en 2013 et r\u00e9alis\u00e9s en 2012 ou r\u00e9alis\u00e9s en 2013 avec promesse d'achat en 2012."
-  },
-  {
-    "boxes": [
-      "7OC"
-    ],
-    "type": "int",
-    "description": "Investissements destin\u00e9s \u00e0 la location meubl\u00e9e non professionnelle : Report de 1/9 de la r\u00e9duction d'imp\u00f4t. Investissements achev\u00e9s en 2013 et r\u00e9alis\u00e9s en 2011 ou r\u00e9alis\u00e9s en 2012 avec promesse d'achat en 2011."
   },
   {
     "boxes": [
@@ -7699,101 +6124,24 @@
   },
   {
     "boxes": [
-      "7OH"
-    ],
-    "type": "int",
-    "description": "Investissements destin\u00e9s \u00e0 la location meubl\u00e9e non professionnelle : Report de 1/9 de la r\u00e9duction d'imp\u00f4t. Investissements achev\u00e9s en 2014 et r\u00e9alis\u00e9s en 2011 ou r\u00e9alis\u00e9s en 2012 avec promesse d'achat en 2011."
-  },
-  {
-    "boxes": [
-      "7OI"
-    ],
-    "type": "int",
-    "description": "Investissements destin\u00e9s \u00e0 la location meubl\u00e9e non professionnelle : Report de 1/9 de la r\u00e9duction d'imp\u00f4t. Investissements achev\u00e9s en 2014 et r\u00e9alis\u00e9s en 2010 ou r\u00e9alis\u00e9s en 2011 avec promesse d'achat en 2010."
-  },
-  {
-    "boxes": [
-      "7OJ"
-    ],
-    "type": "int",
-    "description": "Investissements destin\u00e9s \u00e0 la location meubl\u00e9e non professionnelle : Report de 1/9 de la r\u00e9duction d'imp\u00f4t. Investissements achev\u00e9s en 2014 et r\u00e9alis\u00e9s en 2009 ou r\u00e9alis\u00e9s en 2010 avec promesse d'achat en 2009."
-  },
-  {
-    "boxes": [
-      "7OP"
-    ],
-    "type": "int",
-    "description": "Investissements destin\u00e9s \u00e0 la location meubl\u00e9e non professionnelle : Report de 1/9 de la r\u00e9duction d'imp\u00f4t. Investissements r\u00e9alis\u00e9s en 2013 ou 2014 et achev\u00e9s en 2016."
-  },
-  {
-    "boxes": [
-      "7OQ"
-    ],
-    "type": "int",
-    "description": "Investissements destin\u00e9s \u00e0 la location meubl\u00e9e non professionnelle : Report de 1/9 de la r\u00e9duction d'imp\u00f4t. Investissements achev\u00e9s en 2016 et r\u00e9alis\u00e9s en 2012 ou r\u00e9alis\u00e9s en 2013 avec promesse d'achat en 2012."
-  },
-  {
-    "boxes": [
-      "7OR"
-    ],
-    "type": "int",
-    "description": "Investissements destin\u00e9s \u00e0 la location meubl\u00e9e non professionnelle : Report de 1/9 de la r\u00e9duction d'imp\u00f4t. Investissements achev\u00e9s en 2016 et r\u00e9alis\u00e9s en 2011 ou r\u00e9alis\u00e9s en 2012 avec promesse d'achat en 2011."
-  },
-  {
-    "boxes": [
-      "7OS"
-    ],
-    "type": "int",
-    "description": "Investissements destin\u00e9s \u00e0 la location meubl\u00e9e non professionnelle : Report de 1/9 de la r\u00e9duction d'imp\u00f4t. Investissements achev\u00e9s en 2016 et r\u00e9alis\u00e9s en 2010 ou r\u00e9alis\u00e9s en 2011 avec promesse d'achat en 2010."
-  },
-  {
-    "boxes": [
-      "7OT"
-    ],
-    "type": "int",
-    "description": "Investissements destin\u00e9s \u00e0 la location meubl\u00e9e non professionnelle : Report de 1/9 de la r\u00e9duction d'imp\u00f4t. Investissements achev\u00e9s en 2016 et r\u00e9alis\u00e9s en 2009 ou r\u00e9alis\u00e9s en 2010 avec promesse d'achat en 2009."
-  },
-  {
-    "boxes": [
       "7SA"
     ],
     "type": "int",
-    "description": "Investissements destin\u00e9s \u00e0 la location meubl\u00e9e non professionnelle : Report de 1/9 de la r\u00e9duction d'imp\u00f4t. Investissements achev\u00e9s en 2017 et r\u00e9alis\u00e9s de 2013 \u00e0 2017."
+    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale des logements donn\u00e9s en location du 1.9 au 31.12.2014 : chaudi\u00e8res \u00e0 condensation ."
   },
   {
     "boxes": [
       "7SB"
     ],
     "type": "int",
-    "description": "Investissements destin\u00e9s \u00e0 la location meubl\u00e9e non professionnelle : Report de 1/9 de la r\u00e9duction d'imp\u00f4t. Investissements achev\u00e9s en 2017 et r\u00e9alis\u00e9s en 2012."
+    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale des logements donn\u00e9s en location, pay\u00e9es du 1.9 au 31.12.2014 : chaudi\u00e8re \u00e0 micro-cog\u00e9n\u00e9ration de gaz ."
   },
   {
     "boxes": [
       "7SC"
     ],
     "type": "int",
-    "description": "Investissements destin\u00e9s \u00e0 la location meubl\u00e9e non professionnelle : Report de 1/9 de la r\u00e9duction d'imp\u00f4t. Investissements achev\u00e9s en 2017 et r\u00e9alis\u00e9s en 2011."
-  },
-  {
-    "boxes": [
-      "7SO"
-    ],
-    "type": "int",
-    "description": "Investissements destin\u00e9s \u00e0 la location meubl\u00e9e non professionnelle : Report de 1/9 de la r\u00e9duction d'imp\u00f4t. Investissements achev\u00e9s en 2018 et r\u00e9alis\u00e9s entre 2013 et 2018."
-  },
-  {
-    "boxes": [
-      "7SN"
-    ],
-    "type": "int",
-    "description": "Investissements destin\u00e9s \u00e0 la location meubl\u00e9e non professionnelle : Report de 1/9 de la r\u00e9duction d'imp\u00f4t. Investissements achev\u00e9s en 2018 et r\u00e9alis\u00e9s en 2012."
-  },
-  {
-    "boxes": [
-      "7JC"
-    ],
-    "type": "int",
-    "description": "Investissements destin\u00e9s \u00e0 la location meubl\u00e9e non professionnelle : Investissements r\u00e9alis\u00e9s et achev\u00e9s en 2010 ; r\u00e9alis\u00e9s en 2010 et achev\u00e9s en 2011 ; r\u00e9alis\u00e9s et achev\u00e9s en 2011 avec engagement en 2010, Report du solde de r\u00e9duction d'imp\u00f4t de l'ann\u00e9e 2012."
+    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale des logements donn\u00e9s en location, pay\u00e9es du 1.9 au 31.12.2014 : appareils de r\u00e9gulation du chauffage, mat\u00e9riaux de calorifugeage."
   },
   {
     "boxes": [
@@ -7801,13 +6149,6 @@
     ],
     "type": "int",
     "description": "Denormandie."
-  },
-  {
-    "boxes": [
-      "7JI"
-    ],
-    "type": "int",
-    "description": "Investissements destin\u00e9s \u00e0 la location meubl\u00e9e non professionnelle : Investissements r\u00e9alis\u00e9s et achev\u00e9s en 2011 ; r\u00e9alis\u00e9s en 2011 et achev\u00e9s en 2011 ou 2012 ; r\u00e9alis\u00e9s en 2012 avec promesse d'achat en 2011 et achev\u00e9s en 2012, Report du solde de r\u00e9duction d'imp\u00f4t de l'ann\u00e9e 2012."
   },
   {
     "boxes": [
@@ -7821,91 +6162,7 @@
       "7JS"
     ],
     "type": "int",
-    "description": "Investissements destin\u00e9s \u00e0 la location meubl\u00e9e non professionnelle : Investissements r\u00e9alis\u00e9s et achev\u00e9s en 2011 ; r\u00e9alis\u00e9s en 2011 et achev\u00e9s en 2011 ou 2012 ; r\u00e9alis\u00e9s en 2012 avec promesse d'achat en 2011 et achev\u00e9s en 2012, Report du solde de r\u00e9duction d\u2019imp\u00f4t de l\u2019ann\u00e9e 2012."
-  },
-  {
-    "boxes": [
-      "7JS"
-    ],
-    "type": "int",
     "description": "Denormandie."
-  },
-  {
-    "boxes": [
-      "7PP"
-    ],
-    "type": "int",
-    "description": "Investissements destin\u00e9s \u00e0 la location meubl\u00e9e non professionnelle : Report du solde de r\u00e9duction d\u2019imp\u00f4t non imput\u00e9 de 2016."
-  },
-  {
-    "boxes": [
-      "7PQ"
-    ],
-    "type": "int",
-    "description": "Investissements destin\u00e9s \u00e0 la location meubl\u00e9e non professionnelle : Report du solde de r\u00e9duction d\u2019imp\u00f4t non imput\u00e9 de 2016."
-  },
-  {
-    "boxes": [
-      "7PR"
-    ],
-    "type": "int",
-    "description": "Investissements destin\u00e9s \u00e0 la location meubl\u00e9e non professionnelle : Report du solde de r\u00e9duction d\u2019imp\u00f4t non imput\u00e9 de 2016."
-  },
-  {
-    "boxes": [
-      "7PS"
-    ],
-    "type": "int",
-    "description": "Investissements destin\u00e9s \u00e0 la location meubl\u00e9e non professionnelle : Report du solde de r\u00e9duction d\u2019imp\u00f4t non imput\u00e9 de 2016."
-  },
-  {
-    "boxes": [
-      "7PT"
-    ],
-    "type": "int",
-    "description": "Investissements destin\u00e9s \u00e0 la location meubl\u00e9e non professionnelle : Report du solde de r\u00e9duction d\u2019imp\u00f4t non imput\u00e9 de 2016."
-  },
-  {
-    "boxes": [
-      "7PU"
-    ],
-    "type": "int",
-    "description": "Investissements destin\u00e9s \u00e0 la location meubl\u00e9e non professionnelle : Report du solde de r\u00e9duction d\u2019imp\u00f4t non imput\u00e9 de 2017."
-  },
-  {
-    "boxes": [
-      "7PV"
-    ],
-    "type": "int",
-    "description": "Investissements destin\u00e9s \u00e0 la location meubl\u00e9e non professionnelle : Report du solde de r\u00e9duction d\u2019imp\u00f4t non imput\u00e9 de 2017."
-  },
-  {
-    "boxes": [
-      "7PW"
-    ],
-    "type": "int",
-    "description": "Investissements destin\u00e9s \u00e0 la location meubl\u00e9e non professionnelle : Report du solde de r\u00e9duction d\u2019imp\u00f4t non imput\u00e9 de 2017."
-  },
-  {
-    "boxes": [
-      "7PX"
-    ],
-    "type": "int",
-    "description": "Investissements destin\u00e9s \u00e0 la location meubl\u00e9e non professionnelle : Report du solde de r\u00e9duction d\u2019imp\u00f4t non imput\u00e9 de 2017."
-  },
-  {
-    "boxes": [
-      "7PY"
-    ],
-    "type": "int",
-    "description": "Investissements destin\u00e9s \u00e0 la location meubl\u00e9e non professionnelle : Report du solde de r\u00e9duction d\u2019imp\u00f4t non imput\u00e9 de 2017."
-  },
-  {
-    "boxes": [
-      "7HO"
-    ],
-    "type": "int",
-    "description": "Investissements destin\u00e9s \u00e0 la location meubl\u00e9e non professionnelle : Report du solde de r\u00e9duction d\u2019imp\u00f4t non imput\u00e9 de 2018."
   },
   {
     "boxes": [
@@ -7923,35 +6180,7 @@
   },
   {
     "boxes": [
-      "7HR"
-    ],
-    "type": "int",
-    "description": "Investissements destin\u00e9s \u00e0 la location meubl\u00e9e non professionnelle : Report du solde de r\u00e9duction d\u2019imp\u00f4t non imput\u00e9 de 2018."
-  },
-  {
-    "boxes": [
-      "7HS"
-    ],
-    "type": "int",
-    "description": "Investissements destin\u00e9s \u00e0 la location meubl\u00e9e non professionnelle : Report du solde de r\u00e9duction d\u2019imp\u00f4t non imput\u00e9 de 2018."
-  },
-  {
-    "boxes": [
       "7GT"
-    ],
-    "type": "int",
-    "description": "Scellier: report de 1/9 de la r\u00e9duction d'imp\u00f4t des investissements achev\u00e9s en 2012 avec promesse d'achat en 2010."
-  },
-  {
-    "boxes": [
-      "7GT"
-    ],
-    "type": "int",
-    "description": "InvRev."
-  },
-  {
-    "boxes": [
-      "7GU"
     ],
     "type": "int",
     "description": "InvRev."
@@ -7968,21 +6197,7 @@
       "7GV"
     ],
     "type": "int",
-    "description": "InvRev."
-  },
-  {
-    "boxes": [
-      "7GV"
-    ],
-    "type": "int",
     "description": "Scellier: report de 1/5 de la r\u00e9duction d'imp\u00f4t des investissements r\u00e9alis\u00e9s et achev\u00e9s en 2012 en Polyn\u00e9sie, en Nouvelle Cal\u00e9donie et \u00e0 Wallis et Futuna ."
-  },
-  {
-    "boxes": [
-      "7XG"
-    ],
-    "type": "int",
-    "description": "InvRev."
   },
   {
     "boxes": [
@@ -8007,59 +6222,10 @@
   },
   {
     "boxes": [
-      "7SA"
-    ],
-    "type": "int",
-    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale des logements donn\u00e9s en location du 1.9 au 31.12.2014 : chaudi\u00e8res \u00e0 condensation ."
-  },
-  {
-    "boxes": [
-      "7SB"
-    ],
-    "type": "int",
-    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale des logements donn\u00e9s en location: cr\u00e9dit \u00e0 25 %."
-  },
-  {
-    "boxes": [
-      "7SB"
-    ],
-    "type": "int",
-    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale des logements donn\u00e9s en location, pay\u00e9es du 1.9 au 31.12.2014 : chaudi\u00e8re \u00e0 micro-cog\u00e9n\u00e9ration de gaz ."
-  },
-  {
-    "boxes": [
-      "7SC"
-    ],
-    "type": "int",
-    "description": "Cr\u00e9dits d\u2019imp\u00f4t pour d\u00e9penses en faveur de la qualit\u00e9 environnementale."
-  },
-  {
-    "boxes": [
-      "7SC"
-    ],
-    "type": "int",
-    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale des logements donn\u00e9s en location, pay\u00e9es du 1.9 au 31.12.2014 : appareils de r\u00e9gulation du chauffage, mat\u00e9riaux de calorifugeage."
-  },
-  {
-    "boxes": [
-      "7TA"
-    ],
-    "type": "int",
-    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale des logements donn\u00e9s en location en 2015 : chaudi\u00e8res \u00e0 condensation ."
-  },
-  {
-    "boxes": [
       "7TA"
     ],
     "type": "int",
     "description": "Inv. for."
-  },
-  {
-    "boxes": [
-      "7TB"
-    ],
-    "type": "int",
-    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale des logements donn\u00e9s en location en 2015 : chaudi\u00e8res \u00e0 micro-g\u00e9n\u00e9ration gaz."
   },
   {
     "boxes": [
@@ -8081,13 +6247,6 @@
     ],
     "type": "int",
     "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale des logements donn\u00e9s en location : chaudi\u00e8res \u00e0 haute performance energ\u00e9tique ."
-  },
-  {
-    "boxes": [
-      "7AA"
-    ],
-    "type": "int",
-    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale des logements donn\u00e9s en location en 2015 (hors bouquet sur 2 ans) : chaudi\u00e8res \u00e0 condensation ."
   },
   {
     "boxes": [
@@ -8140,31 +6299,10 @@
   },
   {
     "boxes": [
-      "7BM"
-    ],
-    "type": "int",
-    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale des logements donn\u00e9s en location : Audit \u00e9nerg\u00e9tique."
-  },
-  {
-    "boxes": [
-      "7SD"
-    ],
-    "type": "int",
-    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale de l'habitation principale, \u00e9conomie d'\u00e9nergie: chaudi\u00e8res \u00e0 condensation."
-  },
-  {
-    "boxes": [
       "7SD"
     ],
     "type": "int",
     "description": "Scellier."
-  },
-  {
-    "boxes": [
-      "7SE"
-    ],
-    "type": "int",
-    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale de l'habitation principale, \u00e9conomie d'\u00e9nergie: chaudi\u00e8res \u00e0 micro-cog\u00e9n\u00e9ration gaz."
   },
   {
     "boxes": [
@@ -8178,21 +6316,7 @@
       "7SH"
     ],
     "type": "int",
-    "description": "D\u00e9penses en faveur de la qualit\u00e9 environnementale de l'habitation principale, isolation thermique: mat\u00e9riaux d'isolation des toitures (acquisition et pose)."
-  },
-  {
-    "boxes": [
-      "7SH"
-    ],
-    "type": "int",
     "description": "Scellier."
-  },
-  {
-    "boxes": [
-      "7UP"
-    ],
-    "type": "int",
-    "description": "ACQGPL."
   },
   {
     "boxes": [
@@ -8200,13 +6324,6 @@
     ],
     "type": "int",
     "description": "Cr\u00e9dit dimp\u00f4t pour investissements forestiers: travaux."
-  },
-  {
-    "boxes": [
-      "7UQ"
-    ],
-    "type": "int",
-    "description": "ACQGPL."
   },
   {
     "boxes": [
@@ -8262,20 +6379,6 @@
       "7SF"
     ],
     "type": "int",
-    "description": "Cr\u00e9dit de travaux en faveur d aides aux personnes pour des logements en location (avant 2012 ) / Appareils de r\u00e9gulation du chauffage, mat\u00e9riaux de calorifugeage (apr\u00e8s 2011)."
-  },
-  {
-    "boxes": [
-      "7SF"
-    ],
-    "type": "int",
-    "description": "QuaEnv."
-  },
-  {
-    "boxes": [
-      "7SF"
-    ],
-    "type": "int",
     "description": "Scellier."
   },
   {
@@ -8283,21 +6386,7 @@
       "7SI"
     ],
     "type": "int",
-    "description": "Mat\u00e9riaux d\u2019isolation des planchers bas sur sous-sol, sur vide sanitaire ou sur passage couvert (acquisition et pose)."
-  },
-  {
-    "boxes": [
-      "7SI"
-    ],
-    "type": "int",
     "description": "Scellier."
-  },
-  {
-    "boxes": [
-      "7VI"
-    ],
-    "type": "int",
-    "description": "Mat\u00e9riaux d\u2019isolation des planchers bas sur sous-sol, sur vide sanitaire ou sur passage couvert (acquisition et pose) en 2015."
   },
   {
     "boxes": [
@@ -8332,21 +6421,7 @@
       "7TU"
     ],
     "type": "int",
-    "description": "D\u00e9penses de travaux dans l'habitation principale."
-  },
-  {
-    "boxes": [
-      "7TU"
-    ],
-    "type": "int",
     "description": "Inv. for."
-  },
-  {
-    "boxes": [
-      "7TT"
-    ],
-    "type": "int",
-    "description": "D\u00e9penses de travaux dans l'habitation principale."
   },
   {
     "boxes": [
@@ -8360,49 +6435,7 @@
       "7TV"
     ],
     "type": "int",
-    "description": "D\u00e9penses de travaux dans l'habitation principale."
-  },
-  {
-    "boxes": [
-      "7TV"
-    ],
-    "type": "int",
     "description": "Inv. for."
-  },
-  {
-    "boxes": [
-      "7TX"
-    ],
-    "type": "int",
-    "description": "D\u00e9penses de travaux dans l'habitation principale ouvrant droit au cr\u00e9dit d'imp\u00f4t de 26%."
-  },
-  {
-    "boxes": [
-      "7TY"
-    ],
-    "type": "int",
-    "description": "D\u00e9penses de travaux dans l'habitation principale ouvrant droit au cr\u00e9dit d'imp\u00f4t de 32%."
-  },
-  {
-    "boxes": [
-      "7TX"
-    ],
-    "type": "int",
-    "description": "D\u00e9penses de travaux dans l'habitation principale : d\u00e9penses de diagnostic de performance \u00e9nerg\u00e9tique effectu\u00e9es en 2015."
-  },
-  {
-    "boxes": [
-      "7TY"
-    ],
-    "type": "int",
-    "description": "D\u00e9penses de travaux dans l'habitation principale : d\u00e9penses d'\u00e9quipements de raccordement \u00e0 un r\u00e9seau de chaleur effectu\u00e9es en 2015."
-  },
-  {
-    "boxes": [
-      "7TW"
-    ],
-    "type": "int",
-    "description": "D\u00e9penses de travaux dans l'habitation principale."
   },
   {
     "boxes": [
@@ -8430,35 +6463,35 @@
       "7EK"
     ],
     "type": "int",
-    "description": "Investissements locatifs interm\u00c3\u00a9diaires du 1.1 au 31.8.2014 en m\u00c3\u00a9tropole."
+    "description": "Investissements locatifs interm\u00e9diaires du 1.1 au 31.8.2014 en m\u00e9tropole."
   },
   {
     "boxes": [
       "7EL"
     ],
     "type": "int",
-    "description": "Investissements locatifs interm\u00c3\u00a9diaires du 1.1 au 31.8.2014 en outre-mer."
+    "description": "Investissements locatifs interm\u00e9diaires du 1.1 au 31.8.2014 en outre-mer."
   },
   {
     "boxes": [
       "7FI"
     ],
     "type": "int",
-    "description": "Report concernant les investissements r\u00c3\u00a9alis\u00c3\u00a9s et achev\u00c3\u00a9s en 2013 en m\u00c3\u00a9tropole et outre-mer."
+    "description": "Report concernant les investissements r\u00e9alis\u00e9s et achev\u00e9s en 2013 en m\u00e9tropole et outre-mer."
   },
   {
     "boxes": [
       "7FK"
     ],
     "type": "int",
-    "description": "Report concernant les investissements r\u00c3\u00a9alis\u00c3\u00a9s et achev\u00c3\u00a9s en 2014 en m\u00c3\u00a9tropole et outre-mer."
+    "description": "Report concernant les investissements r\u00e9alis\u00e9s et achev\u00e9s en 2014 en m\u00e9tropole et outre-mer."
   },
   {
     "boxes": [
       "7FR"
     ],
     "type": "int",
-    "description": "Report concernant les investissements r\u00c3\u00a9alis\u00c3\u00a9s et achev\u00c3\u00a9s en 2015 en m\u00c3\u00a9tropole et outre-mer."
+    "description": "Report concernant les investissements r\u00e9alis\u00e9s et achev\u00e9s en 2015 en m\u00e9tropole et outre-mer."
   },
   {
     "boxes": [
@@ -8486,13 +6519,6 @@
       "7QA"
     ],
     "type": "int",
-    "description": "Investissements locatifs interm\u00e9diaires en m\u00e9tropole r\u00e9alis\u00e9s du 1.9.2014 au 31.12.2014 avec engagement de location 6 ans."
-  },
-  {
-    "boxes": [
-      "7QA"
-    ],
-    "type": "int",
     "description": "Investissements locatifs Pinel en m\u00e9tropole r\u00e9alis\u00e9s en 2020 avec engagement de location 6 ans."
   },
   {
@@ -8508,13 +6534,6 @@
     ],
     "type": "int",
     "description": "Report concernant les investissements locatifs interm\u00e9diaires en m\u00e9tropole r\u00e9alis\u00e9s 2014 avec engagement de location 9 ans."
-  },
-  {
-    "boxes": [
-      "7CI"
-    ],
-    "type": "int",
-    "description": "Report concernant les investissements locatifs interm\u00e9diaires en outre-mer 2014 avec engagement de location 6 ans."
   },
   {
     "boxes": [
@@ -8553,83 +6572,6 @@
   },
   {
     "boxes": [
-      "7QM"
-    ],
-    "type": "int",
-    "description": "Investissements locatifs interm\u00e9diaires en m\u00e9tropole r\u00e9alis\u00e9s en 2017 avec engagement de location 6 ans."
-  },
-  {
-    "boxes": [
-      "7QN"
-    ],
-    "type": "int",
-    "description": "Investissements locatifs interm\u00e9diaires en m\u00e9tropole r\u00e9alis\u00e9s en 2017 avec engagement de location 9 ans."
-  },
-  {
-    "boxes": [
-      "7QO"
-    ],
-    "type": "int",
-    "description": "Investissements locatifs interm\u00e9diaires en outre-mer r\u00e9alis\u00e9s en 2017 avec engagement de location 6 ans."
-  },
-  {
-    "boxes": [
-      "7QP"
-    ],
-    "type": "int",
-    "description": "Investissements locatifs interm\u00e9diaires en outre-mer r\u00e9alis\u00e9s en 2017 avec engagement de location 9 ans."
-  },
-  {
-    "boxes": [
-      "7QQ"
-    ],
-    "type": "int",
-    "description": "Investissement locatifs interm\u00e9diaires en outre-mer r\u00e9alis\u00e9s en 2019 avec engagement de location 9 ans."
-  },
-  {
-    "boxes": [
-      "7QR"
-    ],
-    "type": "int",
-    "description": "Investissements locatifs interm\u00e9diaires en m\u00e9tropole r\u00e9alis\u00e9s en 2018 avec engagement de location 6 ans."
-  },
-  {
-    "boxes": [
-      "7QS"
-    ],
-    "type": "int",
-    "description": "Investissements locatifs interm\u00e9diaires en m\u00e9tropole r\u00e9alis\u00e9s en 2018 avec engagement de location 9 ans."
-  },
-  {
-    "boxes": [
-      "7QT"
-    ],
-    "type": "int",
-    "description": "Investissements locatifs interm\u00e9diaires en outre-mer r\u00e9alis\u00e9s en 2018 avec engagement de location 6 ans."
-  },
-  {
-    "boxes": [
-      "7QU"
-    ],
-    "type": "int",
-    "description": "Investissements locatifs interm\u00e9diaires en outre-mer r\u00e9alis\u00e9s en 2018 avec engagement de location 9 ans."
-  },
-  {
-    "boxes": [
-      "7QW"
-    ],
-    "type": "int",
-    "description": "Investissement locatifs interm\u00e9diaires en m\u00e9tropole r\u00e9alis\u00e9s en 2019 avec engagement de location 6 ans."
-  },
-  {
-    "boxes": [
-      "7QX"
-    ],
-    "type": "int",
-    "description": "Investissement locatifs interm\u00e9diaires en m\u00e9tropole r\u00e9alis\u00e9s en 2019 avec engagement de location 9 ans."
-  },
-  {
-    "boxes": [
       "7QY"
     ],
     "type": "int",
@@ -8637,87 +6579,10 @@
   },
   {
     "boxes": [
-      "7QZ"
-    ],
-    "type": "int",
-    "description": "Report concernant les investissements locatifs interm\u00e9diaires en m\u00e9tropole en 2016 avec engagement de location 6 ans."
-  },
-  {
-    "boxes": [
-      "7RZ"
-    ],
-    "type": "int",
-    "description": "Report concernant les investissements locatifs interm\u00e9diaires en m\u00e9tropole en 2016 avec engagement de location 9 ans."
-  },
-  {
-    "boxes": [
-      "7SZ"
-    ],
-    "type": "int",
-    "description": "Report concernant les investissements locatifs interm\u00e9diaires en outre-mer en 2016 avec engagement de location 6 ans."
-  },
-  {
-    "boxes": [
       "7TZ"
     ],
     "type": "int",
     "description": "Report concernant les investissements locatifs interm\u00e9diaires en outre-mer en 2016 avec engagement de location 9 ans."
-  },
-  {
-    "boxes": [
-      "7RA"
-    ],
-    "type": "int",
-    "description": "Report concernant les investissements locatifs interm\u00e9diaires en m\u00e9tropole en 2017 avec engagement de location 6 ans."
-  },
-  {
-    "boxes": [
-      "7RB"
-    ],
-    "type": "int",
-    "description": "Report concernant les investissements locatifs interm\u00e9diaires en m\u00e9tropole en 2017 avec engagement de location 9 ans."
-  },
-  {
-    "boxes": [
-      "7RC"
-    ],
-    "type": "int",
-    "description": "Report concernant les investissements locatifs interm\u00e9diaires en outre-mer en 2017 avec engagement de location 6 ans."
-  },
-  {
-    "boxes": [
-      "7RD"
-    ],
-    "type": "int",
-    "description": "Report concernant les investissements locatifs interm\u00e9diaires en outre-mer en 2017 avec engagement de location 9 ans."
-  },
-  {
-    "boxes": [
-      "7RE"
-    ],
-    "type": "int",
-    "description": "Report concernant les investissements locatifs interm\u00e9diaires en m\u00e9tropole en 2018 avec engagement de location 6 ans."
-  },
-  {
-    "boxes": [
-      "7RF"
-    ],
-    "type": "int",
-    "description": "Report concernant les investissements locatifs interm\u00e9diaires en m\u00e9tropole en 2018 avec engagement de location 9 ans."
-  },
-  {
-    "boxes": [
-      "7RG"
-    ],
-    "type": "int",
-    "description": "Report concernant les investissements locatifs interm\u00e9diaires en outre-mer en 2018 avec engagement de location 6 ans."
-  },
-  {
-    "boxes": [
-      "7RH"
-    ],
-    "type": "int",
-    "description": "Report concernant les investissements locatifs interm\u00e9diaires en outre-mer en 2018 avec engagement de location 9 ans."
   },
   {
     "boxes": [
@@ -8732,13 +6597,6 @@
     ],
     "type": "int",
     "description": "Cr\u00e9dit d'imp\u00f4t recherche (entreprises b\u00e9n\u00e9ficiant de la restitution imm\u00e9diate)."
-  },
-  {
-    "boxes": [
-      "8TE"
-    ],
-    "type": "int",
-    "description": "Cr\u00e9dit d'imp\u00f4t en faveur des entreprises: adh\u00e9sion \u00e0 un groupement de pr\u00e9vention agr\u00e9\u00e9."
   },
   {
     "boxes": [
@@ -8766,7 +6624,7 @@
       "8TK"
     ],
     "type": "int",
-    "description": "Revenus de source \u00e9trang\u00e8re ouvrant droit \u00e0 un cr\u00e9dit d\u2019imp\u00f4t \u00e9gal \u00e0 l\u2019imp\u00f4t fran\u00e7ais."
+    "description": "Revenus de l'\u00e9tranger exon\u00e9r\u00e9s d'imp\u00f4t."
   },
   {
     "boxes": [
@@ -8830,13 +6688,6 @@
     ],
     "type": "int",
     "description": "Cr\u00e9dit d'imp\u00f4t en faveur des entreprises: Prospection commerciale."
-  },
-  {
-    "boxes": [
-      "8WC"
-    ],
-    "type": "int",
-    "description": "Cr\u00e9dit d'imp\u00f4t en faveur des entreprises: Nouvelles technologies."
   },
   {
     "boxes": [
@@ -8978,8 +6829,8 @@
       "5OW",
       "5PW"
     ],
-    "type": "bool",
-    "description": "Prime pour l'emploi des non-salari\u00e9\u00b7e\u00b7s: indicateur de travail \u00e0 temps plein sur l'ann\u00e9e enti\u00e8re."
+    "type": "int",
+    "description": "Locations meubl\u00e9es non professionnelles: cas g\u00e9n\u00e9ral des locations d\u00e9j\u00e0 soumises aux pr\u00e9l\u00e8vements sociaux (r\u00e9gime micro entreprise)."
   },
   {
     "boxes": [
@@ -8997,7 +6848,7 @@
       "5JA"
     ],
     "type": "int",
-    "description": "Revenus agricoles: revenus nets de la cession ou concession de brevets et assimil\u00e9s."
+    "description": "Locations meubl\u00e9es imposables avec CGA ou viseur (r\u00e9gime du b\u00e9n\u00e9fice r\u00e9el pour les revenus industriels et commerciaux professionnels)."
   },
   {
     "boxes": [
@@ -9006,7 +6857,7 @@
       "5JD"
     ],
     "type": "int",
-    "description": "Revenus forfaitaire provenant des coupes de bois."
+    "description": "Revenus des exploitants forestiers (r\u00e9gime du forfait)."
   },
   {
     "boxes": [
@@ -9258,15 +7109,6 @@
       "5MJ"
     ],
     "type": "int",
-    "description": "Revenus industriels et commerciaux professionnels imposables: r\u00e9gime simplifi\u00e9 sans CGA (r\u00e9gime du b\u00e9n\u00e9fice r\u00e9el)."
-  },
-  {
-    "boxes": [
-      "5KJ",
-      "5LJ",
-      "5MJ"
-    ],
-    "type": "int",
     "description": "Revenus industriels et commerciaux professionnels moins-values nettes \u00e0 court terme : r\u00e9gime micro-entreprise."
   },
   {
@@ -9339,7 +7181,7 @@
       "5VF"
     ],
     "type": "int",
-    "description": "Revenus industriels et commerciaux non-professionnels : Revenus nets de la cession ou concession de brevets et assimil\u00e9s."
+    "description": "Honoraires de prospection commerciale exon\u00e9r\u00e9s avec CGA ou viseur (revenus non commerciaux professionnels, r\u00e9gime de la d\u00e9claration contr\u00f4l\u00e9e)."
   },
   {
     "boxes": [
@@ -9402,7 +7244,7 @@
       "5PG"
     ],
     "type": "int",
-    "description": "Location de g\u00eetes ruraux, chambres d'h\u00f4tes et meubl\u00e9s de tourisme (r\u00e9gime micro entreprise)."
+    "description": "D\u00e9ficits de revenus industriels et commerciaux non professionnels avec CGA (r\u00e9gime simplifi\u00e9 du b\u00e9n\u00e9fice r\u00e9el)."
   },
   {
     "boxes": [
@@ -9415,30 +7257,12 @@
   },
   {
     "boxes": [
-      "5NG",
-      "5OG",
-      "5PG"
-    ],
-    "type": "int",
-    "description": "D\u00e9ficits de revenus industriels et commerciaux non professionnels avec CGA (r\u00e9gime simplifi\u00e9 du b\u00e9n\u00e9fice r\u00e9el)."
-  },
-  {
-    "boxes": [
       "5NJ",
       "5OJ",
       "5PJ"
     ],
     "type": "int",
     "description": "Locations meubl\u00e9es non professionnelles: Locations d\u00e9j\u00e0 soumises aux pr\u00e9l\u00e8vements sociaux (r\u00e9gime micro entreprise)."
-  },
-  {
-    "boxes": [
-      "5NW",
-      "5OW",
-      "5PW"
-    ],
-    "type": "int",
-    "description": "Locations meubl\u00e9es non professionnelles: cas g\u00e9n\u00e9ral des locations d\u00e9j\u00e0 soumises aux pr\u00e9l\u00e8vements sociaux (r\u00e9gime micro entreprise)."
   },
   {
     "boxes": [
@@ -9469,18 +7293,18 @@
   },
   {
     "boxes": [
-      "5SN",
       "5NS",
-      "5OS"
+      "5OS",
+      "5SN"
     ],
     "type": "int",
     "description": "Revenus non commerciaux non professionnels imposables sans AA (r\u00e9gime de la d\u00e9claration control\u00e9e)."
   },
   {
     "boxes": [
-      "5SP",
       "5NU",
-      "5OU"
+      "5OU",
+      "5SP"
     ],
     "type": "int",
     "description": "D\u00e9ficits non commerciaux non professionnels sans AA (r\u00e9gime de la d\u00e9claration control\u00e9e)."
@@ -9528,7 +7352,7 @@
       "5SA"
     ],
     "type": "int",
-    "description": "Revenus non-commerciaux professionnels imposables: Revenus nets de la cession ou concession de brevets et assimil\u00e9s (r\u00e9gime de d\u00e9claration control\u00e9e)."
+    "description": "D\u00e9ficits de locations meubl\u00e9esavec CGA ou viseur (r\u00e9gime du b\u00e9n\u00e9fice r\u00e9el pour les revenus industriels et commerciaux professionnels)."
   },
   {
     "boxes": [
@@ -9603,7 +7427,7 @@
       "5JW"
     ],
     "type": "int",
-    "description": "Plus-values agricoles  \u00e0 court terme (r\u00e9gime du forfait)."
+    "description": "Plus-values agricoles (r\u00e9gime microBA) \u00e0 court-terme."
   },
   {
     "boxes": [
@@ -9684,24 +7508,6 @@
       "5JX"
     ],
     "type": "int",
-    "description": "Plus-values agricoles de cession (r\u00e9gime du forfait ou MICRO BA) taxables \u00e0 16%."
-  },
-  {
-    "boxes": [
-      "5HW",
-      "5IW",
-      "5JW"
-    ],
-    "type": "int",
-    "description": "Plus-values agricoles (r\u00e9gime microBA) \u00e0 court-terme."
-  },
-  {
-    "boxes": [
-      "5HX",
-      "5IX",
-      "5JX"
-    ],
-    "type": "int",
     "description": "Plus-values agricoles (r\u00e9gime microBA) \u00e0 long-terme taxable selon droit commun."
   },
   {
@@ -9734,11 +7540,11 @@
   {
     "boxes": [
       "5HK",
-      "5LK",
-      "5JK"
+      "5JK",
+      "5LK"
     ],
     "type": "int",
-    "description": "Plus-values agricoles de cession taxables \u00e0 16% (R\u00e9gime du b\u00e9n\u00e9fice r\u00e9el, revenus ne b\u00e9n\u00e9ficiant pas de l'abattement CGA ou viseur)."
+    "description": "Revenus nets exon\u00e9r\u00e9s non commerciaux non professionnels (r\u00e9gime de la d\u00e9claration contr\u00f4l\u00e9e)."
   },
   {
     "boxes": [
@@ -9805,9 +7611,9 @@
   },
   {
     "boxes": [
-      "5SO",
       "5NT",
-      "5OT"
+      "5OT",
+      "5SO"
     ],
     "type": "int",
     "description": "Plus-values nettes non commerciales non professionnelles taxables au taux de droit commun (r\u00e9gime de la d\u00e9claration control\u00e9e)."
@@ -9837,16 +7643,7 @@
       "5SJ"
     ],
     "type": "int",
-    "description": "D\u00e9ficits industriels et commerciaux: locations meubl\u00e9es sans CGA (r\u00e9gime du b\u00e9n\u00e9fice r\u00e9el)."
-  },
-  {
-    "boxes": [
-      "5HD",
-      "5ID",
-      "5JD"
-    ],
-    "type": "int",
-    "description": "Revenus des exploitants forestiers (r\u00e9gime du forfait)."
+    "description": "Inventeur\u00b7euse\u00b7s et auteur\u00b7ice\u00b7s de logiciels : \u2013 produits taxables \u00e0 10%, revenus non commerciaux non professionnels avec CGA (r\u00e9gime de la d\u00e9claration contr\u00f4l\u00e9e)."
   },
   {
     "boxes": [
@@ -9855,16 +7652,7 @@
       "5JZ"
     ],
     "type": "int",
-    "description": "Abattement pour les jeunes agriculteurs des revenus agricoles sans CGA (r\u00e9gime du b\u00e9n\u00e9fice r\u00e9el)."
-  },
-  {
-    "boxes": [
-      "5HA",
-      "5IA",
-      "5JA"
-    ],
-    "type": "int",
-    "description": "Locations meubl\u00e9es imposables avec CGA ou viseur (r\u00e9gime du b\u00e9n\u00e9fice r\u00e9el pour les revenus industriels et commerciaux professionnels)."
+    "description": "Plus-values \u00e0 long terme taxables \u00e0 16% \u00e0 la retraite \u00e0 imposer aux pr\u00e9l\u00e8vements sociaux."
   },
   {
     "boxes": [
@@ -9874,15 +7662,6 @@
     ],
     "type": "int",
     "description": "Locations meubl\u00e9es imposables sans CGA (r\u00e9gime du b\u00e9n\u00e9fice r\u00e9el)."
-  },
-  {
-    "boxes": [
-      "5QA",
-      "5RA",
-      "5SA"
-    ],
-    "type": "int",
-    "description": "D\u00e9ficits de locations meubl\u00e9esavec CGA ou viseur (r\u00e9gime du b\u00e9n\u00e9fice r\u00e9el pour les revenus industriels et commerciaux professionnels)."
   },
   {
     "boxes": [
@@ -9913,39 +7692,12 @@
   },
   {
     "boxes": [
-      "5TF",
-      "5UF",
-      "5VF"
-    ],
-    "type": "int",
-    "description": "Honoraires de prospection commerciale exon\u00e9r\u00e9s avec CGA ou viseur (revenus non commerciaux professionnels, r\u00e9gime de la d\u00e9claration contr\u00f4l\u00e9e)."
-  },
-  {
-    "boxes": [
-      "5TI",
-      "5UI",
-      "5VI"
-    ],
-    "type": "int",
-    "description": "Honoraires de prospection commerciale exon\u00e9r\u00e9s sans CGA (revenus non commerciaux professionnels, r\u00e9gime de la d\u00e9claration contr\u00f4l\u00e9e)."
-  },
-  {
-    "boxes": [
       "5TH",
       "5UH",
       "5VH"
     ],
     "type": "int",
     "description": "Revenus nets exon\u00e9r\u00e9s non commerciaux non professionnels (r\u00e9gime d\u00e9claratif sp\u00e9cial ou micro BNC)."
-  },
-  {
-    "boxes": [
-      "5HK",
-      "5JK",
-      "5LK"
-    ],
-    "type": "int",
-    "description": "Revenus nets exon\u00e9r\u00e9s non commerciaux non professionnels (r\u00e9gime de la d\u00e9claration contr\u00f4l\u00e9e)."
   },
   {
     "boxes": [
@@ -9972,25 +7724,7 @@
       "5VC"
     ],
     "type": "int",
-    "description": "Inventeur\u00b7euse\u00b7s et auteur\u00b7ice\u00b7s de logiciels : produits taxables aux taux de droit commun revenus non commerciaux non professionnels avec CGA (r\u00e9gime de la d\u00e9claration contr\u00f4l\u00e9e)."
-  },
-  {
-    "boxes": [
-      "5TC",
-      "5UC",
-      "5VC"
-    ],
-    "type": "int",
     "description": "Inventeur\u00b7euse\u00b7s et auteur\u00b7ice\u00b7s de logiciels : \u2013 produits taxables \u00e0 10%, d\u00e9j\u00e0 soumis aux CS, revenus non commerciaux non professionnels avec CGA (r\u00e9gime de la d\u00e9claration contr\u00f4l\u00e9e)."
-  },
-  {
-    "boxes": [
-      "5QJ",
-      "5RJ",
-      "5SJ"
-    ],
-    "type": "int",
-    "description": "Inventeur\u00b7euse\u00b7s et auteur\u00b7ice\u00b7s de logiciels : \u2013 produits taxables \u00e0 10%, revenus non commerciaux non professionnels avec CGA (r\u00e9gime de la d\u00e9claration contr\u00f4l\u00e9e)."
   },
   {
     "boxes": [
@@ -10017,15 +7751,6 @@
     ],
     "type": "int",
     "description": "Plus-values \u00e0 long terme exon\u00e9r\u00e9es en cas de d\u00e9part \u00e0 la retraite \u00e0 imposer aux pr\u00e9l\u00e8vements sociaux."
-  },
-  {
-    "boxes": [
-      "5HZ",
-      "5IZ",
-      "5JZ"
-    ],
-    "type": "int",
-    "description": "Plus-values \u00e0 long terme taxables \u00e0 16% \u00e0 la retraite \u00e0 imposer aux pr\u00e9l\u00e8vements sociaux."
   },
   {
     "boxes": [
@@ -10232,59 +7957,6 @@
   },
   {
     "boxes": [
-      "1AC",
-      "1BC",
-      "1CC",
-      "1DC"
-    ],
-    "type": "int",
-    "description": "Salaires et pensions exon\u00e9r\u00e9s de source \u00e9trang\u00e8re retenus pour le calcul du taux effectif."
-  },
-  {
-    "boxes": [
-      "1AK",
-      "1BK",
-      "1CK",
-      "1DK",
-      "1EK"
-    ],
-    "type": "int",
-    "description": "Frais r\u00e9els."
-  },
-  {
-    "boxes": [
-      "1AU",
-      "1BU",
-      "1CU",
-      "1DU"
-    ],
-    "type": "int",
-    "description": "Heures suppl\u00e9mentaires : revenus exon\u00e9r\u00e9s connus."
-  },
-  {
-    "boxes": [
-      "1AV",
-      "1BV",
-      "1CV",
-      "1DV",
-      "1QV"
-    ],
-    "type": "int",
-    "description": "Prime pour l'emploi des salari\u00e9\u00b7e\u00b7s: nombre d'heures pay\u00e9es."
-  },
-  {
-    "boxes": [
-      "1AX",
-      "1BX",
-      "1CX",
-      "1DX",
-      "1QX"
-    ],
-    "type": "bool",
-    "description": "Prime pour l'emploi des salari\u00e9\u00b7e\u00b7s: indicateur de travail \u00e0 temps plein sur l'ann\u00e9e enti\u00e8re."
-  },
-  {
-    "boxes": [
       "1AO",
       "1BO",
       "1CO",
@@ -10320,9 +7992,9 @@
   },
   {
     "boxes": [
+      "8UM",
       "8VM",
-      "8WM",
-      "8UM"
+      "8WM"
     ],
     "type": "int",
     "description": "Imp\u00f4t pay\u00e9 \u00e0 l'\u00e9tranger sur revenus de capitaux mobiliers et plus-values ouvrant droit \u00e0 un cr\u00e9dit d'imp\u00f4t."
@@ -10338,22 +8010,8 @@
     "boxes": [
       "8TD"
     ],
-    "type": "int",
-    "description": "Contribution exceptionnelle sur les hauts revenus."
-  },
-  {
-    "boxes": [
-      "8TD"
-    ],
     "type": "bool",
     "description": "Revenus non imposables d\u00e9passent la moiti\u00e9 du RFR."
-  },
-  {
-    "boxes": [
-      "8TK"
-    ],
-    "type": "int",
-    "description": "Revenus de l'\u00e9tranger exon\u00e9r\u00e9s d'imp\u00f4t."
   },
   {
     "boxes": [
@@ -10458,21 +8116,7 @@
       "2TT"
     ],
     "type": "int",
-    "description": "Int\u00e9r\u00eats des pr\u00eats participatifs."
-  },
-  {
-    "boxes": [
-      "2TT"
-    ],
-    "type": "int",
     "description": "Int\u00e9r\u00eats des pr\u00eats participatifs nettes des pertes \u00e0 imputer au titre de l'imp\u00f4t sur le revenu."
-  },
-  {
-    "boxes": [
-      "2TU"
-    ],
-    "type": "int",
-    "description": "Pertes en capital sur pr\u00eats participatifs en 2016."
   },
   {
     "boxes": [
@@ -10729,7 +8373,7 @@
       "3VV"
     ],
     "type": "int",
-    "description": "Plus-values r\u00e9alis\u00e9es par les non-r\u00e9sidents: montant du pr\u00e9l\u00e8vement de 45 % d\u00e9j\u00e0 vers\u00e9."
+    "description": "Pertes ouvrant droit au cr\u00e9dit d\u2019imp\u00f4t de 19 % ."
   },
   {
     "boxes": [
@@ -10744,13 +8388,6 @@
     ],
     "type": "int",
     "description": "Produits et plus-values exon\u00e9r\u00e9s provenant de structure de capital-risque."
-  },
-  {
-    "boxes": [
-      "3VP"
-    ],
-    "type": "int",
-    "description": "Plus-values exon\u00e9r\u00e9es de cessions de titres de jeunes entreprises innovantes."
   },
   {
     "boxes": [
@@ -10792,7 +8429,7 @@
       "3SA"
     ],
     "type": "int",
-    "description": "Plus-values en report d'imposition, dont le report a expir\u00e9 cette ann\u00e9e; montant avant abattement."
+    "description": "Plus-values de cessions de titres r\u00e9alis\u00e9es par un entrepreneur, taxables \u00e0 19%."
   },
   {
     "boxes": [
@@ -10852,13 +8489,6 @@
   },
   {
     "boxes": [
-      "3VA"
-    ],
-    "type": "int",
-    "description": "Abattements nets (abattement pour dur\u00e9e de d\u00e9tention renforc\u00e9 et abattement fixe sp\u00e9cial) appliqu\u00e9s sur des plus-values r\u00e9alis\u00e9es par les dirigeants de PME lors de leur d\u00e9part \u00e0 la retraite."
-  },
-  {
-    "boxes": [
       "3VA",
       "3VB",
       "3VO",
@@ -10866,20 +8496,6 @@
     ],
     "type": "int",
     "description": "Abattements nets (abattement pour dur\u00e9e de d\u00e9tention renforc\u00e9 et abattement fixe sp\u00e9cial) appliqu\u00e9s sur des plus-values r\u00e9alis\u00e9es par les dirigeants de PME lors de leur d\u00e9part \u00e0 la retraite."
-  },
-  {
-    "boxes": [
-      "3VA"
-    ],
-    "type": "int",
-    "description": "Abattement fixe sp\u00e9cial appliqu\u00e9 sur des plus-values r\u00e9alis\u00e9es par les dirigeants de PME lors de leur d\u00e9part \u00e0 la retraite."
-  },
-  {
-    "boxes": [
-      "3VB"
-    ],
-    "type": "int",
-    "description": "Abattements nets (abattement pour dur\u00e9e de d\u00e9tention renforc\u00e9 et abattement fixe sp\u00e9cial) appliqu\u00e9s sur des moins-values r\u00e9alis\u00e9es par les dirigeants de PME lors de leur d\u00e9part \u00e0 la retraite."
   },
   {
     "boxes": [
@@ -10911,24 +8527,24 @@
   },
   {
     "boxes": [
-      "3VD",
-      "3SD"
+      "3SD",
+      "3VD"
     ],
     "type": "int",
     "description": "Gains de lev\u00e9e d'options sur titres et gains d'acquisition d'actions taxables \u00e0 18 %."
   },
   {
     "boxes": [
-      "3VI",
-      "3SI"
+      "3SI",
+      "3VI"
     ],
     "type": "int",
     "description": "Gains de lev\u00e9e d'options sur titres et gains d'acquisition d'actions taxables \u00e0 30 %."
   },
   {
     "boxes": [
-      "3VF",
-      "3SF"
+      "3SF",
+      "3VF"
     ],
     "type": "int",
     "description": "Gains de lev\u00e9e d'options sur titres et gains d'acquisition d'actions taxables \u00e0 41 %."
@@ -10953,13 +8569,6 @@
     ],
     "type": "int",
     "description": "Distributions par des soci\u00e9t\u00e9s de capital-risque taxables \u00e0 19 %."
-  },
-  {
-    "boxes": [
-      "3SA"
-    ],
-    "type": "int",
-    "description": "Plus-values de cessions de titres r\u00e9alis\u00e9es par un entrepreneur, taxables \u00e0 19%."
   },
   {
     "boxes": [
@@ -11023,13 +8632,6 @@
     ],
     "type": "int",
     "description": "Profits sur instruments financiers r\u00e9alis\u00e9s dans des ETNC ou paradis fiscaux."
-  },
-  {
-    "boxes": [
-      "3VV"
-    ],
-    "type": "int",
-    "description": "Pertes ouvrant droit au cr\u00e9dit d\u2019imp\u00f4t de 19 % ."
   },
   {
     "boxes": [

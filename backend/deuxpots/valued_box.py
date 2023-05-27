@@ -19,7 +19,7 @@ class UnknownBoxCodeWarning(UserFacingWarning):
     def __str__(self):
         return (f"La case \"{self.box_code}\", trouvée dans la déclaration, est inconnue. "
                 f"Si cette case existe effectivement, conservez-la. Sinon, c'est une erreur "
-                f"de détection : merci de la supprimer en mettant zéro dans les deux cases.")
+                f"de détection : merci de la supprimer.")
 
 
 @dataclass
