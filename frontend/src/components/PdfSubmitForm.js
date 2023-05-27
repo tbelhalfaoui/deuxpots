@@ -3,6 +3,7 @@ import React, { useContext, useState } from "react"
 import { ErrorMessage, HelpMessageForParser } from "./Alert.js";
 import { callPaseRoute } from "../adapters/api.js";
 import { NavContext, SearchIndexContext } from "../App.js";
+import { createEmptyBox } from "../utils/box.js";
 
 export const PdfSubmitForm = ({setBoxes, setWarnings, errorMsg, setErrorMsg, resetErrorMsgs, setIsDemo}) => {
     const [isLoading, setIsLoading] = useState(false);
@@ -27,15 +28,7 @@ export const PdfSubmitForm = ({setBoxes, setWarnings, errorMsg, setErrorMsg, res
                 partner_0_value: ((box.attribution || (box.attribution === 0)) && box.raw_value) ? box.raw_value * (1 - box.attribution) : "",
                 partner_1_value: ((box.attribution || (box.attribution === 0)) && box.raw_value) ? box.raw_value * box.attribution : "",
                 totalIsLocked: !isDemo && !!box.raw_value
-              })).concat([{
-                  code: "",
-                  raw_value: "",
-                  description: "",
-                  partner_0_value: "",
-                  partner_1_value: "",
-                  attribution: null,
-                  totalIsLocked: false
-              }])
+              })).concat([createEmptyBox()])
             boxes.forEach(box => searchIndex.current.disable(box.code))
             setBoxes(boxes)
             setStep({current: 2, max: 2})
