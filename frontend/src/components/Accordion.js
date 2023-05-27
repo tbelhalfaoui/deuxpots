@@ -1,3 +1,6 @@
+import { useContext } from "react"
+import { NavContext } from "../App.js"
+
 export const Accordion = ({ children }) => (
     <div className="accordion" id="accordionStepsNav">
         {children}
@@ -23,11 +26,15 @@ export const AccordionItem = ({ title, name, isExpanded, onExpand, enabled, chil
 ) 
 
 
-export const AccordionStepItem = ({ title, itemStep, currentStep, maxCurrentStep, setStep, children }) => (
-    <AccordionItem title={title} name={`step${itemStep}`}
-    isExpanded={currentStep === itemStep}
-    onExpand={() => setStep(itemStep)}
-    enabled={itemStep <= maxCurrentStep}>
-        {children}
-    </AccordionItem>
-)
+export const AccordionStepItem = ({ title, itemStep, children }) => {
+    const { step, setStep } = useContext(NavContext)
+
+    return (
+        <AccordionItem title={title} name={`step${itemStep}`}
+        isExpanded={step.current === itemStep}
+        onExpand={() => setStep({...step, current: itemStep})}
+        enabled={itemStep <= step.max}>
+            {children}
+        </AccordionItem>
+    )
+}

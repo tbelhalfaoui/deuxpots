@@ -1,5 +1,6 @@
-import { React, useState } from 'react';
+import { React, useContext, useState } from 'react';
 import { Modal, Button, OverlayTrigger, Tooltip } from 'react-bootstrap';
+import { SearchIndexContext } from '../App';
 
 
 export const ReassignBoxModal = ({ box, chosenResult, show, closeModal, onConfirm }) =>
@@ -27,10 +28,11 @@ export const ReassignBoxModal = ({ box, chosenResult, show, closeModal, onConfir
     </Modal>);
 
 
-export const BoxSearchSelect = ({ boxIndex, box, reassignBox, searchIndex }) => {
+export const BoxSearchSelect = ({ boxIndex, box, reassignBox }) => {
     const [ isBeingEdited, setIsBeingEdited ] = useState(false);
     const [ searchResults, setSearchResults ] = useState([]);
     const [ chosenResult, setChosenResult ] = useState();
+    const searchIndex = useContext(SearchIndexContext)
 
     const onSearchBoxChange = async (evt) => {
         const query = evt.target.value;

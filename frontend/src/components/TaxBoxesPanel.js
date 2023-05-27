@@ -1,15 +1,20 @@
-import { useState } from "react"
+import React, { useState, useContext } from "react"
 import { FaInfoCircle } from "react-icons/fa";
+import { NavContext, SearchIndexContext } from "../App.js";
 import { TaxBox } from './TaxBox.js'
 import { SubmitButton } from './SubmitButton.js'
 import { ErrorMessage, WarningMessage } from "./Alert.js";
+import { callIndividualizeRoute } from "../adapters/api.js"
+import { createEmptyBox } from "../utils/box.js";
 
 
-export const TaxBoxesPanel = ({ boxes, setBoxes, setStep, setIndividualizedResults,
-                                warnings, errorMsg, setErrorMsg, resetErrorMsgs, isDemo, searchIndex }) => {
+export const TaxBoxesPanel = ({ boxes, setBoxes, setIndividualizedResults,
+                                warnings, errorMsg, setErrorMsg, resetErrorMsgs, isDemo }) => {
     const [ isLoading, setIsLoading ] = useState(false);
+    const { setStep } = useContext(NavContext);
+    const searchIndex = useContext(SearchIndexContext);
 
-    const onSliderChange = async (evt) => {
+    const handleSliderChange = async (evt) => {
         var value = evt.target.value;
         const boxIndexChanged = parseInt(evt.target.name.split('.')[1]);
         if (isNaN(value)) {
@@ -26,7 +31,15 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setStep, setIndividualizedResul
         }));
     }
 
-    const handleBoxChange = async (boxIndexChanged, fieldName, value) =>
+    const handleBoxChange = async (values, sourceInfo) => {
+        const evt = sourceInfo.event;
+        if (!evt) {
+            return;
+        }
+        const fieldName = evt.target.name.split('.')[0];
+        const boxIndexChanged = parseInt(evt.target.name.split('.')[1]);
+        const value = values.floatValue
+
         setBoxes(boxes.map((box, boxIndex) => {
             if (boxIndex === boxIndexChanged) {
                 box[fieldName] = value;
@@ -44,16 +57,7 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setStep, setIndividualizedResul
                 }
             }
             return box;
-        }));
-
-    const onBoxChange = async (values, sourceInfo) => {
-        const evt = sourceInfo.event;
-        if (!evt) {
-            return;
-        }
-        const fieldName = evt.target.name.split('.')[0];
-        const boxIndex = parseInt(evt.target.name.split('.')[1]);
-        handleBoxChange(boxIndex, fieldName, values.floatValue)
+        }))
     };
 
     const toggleTotalLock = (boxIndexChanged, totalIsLocked) => {
@@ -76,15 +80,7 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setStep, setIndividualizedResul
                         code: newCode,
                         description: newDescription,
                     } : box
-            ).concat((oldCode) ? [] : [{
-                code: "",
-                raw_value: "",
-                description: "",
-                partner_0_value: "",
-                partner_1_value: "",
-                attribution: null,
-                totalIsLocked: false
-            }]));
+            ).concat((oldCode) ? [] : [createEmptyBox()]));
         }
         searchIndex.current.disable(newCode)
         if (oldCode) {
@@ -119,22 +115,8 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setStep, setIndividualizedResul
         resetErrorMsgs();
         setIsLoading(true);
 
-        const queryParams = new URLSearchParams();
-        if (isDemo) {
-            queryParams.append("demo", "true");
-        }
-        await fetch(`${process.env.REACT_APP_API_URL || window.location.origin}/individualize?${queryParams}`, {
-            method: "POST",
-            body: JSON.stringify({'boxes': nonEmptyBoxes}),
-            mode: 'cors',
-            headers: {
-                'Content-type':'application/json', 
-                'Accept':'application/json'
-            }
-        }).then(
-            res => (!res.ok) ? res.text().then(text => {throw new Error(text)}) : res
-        ).then(
-          res => res.json()
+        await callIndividualizeRoute(
+            nonEmptyBoxes, isDemo
         ).then(
             data => {
                 const results = data.individualized;
@@ -145,9 +127,8 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setStep, setIndividualizedResul
                     }
                 })
                 setIndividualizedResults(results)
+                setStep({current: 3, max: 3})
             }
-        ).then(
-          () => setStep(3)
         ).catch(
             e => setErrorMsg(e)
         ).finally(
@@ -186,8 +167,13 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setStep, setIndividualizedResul
                             <hr/>
                         </div>
                         {boxes.map((box, boxIndex) => (
-                            <TaxBox key={boxIndex} boxIndex={boxIndex} box={box} onValueChange={onBoxChange} onSliderChange={onSliderChange}
-                             deleteBox={deleteBox} toggleTotalLock={toggleTotalLock} reassignBox={reassignBox} searchIndex={searchIndex} />
+                            <TaxBox key={boxIndex}
+                             boxIndex={boxIndex} box={box}
+                             onValueChange={handleBoxChange}
+                             onSliderChange={handleSliderChange}
+                             deleteBox={deleteBox}
+                             toggleTotalLock={toggleTotalLock}
+                             reassignBox={reassignBox} />
                         ))}
                     </div>
                 </div>

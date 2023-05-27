@@ -1,65 +1,45 @@
 import { FaInfoCircle } from "react-icons/fa";
-import React, { useState } from "react"
+import React, { useContext, useState } from "react"
 import { ErrorMessage, HelpMessageForParser } from "./Alert.js";
+import { callPaseRoute } from "../adapters/api.js";
+import { NavContext, SearchIndexContext } from "../App.js";
+import { createEmptyBox } from "../utils/box.js";
 
-
-export const PdfSubmitForm = ({setBoxes, setStep, setWarnings, errorMsg, setErrorMsg, resetErrorMsgs, setIsDemo, searchIndex}) => {
+export const PdfSubmitForm = ({setBoxes, setWarnings, errorMsg, setErrorMsg, resetErrorMsgs, setIsDemo}) => {
     const [isLoading, setIsLoading] = useState(false);
+    const { setStep } = useContext(NavContext);
+    const searchIndex = useContext(SearchIndexContext);
 
     const sendTaxSheet = async (evt) => {
         setIsLoading(true);
 
-        const formData = new FormData();
-        const queryParams = new URLSearchParams();
         const isDemo = evt.target.name === "tryOnExample";
         setIsDemo(isDemo);
-
-        if (isDemo) {
-          queryParams.append("demo", "true");
-        }
-        else {
-          formData.append("tax_pdf", evt.target.files[0]);
-        }
         
-        await fetch(`${process.env.REACT_APP_API_URL || window.location.origin}/parse?${queryParams}`, {
-            method: "POST",
-            body: formData,
-        }).then(
-          res => (!res.ok) ? res.text().then(text => {throw new Error(text)}) : res
-        ).then(
-          res => res.json(),
+        await callPaseRoute(
+          evt.target.files && evt.target.files[0], isDemo
         ).then(
           data => {
-            setWarnings(data.warnings);
-            return data.boxes.sort(
-              (box1, box2) => box1.code.localeCompare(box2.code)
-            ).map(box => ({
-              ...box,
-              description: box.description,
-              partner_0_value: ((box.attribution || (box.attribution === 0)) && box.raw_value) ? box.raw_value * (1 - box.attribution) : "",
-              partner_1_value: ((box.attribution || (box.attribution === 0)) && box.raw_value) ? box.raw_value * box.attribution : "",
-              totalIsLocked: !isDemo && !!box.raw_value
-            })).concat([{
-                code: "",
-                raw_value: "",
-                description: "",
-                partner_0_value: "",
-                partner_1_value: "",
-                attribution: null,
-                totalIsLocked: false
-            }])
+            const boxes = data.boxes.sort(
+                (box1, box2) => box1.code.localeCompare(box2.code)
+              ).map(box => ({
+                ...box,
+                description: box.description,
+                partner_0_value: ((box.attribution || (box.attribution === 0)) && box.raw_value) ? box.raw_value * (1 - box.attribution) : "",
+                partner_1_value: ((box.attribution || (box.attribution === 0)) && box.raw_value) ? box.raw_value * box.attribution : "",
+                totalIsLocked: !isDemo && !!box.raw_value
+              })).concat([createEmptyBox()])
+            boxes.forEach(box => searchIndex.current.disable(box.code))
+            setBoxes(boxes)
+            setStep({current: 2, max: 2})
+            setWarnings(data.warnings)
+            resetErrorMsgs()
           }
-        ).then(
-          boxes => boxes.forEach(box => searchIndex.current.disable(box.code)) || boxes
-        ).then(
-          setBoxes
-        ).then(
-          () => setStep(2) || resetErrorMsgs()
         ).catch(
           e => setErrorMsg(e)
         ).finally(
-          () => setIsLoading(false)
-        );
+          setIsLoading(false)
+        )
 
         evt.target.value = '';  // makes onChange to be triggered again, even if re-uploading the same file
     }
