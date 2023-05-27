@@ -9,6 +9,7 @@ import { Footer } from "./components/Footer.js";
 import { SearchIndex } from "./components/searchIndex";
 
 export const NavContext = createContext()
+export const SearchIndexContext = createContext()
 
 function App() {
   const [step, setStep] = useState({
@@ -30,22 +31,24 @@ function App() {
       <div className="container py-4">
         <Header />
           <NavContext.Provider value={{ step, setStep }}>
-            <Accordion>
-              <AccordionStepItem title="1. Sélectionnez le fichier PDF de votre déclaration commune." itemStep={1}>
-                <PdfSubmitForm setBoxes={setBoxes} setWarnings={setWarnings}
-                errorMsg={errorMsgStep1} setErrorMsg={setErrorMsgStep1} resetErrorMsgs={() => setErrorMsgStep1(null) || setErrorMsgStep2(null)}
-                setIsDemo={setIsDemo} searchIndex={searchIndex} />
-              </AccordionStepItem>
-              <AccordionStepItem title="2. Ajustez la répartition des montants déclarés." itemStep={2}>
-                <TaxBoxesPanel boxes={boxes} setBoxes={setBoxes}
-                setIndividualizedResults={setIndividualizedResults} warnings={warnings}
-                errorMsg={errorMsgStep2} setErrorMsg={setErrorMsgStep2} resetErrorMsgs={() => setErrorMsgStep2(null)}
-                isDemo={isDemo} searchIndex={searchIndex} />
-              </AccordionStepItem>
-              <AccordionStepItem title="3. Résultats&nbsp;: vos impôts individualisés&nbsp;!" itemStep={3}>
-                <ResultsPanel results={individualizedResults} />
-              </AccordionStepItem>
-            </Accordion>
+            <SearchIndexContext.Provider value={searchIndex}>
+              <Accordion>
+                <AccordionStepItem title="1. Sélectionnez le fichier PDF de votre déclaration commune." itemStep={1}>
+                  <PdfSubmitForm setBoxes={setBoxes} setWarnings={setWarnings}
+                  errorMsg={errorMsgStep1} setErrorMsg={setErrorMsgStep1} resetErrorMsgs={() => setErrorMsgStep1(null) || setErrorMsgStep2(null)}
+                  setIsDemo={setIsDemo} />
+                </AccordionStepItem>
+                <AccordionStepItem title="2. Ajustez la répartition des montants déclarés." itemStep={2}>
+                  <TaxBoxesPanel boxes={boxes} setBoxes={setBoxes}
+                  setIndividualizedResults={setIndividualizedResults} warnings={warnings}
+                  errorMsg={errorMsgStep2} setErrorMsg={setErrorMsgStep2} resetErrorMsgs={() => setErrorMsgStep2(null)}
+                  isDemo={isDemo} />
+                </AccordionStepItem>
+                <AccordionStepItem title="3. Résultats&nbsp;: vos impôts individualisés&nbsp;!" itemStep={3}>
+                  <ResultsPanel results={individualizedResults} />
+                </AccordionStepItem>
+              </Accordion>
+            </SearchIndexContext.Provider>
           </NavContext.Provider>
         <Footer />
       </div>
