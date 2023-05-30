@@ -18,7 +18,7 @@ doit payer (ou récupérer) quel montant.
 
 Voir le notebook `build_cerfa_variables.ipynb` pour la construction des fichiers JSON du dossier `resources`.
 - Le fichier `cerfa_variables.json`, contenant la liste des cases de la déclaration d'impôt,
-est construit à partir du code de [Openfisca-France](https://github.com/openfisca/openfisca-france).
+est construit à partir du code HTML du simulateur des impôts.
 - Le fichier `family_box_coords.json`, contenant les coordonnées des cases à cocher de la page 2 de la
 déclaration d'impôt (relatives à la situation familiale), est construit à la main avec l'outil
 [Labelme](https://github.com/wkentaro/labelme), en utilisant l'image d'exemple `family_page.png`.
@@ -34,7 +34,6 @@ Installer les dépendances :
 pip install -r requirements.txt
 pip install -r requirements_dev.txt
 ```
-NB : A cause d'une incompatibilité de version de NumPy, il faut installer `openfisca-core` puis `openfisca` manuellement depuis leurs dépôts Git respectifs, en supprimant la version de NumPy dans leur fichier `requirements.txt`.
 
 Pour lancer l'API Python (en mode développement) :
 ```bash
