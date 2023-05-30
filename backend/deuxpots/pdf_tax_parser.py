@@ -78,7 +78,8 @@ def load_category_coords(json_path) -> Dict[str, Tuple[float, float, float, floa
 
 
 def _family_box_codes(box_mapping, category_label=''):
-    return [code for code in box_mapping.keys() if code.startswith('0' + category_label)]
+    return [code for code in box_mapping.keys()
+            if code.startswith('0' + category_label) and code != '0XX']
 
 
 def _generate_family_box_coords(page, category_coords, box_mapping
