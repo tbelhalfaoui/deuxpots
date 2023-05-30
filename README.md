@@ -1,16 +1,14 @@
 # Impôt deux pots
 
-Lorsqu'on est marié ou pacsé, la déclaration d'impôt commune est obligatoire. Lorsque les deux personnes
-sont salariées, il est possible d'individualiser le prélèvement à la source. Mais cela ne résout pas le
-problème :
-- Les personnes non-salariées ne sont pas concernées par le prélèvement à la source.
-- Le prélèvement à la source n'est jamais exact : il y a toujours un reliquat à payer ou un trop-perçu 
-à récupérer en fin d'année. Comment le partager entre les deux partenaires ?
+## Un outil simple pour individualiser l'impôt au sein du couple.
 
-_Deux pots_ est un outil simple pour offrir le choix à chacun·e qui le souhaite d'indivisualiser son impôt.
+https://deuxpots.fr
 
-Concrètement, il suffit de soumettre le fichier PDF de la déclaration d'impôt commune, et l'outil indique qui 
-doit payer (ou récupérer) quel montant.
+En 2023, en France, les couples mariés ou pacés doivent faire une déclaration de revenus commune. L'administration fiscale réclame ou reverse ensuite une somme globale au couple, sans distinguer la part de chacun·e. Le prélèvement à la source individualisé est un début de réponse, mais qui ne s'applique pas à toutes les situations (travailleur·euse·s indépendant·e·s, forte variation de revenus d'une année sur l'autre, etc.).
+
+Ce fonctionnement peut léser les personnes qui ont choisi de conserver une indépendance financière au sein du couple, en particulier si les différences de revenus sont importantes.
+
+À partir de votre dernière déclaration commune, _Deux pots_ calcule le montant que chacun·e doit payer ou récupérer.
 
 ## Instructions pour le développement
 
