@@ -66,6 +66,7 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setIndividualizedResults,
         setBoxes(boxes.map((box, boxIndex) => {
             if (boxIndex === boxIndexChanged) {
                 box[fieldName] = evt.target.checked * 1;
+                box.raw_value = (box.partner_0_value || 0) + (box.partner_1_value || 0);
             }
             return box;
         }))
