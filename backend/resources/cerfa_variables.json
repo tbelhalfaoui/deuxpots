@@ -67,7 +67,7 @@
       "1DV"
     ],
     "description": "TRAITEMENTS ET SALAIRES - En cas de majoration du seuil d'exon\u00e9ration.",
-    "type": "int"
+    "type": "bool"
   },
   {
     "boxes": [
@@ -147,7 +147,7 @@
       "1JE"
     ],
     "description": "SALAIRES EXON\u00c9R\u00c9S RETENUS POUR LE CALCUL DU TAUX EFFECTIF - Salaires exon\u00e9r\u00e9s de source etrang\u00e8re apr\u00e8s d\u00e9duction de l'imp\u00f4t pay\u00e9 \u00e0 l'\u00e9tranger et salaires exon\u00e9r\u00e9s des d\u00e9tach\u00e9s \u00e0 l'\u00e9tranger. - Marins-p\u00eacheurs exer\u00e7ant hors des eaux territoriales fran\u00e7aises.",
-    "type": "int"
+    "type": "bool"
   },
   {
     "boxes": [
@@ -167,7 +167,7 @@
       "1GQ"
     ],
     "description": "SALAIRES EXON\u00c9R\u00c9S RETENUS POUR LE CALCUL DU TAUX EFFECTIF - En 2023 vous ne percevez plus de salaires d\u00e9clar\u00e9s lignes 1GB, 1GF, 1GG, 1AG de la d\u00e9claration n\u00b02042.",
-    "type": "int"
+    "type": "bool"
   },
   {
     "boxes": [
@@ -247,7 +247,7 @@
       "1HQ"
     ],
     "description": "PENSIONS, RETRAITES, RENTES - En 2023, vous ne percevez plus de pensions d\u00e9clar\u00e9es lignes 1AO, 1AM de la d\u00e9claration 2042.",
-    "type": "int"
+    "type": "bool"
   },
   {
     "boxes": [
@@ -777,7 +777,7 @@
       "2OP"
     ],
     "description": "REVENUS DES VALEURS ET CAPITAUX MOBILIERS - Vous optez pour l'imposition au bar\u00e8me de l'ensemble de vos revenus et gains mobiliers, cochez la case.",
-    "type": "int"
+    "type": "bool"
   },
   {
     "boxes": [
@@ -1177,7 +1177,7 @@
       "4BN"
     ],
     "description": "REVENUS FONCIERS (loyers, fermages, parts de SCI, affichage) - Vous ne percevez plus de revenus fonciers en 2023, cochez la case.",
-    "type": "int"
+    "type": "bool"
   },
   {
     "boxes": [
@@ -1249,7 +1249,7 @@
       "5AH"
     ],
     "description": "REVENUS AGRICOLES - Dur\u00e9e de l\u2019exercice nombre de mois - En cas de cession ou cessation d'activit\u00e9 en 2022.",
-    "type": "int"
+    "type": "bool"
   },
   {
     "boxes": [
@@ -1568,7 +1568,7 @@
       "5BH"
     ],
     "description": "REVENUS INDUSTRIELS ET COMMERCIAUX PROFESSIONNELS - En cas de cession ou cessation d'activit\u00e9 en 2022.",
-    "type": "int"
+    "type": "bool"
   },
   {
     "boxes": [
@@ -1775,7 +1775,7 @@
       "5CN"
     ],
     "description": "REVENUS INDUSTRIELS ET COMMERCIAUX NON PROFESSIONNELS - En cas de cession ou cessation d'activit\u00e9 en 2022.",
-    "type": "int"
+    "type": "bool"
   },
   {
     "boxes": [
@@ -2024,7 +2024,7 @@
       "5CM"
     ],
     "description": "LOCATIONS MEUBLEES NON PROFESSIONNELLES - En cas de cession ou cessation d'activit\u00e9 en 2022.",
-    "type": "int"
+    "type": "bool"
   },
   {
     "boxes": [
@@ -2238,7 +2238,7 @@
       "5CQ"
     ],
     "description": "REVENUS NON COMMERCIAUX PROFESSIONNELS - En cas de cession ou cessation d'activit\u00e9 en 2022.",
-    "type": "int"
+    "type": "bool"
   },
   {
     "boxes": [
@@ -2453,7 +2453,7 @@
       "5CR"
     ],
     "description": "REVENUS NON COMMERCIAUX NON PROFESSIONNELS - En cas de cession ou cessation d'activit\u00e9 en 2022.",
-    "type": "int"
+    "type": "bool"
   },
   {
     "boxes": [
@@ -5443,14 +5443,14 @@
       "7DQ"
     ],
     "description": "VOS CHARGES OUVRANT DROIT A R\u00c9DUCTION D'IMP\u00d4T OU A CREDIT D'IMP\u00d4T - Service \u00e0 la personne : emploi \u00e0 domicile - En 2022, vous avez employ\u00e9 directement pour la 1\u00e8re fois un\u00b7e salari\u00e9\u00b7e \u00e0 domicile, cocher.",
-    "type": "int"
+    "type": "bool"
   },
   {
     "boxes": [
       "7DG"
     ],
     "description": "VOS CHARGES OUVRANT DROIT A R\u00c9DUCTION D'IMP\u00d4T OU A CREDIT D'IMP\u00d4T - Service \u00e0 la personne : emploi \u00e0 domicile - Vous, votre conjoint ou une personne \u00e0 votre charge avez une carte d'invalidit\u00e9 ou une carte CMI-invalidit\u00e9.",
-    "type": "int"
+    "type": "bool"
   },
   {
     "boxes": [
@@ -5901,7 +5901,7 @@
       "8SI"
     ],
     "description": "VOS CHARGES OUVRANT DROIT A R\u00c9DUCTION D'IMP\u00d4T OU A CREDIT D'IMP\u00d4T - Revenus du patrimoine exon\u00e9r\u00e9s de CSG et de CRDS - Vous relevez d'un r\u00e9gime d'assurance maladie d'un \u00e9tat de l'Espace \u00e9conomique europ\u00e9en, du Royaume-Uni ou de la Suisse et vous n'\u00eates pas \u00e0 la charge d'un r\u00e9gime obligatoire de s\u00e9curit\u00e9 sociale fran\u00e7ais.",
-    "type": "int"
+    "type": "bool"
   },
   {
     "boxes": [
@@ -6195,7 +6195,7 @@
       "HQA"
     ],
     "description": "AUTRES CHARGES OUVRANT DROIT A R\u00c9DUCTION D'IMP\u00d4T : Investissements outre-mer - Vous optez pour le plafonnement des r\u00e9ductions d'imp\u00f4t pour investissements outre-mer \u00e0 11 % du revenu imposable (15 %1 ou 13 %2 pour certains investissements).",
-    "type": "int"
+    "type": "bool"
   },
   {
     "boxes": [
@@ -6510,7 +6510,7 @@
       "HHC"
     ],
     "description": "AUTRES CHARGES OUVRANT DROIT A R\u00c9DUCTION D'IMP\u00d4T : Investissements outre-mer - Investissements outre-mer dans le logement et autres secteurs d'activit\u00e9 : montant de la r\u00e9duction d'imp\u00f4t - Investissements r\u00e9alis\u00e9s en 2014.",
-    "type": "int"
+    "type": "bool"
   },
   {
     "boxes": [
@@ -6566,7 +6566,7 @@
       "HIC"
     ],
     "description": "AUTRES CHARGES OUVRANT DROIT A R\u00c9DUCTION D'IMP\u00d4T : Investissements outre-mer - Investissements outre-mer dans le logement et autres secteurs d'activit\u00e9 : montant de la r\u00e9duction d'imp\u00f4t - Investissements r\u00e9alis\u00e9s en 2015.",
-    "type": "int"
+    "type": "bool"
   },
   {
     "boxes": [
@@ -6622,7 +6622,7 @@
       "HJC"
     ],
     "description": "AUTRES CHARGES OUVRANT DROIT A R\u00c9DUCTION D'IMP\u00d4T : Investissements outre-mer - Investissements outre-mer dans le logement et autres secteurs d'activit\u00e9 : montant de la r\u00e9duction d'imp\u00f4t - Investissements r\u00e9alis\u00e9s en 2016.",
-    "type": "int"
+    "type": "bool"
   },
   {
     "boxes": [
@@ -6678,7 +6678,7 @@
       "HKC"
     ],
     "description": "AUTRES CHARGES OUVRANT DROIT A R\u00c9DUCTION D'IMP\u00d4T : Investissements outre-mer - Investissements outre-mer dans le logement et autres secteurs d'activit\u00e9 : montant de la r\u00e9duction d'imp\u00f4t - Investissements r\u00e9alis\u00e9s en 2017.",
-    "type": "int"
+    "type": "bool"
   },
   {
     "boxes": [

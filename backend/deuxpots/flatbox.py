@@ -12,6 +12,7 @@ class FlatBox:
     """
     code: str
     raw_value: int
+    type: str = None
     description: str = None
     attribution: Optional[float] = None
 
@@ -24,5 +25,6 @@ def flatten(valbox: ValuedBox) -> FlatBox:
         code=valbox.box.code,
         description=valbox.box.reference.description,
         raw_value=valbox.raw_value,
-        attribution=valbox.attribution
+        attribution=valbox.attribution,
+        type=valbox.box.reference.type,
     )
