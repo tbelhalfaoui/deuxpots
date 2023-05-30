@@ -7,7 +7,7 @@ const HOUSEHOLD_STATUS_BOXES = ['0AM', '0AO', '0AD', '0AC', '0AV']
 export const SearchIndex = () => {
     const miniSearch = new MiniSearch({
         fields: ['code', 'description', 'relatedCodes'],
-        storeFields: ['code', 'description'],
+        storeFields: ['code', 'description', 'type'],
         searchOptions: {
             boost: {
                 code: 6,
@@ -23,7 +23,8 @@ export const SearchIndex = () => {
             id: code,
             code: code,
             description: v.description,
-            relatedCodes: v.boxes
+            type: v.type,
+            relatedCodes: v.boxes,
         }))
     ))
     var blackList = HOUSEHOLD_STATUS_BOXES

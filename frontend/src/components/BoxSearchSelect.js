@@ -3,7 +3,7 @@ import { Modal, Button, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import { SearchIndexContext } from '../App';
 
 
-export const ReassignBoxModal = ({ box, chosenResult, show, closeModal, onConfirm }) =>
+export const ReassignBoxModal = ({ box, chosenResult, closeModal, onConfirm }) =>
     (chosenResult &&
     <Modal show={chosenResult} onHide={closeModal} size="lg" centered>
         <Modal.Header closeButton>
@@ -43,7 +43,7 @@ export const BoxSearchSelect = ({ boxIndex, box, reassignBox }) => {
     const onChooseResult = (result) => {
         if (!box.code) {
             // Assigning empty box
-            reassignBox(boxIndex, result.code, result.description);
+            reassignBox(boxIndex, result.code, result.description, result.type);
         }
         else {
             // Reassigning an existing box: open modal for confirmation
@@ -84,7 +84,7 @@ export const BoxSearchSelect = ({ boxIndex, box, reassignBox }) => {
               </OverlayTrigger>
             }
             <ReassignBoxModal boxIndex={boxIndex} box={box} chosenResult={chosenResult} closeModal={() => setChosenResult(undefined)}
-            onConfirm={() => reassignBox(boxIndex, chosenResult.code, chosenResult.description) || setChosenResult(undefined)} />
+            onConfirm={() => reassignBox(boxIndex, chosenResult.code, chosenResult.description, chosenResult.type) || setChosenResult(undefined)} />
         </div>
     );
 };

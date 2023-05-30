@@ -30,19 +30,18 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setIndividualizedResults,
             return box;
         }));
     }
-
-    const handleBoxChange = async (values, sourceInfo) => {
+    
+    const handleNumericBoxChange = async (values, sourceInfo) => {
         const evt = sourceInfo.event;
         if (!evt) {
             return;
         }
         const fieldName = evt.target.name.split('.')[0];
         const boxIndexChanged = parseInt(evt.target.name.split('.')[1]);
-        const value = values.floatValue
 
         setBoxes(boxes.map((box, boxIndex) => {
             if (boxIndex === boxIndexChanged) {
-                box[fieldName] = value;
+                box[fieldName] = values.floatValue;
                 if (!box.totalIsLocked) {
                     box.raw_value = Math.round((box.partner_0_value || 0) + (box.partner_1_value || 0));
                 }
@@ -60,6 +59,18 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setIndividualizedResults,
         }))
     };
 
+    const handleBooleanBoxChange = async (evt) =>{
+        const fieldName = evt.target.name.split('.')[0];
+        const boxIndexChanged = parseInt(evt.target.name.split('.')[1]);
+
+        setBoxes(boxes.map((box, boxIndex) => {
+            if (boxIndex === boxIndexChanged) {
+                box[fieldName] = evt.target.checked * 1;
+            }
+            return box;
+        }))
+    }
+
     const toggleTotalLock = (boxIndexChanged, totalIsLocked) => {
         setBoxes(boxes.map(
             (box, boxIndex) => 
@@ -70,7 +81,7 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setIndividualizedResults,
         ));
     }
 
-    const reassignBox = (boxIndexChanged, newCode, newDescription) => {
+    const reassignBox = (boxIndexChanged, newCode, newDescription, newType) => {
         const oldCode = boxes[boxIndexChanged].code;
         if (newCode !== oldCode) {
             setBoxes(boxes.map(
@@ -79,6 +90,10 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setIndividualizedResults,
                         ...box,
                         code: newCode,
                         description: newDescription,
+                        type: newType,
+                        totalIsLocked: false,
+                        partner_0_value: "",
+                        partner_1_value: "",
                     } : box
             ).concat((oldCode) ? [] : [createEmptyBox()]));
         }
@@ -169,7 +184,8 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setIndividualizedResults,
                         {boxes.map((box, boxIndex) => (
                             <TaxBox key={boxIndex}
                              boxIndex={boxIndex} box={box}
-                             onValueChange={handleBoxChange}
+                             onNumericValueChange={handleNumericBoxChange}
+                             onBooleanValueChange={handleBooleanBoxChange}
                              onSliderChange={handleSliderChange}
                              deleteBox={deleteBox}
                              toggleTotalLock={toggleTotalLock}
