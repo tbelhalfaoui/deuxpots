@@ -160,8 +160,18 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setIndividualizedResults, isDem
                 setStep({current: 3, max: 3})
             }
         ).catch(
-            e => setUserMessages([{message: e, level: "error"}])
-        ).finally(
+            error => {
+              if (error instanceof TypeError) {
+                setUserMessages([
+                  {message: `Impossible de se connecter au serveur. Il s'agit d'un problème temporaire,
+                             soit avec le serveur ou avec votre connexion Internet.`,
+                  level: "error"},
+                ])
+              }
+              else if (error instanceof Error) {
+                setUserMessages([{message: error.message, level: "error"}])
+              }
+          }).finally(
             () => setIsLoading(false)
         )
     };

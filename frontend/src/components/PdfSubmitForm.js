@@ -42,11 +42,20 @@ export const PdfSubmitForm = ({setBoxes, setIsDemo}) => {
             setUserMessages(data.warnings.map(warning => ({message: warning, level: "warning"})))
           }
         ).catch(
-          e => setUserMessages([
-            {message: e, level: "error"},
-            {message: HELP_MESSAGE, level: "info"}
-          ])
-        ).finally(
+          error => {
+            if (error instanceof TypeError) {
+              setUserMessages([{
+                message: `Impossible de se connecter au serveur. Il s'agit d'un problème temporaire,
+                           soit avec le serveur ou avec votre connexion Internet.`,
+                level: "error"}])
+            }
+            else if (error instanceof Error) {
+              setUserMessages([
+                {message: error.message, level: "error"},
+                {message: HELP_MESSAGE, level: "info"}
+              ])
+            }
+        }).finally(
           setIsLoading(false)
         )
 

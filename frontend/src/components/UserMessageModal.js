@@ -8,13 +8,7 @@ export const UserMessage = ({ msg }) => {
     switch (msg.level)  {
         case "error":
             return <div className="alert alert-danger" role="alert">
-                <FaTimesCircle /> {
-                    (msg.message instanceof TypeError) ?
-                        `Impossible de se connecter au serveur.
-                        Il s'agit d'un problème temporaire, soit avec le serveur ou avec votre connexion Internet.`
-                    : (msg.message instanceof Error) ? msg.message.message
-                    : msg.message  // string error from frontend
-                }
+                <FaTimesCircle /> {msg.message}
             </div>
         case "warning":
             return <div className="alert alert-warning" role="alert">
