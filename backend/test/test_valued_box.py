@@ -102,6 +102,40 @@ def test_valued_box_common_boolean():
     assert valbox.individualized_value(1) == 1
 
 
+def test_valued_box_common_float():
+    valbox = ValuedBox(
+        box=Box(
+            code="0CF",
+            reference=ReferenceBox(code="0CF", description="Nombre d'enfants.", type='float'),
+            kind=BoxKind.COMMON
+        ),
+        raw_value=2,
+    )
+    assert valbox.individualized_value(0) is None
+    assert valbox.individualized_value(1) is None
+    valbox.attribution = .75
+    assert valbox.individualized_value(0) == .5
+    assert valbox.individualized_value(1) == 1.5
+
+
+def test_valued_box_common_float_is_integer():
+    valbox = ValuedBox(
+        box=Box(
+            code="0CF",
+            reference=ReferenceBox(code="0CF", description="Nombre d'enfants.", type='float'),
+            kind=BoxKind.COMMON
+        ),
+        raw_value=2,
+    )
+    assert valbox.individualized_value(0) is None
+    assert valbox.individualized_value(1) is None
+    valbox.attribution = .5
+    assert valbox.individualized_value(0) == 1
+    assert isinstance(valbox.individualized_value(0), int)
+    assert valbox.individualized_value(1) == 1
+    assert isinstance(valbox.individualized_value(1), int)
+
+
 def test_individualize_wrong_partner_id():
     valbox = ValuedBox(
         box=Box(

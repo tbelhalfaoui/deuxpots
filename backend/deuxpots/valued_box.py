@@ -44,14 +44,23 @@ class ValuedBox:
         if self.attribution is None:
             self.attribution = DEFAUT_ATTRIBUTION_FROM_KIND.get(self.box.kind)
     
+    def _round(self, value):
+        if self.box.reference.type == "float":
+            rounded = round(value, 1)
+            if rounded == int(rounded):
+                return int(rounded)
+            return rounded
+        else:
+            return round(value)
+
     def individualized_value(self, partner_idx) -> Optional[int]:
         assert partner_idx in {0, 1}
         if self.attribution is None:
             return
         if partner_idx == 0:
-            return round(self.raw_value * (1 - self.attribution))
+            return self._round(self.raw_value * (1 - self.attribution))
         if partner_idx == 1:
-            return round(self.raw_value * self.attribution)
+            return self._round(self.raw_value * self.attribution)
 
     @staticmethod
     def from_flat_box(flat_box, box_mapping):
