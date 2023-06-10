@@ -4,13 +4,26 @@ import { OverlayTrigger, Tooltip } from "react-bootstrap";
 import { BoxSearchSelect } from "./BoxSearchSelect";
 
 
-export const NumberBox = ({ max, value, invalidValue, name, label, ...props }) =>
-    <div className="form-floating">
+const fillNaN = (val) => isNaN(val) ? "" : val
+
+export const NumberBox = ({ max, value, invalidValue, name, label, allow_float, ...props }) => {
+    const isAllowed = (val) => {
+        var isValid = true
+        if (max) {
+            isValid &&= (val.floatValue <= max) 
+        }
+        if (allow_float) {
+            isValid &&= (val.floatValue * 10) % 5 === 0
+        }
+        return isValid || (val.value === "")
+    }
+
+    return <div className="form-floating">
         <NumericFormat
             className="form-control box text-center text-lg-end"
             thousandSeparator=" "
-            decimalScale={0}
-            isAllowed={(val) => (max) ? ((val.floatValue <= max) || (val.value === "")) : true}
+            decimalScale={allow_float ? 1 : 0}
+            isAllowed={isAllowed}
             defaultValue=""
             min={0}
             max={max}
@@ -21,6 +34,7 @@ export const NumberBox = ({ max, value, invalidValue, name, label, ...props }) =
             {...props} />
         <label htmlFor={name}>{label}</label>
     </div>
+}
 
 export const BooleanBox = ({ name, label, value, invalidValue, ...props }) =>
     <div className="row form-check form-switch">
@@ -104,24 +118,25 @@ export const TaxBox = ({ boxIndex, box, onNumericValueChange, onBooleanValueChan
                     <div className="p-1 col-lg-3">
                         {(box.type !== "bool") && 
                             <NumberBox name={`raw_value.${boxIndex}`} value={box.raw_value} label="Total"
-                            onValueChange={onNumericValueChange} disabled invalidValue={() => false} />}
+                            onValueChange={onNumericValueChange} disabled invalidValue={(val) => parseInt(val) !== val} />}
                     </div>
                     <div className="d-flex align-items-center justify-content-center p-1 col-4 col-lg-3">
                         {(box.type === "bool") ?
                             <BooleanBox name={`partner_0_value.${boxIndex}`} value={box.partner_0_value}
                             invalidValue={(val) => !val && val !== 0 && box.code} label="Décl. 1" onChange={onBooleanValueChange} />
-                          : <NumberBox name={`partner_0_value.${boxIndex}`} value={box.partner_0_value} label="Décl. 1"
+                          : <NumberBox name={`partner_0_value.${boxIndex}`} value={fillNaN(box.partner_0_value)} label="Décl. 1"
                             max={box.totalIsLocked ? box.raw_value : undefined} onValueChange={onNumericValueChange}
-                            invalidValue={(val) => !val && val !== 0 && box.code} disabled={!box.code} /> 
+                            invalidValue={(val) => !val && val !== 0 && box.code}
+                            allow_float={box.type === "float"} disabled={!box.code} /> 
                         }
                     </div>
                     <div className="d-flex align-items-center p-1 col-4 col-lg-3">
                         {(box.type !== "bool") && 
                             <input type="range" className="form-range" name={`slider.${boxIndex}`}
                             min={0} max={box.raw_value}
-                            step={(box.raw_value <= 10) ? 1 : parseInt(box.raw_value / 10)}
+                            step={(box.type === "float") ? 0.5 : (box.raw_value <= 10) ? 1 : parseInt(box.raw_value / 10)}
                             disabled={(!box.raw_value) || (!box.code)}
-                            value={(!box.partner_0_value && !box.partner_1_value) ? "" : box.attribution * box.raw_value}
+                            value={fillNaN(box.attribution * box.raw_value)}
                             onChange={onSliderChange} />}
                     </div>
                     <div className="d-flex align-items-center justify-content-center p-1 col-4 col-lg-3">
@@ -129,9 +144,10 @@ export const TaxBox = ({ boxIndex, box, onNumericValueChange, onBooleanValueChan
                             {(box.type === "bool") ?
                                 <BooleanBox name={`partner_1_value.${boxIndex}`} value={box.partner_1_value}
                                 invalidValue={(val) => !val && val !== 0 && box.code} label="Décl. 2" onChange={onBooleanValueChange} />
-                              : <NumberBox name={`partner_1_value.${boxIndex}`} value={box.partner_1_value} label="Décl. 2"
+                              : <NumberBox name={`partner_1_value.${boxIndex}`} value={fillNaN(box.partner_1_value)} label="Décl. 2"
                                 max={box.totalIsLocked ? box.raw_value : undefined} onValueChange={onNumericValueChange}
-                                invalidValue={(val) => !val && val !== 0 && box.code} disabled={!box.code} />
+                                invalidValue={(val) => !val && val !== 0 && box.code}
+                                allow_float={box.type === "float"} disabled={!box.code} />
                             }
                         </div>
                     </div>

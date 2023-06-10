@@ -8,6 +8,8 @@ import { callIndividualizeRoute } from "../adapters/api.js"
 import { createEmptyBox } from "../utils/box.js";
 
 
+const round = (val, precision) => Math.round(val / precision) * precision
+
 export const TaxBoxesPanel = ({ boxes, setBoxes, setIndividualizedResults,
                                 warnings, errorMsg, setErrorMsg, resetErrorMsgs, isDemo }) => {
     const [ isLoading, setIsLoading ] = useState(false);
@@ -17,15 +19,13 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setIndividualizedResults,
     const handleSliderChange = async (evt) => {
         var value = evt.target.value;
         const boxIndexChanged = parseInt(evt.target.name.split('.')[1]);
-        if (isNaN(value)) {
-            value = "";
-        }
-
+        
         setBoxes(boxes.map((box, boxIndex) => {
             if (boxIndex === boxIndexChanged) {
-                box.attribution = value / box.raw_value;
-                box.partner_0_value = Math.round((1 - box.attribution) * box.raw_value);
-                box.partner_1_value = Math.round(box.attribution * box.raw_value);
+                const precision = (box.type === "float") ? .1 : 1
+                box.attribution = value / box.raw_value
+                box.partner_0_value = round((1 - box.attribution) * box.raw_value, precision)
+                box.partner_1_value = round(box.attribution * box.raw_value, precision)
             }
             return box;
         }));
@@ -41,18 +41,19 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setIndividualizedResults,
 
         setBoxes(boxes.map((box, boxIndex) => {
             if (boxIndex === boxIndexChanged) {
+                const precision = (box.type === "float") ? .1 : 1
                 box[fieldName] = values.floatValue;
                 if (!box.totalIsLocked) {
-                    box.raw_value = Math.round((box.partner_0_value || 0) + (box.partner_1_value || 0));
+                    box.raw_value = (box.partner_0_value || 0) + (box.partner_1_value || 0)
                 }
                 else if (fieldName === 'partner_0_value') {
-                    box.partner_1_value = Math.round(box.raw_value - box.partner_0_value);
+                    box.partner_1_value = round(box.raw_value - box.partner_0_value, precision)
                 }
                 else if (fieldName === 'partner_1_value') {
-                    box.partner_0_value = Math.round(box.raw_value - box.partner_1_value);
+                    box.partner_0_value = round(box.raw_value - box.partner_1_value, precision)
                 }
                 if (box.raw_value) {
-                    box.attribution = box.partner_1_value / box.raw_value;
+                    box.attribution = box.partner_1_value / box.raw_value
                 }
             }
             return box;
