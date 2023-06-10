@@ -1,5 +1,6 @@
 from collections import defaultdict
 from dataclasses import dataclass
+from typing import Optional
 
 from bs4 import BeautifulSoup
 import requests as rq
@@ -20,9 +21,11 @@ class IncomeSheet(dict):
 
 @dataclass
 class SimulatorResult:
-    total_tax: int               # Impôt total (net)
-    already_paid: int            # Montant déjà payé
-    remains_to_pay: int          # Reste à payer
+    total_tax: int                      # Impôt total (net)
+    remains_to_pay: int                 # Reste à payer
+    household_size: float               # Nombre de parts
+    taxable_income: int                 # Revenu net imposable
+    already_paid: Optional[int] = None  # Montant déjà payé
 
 
 class SimulatorError(UserFacingError):
@@ -43,17 +46,16 @@ def _simulator_api(income_sheet):
 
 def _format_simulator_results(results):
     try:
-        INETIR = int(results.get("IINETIR", 0))
-        IINET = int(results['IINET'])
-        IREST = int(results['IREST'])
+        res = SimulatorResult(
+            total_tax=int(results.get("IINETIR", 0)),
+            remains_to_pay=int(results['IINET']) - int(results['IREST']),
+            household_size=float(results['NBPT']),
+            taxable_income=int(results['RNICOL']),
+        )
     except KeyError:
         raise SimulatorError(results["error"])
-    remains_to_pay = IINET - IREST
-    return SimulatorResult(
-        total_tax=INETIR,
-        already_paid=INETIR - remains_to_pay,
-        remains_to_pay=remains_to_pay,
-    )
+    res.already_paid=res.total_tax - res.remains_to_pay,
+    return res
 
 def compute_tax(income_sheet: IncomeSheet) -> SimulatorResult:
     results = _simulator_api(income_sheet)

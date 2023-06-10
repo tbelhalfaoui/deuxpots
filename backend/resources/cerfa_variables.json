@@ -7118,49 +7118,49 @@
     "boxes": [
       "0CF"
     ],
-    "type": "int",
+    "type": "float",
     "description": "Nombre d'enfants \u00e0 charge non mari\u00e9\u00b7e\u00b7s, qui ne sont pas en r\u00e9sidence altern\u00e9e, de moins de 18 ans au 1er janvier de l'ann\u00e9e de perception des revenus, ou n\u00e9\u00b7e\u00b7s durant la m\u00eame ann\u00e9e ou handicap\u00e9\u00b7e\u00b7s quel que soit leur \u00e2ge."
   },
   {
     "boxes": [
       "0CG"
     ],
-    "type": "int",
+    "type": "float",
     "description": "Nombre d'enfants qui ne sont pas en r\u00e9sidence altern\u00e9e \u00e0 charge titulaires de la carte d'invalidit\u00e9."
   },
   {
     "boxes": [
       "0CH"
     ],
-    "type": "int",
+    "type": "float",
     "description": "Nombre d'enfants \u00e0 charge en r\u00e9sidence altern\u00e9e, non mari\u00e9\u00b7e\u00b7s de moins de 18 ans au 1er janvier de l'ann\u00e9e de perception des revenus, ou n\u00e9\u00b7e\u00b7s durant la m\u00eame ann\u00e9e ou handicap\u00e9\u00b7e\u00b7s quel que soit leur \u00e2ge."
   },
   {
     "boxes": [
       "0CI"
     ],
-    "type": "int",
+    "type": "float",
     "description": "Nombre d'enfants \u00e0 charge en r\u00e9sidence altern\u00e9e titulaires de la carte d'invalidit\u00e9."
   },
   {
     "boxes": [
       "0CR"
     ],
-    "type": "int",
+    "type": "float",
     "description": "Nombre de titulaires (autres que les enfants) de la carte invalidit\u00e9 d'au moins 80 %."
   },
   {
     "boxes": [
       "0DJ"
     ],
-    "type": "int",
+    "type": "float",
     "description": "Nombre d'enfants majeur\u00b7e\u00b7s c\u00e9libataires sans enfant."
   },
   {
     "boxes": [
       "0DN"
     ],
-    "type": "int",
+    "type": "float",
     "description": "Nombre d'enfants mari\u00e9\u00b7e\u00b7s/pacs\u00e9\u00b7e\u00b7s et d'enfants non mari\u00e9\u00b7e\u00b7s charg\u00e9s de famille."
   },
   {
