@@ -6,7 +6,8 @@ import { createEmptyBox } from "../utils/box.js";
 
 const HELP_MESSAGE = <span>
   Vous pouvez trouver votre déclaration sur le <a href="https://cfspart.impots.gouv.fr/"><strong>site des impôts</strong></a>,
-  dans la rubrique <strong>Documents</strong>, en cliquant sur <strong>PDF</strong> à côté de <strong>Déclaration en ligne des revenus 20xx</strong>.<br/>
+  dans la rubrique <strong>Documents</strong>, en cliquant sur <strong>PDF</strong> à côté de <strong>Déclaration en ligne
+  des revenus {new Date().getFullYear()}</strong>.<br/>
   Si le problème persiste, n'hésitez pas à écrire à <strong>contact@deuxpots.fr</strong>
 </span>
 
@@ -45,8 +46,11 @@ export const PdfSubmitForm = ({setBoxes, setIsDemo}) => {
           error => {
             if (error instanceof TypeError) {
               setUserMessages([{
-                message: `Impossible de se connecter au serveur. Il s'agit d'un problème temporaire,
-                           soit avec le serveur ou avec votre connexion Internet.`,
+                message: <span>
+                  Impossible de se connecter au serveur. Il s'agit d'un problème temporaire,
+                  soit avec le serveur ou avec votre connexion Internet.<br/>
+                  Si le problème persiste, n'hésitez pas à écrire à contact@deuxpots.fr
+                </span>,
                 level: "error"}])
             }
             else if (error instanceof Error) {
