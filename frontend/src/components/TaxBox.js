@@ -118,7 +118,8 @@ export const TaxBox = ({ boxIndex, box, onNumericValueChange, onBooleanValueChan
                     <div className="p-1 col-lg-3">
                         {(box.type !== "bool") && 
                             <NumberBox name={`raw_value.${boxIndex}`} value={box.raw_value} label="Total"
-                            onValueChange={onNumericValueChange} disabled invalidValue={(val) => parseInt(val) !== val} />}
+                            onValueChange={onNumericValueChange} disabled
+                            invalidValue={(val) => (parseInt(val) !== val) && (box.code) } />}
                     </div>
                     <div className="d-flex align-items-center justify-content-center p-1 col-4 col-lg-3">
                         {(box.type === "bool") ?

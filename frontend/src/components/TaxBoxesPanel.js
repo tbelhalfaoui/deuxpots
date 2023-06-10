@@ -1,19 +1,18 @@
 import React, { useState, useContext } from "react"
 import { FaInfoCircle } from "react-icons/fa";
-import { NavContext, SearchIndexContext } from "../App.js";
+import { NavContext, UserMessagesContext, SearchIndexContext } from "../App.js";
 import { TaxBox } from './TaxBox.js'
 import { SubmitButton } from './SubmitButton.js'
-import { ErrorMessage, WarningMessage } from "./Alert.js";
 import { callIndividualizeRoute } from "../adapters/api.js"
 import { createEmptyBox } from "../utils/box.js";
 
 
 const round = (val, precision) => Math.round(val / precision) * precision
 
-export const TaxBoxesPanel = ({ boxes, setBoxes, setIndividualizedResults,
-                                warnings, errorMsg, setErrorMsg, resetErrorMsgs, isDemo }) => {
+export const TaxBoxesPanel = ({ boxes, setBoxes, setIndividualizedResults, isDemo }) => {
     const [ isLoading, setIsLoading ] = useState(false);
     const { setStep } = useContext(NavContext);
+    const { setUserMessages } = useContext(UserMessagesContext);
     const searchIndex = useContext(SearchIndexContext);
 
     const handleSliderChange = async (evt) => {
@@ -116,24 +115,38 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setIndividualizedResults,
 
     const fetchIndividualizedResults = async (evt) => {
         evt.preventDefault();
-        const nonEmptyBoxes = boxes.filter(
+        const userMessages = [];
+        const actualBoxes = boxes.filter(
             box => box.code
         );
-        const allBoxesAreFilled = nonEmptyBoxes.flatMap(
+        const allBoxesAreFilled = actualBoxes.flatMap(
             box => [box.raw_value, box.partner_0_value, box.partner_1_value]
         ).every(
             value => value || (value === 0)
         )
         if (!allBoxesAreFilled) {
-            setErrorMsg('Toutes les cases en rouge doivent être remplies.')
+            userMessages.push({message: "Certaines cases (indiquées en rouge) n'ont pas été remplies.", level: "error"});
+        }
+        const allTotalsAreInteger = actualBoxes.filter(
+            box => box.partner_0_value && box.partner_1_value
+        ).every(box => {
+            const total = box.partner_0_value + box.partner_1_value;
+            return parseInt(total) === total
+        })
+        if (!allTotalsAreInteger) {
+            userMessages.push({message: 
+                `Sur certaines lignes concernant le nombre d'enfants, le total (indiqué en rouge) n'est pas un nombre
+                entier. Merci de les corriger pour que le nombre total d'enfants soit entier, sans virgule.`, level: "error"});
+        }
+        if (userMessages.length) {
+            setUserMessages(userMessages);
             return
         }
 
-        resetErrorMsgs();
         setIsLoading(true);
 
         await callIndividualizeRoute(
-            nonEmptyBoxes, isDemo
+            actualBoxes, isDemo
         ).then(
             data => {
                 const results = data.individualized;
@@ -147,7 +160,7 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setIndividualizedResults,
                 setStep({current: 3, max: 3})
             }
         ).catch(
-            e => setErrorMsg(e)
+            e => setUserMessages([{message: e, level: "error"}])
         ).finally(
             () => setIsLoading(false)
         )
@@ -156,10 +169,6 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setIndividualizedResults,
     return (
         <form method="POST" onSubmit={fetchIndividualizedResults}>
             <div id="containerStep2" className="container py-2 text-start">
-                <ErrorMessage error={errorMsg} />
-                {warnings.map(msg =>
-                    (<WarningMessage key={msg} warning={msg} />)
-                )}
                 {!boxes &&
                 (<div className="text-center">
                     <div className="spinner-border" role="status">
@@ -195,7 +204,6 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setIndividualizedResults,
                         ))}
                     </div>
                 </div>
-                <ErrorMessage error={errorMsg} />
                 <SubmitButton isLoading={isLoading} />
             </div>
         </form>

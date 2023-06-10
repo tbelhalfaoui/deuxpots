@@ -1,13 +1,20 @@
 import { FaInfoCircle } from "react-icons/fa";
 import React, { useContext, useState } from "react"
-import { ErrorMessage, HelpMessageForParser } from "./Alert.js";
 import { callPaseRoute } from "../adapters/api.js";
-import { NavContext, SearchIndexContext } from "../App.js";
+import { NavContext, UserMessagesContext, SearchIndexContext } from "../App.js";
 import { createEmptyBox } from "../utils/box.js";
 
-export const PdfSubmitForm = ({setBoxes, setWarnings, errorMsg, setErrorMsg, resetErrorMsgs, setIsDemo}) => {
+const HELP_MESSAGE = <span>
+  Vous pouvez trouver votre déclaration sur le <a href="https://cfspart.impots.gouv.fr/"><strong>site des impôts</strong></a>,
+  dans la rubrique <strong>Documents</strong>, en cliquant sur <strong>PDF</strong> à côté de <strong>Déclaration en ligne des revenus 20xx</strong>.<br/>
+  Si le problème persiste, n'hésitez pas à écrire à <strong>contact@deuxpots.fr</strong>
+</span>
+
+
+export const PdfSubmitForm = ({setBoxes, setIsDemo}) => {
     const [isLoading, setIsLoading] = useState(false);
     const { setStep } = useContext(NavContext);
+    const { setUserMessages } = useContext(UserMessagesContext);
     const searchIndex = useContext(SearchIndexContext);
 
     const sendTaxSheet = async (evt) => {
@@ -32,11 +39,13 @@ export const PdfSubmitForm = ({setBoxes, setWarnings, errorMsg, setErrorMsg, res
             boxes.forEach(box => searchIndex.current.disable(box.code))
             setBoxes(boxes)
             setStep({current: 2, max: 2})
-            setWarnings(data.warnings)
-            resetErrorMsgs()
+            setUserMessages(data.warnings.map(warning => ({message: warning, level: "warning"})))
           }
         ).catch(
-          e => setErrorMsg(e)
+          e => setUserMessages([
+            {message: e, level: "error"},
+            {message: HELP_MESSAGE, level: "info"}
+          ])
         ).finally(
           setIsLoading(false)
         )
@@ -46,14 +55,10 @@ export const PdfSubmitForm = ({setBoxes, setWarnings, errorMsg, setErrorMsg, res
 
     return (
         <form>
-          <ErrorMessage error={errorMsg} />
-          <HelpMessageForParser error={errorMsg} />
-          {!errorMsg && 
-            (<div className="alert alert-primary" role="alert">
-                <FaInfoCircle /> Aucune donnée issue de votre déclaration d'impôt ne sera collectée.<br/>
-                Seuls les montants, anonymes, seront utilisés temporairement pour faire le calcul de votre impôt.
-            </div>)
-          }
+          <div className="alert alert-primary" role="alert">
+            <FaInfoCircle /> Aucune donnée issue de votre déclaration d'impôt ne sera collectée.<br/>
+            Seuls les montants, anonymes, seront utilisés temporairement pour faire le calcul de votre impôt.
+          </div>
           <div className="container py-4 text-center" id="containerStep1">
             <div className="row justify-content-center">
               <div className="col-md-5 col-xl-4">
