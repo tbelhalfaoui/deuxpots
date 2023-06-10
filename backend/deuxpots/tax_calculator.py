@@ -1,5 +1,6 @@
 from collections import defaultdict
 from dataclasses import dataclass
+import logging
 
 from bs4 import BeautifulSoup
 import requests as rq
@@ -31,7 +32,11 @@ class SimulatorError(UserFacingError):
 
 def _simulator_api(income_sheet):
     resp = rq.post(SIMULATOR_URL, data=income_sheet)
-    resp.raise_for_status()
+    try:
+        resp.raise_for_status()
+    except rq.HTTPError:
+        logging.error(f"Simulator API error for income sheet {income_sheet}")
+        raise
     soup = BeautifulSoup(resp.text, features="html.parser")
     inputs = soup.select('input[type=hidden]')
     error_p = soup.select_one('p.margin-left-30px')
@@ -81,3 +86,25 @@ def build_income_sheet(valboxes, individualize=None):
         'pre_situation_residence': 'M',
         **sheet
     }
+
+def handle_half_children(income_sheet: IncomeSheet) -> IncomeSheet:
+    """
+    Trick to handle non-integer number of children (only works with 0.5 increments).
+    Treat them artificially as if in alternating custody.
+    """
+    CHILDREN_BOX_MAP = {
+        '0CF': '0CH',  # Number of children -> number of alternating custody children
+        '0CG': '0CI',  # Same but with disabled children
+    }
+    for box_from, box_to in CHILDREN_BOX_MAP.items():
+        value = income_sheet.get(box_from)
+        if not value:
+            continue
+        if int(value * 10) % 5:
+            # If not 0.5 increment
+            raise ValueError(f"Bad value {value} for box {box_from}.")
+        if int(value * 10) % 10:
+            # If not an integer (i.e. ends with ".5")
+            income_sheet[box_from] = round(income_sheet[box_from] - .5)
+            income_sheet[box_to] = income_sheet.get(box_to, 0) + 1
+    return income_sheet

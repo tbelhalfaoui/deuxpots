@@ -3,7 +3,7 @@ import requests as rq
 from deuxpots.box import Box, BoxKind, ReferenceBox
 from deuxpots.tax_calculator import (
     SIMULATOR_URL, SimulatorError, SimulatorResult,
-    _format_simulator_results, _simulator_api, build_income_sheet, compute_tax
+    _format_simulator_results, _simulator_api, build_income_sheet, compute_tax, handle_half_children
 )
 from deuxpots.valued_box import ValuedBox
 
@@ -238,4 +238,14 @@ def test_build_income_sheet_together(valboxes):
     }
     for box in ['1AC', '1BC', '1CC', '1DC', '6FL']:
         assert isinstance(income_sheet[box], int)
+
+@pytest.mark.parametrize("sheet_in,sheet_expected", [
+    ({'9XX': 100}, {'9XX': 100}),
+    ({'0CF': 2.5,}, {'0CF': 2, '0CH': 1}),
+    ({'0CF': 0.5, '0CG': 0.5}, {'0CF': 0,  '0CG': 0, '0CH': 1, '0CI': 1}),
+    ({'0CF': 1.5, '0CG': 1}, {'0CF': 1, '0CH': 1, '0CG': 1}),
+])
+def test_handle_half_children(sheet_in, sheet_expected):
+    sheet_out = handle_half_children(sheet_in)
+    assert sheet_out == sheet_expected
 

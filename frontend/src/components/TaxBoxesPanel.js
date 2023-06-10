@@ -1,31 +1,30 @@
 import React, { useState, useContext } from "react"
 import { FaInfoCircle } from "react-icons/fa";
-import { NavContext, SearchIndexContext } from "../App.js";
+import { NavContext, UserMessagesContext, SearchIndexContext } from "../App.js";
 import { TaxBox } from './TaxBox.js'
 import { SubmitButton } from './SubmitButton.js'
-import { ErrorMessage, WarningMessage } from "./Alert.js";
 import { callIndividualizeRoute } from "../adapters/api.js"
 import { createEmptyBox } from "../utils/box.js";
 
 
-export const TaxBoxesPanel = ({ boxes, setBoxes, setIndividualizedResults,
-                                warnings, errorMsg, setErrorMsg, resetErrorMsgs, isDemo }) => {
+const round = (val, precision) => Math.round(val / precision) * precision
+
+export const TaxBoxesPanel = ({ boxes, setBoxes, setIndividualizedResults, isDemo }) => {
     const [ isLoading, setIsLoading ] = useState(false);
     const { setStep } = useContext(NavContext);
+    const { setUserMessages } = useContext(UserMessagesContext);
     const searchIndex = useContext(SearchIndexContext);
 
     const handleSliderChange = async (evt) => {
         var value = evt.target.value;
         const boxIndexChanged = parseInt(evt.target.name.split('.')[1]);
-        if (isNaN(value)) {
-            value = "";
-        }
-
+        
         setBoxes(boxes.map((box, boxIndex) => {
             if (boxIndex === boxIndexChanged) {
-                box.attribution = value / box.raw_value;
-                box.partner_0_value = Math.round((1 - box.attribution) * box.raw_value);
-                box.partner_1_value = Math.round(box.attribution * box.raw_value);
+                const precision = (box.type === "float") ? .1 : 1
+                box.attribution = value / box.raw_value
+                box.partner_0_value = round((1 - box.attribution) * box.raw_value, precision)
+                box.partner_1_value = round(box.attribution * box.raw_value, precision)
             }
             return box;
         }));
@@ -41,18 +40,19 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setIndividualizedResults,
 
         setBoxes(boxes.map((box, boxIndex) => {
             if (boxIndex === boxIndexChanged) {
+                const precision = (box.type === "float") ? .1 : 1
                 box[fieldName] = values.floatValue;
                 if (!box.totalIsLocked) {
-                    box.raw_value = Math.round((box.partner_0_value || 0) + (box.partner_1_value || 0));
+                    box.raw_value = (box.partner_0_value || 0) + (box.partner_1_value || 0)
                 }
                 else if (fieldName === 'partner_0_value') {
-                    box.partner_1_value = Math.round(box.raw_value - box.partner_0_value);
+                    box.partner_1_value = round(box.raw_value - box.partner_0_value, precision)
                 }
                 else if (fieldName === 'partner_1_value') {
-                    box.partner_0_value = Math.round(box.raw_value - box.partner_1_value);
+                    box.partner_0_value = round(box.raw_value - box.partner_1_value, precision)
                 }
                 if (box.raw_value) {
-                    box.attribution = box.partner_1_value / box.raw_value;
+                    box.attribution = box.partner_1_value / box.raw_value
                 }
             }
             return box;
@@ -115,24 +115,38 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setIndividualizedResults,
 
     const fetchIndividualizedResults = async (evt) => {
         evt.preventDefault();
-        const nonEmptyBoxes = boxes.filter(
+        const userMessages = [];
+        const actualBoxes = boxes.filter(
             box => box.code
         );
-        const allBoxesAreFilled = nonEmptyBoxes.flatMap(
+        const allBoxesAreFilled = actualBoxes.flatMap(
             box => [box.raw_value, box.partner_0_value, box.partner_1_value]
         ).every(
             value => value || (value === 0)
         )
         if (!allBoxesAreFilled) {
-            setErrorMsg('Toutes les cases en rouge doivent être remplies.')
+            userMessages.push({message: "Certaines cases (indiquées en rouge) n'ont pas été remplies.", level: "error"});
+        }
+        const allTotalsAreInteger = actualBoxes.filter(
+            box => box.partner_0_value && box.partner_1_value
+        ).every(box => {
+            const total = box.partner_0_value + box.partner_1_value;
+            return parseInt(total) === total
+        })
+        if (!allTotalsAreInteger) {
+            userMessages.push({message: 
+                `Sur certaines lignes concernant le nombre d'enfants, le total (indiqué en rouge) n'est pas un nombre
+                entier. Merci de les corriger pour que le nombre total d'enfants soit entier, sans virgule.`, level: "error"});
+        }
+        if (userMessages.length) {
+            setUserMessages(userMessages);
             return
         }
 
-        resetErrorMsgs();
         setIsLoading(true);
 
         await callIndividualizeRoute(
-            nonEmptyBoxes, isDemo
+            actualBoxes, isDemo
         ).then(
             data => {
                 const results = data.individualized;
@@ -146,8 +160,18 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setIndividualizedResults,
                 setStep({current: 3, max: 3})
             }
         ).catch(
-            e => setErrorMsg(e)
-        ).finally(
+            error => {
+              if (error instanceof TypeError) {
+                setUserMessages([
+                  {message: `Impossible de se connecter au serveur. Il s'agit d'un problème temporaire,
+                             soit avec le serveur ou avec votre connexion Internet.`,
+                  level: "error"},
+                ])
+              }
+              else if (error instanceof Error) {
+                setUserMessages([{message: error.message, level: "error"}])
+              }
+          }).finally(
             () => setIsLoading(false)
         )
     };
@@ -155,10 +179,6 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setIndividualizedResults,
     return (
         <form method="POST" onSubmit={fetchIndividualizedResults}>
             <div id="containerStep2" className="container py-2 text-start">
-                <ErrorMessage error={errorMsg} />
-                {warnings.map(msg =>
-                    (<WarningMessage key={msg} warning={msg} />)
-                )}
                 {!boxes &&
                 (<div className="text-center">
                     <div className="spinner-border" role="status">
@@ -194,7 +214,6 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setIndividualizedResults,
                         ))}
                     </div>
                 </div>
-                <ErrorMessage error={errorMsg} />
                 <SubmitButton isLoading={isLoading} />
             </div>
         </form>
