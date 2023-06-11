@@ -58,7 +58,8 @@ def test_individualize():
                                json=dict(boxes=user_boxes))
         assert res.status_code == 200
         assert res.json['individualized']
-        assert 'partners' in res.json['individualized']
+        assert 'partners_proportional_split' in res.json['individualized']
+        assert 'partners_equal_split' in res.json['individualized']
 
 
 def test_full_scenario(tax_sheet_pdf_path):
@@ -79,4 +80,5 @@ def test_full_scenario(tax_sheet_pdf_path):
                                json=dict(boxes=flatboxes))
         assert res.status_code == 200
         assert res.json['individualized']
-        assert 'partners' in res.json['individualized']
+        assert 'partners_proportional_split' in res.json['individualized']
+        assert 'partners_equal_split' in res.json['individualized']
