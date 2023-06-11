@@ -87,16 +87,16 @@ def build_income_sheet(valboxes, individualize=None):
         **sheet
     }
 
-def handle_half_children(income_sheet: IncomeSheet) -> IncomeSheet:
-    """
-    Trick to handle non-integer number of children (only works with 0.5 increments).
-    Treat them artificially as if in alternating custody.
-    """
-    CHILDREN_BOX_MAP = {
-        '0CF': '0CH',  # Number of children -> number of alternating custody children
-        '0CG': '0CI',  # Same but with disabled children
-    }
-    for box_from, box_to in CHILDREN_BOX_MAP.items():
+def handle_children_split(income_sheet: IncomeSheet) -> IncomeSheet:
+    # 1. Use a trick for "half-children": "convert" them artificially to alternating custody children
+    # (0.5 child = 1 alternating custody child).
+
+    NUM_CHILDREN_BOXES = [
+        ('0CF', '0CH'),  # Number of children -> number of alternating custody children
+        ('0CG', '0CI'),  # Same but with disabled children
+    ]
+    made_conversion = False
+    for box_from, box_to in NUM_CHILDREN_BOXES:
         value = income_sheet.get(box_from)
         if not value:
             continue
@@ -107,4 +107,28 @@ def handle_half_children(income_sheet: IncomeSheet) -> IncomeSheet:
             # If not an integer (i.e. ends with ".5")
             income_sheet[box_from] = round(income_sheet[box_from] - .5)
             income_sheet[box_to] = income_sheet.get(box_to, 0) + 1
+            if box_from == '0CF':
+                made_conversion = True
+
+    # 2. For boxes that are specific for the index of the child (1st, 2nd, etc.), transfer
+    # everything to the box of the 1st child (since it does not make a difference).
+    CHILDREN_CARE_BOXES = [
+        ('7GA', '7GE'),  # Child care cost for 1st child
+        ('7GB', '7GF'),  # Child care cost for 2nd child
+        ('7GC', '7GG'),  # Child care cost for 3rd child
+    ]
+    for boxes in zip(*CHILDREN_CARE_BOXES):
+        income_sheet[boxes[0]] = sum([income_sheet.get(box, 0) for box in boxes])
+        for box in boxes[1:]:
+            income_sheet[box] = 0
+
+    # 3. For boxes that are specific to the type of custody (standard or alternating), if a
+    # "half-child" has been converted to alternating custody, then also convert all amounts to
+    # their alternating custody equivalent.
+
+    if made_conversion:
+        for box_from, box_to in CHILDREN_CARE_BOXES:
+            income_sheet[box_to] = income_sheet.get(box_to, 0) + income_sheet.get(box_from)
+            income_sheet[box_from] = 0
+
     return income_sheet

@@ -3,7 +3,7 @@ import requests as rq
 from deuxpots.box import Box, BoxKind, ReferenceBox
 from deuxpots.tax_calculator import (
     SIMULATOR_URL, SimulatorError, SimulatorResult,
-    _format_simulator_results, _simulator_api, build_income_sheet, compute_tax, handle_half_children
+    _format_simulator_results, _simulator_api, build_income_sheet, compute_tax, handle_children_split
 )
 from deuxpots.valued_box import ValuedBox
 
@@ -240,12 +240,24 @@ def test_build_income_sheet_together(valboxes):
         assert isinstance(income_sheet[box], int)
 
 @pytest.mark.parametrize("sheet_in,sheet_expected", [
-    ({'9XX': 100}, {'9XX': 100}),
+    # Convert number of children (including disabled)
     ({'0CF': 2.5,}, {'0CF': 2, '0CH': 1}),
-    ({'0CF': 0.5, '0CG': 0.5}, {'0CF': 0,  '0CG': 0, '0CH': 1, '0CI': 1}),
+    ({'0CF': .5, '0CG': .5}, {'0CH': 1, '0CI': 1}),
     ({'0CF': 1.5, '0CG': 1}, {'0CF': 1, '0CH': 1, '0CG': 1}),
+    # Convert child care cost
+    ({'0CF': .5, '7GA': 1000}, {'0CH': 1, '7GE': 1000}),
+    ({'0CF': 1.5, '7GB': 1000}, {'0CF': 1, '0CH': 1, '7GE': 1000}),
+    ({'0CF': 2.5, '7GC': 1000}, {'0CF': 2, '0CH': 1, '7GE': 1000}),
+    # Squash child care costs for all children
+    ({'0CF': 1, '7GA': 100, '7GB': 200, '7GC': 300}, {'0CF': 1, '7GA': 600}),
+    ({'0CF': 1, '7GE': 100, '7GF': 200, '7GG': 300}, {'0CF': 1, '7GE': 600}),
+    # Keep original boxes
+    ({'9ZZ': 333}, {'9ZZ': 333}),
+    ({'0CF': .5, '0CH': 1, '7GA': 400, '7GE': 500}, {'0CH': 2, '7GE': 900}),
 ])
 def test_handle_half_children(sheet_in, sheet_expected):
-    sheet_out = handle_half_children(sheet_in)
+    sheet_out = handle_children_split(sheet_in)
+    sheet_out = {k: v for k, v in sheet_out.items() if v}
+    sheet_expected =  {k: v for k, v in sheet_expected.items() if v}
     assert sheet_out == sheet_expected
 
