@@ -1,4 +1,4 @@
-export const ResultRow = ({ label, fieldName, partnerIndex, style, results }) => (
+const ResultRow = ({ label, fieldName, partnerIndex, style, results }) => (
     <div className="py-1 row" style={style}>
         <div className="col-lg-8">
             {label}&nbsp;:
@@ -9,7 +9,24 @@ export const ResultRow = ({ label, fieldName, partnerIndex, style, results }) =>
     </div>
 );
 
-export const ResultCard = ({ results, partnerIndex }) =>
+const FinalResult = ({ results, partnerIndex }) => {
+    if (results.partners[partnerIndex].remains_to_get_back && results.partners[1 - partnerIndex].remains_to_pay) {
+        return <ResultRow label="Reste à récupérer auprès de votre co-déclarant·e" fieldName="remains_to_get_back" partnerIndex={partnerIndex}
+                results={results} style={{fontSize: '1.5em'}} />
+    }
+    if ((results.partners[partnerIndex].remains_to_pay && results.partners[1 - partnerIndex].remains_to_get_back)) {
+        return <ResultRow label="Reste à payer aux impôts" fieldName="remains_to_pay" partnerIndex={partnerIndex}
+                results={results} style={{fontSize: '1.5em'}} />
+    }
+    if ((results.partners[partnerIndex].remains_to_get_back && results.partners[1 - partnerIndex].remains_to_get_back)) {
+        return <ResultRow label="Reste à récupérer" fieldName="remains_to_get_back" partnerIndex={partnerIndex} 
+                results={results} style={{fontSize: '1.5em'}} />
+    }
+    return <ResultRow label="Reste à payer" fieldName="remains_to_pay" partnerIndex={partnerIndex}
+            results={results} style={{fontSize: '1.5em'}} />
+}
+
+const ResultCard = ({ results, partnerIndex }) =>
     results && (
         <div className="card">
             <div className="card-header">
@@ -19,18 +36,7 @@ export const ResultCard = ({ results, partnerIndex }) =>
                 <ResultRow label="Impôt si déclaration séparée" fieldName="tax_if_single" partnerIndex={partnerIndex} results={results} style={{color: 'gray'}} />
                 <ResultRow label="Impôt commun individualisé" fieldName="total_tax" partnerIndex={partnerIndex} results={results} style={{}} />
                 <ResultRow label="Déjà payé" fieldName="already_paid" partnerIndex={partnerIndex} results={results} style={{color: 'gray'}} />
-                {(results.partners[partnerIndex].remains_to_pay && results.partners[1 - partnerIndex].remains_to_pay) &&
-                    (<ResultRow label="Reste à payer" fieldName="remains_to_pay" partnerIndex={partnerIndex}
-                    results={results} style={{fontSize: '1.5em'}} />)}
-                {(results.partners[partnerIndex].remains_to_pay && results.partners[1 - partnerIndex].remains_to_get_back) &&
-                    (<ResultRow label="Reste à payer aux impôts" fieldName="remains_to_pay" partnerIndex={partnerIndex}
-                    results={results} style={{fontSize: '1.5em'}} />)}
-                {(results.partners[partnerIndex].remains_to_get_back && results.partners[1 - partnerIndex].remains_to_pay) &&
-                    (<ResultRow label="Reste à récupérer auprès de votre co-déclarant·e" fieldName="remains_to_get_back" partnerIndex={partnerIndex}
-                    results={results} style={{fontSize: '1.5em'}} />)}
-                 {(results.partners[partnerIndex].remains_to_get_back && results.partners[1 - partnerIndex].remains_to_get_back) &&
-                    (<ResultRow label="Reste à récupérer" fieldName="remains_to_get_back" partnerIndex={partnerIndex} 
-                    results={results} style={{fontSize: '1.5em'}} />)}
+                <FinalResult results={results} partnerIndex={partnerIndex} />
             </div>
         </div>
     )
