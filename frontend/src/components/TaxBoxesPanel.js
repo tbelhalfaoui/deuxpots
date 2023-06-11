@@ -150,12 +150,16 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setIndividualizedResults, isDem
         ).then(
             data => {
                 const results = data.individualized;
-                [0, 1].forEach(partnerIndex => {
-                    if (results.partners[partnerIndex].remains_to_pay < 0) {
-                        results.partners[partnerIndex].remains_to_get_back = - results.partners[partnerIndex].remains_to_pay
-                        results.partners[partnerIndex].remains_to_pay = null
-                    }
-                })
+                [0, 1].forEach(
+                    partnerIndex => ["partners_equal_split", "partners_proportional_split"].forEach(
+                        partners => {
+                            if (results[partners][partnerIndex].remains_to_pay < 0) {
+                                results[partners][partnerIndex].remains_to_get_back = - results[partners][partnerIndex].remains_to_pay
+                                results[partners][partnerIndex].remains_to_pay = null
+                            }
+                        }
+                    )
+                )
                 setIndividualizedResults(results)
                 setStep({current: 3, max: 3})
             }
