@@ -5,11 +5,13 @@ from deuxpots.tax_calculator import build_income_sheet, compute_tax, handle_chil
 
 @dataclass
 class IndividualResult:
-    tax_if_single: int = None
-    total_tax: int = None
-    tax_gain: int = None
-    already_paid: int = None
-    remains_to_pay: int = None
+    tax_if_single: int = 0
+    total_tax: int = 0
+    tax_gain: int = 0
+    already_paid: int = 0
+    remains_to_pay: int = 0
+    remains_to_pay_to_tax_office: int = 0
+    remains_to_pay_to_partner: int = 0
 
 
 @dataclass
@@ -38,7 +40,7 @@ class IndividualizedResults:
             total_tax_together=simu_together.total_tax,
             partners_proportional_split=_default_partner_results(),
             partners_equal_split=_default_partner_results(),
-        )._individualize()
+        )._individualize().round()
 
     def _individualize(self):
         self.total_tax_gain = self.total_tax_single - self.total_tax_together
@@ -54,6 +56,33 @@ class IndividualizedResults:
             for partner in (partner_proportional, partner_even):
                 partner.total_tax = partner.tax_if_single - partner.tax_gain
                 partner.remains_to_pay = partner.total_tax - partner.already_paid
+
+        for partners in (self.partners_proportional_split, self.partners_equal_split):
+            if partners[0].remains_to_pay * partners[1].remains_to_pay > 0:
+                for partner in partners:
+                    partner.remains_to_pay_to_tax_office = partner.remains_to_pay
+            else:
+                for this_partner, other_partner in zip(partners, partners[::-1]):
+                    if this_partner.remains_to_pay > 0:
+                        this_partner.remains_to_pay_to_tax_office = this_partner.remains_to_pay \
+                                                                    + other_partner.remains_to_pay
+                        this_partner.remains_to_pay_to_partner = -other_partner.remains_to_pay
+                        other_partner.remains_to_pay_to_partner = other_partner.remains_to_pay
+        return self
+
+    def round(self):
+        self.total_tax_single = round(self.total_tax_single)
+        self.total_tax_together = round(self.total_tax_together)
+        self.total_tax_gain = round(self.total_tax_gain)
+        for partners in (self.partners_proportional_split, self.partners_equal_split):
+            for partner in partners:
+                partner.tax_if_single = round(partner.tax_if_single)
+                partner.total_tax = round(partner.total_tax)
+                partner.tax_gain = round(partner.tax_gain)
+                partner.already_paid = round(partner.already_paid)
+                partner.remains_to_pay = round(partner.remains_to_pay)
+                partner.remains_to_pay_to_tax_office = round(partner.remains_to_pay_to_tax_office)
+                partner.remains_to_pay_to_partner = round(partner.remains_to_pay_to_partner)
         return self
 
 

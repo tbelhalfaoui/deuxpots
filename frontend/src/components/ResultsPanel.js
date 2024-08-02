@@ -1,33 +1,34 @@
 import { useState } from "react";
 import { FaInfoCircle } from "react-icons/fa";
 
-const ResultRow = ({ label, fieldName, partnerIndex, style, partners }) => (
+const ResultRow = ({ label, value, style }) =>
     <div className="py-1 row" style={style}>
         <div className="col-lg-8">
             {label}&nbsp;:
         </div>
         <div className="col-lg-4 text-end">
-            <strong>{ Math.round(partners[partnerIndex][fieldName]).toLocaleString('fr-FR') }&nbsp;€</strong>
+            <strong>{ Math.round(value).toLocaleString('fr-FR') }&nbsp;€</strong>
         </div>
     </div>
-);
 
-const FinalResult = ({ partners, partnerIndex }) => {
-    if (partners[partnerIndex].remains_to_get_back && partners[1 - partnerIndex].remains_to_pay) {
-        return <ResultRow label="Reste à récupérer auprès de votre co-déclarant·e" fieldName="remains_to_get_back" partnerIndex={partnerIndex}
-                partners={partners} style={{fontSize: '1.5em'}} />
-    }
-    if ((partners[partnerIndex].remains_to_pay && partners[1 - partnerIndex].remains_to_get_back)) {
-        return <ResultRow label="Reste à payer aux impôts" fieldName="remains_to_pay" partnerIndex={partnerIndex}
-                partners={partners} style={{fontSize: '1.5em'}} />
-    }
-    if ((partners[partnerIndex].remains_to_get_back && partners[1 - partnerIndex].remains_to_get_back)) {
-        return <ResultRow label="Reste à récupérer" fieldName="remains_to_get_back" partnerIndex={partnerIndex} 
-                partners={partners} style={{fontSize: '1.5em'}} />
-    }
-    return <ResultRow label="Reste à payer" fieldName="remains_to_pay" partnerIndex={partnerIndex}
-            partners={partners} style={{fontSize: '1.5em'}} />
-}
+const FinalResult = ({ partners, partnerIndex }) =>
+    <div>
+        {(partners[partnerIndex].remains_to_pay_to_tax_office > 0) &&
+            <ResultRow label="Reste à payer aux impôts" style={{fontSize: '1.5em'}}
+                value={partners[partnerIndex].remains_to_pay_to_tax_office} />}
+        {(partners[partnerIndex].remains_to_pay_to_tax_office < 0) &&
+            <ResultRow label="Reste à récupérer des impôts" style={{fontSize: '1.5em'}}
+            value={-partners[partnerIndex].remains_to_pay_to_tax_office} />}
+        {(partners[partnerIndex].remains_to_pay_to_partner > 0) &&
+            <ResultRow label="Reste à payer à votre co-déclarant·e" style={{fontSize: '1.5em'}}
+            value={partners[partnerIndex].remains_to_pay_to_partner} />}
+        {(partners[partnerIndex].remains_to_pay_to_partner < 0) &&
+            <ResultRow label="Reste à récupérer auprès de votre co-déclarant·e" style={{fontSize: '1.5em'}}
+            value={-partners[partnerIndex].remains_to_pay_to_partner} />}
+        {(partners[partnerIndex].remains_to_pay_to_tax_office === 0) && (partners[partnerIndex].remains_to_pay_to_partner === 0) &&
+            <ResultRow label="Reste à payer" fieldName="remains_to_pay_to_tax_office" style={{fontSize: '1.5em'}}
+            value={0} />}
+    </div>
 
 const ResultCard = ({ partners, partnerIndex }) =>
     partners && (
@@ -36,9 +37,12 @@ const ResultCard = ({ partners, partnerIndex }) =>
                 Déclarant·e {partnerIndex + 1}
             </div>
             <div className="card-body">
-                <ResultRow label="Impôt si déclaration séparée" fieldName="tax_if_single" partnerIndex={partnerIndex} partners={partners} style={{color: 'gray'}} />
-                <ResultRow label="Impôt commun individualisé" fieldName="total_tax" partnerIndex={partnerIndex} partners={partners} style={{}} />
-                <ResultRow label="Déjà payé" fieldName="already_paid" partnerIndex={partnerIndex} partners={partners} style={{color: 'gray'}} />
+                <ResultRow label="Impôt si déclaration séparée" style={{color: 'gray'}}
+                    value={partners[partnerIndex].tax_if_single} />
+                <ResultRow label="Impôt commun individualisé" style={{}}
+                    value={partners[partnerIndex].total_tax} />
+                <ResultRow label="Déjà payé" style={{color: 'gray'}}
+                    value={partners[partnerIndex].already_paid} />
                 <FinalResult partners={partners} partnerIndex={partnerIndex} />
             </div>
         </div>
