@@ -7197,5 +7197,19 @@
     ],
     "type": "bool",
     "description": "Veuf\u00b7ve."
+  },
+  {
+    "boxes": [
+      "4EA"
+    ],
+    "description": "Régime réel - Revenus fonciers exonérés à soumettre aux taux effectif.",
+    "type": "int"
+  },
+  {
+    "boxes": [
+      "4EB"
+    ],
+    "description": "Micro foncier - Recettes brutes exonérées à soumettre aux taux effectif.",
+    "type": "int"
   }
 ]
