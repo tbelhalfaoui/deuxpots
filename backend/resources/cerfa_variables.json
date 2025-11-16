@@ -5324,21 +5324,21 @@
       "7EA"
     ],
     "description": "VOS CHARGES OUVRANT DROIT A R\u00c9DUCTION D'IMP\u00d4T OU A CREDIT D'IMP\u00d4T - Enfants \u00e0 charge poursuivant leurs \u00e9tudes - indiquez le nombre d'enfants concern\u00e9s (niveau d'\u00e9tudes au 31 d\u00e9cembre 2022) - Dans un coll\u00e8ge.",
-    "type": "int"
+    "type": "float"
   },
   {
     "boxes": [
       "7EC"
     ],
     "description": "VOS CHARGES OUVRANT DROIT A R\u00c9DUCTION D'IMP\u00d4T OU A CREDIT D'IMP\u00d4T - Enfants \u00e0 charge poursuivant leurs \u00e9tudes - indiquez le nombre d'enfants concern\u00e9s (niveau d'\u00e9tudes au 31 d\u00e9cembre 2022) - Dans un lyc\u00e9e.",
-    "type": "int"
+    "type": "float"
   },
   {
     "boxes": [
       "7EF"
     ],
     "description": "VOS CHARGES OUVRANT DROIT A R\u00c9DUCTION D'IMP\u00d4T OU A CREDIT D'IMP\u00d4T - Enfants \u00e0 charge poursuivant leurs \u00e9tudes - indiquez le nombre d'enfants concern\u00e9s (niveau d'\u00e9tudes au 31 d\u00e9cembre 2022) - Dans l'enseignement sup\u00e9rieur.",
-    "type": "int"
+    "type": "float"
   },
   {
     "boxes": [
@@ -5429,6 +5429,13 @@
       "7DR"
     ],
     "description": "VOS CHARGES OUVRANT DROIT A R\u00c9DUCTION D'IMP\u00d4T OU A CREDIT D'IMP\u00d4T - Service \u00e0 la personne : emploi \u00e0 domicile - Aides per\u00e7ues pour l\u2019emploi \u00e0 domicile (APA, PCH, CESU pr\u00e9financ\u00e9).",
+    "type": "int"
+  },
+  {
+    "boxes": [
+      "7HB"
+    ],
+    "description": "VOS CHARGES OUVRANT DROIT A R\u00c9DUCTION D'IMP\u00d4T OU A CREDIT D'IMP\u00d4T - Service \u00e0 la personne : emploi \u00e0 domicile - avance immédiate de crédit d'impôt pour l'emploit d'un salarié à domicile en 2022.",
     "type": "int"
   },
   {

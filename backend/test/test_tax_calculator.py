@@ -240,10 +240,21 @@ def test_build_income_sheet_together(valboxes):
         assert isinstance(income_sheet[box], int)
 
 @pytest.mark.parametrize("sheet_in,sheet_expected", [
-    # Convert number of children (including disabled)
+    # Convert number of children
+    ({'0CF': .5,}, {'0CH': 1}),
+    ({'0CF': 1,}, {'0CF': 1}),
+    ({'0CF': 1.5,}, {'0CF': 1, '0CH': 1}),
     ({'0CF': 2.5,}, {'0CF': 2, '0CH': 1}),
+    # Convert number of disabled children
     ({'0CF': .5, '0CG': .5}, {'0CH': 1, '0CI': 1}),
     ({'0CF': 1.5, '0CG': 1}, {'0CF': 1, '0CH': 1, '0CG': 1}),
+    ({'0CF': 1.5, '0CG': .5}, {'0CF': 1, '0CH': 1, '0CI': 1}),
+    # Convert number of children in school
+    ({'0CF': .5, '7EA': .5}, {'0CH': 1, '7EB': 1}),
+    ({'0CF': 1.5, '7EA': 1}, {'0CF': 1, '0CH': 1, '7EA': 1}),
+    ({'0CF': 1.5, '7EA': .5}, {'0CF': 1, '0CH': 1, '7EB': 1}),
+    ({'0CF': .5, '7EC': .5}, {'0CH': 1, '7ED': 1}),
+    ({'0CF': .5, '7EF': .5}, {'0CH': 1, '7EG': 1}),
     # Convert child care cost
     ({'0CF': .5, '7GA': 1000}, {'0CH': 1, '7GE': 1000}),
     ({'0CF': 1.5, '7GB': 1000}, {'0CF': 1, '0CH': 1, '7GE': 1000}),

@@ -93,7 +93,11 @@ def handle_children_split(income_sheet: IncomeSheet) -> IncomeSheet:
 
     NUM_CHILDREN_BOXES = [
         ('0CF', '0CH'),  # Number of children -> number of alternating custody children
+                         # (Must be filled out if any of the below is filled out)
         ('0CG', '0CI'),  # Same but with disabled children
+        ('7EA', '7EB'),  # Number of children in "college"
+        ('7EC', '7ED'),  # Same for "lycée"
+        ('7EF', '7EG'),  # Same for "enseignement supérieur"
     ]
     made_conversion = False
     for box_from, box_to in NUM_CHILDREN_BOXES:
@@ -128,7 +132,7 @@ def handle_children_split(income_sheet: IncomeSheet) -> IncomeSheet:
 
     if made_conversion:
         for box_from, box_to in CHILDREN_CARE_BOXES:
-            income_sheet[box_to] = income_sheet.get(box_to, 0) + income_sheet.get(box_from)
+            income_sheet[box_to] = income_sheet.get(box_to, 0) + income_sheet.get(box_from, 0)
             income_sheet[box_from] = 0
 
     return income_sheet
