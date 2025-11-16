@@ -28,13 +28,14 @@ export const PdfSubmitForm = ({setBoxes, setIsDemo}) => {
           evt.target.files && evt.target.files[0], isDemo
         ).then(
           data => {
+            console.log(data)
             const boxes = data.boxes.sort(
                 (box1, box2) => box1.code.localeCompare(box2.code)
               ).map(box => ({
                 ...box,
                 description: box.description,
-                partner_0_value: ((box.attribution || (box.attribution === 0)) && box.raw_value) ? box.raw_value * (1 - box.attribution) : "",
-                partner_1_value: ((box.attribution || (box.attribution === 0)) && box.raw_value) ? box.raw_value * box.attribution : "",
+                partner_0_value: ((box.attribution || (box.attribution === 0)) && (box.raw_value || (box.raw_value === 0))) ? box.raw_value * (1 - box.attribution) : "",
+                partner_1_value: ((box.attribution || (box.attribution === 0)) && (box.raw_value || (box.raw_value === 0))) ? box.raw_value * box.attribution : "",
                 totalIsLocked: !isDemo && !!box.raw_value
               })).concat([createEmptyBox()])
             boxes.forEach(box => searchIndex.current.disable(box.code))

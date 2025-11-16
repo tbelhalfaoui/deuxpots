@@ -129,7 +129,7 @@ export const TaxBox = ({ boxIndex, box, onNumericValueChange, onBooleanValueChan
                             invalidValue={(val) => !val && val !== 0 && box.code} label="Décl. 1" onChange={onBooleanValueChange} />
                           : <NumberBox name={`partner_0_value.${boxIndex}`} value={fillNaN(box.partner_0_value)} label="Décl. 1"
                             max={box.totalIsLocked ? box.raw_value : undefined} onValueChange={onNumericValueChange}
-                            invalidValue={(val) => !val && val !== 0 && box.code}
+                            invalidValue={(val) => !val && val !== 0 && box.code && box.raw_value !== 0}
                             allow_float={box.type === "float"} disabled={!box.code} /> 
                         }
                     </div>
@@ -149,7 +149,7 @@ export const TaxBox = ({ boxIndex, box, onNumericValueChange, onBooleanValueChan
                                 invalidValue={(val) => !val && val !== 0 && box.code} label="Décl. 2" onChange={onBooleanValueChange} />
                               : <NumberBox name={`partner_1_value.${boxIndex}`} value={fillNaN(box.partner_1_value)} label="Décl. 2"
                                 max={box.totalIsLocked ? box.raw_value : undefined} onValueChange={onNumericValueChange}
-                                invalidValue={(val) => !val && val !== 0 && box.code}
+                                invalidValue={(val) => !val && val !== 0 && box.code && box.raw_value !== 0}
                                 allow_float={box.type === "float"} disabled={!box.code} />
                             }
                         </div>

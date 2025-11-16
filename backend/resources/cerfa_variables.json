@@ -166,7 +166,7 @@
       "1GP",
       "1GQ"
     ],
-    "description": "SALAIRES EXON\u00c9R\u00c9S RETENUS POUR LE CALCUL DU TAUX EFFECTIF - En 2023 vous ne percevez plus de salaires d\u00e9clar\u00e9s lignes 1GB, 1GF, 1GG, 1AG de la d\u00e9claration n\u00b02042.",
+    "description": "SALAIRES EXON\u00c9R\u00c9S RETENUS POUR LE CALCUL DU TAUX EFFECTIF - En 2025 vous ne percevez plus de salaires d\u00e9clar\u00e9s lignes 1GB, 1GF, 1GG, 1AG de la d\u00e9claration n\u00b02042.",
     "type": "bool"
   },
   {
@@ -246,7 +246,7 @@
       "1HP",
       "1HQ"
     ],
-    "description": "PENSIONS, RETRAITES, RENTES - En 2023, vous ne percevez plus de pensions d\u00e9clar\u00e9es lignes 1AO, 1AM de la d\u00e9claration 2042.",
+    "description": "PENSIONS, RETRAITES, RENTES - En 2025, vous ne percevez plus de pensions d\u00e9clar\u00e9es lignes 1AO, 1AM de la d\u00e9claration 2042.",
     "type": "bool"
   },
   {
@@ -328,35 +328,35 @@
       "1TT",
       "1UT"
     ],
-    "description": "GAINS DE LEVEE D'OPTIONS, REVENUS EXONERES OU NON IMPOSABLES EN FRANCE, REVENUS EXCEPTIONNELS OU DIFFERES - Gains de lev\u00e9e d'options attribu\u00e9es \u00e0 compter du 28/09/2012 ; gains d'acquisition d'actions gratuites attribu\u00e9es \u00e0 compter du 28/09/12 sur d\u00e9cision prise au plus tard le 07/08/15 et gains d'acquisitions d'actions gratuites attribu\u00e9es sur d\u00e9cision prise \u00e0 compter du 31/12/2016 pour leur fraction exc\u00e9dant 300 000 \u20ac - Imposables en salaires.",
+    "description": "GAINS DE LEVEE D'OPTIONS, REVENUS EXONERES OU NON IMPOSABLES EN FRANCE, REVENUS EXCEPTIONNELS OU DIFFERES - Gains de lev\u00e9e d'options attribu\u00e9es \u00e0 compter du 28/09/2016 ; gains d'acquisition d'actions gratuites attribu\u00e9es \u00e0 compter du 28/09/12 sur d\u00e9cision prise au plus tard le 07/08/15 et gains d'acquisitions d'actions gratuites attribu\u00e9es sur d\u00e9cision prise \u00e0 compter du 31/12/2020 pour leur fraction exc\u00e9dant 300 000 \u20ac - Imposables en salaires.",
     "type": "int"
   },
   {
     "boxes": [
       "1TZ"
     ],
-    "description": "GAINS DE LEVEE D'OPTIONS, REVENUS EXONERES OU NON IMPOSABLES EN FRANCE, REVENUS EXCEPTIONNELS OU DIFFERES - Gains d'acquisition d'actions gratuites attribu\u00e9es sur d\u00e9cision prise \u00e0 compter du 08/08/2015 au 31/12/2016 ; gains d'acquisitions d'actions gratuites attribu\u00e9es \u00e0 compter du 31/12/16 pour leur fraction n'exc\u00e9dant pas 300 000 \u20ac - Gain imposable apr\u00e8s abattements.",
+    "description": "GAINS DE LEVEE D'OPTIONS, REVENUS EXONERES OU NON IMPOSABLES EN FRANCE, REVENUS EXCEPTIONNELS OU DIFFERES - Gains d'acquisition d'actions gratuites attribu\u00e9es sur d\u00e9cision prise \u00e0 compter du 08/08/2019 au 31/12/2020 ; gains d'acquisitions d'actions gratuites attribu\u00e9es \u00e0 compter du 31/12/16 pour leur fraction n'exc\u00e9dant pas 300 000 \u20ac - Gain imposable apr\u00e8s abattements.",
     "type": "int"
   },
   {
     "boxes": [
       "1UZ"
     ],
-    "description": "GAINS DE LEVEE D'OPTIONS, REVENUS EXONERES OU NON IMPOSABLES EN FRANCE, REVENUS EXCEPTIONNELS OU DIFFERES - Gains d'acquisition d'actions gratuites attribu\u00e9es sur d\u00e9cision prise \u00e0 compter du 08/08/2015 au 31/12/2016 ; gains d'acquisitions d'actions gratuites attribu\u00e9es \u00e0 compter du 31/12/16 pour leur fraction n'exc\u00e9dant pas 300 000 \u20ac - Abattement pour dur\u00e9e de d\u00e9tention.",
+    "description": "GAINS DE LEVEE D'OPTIONS, REVENUS EXONERES OU NON IMPOSABLES EN FRANCE, REVENUS EXCEPTIONNELS OU DIFFERES - Gains d'acquisition d'actions gratuites attribu\u00e9es sur d\u00e9cision prise \u00e0 compter du 08/08/2019 au 31/12/2020 ; gains d'acquisitions d'actions gratuites attribu\u00e9es \u00e0 compter du 31/12/16 pour leur fraction n'exc\u00e9dant pas 300 000 \u20ac - Abattement pour dur\u00e9e de d\u00e9tention.",
     "type": "int"
   },
   {
     "boxes": [
       "1WZ"
     ],
-    "description": "GAINS DE LEVEE D'OPTIONS, REVENUS EXONERES OU NON IMPOSABLES EN FRANCE, REVENUS EXCEPTIONNELS OU DIFFERES - Gains d'acquisition d'actions gratuites attribu\u00e9es sur d\u00e9cision prise \u00e0 compter du 08/08/2015 au 31/12/2016 ; gains d'acquisitions d'actions gratuites attribu\u00e9es \u00e0 compter du 31/12/16 pour leur fraction n'exc\u00e9dant pas 300 000 \u20ac - Abattement de 50 %.",
+    "description": "GAINS DE LEVEE D'OPTIONS, REVENUS EXONERES OU NON IMPOSABLES EN FRANCE, REVENUS EXCEPTIONNELS OU DIFFERES - Gains d'acquisition d'actions gratuites attribu\u00e9es sur d\u00e9cision prise \u00e0 compter du 08/08/2019 au 31/12/2020 ; gains d'acquisitions d'actions gratuites attribu\u00e9es \u00e0 compter du 31/12/16 pour leur fraction n'exc\u00e9dant pas 300 000 \u20ac - Abattement de 50 %.",
     "type": "int"
   },
   {
     "boxes": [
       "1VZ"
     ],
-    "description": "GAINS DE LEVEE D'OPTIONS, REVENUS EXONERES OU NON IMPOSABLES EN FRANCE, REVENUS EXCEPTIONNELS OU DIFFERES - Gains d'acquisition d'actions gratuites attribu\u00e9es sur d\u00e9cision prise \u00e0 compter du 08/08/2015 au 31/12/2016 ; gains d'acquisitions d'actions gratuites attribu\u00e9es \u00e0 compter du 31/12/16 pour leur fraction n'exc\u00e9dant pas 300 000 \u20ac - Abattement fixe (D\u00e9part \u00e0 la retraite d'un dirigeant de PME).",
+    "description": "GAINS DE LEVEE D'OPTIONS, REVENUS EXONERES OU NON IMPOSABLES EN FRANCE, REVENUS EXCEPTIONNELS OU DIFFERES - Gains d'acquisition d'actions gratuites attribu\u00e9es sur d\u00e9cision prise \u00e0 compter du 08/08/2019 au 31/12/2020 ; gains d'acquisitions d'actions gratuites attribu\u00e9es \u00e0 compter du 31/12/16 pour leur fraction n'exc\u00e9dant pas 300 000 \u20ac - Abattement fixe (D\u00e9part \u00e0 la retraite d'un dirigeant de PME).",
     "type": "int"
   },
   {

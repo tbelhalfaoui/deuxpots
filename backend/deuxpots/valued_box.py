@@ -39,10 +39,13 @@ class ValuedBox:
             * attribution = 1 means "100% for partner 1".
             * attribution = .2 means "20% for partner 1 and 80% for partner 0".
         
+        If the box has zero value, default attribution to .5.
         """
         
         if self.attribution is None:
             self.attribution = DEFAUT_ATTRIBUTION_FROM_KIND.get(self.box.kind)
+        if self.raw_value == 0:
+            self.attribution = .5
     
     def _round(self, value):
         if self.box.reference.type == "float":

@@ -182,3 +182,16 @@ def test_serialize_valued_box():
         raw_value=800,
     )
     assert json.dumps(asdict(valbox))
+
+
+def test_valued_box_zero_value_is_attributed():
+    valbox = ValuedBox(
+        box=Box(
+            code="7HB",
+            reference=ReferenceBox(code="7HB", description="Services à la personne - réductions d'impôt", type='int'),
+            kind=BoxKind.COMMON
+        ),
+        raw_value=0,
+    )
+    assert valbox.individualized_value(0) == 0
+    assert valbox.individualized_value(1) == 0
