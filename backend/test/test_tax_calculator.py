@@ -90,6 +90,16 @@ def test_compute_tax_single_with_child():
     assert res_with_child.total_tax < res_without_child.total_tax
 
 
+def test_compute_tax_zero_useless_box():
+    res = compute_tax({
+        '0DA': '1950',
+        'pre_situation_famille': 'C',
+        'pre_situation_residence': 'M',
+        '7HB': 0,
+    })
+    assert res.total_tax == 0
+
+
 def test_compute_tax_error():
     with pytest.raises(SimulatorError) as e:
         compute_tax({

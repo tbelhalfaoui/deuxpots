@@ -69,7 +69,7 @@ def build_income_sheet(valboxes, individualize=None):
     valboxes = [valbox for valbox in valboxes if valbox.raw_value]
     assert all(valbox.attribution is not None for valbox in valboxes)
     if individualize is None:
-        sheet = IncomeSheet({
+        return IncomeSheet({
             '0DA': '1950',
             '0DB': '1950',
             'pre_situation_famille': 'O',
@@ -80,12 +80,12 @@ def build_income_sheet(valboxes, individualize=None):
         sheet = defaultdict(int)
         for valbox in valboxes:
             sheet[valbox.box.reference.code] += valbox.individualized_value(individualize)
-    return {
-        '0DA': '1950',
-        'pre_situation_famille': 'C',
-        'pre_situation_residence': 'M',
-        **sheet
-    }
+        return {
+            '0DA': '1950',
+            'pre_situation_famille': 'C',
+            'pre_situation_residence': 'M',
+            **sheet
+        }
 
 def handle_children_split(income_sheet: IncomeSheet) -> IncomeSheet:
     # 1. Use a trick for "half-children": "convert" them artificially to alternating custody children
