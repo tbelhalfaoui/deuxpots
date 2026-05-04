@@ -30,7 +30,30 @@ class SimulatorError(UserFacingError):
     pass
 
 
+def _rename_variables(income_sheet):
+    # Specific for retirement plans ("PER")
+    VARIABLES_RENAME_MAP = {
+        '6PS': 'BPS',
+        '6PT': 'BPT',
+        '6PU': 'BPU',
+    }
+    VARIABLES_TO_ADD = {
+        'APS': 0, 'CPS': 0, 'DPS': 0,
+        'APT': 0, 'CPT': 0, 'DPT': 0,
+    }
+    replaced = False
+    for old_code, new_code in VARIABLES_RENAME_MAP.items():
+        if old_code in income_sheet:
+            income_sheet[new_code] = income_sheet.get(old_code)
+            del income_sheet[old_code]
+            replaced = True
+    if replaced:
+        income_sheet = {**income_sheet, **VARIABLES_TO_ADD}
+    return income_sheet
+
+
 def _simulator_api(income_sheet):
+    income_sheet = _rename_variables(income_sheet)
     resp = rq.post(SIMULATOR_URL, data=income_sheet)
     try:
         resp.raise_for_status()
