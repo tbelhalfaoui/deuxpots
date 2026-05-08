@@ -2,7 +2,7 @@ import pytest
 import requests as rq
 from deuxpots.box import Box, BoxKind, ReferenceBox
 from deuxpots.tax_calculator import (
-    SIMULATOR_URL, SimulatorError, SimulatorResult,
+    SimulatorError, SimulatorResult,
     _format_simulator_results, _simulator_api, build_income_sheet, compute_tax, handle_children_split
 )
 from deuxpots.valued_box import ValuedBox
