@@ -134,8 +134,7 @@ def handle_children_split(income_sheet: IncomeSheet) -> IncomeSheet:
             # If not an integer (i.e. ends with ".5")
             income_sheet[box_from] = round(income_sheet[box_from] - .5)
             income_sheet[box_to] = income_sheet.get(box_to, 0) + 1
-            if box_from == '0CF':
-                made_conversion = True
+            made_conversion = True
 
     # 2. For boxes that are specific for the index of the child (1st, 2nd, etc.), transfer
     # everything to the box of the 1st child (since it does not make a difference).
@@ -157,5 +156,17 @@ def handle_children_split(income_sheet: IncomeSheet) -> IncomeSheet:
         for box_from, box_to in CHILDREN_CARE_BOXES:
             income_sheet[box_to] = income_sheet.get(box_to, 0) + income_sheet.get(box_from, 0)
             income_sheet[box_from] = 0
+
+    # 4. Finally, create new alternating custody children if needed
+    # (account for the 0CF=1=0.5+0.5 case ; see tests)
+    if made_conversion:
+        total_alt_custody = max(income_sheet.get('0CH', 0),
+                                income_sheet.get('0CI', 0),
+                                sum([income_sheet.get(b, 0) for b in ['7EB', '7ED', '7EG']]))
+        new_alt_custody = total_alt_custody - income_sheet.get('0CH', 0)
+        if new_alt_custody % 2 == 1:
+            new_alt_custody += 1
+        income_sheet['0CH'] = income_sheet.get('0CH', 0) + new_alt_custody
+        income_sheet['0CF'] = income_sheet.get('0CF', 0) - new_alt_custody // 2
 
     return income_sheet
