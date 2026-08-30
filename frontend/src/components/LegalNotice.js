@@ -33,6 +33,16 @@ export const LegalNotice = () =>
                     </p>
                 </div>
                 <div className="py-2">
+                    <h4>Limitation de responsabilité</h4>
+                    <p>
+                        Les résultats fournis par ce site n'ont pas de valeur légale et peuvent comporter des erreurs en cas de bug.
+                    </p>
+                    <p>
+                        Les personnes utilisant ce service sont réputées en avoir conscience et renoncent à mettre en cause son auteur
+                        si tel devait être le cas.
+                    </p>
+                </div>
+                <div className="py-2">
                     <h4>Données personnelles</h4>
                     <p>
                         Ce site n'utilise <mark>aucun traceur</mark>: ni cookie ni <em>fingerprinting</em>.
