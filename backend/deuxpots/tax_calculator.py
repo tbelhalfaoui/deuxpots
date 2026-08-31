@@ -5,7 +5,7 @@ import logging
 from bs4 import BeautifulSoup
 import requests as rq
 
-from deuxpots import get_simulator_url
+from deuxpots import SIMULATOR_URL
 from deuxpots.warning_error_utils import UserFacingError
 
 
@@ -64,7 +64,7 @@ def _rename_variables(income_sheet):
 
 def _simulator_api(income_sheet):
     income_sheet = _rename_variables(income_sheet)
-    resp = rq.post(get_simulator_url(), data=income_sheet)
+    resp = rq.post(SIMULATOR_URL, data=income_sheet)
     try:
         resp.raise_for_status()
     except rq.HTTPError:
