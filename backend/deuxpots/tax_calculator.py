@@ -30,6 +30,16 @@ class SimulatorError(UserFacingError):
     pass
 
 
+SIMULATOR_ERRORS_MAPPING = {
+    'Calcul impossible, rectifier votre saisie en fonction des indications qui suivent : '
+    '•  COTISATIONS 6RS, 6RT, 6RU, 6NS, 6NT OU 6NU SANS PLAFOND CORRESPONDANT': "Vous avez rempli "
+    "l'une des cases suivantes : 6RS, 6RT, 6RU, 6NS, 6NT ou 6NU. Vous devez manuellement ajouter "
+    "la case 6PS et y indiquer le plafond de déduction. Pour connaître son montant, vous pouvez "
+    "aller sur votre espace personnel du site des impôts ou le recalculer à partir de cette notice : "
+    "https://www.impots.gouv.fr/sites/default/files/formulaires/2041-gx/2026/2041-gx_5466.pdf"
+}
+
+
 def _rename_variables(income_sheet):
     # Specific for retirement plans ("PER")
     VARIABLES_RENAME_MAP = {
@@ -75,7 +85,9 @@ def _format_simulator_results(results):
         IINET = int(results['IINET'])
         IREST = int(results['IREST'])
     except KeyError:
-        raise SimulatorError(results["error"])
+        error = results["error"].strip()
+        print(error)
+        raise SimulatorError(SIMULATOR_ERRORS_MAPPING.get(error, error))
     remains_to_pay = IINET - IREST
     return SimulatorResult(
         total_tax=INETIR,
