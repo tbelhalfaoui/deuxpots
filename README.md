@@ -4,7 +4,7 @@
 
 https://deuxpots.fr
 
-En 2023, en France, les couples mariés ou pacés doivent faire une déclaration de revenus commune. L'administration fiscale réclame ou reverse ensuite une somme globale au couple, sans distinguer la part de chacun·e. Le prélèvement à la source individualisé est un début de réponse, mais qui ne s'applique pas à toutes les situations (travailleur·euse·s indépendant·e·s, forte variation de revenus d'une année sur l'autre, etc.).
+En France, les couples mariés ou pacés sont obligés de faire une déclaration de revenus commune. L'administration fiscale réclame ou reverse ensuite une somme globale au couple, sans distinguer la part de chacun·e. Le prélèvement à la source individualisé est un début de réponse, mais qui ne s'applique pas à toutes les situations (travailleur·euse·s indépendant·e·s, forte variation de revenus d'une année sur l'autre, etc.).
 
 Ce fonctionnement peut léser les personnes qui ont choisi de conserver une indépendance financière au sein du couple, en particulier si les différences de revenus sont importantes.
 
