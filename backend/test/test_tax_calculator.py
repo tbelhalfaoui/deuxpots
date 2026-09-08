@@ -3,7 +3,8 @@ import requests as rq
 from deuxpots.box import Box, BoxKind, ReferenceBox
 from deuxpots.tax_calculator import (
     SimulatorError, SimulatorResult,
-    _format_simulator_results, _simulator_api, build_income_sheet, compute_tax, handle_children_split
+    _format_simulator_results, _simulator_api, build_income_sheet, compute_tax, handle_children_split,
+    handle_foreign_property_income
 )
 from deuxpots.valued_box import ValuedBox
 
@@ -287,3 +288,37 @@ def test_handle_half_children(sheet_in, sheet_expected):
     sheet_expected =  {k: v for k, v in sheet_expected.items() if v}
     assert sheet_out == sheet_expected
 
+
+@pytest.mark.parametrize("sheet_in,expected_8sg", [
+    # Régime réel : la 8TK dépasse le foncier étranger (elle contient aussi des salaires
+    # étrangers, par exemple) -> le simulateur exige la part foncière en 8SG.
+    ({'4BA': 10000, '4BL': 8000, '8TK': 10000}, 8000),
+    # Micro-foncier : même règle avec la 4BK.
+    ({'4BE': 15000, '4BK': 8000, '8TK': 12000}, 8000),
+    # Réel et micro cumulés : la part foncière est la somme des deux.
+    ({'4BA': 10000, '4BL': 8000, '4BK': 2000, '8TK': 12000}, 10000),
+    # La 8TK se réduit au foncier étranger : le simulateur n'a pas besoin de 8SG.
+    ({'4BA': 10000, '4BL': 8000, '8TK': 8000}, None),
+    # Aucun foncier étranger : renseigner 8SG ferait échouer le calcul.
+    ({'4BA': 10000, '8TK': 6000}, None),
+    ({'4BE': 15000}, None),
+])
+def test_handle_foreign_property_income(sheet_in, expected_8sg):
+    sheet_out = handle_foreign_property_income(dict(sheet_in))
+    assert sheet_out.get('8SG') == expected_8sg
+
+
+def test_handle_foreign_property_income_unblocks_simulator():
+    sheet = {
+        '0DA': '1980',
+        'pre_situation_famille': 'C',
+        'pre_situation_residence': 'M',
+        '1AJ': 50000,
+        '4BA': 10000,
+        '4BL': 8000,
+        '8TK': 10000,
+    }
+    with pytest.raises(SimulatorError):
+        compute_tax(dict(sheet))
+    result = compute_tax(handle_foreign_property_income(dict(sheet)))
+    assert result.total_tax > 0
