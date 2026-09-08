@@ -4,7 +4,7 @@ import { NavContext, UserMessagesContext, SearchIndexContext } from "../App.js";
 import { TaxBox } from './TaxBox.js'
 import { SubmitButton } from './SubmitButton.js'
 import { callIndividualizeRoute } from "../adapters/api.js"
-import { createEmptyBox } from "../utils/box.js";
+import { applyAttribution, createEmptyBox } from "../utils/box.js";
 
 
 const round = (val, precision) => Math.round(val / precision) * precision
@@ -21,10 +21,7 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setIndividualizedResults, isDem
         
         setBoxes(boxes.map((box, boxIndex) => {
             if (boxIndex === boxIndexChanged) {
-                const precision = (box.type === "float") ? .1 : 1
-                box.attribution = value / box.raw_value
-                box.partner_0_value = round((1 - box.attribution) * box.raw_value, precision)
-                box.partner_1_value = round(box.attribution * box.raw_value, precision)
+                applyAttribution(box, value / box.raw_value)
             }
             return box;
         }));
