@@ -2,6 +2,7 @@ import { NumericFormat } from "react-number-format";
 import { FaLock, FaLockOpen, FaRegTrashAlt } from "react-icons/fa";
 import { OverlayTrigger, Tooltip } from "react-bootstrap";
 import { BoxSearchSelect } from "./BoxSearchSelect";
+import { sliderStep } from "../utils/box.js";
 
 
 const fillNaN = (val) => isNaN(val) ? "" : val
@@ -137,7 +138,7 @@ export const TaxBox = ({ boxIndex, box, onNumericValueChange, onBooleanValueChan
                         {(box.type !== "bool") && 
                             <input type="range" className="form-range" name={`slider.${boxIndex}`}
                             min={0} max={box.raw_value}
-                            step={(box.type === "float") ? 0.5 : (box.raw_value <= 10) ? 1 : parseInt(box.raw_value / 10)}
+                            step={sliderStep(box)}
                             disabled={(!box.raw_value) || (!box.code)}
                             value={fillNaN(box.attribution * box.raw_value)}
                             onChange={onSliderChange} />}
