@@ -4,7 +4,7 @@ import { NavContext, UserMessagesContext, SearchIndexContext } from "../App.js";
 import { TaxBox } from './TaxBox.js'
 import { SubmitButton } from './SubmitButton.js'
 import { callIndividualizeRoute } from "../adapters/api.js"
-import { applyAttribution, createEmptyBox } from "../utils/box.js";
+import { applyAttribution, createEmptyBox, markAttributionAsManual, propagateAttributions } from "../utils/box.js";
 
 
 const round = (val, precision) => Math.round(val / precision) * precision
@@ -19,12 +19,13 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setIndividualizedResults, isDem
         var value = evt.target.value;
         const boxIndexChanged = parseInt(evt.target.name.split('.')[1]);
         
-        setBoxes(boxes.map((box, boxIndex) => {
+        setBoxes(propagateAttributions(boxes.map((box, boxIndex) => {
             if (boxIndex === boxIndexChanged) {
                 applyAttribution(box, value / box.raw_value)
+                markAttributionAsManual(box)
             }
             return box;
-        }));
+        })));
     }
     
     const handleNumericBoxChange = async (values, sourceInfo) => {
@@ -35,7 +36,7 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setIndividualizedResults, isDem
         const fieldName = evt.target.name.split('.')[0];
         const boxIndexChanged = parseInt(evt.target.name.split('.')[1]);
 
-        setBoxes(boxes.map((box, boxIndex) => {
+        setBoxes(propagateAttributions(boxes.map((box, boxIndex) => {
             if (boxIndex === boxIndexChanged) {
                 const precision = (box.type === "float") ? .1 : 1
                 box[fieldName] = values.floatValue;
@@ -51,9 +52,10 @@ export const TaxBoxesPanel = ({ boxes, setBoxes, setIndividualizedResults, isDem
                 if (box.raw_value) {
                     box.attribution = box.partner_1_value / box.raw_value
                 }
+                markAttributionAsManual(box)
             }
             return box;
-        }))
+        })))
     };
 
     const handleBooleanBoxChange = async (evt) =>{
