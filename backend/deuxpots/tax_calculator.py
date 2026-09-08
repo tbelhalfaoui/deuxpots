@@ -122,6 +122,33 @@ def build_income_sheet(valboxes, individualize=None):
             **sheet
         }
 
+
+# Cases "revenus fonciers de source étrangère ouvrant droit à un crédit d'impôt
+# égal à l'impôt français" : régime réel (4BL) et micro-foncier (4BK).
+FOREIGN_PROPERTY_INCOME_BOXES = ['4BL', '4BK']
+FOREIGN_INCOME_BOX = '8TK'
+FOREIGN_PROPERTY_SHARE_BOX = '8SG'
+
+
+def handle_foreign_property_income(income_sheet: IncomeSheet) -> IncomeSheet:
+    """
+    Quand la case 8TK (revenus étrangers ouvrant droit à un crédit d'impôt égal à l'impôt
+    français) ne se réduit pas aux seuls revenus fonciers étrangers (4BL / 4BK), le simulateur
+    exige la case 8SG, qui isole la part foncière de la 8TK. Sans elle il refuse de calculer :
+    "LIGNE 8TK REMPLIE ET REVENUS FONCIERS SANS 8SG".
+
+    La 8SG n'est pas une case de la déclaration papier mais une variable interne du simulateur,
+    donc elle est absente du mapping CERFA et l'utilisateur ne peut pas la renseigner. On la
+    déduit ici des cases 4BL / 4BK, qui portent exactement cette information.
+    """
+    foreign_property = sum(income_sheet.get(box, 0) or 0
+                           for box in FOREIGN_PROPERTY_INCOME_BOXES)
+    foreign_income = income_sheet.get(FOREIGN_INCOME_BOX, 0) or 0
+    if foreign_property and foreign_income != foreign_property:
+        income_sheet[FOREIGN_PROPERTY_SHARE_BOX] = foreign_property
+    return income_sheet
+
+
 def handle_children_split(income_sheet: IncomeSheet) -> IncomeSheet:
     # 1. Use a trick for "half-children": "convert" them artificially to alternating custody children
     # (0.5 child = 1 alternating custody child).

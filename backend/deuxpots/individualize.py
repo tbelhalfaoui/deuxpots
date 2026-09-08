@@ -1,6 +1,7 @@
 from typing import Tuple
 from dataclasses import dataclass
-from deuxpots.tax_calculator import build_income_sheet, compute_tax, handle_children_split
+from deuxpots.tax_calculator import (build_income_sheet, compute_tax, handle_children_split,
+                                     handle_foreign_property_income)
 
 
 @dataclass
@@ -91,6 +92,7 @@ def simulate_and_individualize(valboxes):
     for pix in [0, 1, None]:
         income_sheet = build_income_sheet(valboxes, individualize=pix)
         income_sheet = handle_children_split(income_sheet)
+        income_sheet = handle_foreign_property_income(income_sheet)
         simu_results[pix] = compute_tax(income_sheet)
     return IndividualizedResults.from_simulations(
         simu_partner_0=simu_results[0],
