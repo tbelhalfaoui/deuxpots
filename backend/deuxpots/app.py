@@ -9,6 +9,7 @@ from prometheus_flask_exporter import PrometheusMetrics
 
 from deuxpots.demo import DEMO_FLAT_BOXES
 from deuxpots import CERFA_VARIABLES_PATH, CATEGORY_COORDS_PATH, DEV_MODE
+from deuxpots.attribution_links import annotate_attribution_links
 from deuxpots.box import load_box_mapping
 from deuxpots.flatbox import FlatBox, flatten
 from deuxpots.individualize import simulate_and_individualize
@@ -59,13 +60,14 @@ def handle_bad_request(e):
 @handle_warnings(UserFacingWarning)
 def parse():
     if request.args.get('demo'):
-        return dict(
-            boxes=[asdict(flatten(ValuedBox.from_flat_box(flatbox, BOX_MAPPING))) for flatbox in DEMO_FLAT_BOXES]
-        )
-    tax_pdf = request.files['tax_pdf'].read()
-    valboxes = parse_tax_pdf(tax_pdf, FAMILY_BOX_COORDS, BOX_MAPPING)
+        flatboxes = [flatten(ValuedBox.from_flat_box(flatbox, BOX_MAPPING))
+                     for flatbox in DEMO_FLAT_BOXES]
+    else:
+        tax_pdf = request.files['tax_pdf'].read()
+        valboxes = parse_tax_pdf(tax_pdf, FAMILY_BOX_COORDS, BOX_MAPPING)
+        flatboxes = [flatten(valbox) for valbox in valboxes]
     return dict(
-        boxes=[asdict(flatten(valbox)) for valbox in valboxes]
+        boxes=[asdict(flatbox) for flatbox in annotate_attribution_links(flatboxes)]
     )
 
 

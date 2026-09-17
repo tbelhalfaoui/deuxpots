@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from typing import Optional
+from typing import List, Optional
 
 from deuxpots.valued_box import ValuedBox
 
@@ -15,6 +15,8 @@ class FlatBox:
     type: str = None
     description: str = None
     attribution: Optional[float] = None
+    # Cases dont cette case hérite sa répartition par défaut (voir attribution_links).
+    attribution_follows: Optional[List[str]] = None
 
     def __lt__(self, other):
         return self.code < other.code
